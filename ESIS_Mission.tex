@@ -5,7 +5,9 @@
 \section{Introduction}
     \begin{itemize}
         \item Instrument Heritage
+            Brief summary since this is a repeat of the instrument paper.
         \item Scientific Motivation and Goals
+            There is ALOT of this copied from the propsoal into the instrument paper.  I think it needs to be lightly summarized here.
         \item Sections Outline
     \end{itemize}
     
@@ -23,9 +25,11 @@
         \begin{itemize}
             \item Bias Subtraction
             \item Gain Correction
+         
             
                  Get in touch with MSFC about different apparent channel gains.
             \item Dark Subtraction
+            \item Despiking
         \end{itemize}
        
 	       
@@ -38,8 +42,49 @@
             \item Vignetting Correction
             \item Conversion to Photons
         \end{itemize}
-
+        
+        The ESIS Level 3 data product was created to provide a co-aligned, single wavelength image in each channel for quicker identification of events with non-zero LOS velocities, and easier comparison with coordinated data that don't require inversion. 
+        It will also allow for single wavelength inversion with assumptions prior to the completion of a more complete optical distortion model. 
+        A quick method for identifying solar events with significant velocity is by taking the difference between two ESIS channels.
+        Each ESIS channel disperses features with non-zero LOS velocities a different direction, determined by the asymuthal position of each grating. 
+        Stationary solar features will have the same presentation in each camera and moving features will be smeared in different directions.
+        Therefore, significant differences between ESIS images, for a given wavelength, highlight bright solar features with significant velocity.
+        
+        The four ESIS channels were spatially co-aligned in two steps.  
+        First, each ESIS image is cropped around the desired spectral and then co-aligned to the closest AIA 304 image in time.  
+        AIA 304 was chosen because, despite a formation temperature difference, it is the AIA EUV channel most visually similar to O V, in background and bright events.
+        The co-alignment was achieved through a linear transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304.
+        Despite each image being in a different wavelengths we found normalized peak zero lag cross-correlations around .9 (\textbf{PULLING THIS NUMBER OUT OF MY ASS FOR NOW, BUT IT'S CLOSE.})
+        After this step each ESIS channel has been re-binned to AIA resolution and can be assigned WCS information based on AIA Level 1.5 (\textbf{ADD NOTES ABOUT STANDARD AIA PREP Above)}.
+        Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
+        Choosing a single ESIS channel as reference, in our case Camera 1, each other camera is co-aligned to it via a quadratic transformation that maximizes the zero-lag cross-correlation between it and the reference channel.
+        After performing this additional internal alignment we find that not only is the zero-lag cross-correlation between each channel and the reference channel improved, but also the cross correlation between each combination of channels.
+        
+        \textbf{Time for a Figure.}
+        
+        In order to use Level 3 data for early inversion the intensity needs to normalized between channels and converted to photons to properly account for uncertainty.
+        Since each ESIS CCD has a quadrant specific gain \citep{ESIS}, the conversion from DN to photon is done to Level 1 data prior to co-alignment efforts.
+        The wavelength used when converting to photons corresponds to the spectral line cropped out of Level 1 prior to co-alignment.
+        Each ESIS channel has a linear trend in intensity along the dispersion direction due to internal vignetting in the optical system \citep{ESIS}.
+        This linear trend in the background is apparent in difference images that haven't been corrected.
+        
+        \textbf{Figure, Show Corrected and Uncorrected?}
+        
+        To correct the trend, we divide out a linear trending background from each image with a slope oriented to the dispersion direction in each channel, each with a different slope.
+        The slope of each background is a free parameter in our fit.
+        For each of the four ESIS channels we mask off the portion common to them all with no contribution from Mg X (\textbf{wavelength?}).
+        The four channels of ESIS give 6 possible difference images for fitting the vignetting function. 
+        For each difference image we take a mean of each column and fit a line to it as a function of column position.
+        When the average slope of all six fits is minimized we consider the vignetting corrected. 
+        
 \section{Events}
+    \subsection{Explosive Events}
+        \begin{itemize}
+            \item Quantity, Spatial and Temporal Scale
+            \item Burstiness 
+        \end{itemize}
+    
+    \subsection{Main Event}
 
 \section{Discussion/Conclusions and Future Work}
 
