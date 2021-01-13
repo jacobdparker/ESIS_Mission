@@ -1,3 +1,9 @@
+\newcommand{\arcsec}{$^{\prime\prime}$}
+\newcommand{\arcmin}{$^{\prime}$}
+
+\newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
+
+
 \title{First Flight of the EUV Snapshot Imaging Spectrograph (ESIS)}
 
 \begin{abstract}
@@ -60,11 +66,11 @@ Table~\ref{tab:timeline} provides the timeline of the ESIS rocket flight. Figure
 
 \subsection{Pointing} \label{sec:point}
 
-To determine the roll offset and absolute pointing post flight, the AIA\,304\,\AA\ image taken at ???~UT was used as a reference against the ESIS images taken at ???~UT.  The roll offset, found to be \change{$\sim0.???\pm 0.005^\circ$} (clockwise about Sun center), is within the tolerances for SPARCS pointing.  Figure~\ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
+To determine the roll offset and absolute pointing post flight, the AIA\,304\,\AA\ image taken at ???~UT was used as a reference against the ESIS images taken at ???~UT.  The roll offset, found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), is within the tolerances for SPARCS pointing.  Figure~\ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[width=0.7\textwidth]{}
+%\includegraphics[width=0.7\textwidth]{}
 \caption{The reference AIA 304\,\AA\ data taken at ???~UT, which was used for determining the absolute pointing. The octagon indicates the ESIS FOV.}
 \label{fig:fov}
 \end{center}
@@ -76,8 +82,8 @@ To determine the roll offset and absolute pointing post flight, the AIA\,304\,\A
 \begin{tabular}{ll | l l}\hline
 Wavelength Range &   ???\,\AA\  & Image Size  & 2064$\times$1024\\
 Launch Date & September 30, 2019 & Field of View  & ?\arcmin octagonal \\
-Data Acquisition Time & ??? - ??? & Pointing  & (-?\arcsec, ?\arcsec)\change{$\pm .3\arcsec$}  \\
-Camera Gain &   [4 cameras]\change{$2.5 \pm 0.02$}\,elec DN$^{-1}$ & Roll & \change{$??? \pm ???^\circ$ CW} \\
+Data Acquisition Time & ??? - ??? & Pointing  & (-?\arcsec, ?\arcsec)$\pm .3$\arcsec  \\
+Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
 Camera Noise*: & & Exposure Time & 10\,s\\
 \hspace{0.2in}NE Quad & [?,?,?,?] DN & Light Data Set: &\\
 \hspace{0.2in}NW Quad & [?,?,?,?] DN & \hspace{0.2in}No. of Images & 29\\
@@ -98,7 +104,7 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
     
     \begin{figure}
         \centering
-        \includegraphics{}
+%        \includegraphics{}
         \caption{Raw CCD Data}
         \label{fig:Level0}
     \end{figure}
