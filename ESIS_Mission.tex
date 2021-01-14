@@ -1,6 +1,5 @@
-\newcommand{\arcsec}{$^{\prime\prime}$}
+\newcommand{\arcsec}{$^{\prime\prime}$} %redundant command definition, but needed for thesis template
 \newcommand{\arcmin}{$^{\prime}$}
-
 \newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
 
 
@@ -151,6 +150,13 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
             \item Vignetting Correction
             \item Conversion to Photons
         \end{itemize}
+        
+        \begin{figure}
+            \centering
+            \includegraphics{}
+            \caption{ESIS Level 3 image and difference image}
+            \label{fig:L3}
+        \end{figure}
         
         The ESIS Level 3 data product was created to provide a co-aligned, single wavelength image in each channel for quicker identification of events with non-zero LOS velocities, and easier comparison with coordinated data that don't require inversion. 
         It will also allow for single wavelength inversion with assumptions prior to the completion of a more complete optical distortion model. 
