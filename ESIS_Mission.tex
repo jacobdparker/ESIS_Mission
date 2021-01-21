@@ -97,16 +97,16 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
 
 
 	
-\section{Data}
+\section{Data} \label{sec:data}
     ESIS gathers an image in each of its four detectors (channels) during every exposure.  
     Each channel has it's own grating and detector and is located around the m = 1 circle in 45 degree increments. (\textbf{also a poor way to say this}
     
-%    \begin{figure}
-%        \centering
-%        \includegraphics{}
-%        \caption{Raw CCD Data}
-%        \label{fig:Level0}
-%    \end{figure}
+    \begin{figure}
+        \centering
+        % \includegraphics{}
+        \caption{Raw CCD Data}
+        \label{fig:Level0}
+    \end{figure}
     
     We have broken our data prep/analysis pipeline into multiple levels, labeled one through four.
     Level 1 data prepares raw CCD data for scientific work through a quadrant dependant bias subtraction and gain correction, as well as dark subtraction and despiking (optional).
@@ -120,7 +120,7 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
     
 
     
-    	[Copied from Hi-C paper as a reminder that we need to talk about atmospheric absorption somewhere.] We use the normalized total intensities of the Level~1.0 processed flight data (processing levels described in Section~\ref{sec:data}) to assess the relative atmospheric absorption of the signal as a function of flight time.  The transmission, shown in Figure~\ref{fig:absorb} in combination with the payload altitude, is calculated as the inverse of the relative absorption (i.e., (absorption coefficient)$^{-1}$). More than 4 minutes of data were unaffected by the atmosphere.  The atmospheric absorption was compensated for in the Level~1.5 processed data set by multiplying the images by their respective absorption coefficient.  These coefficients are provided in the header of this processed set.
+    % 	[Copied from Hi-C paper as a reminder that we need to talk about atmospheric absorption somewhere.] We use the normalized total intensities of the Level~1.0 processed flight data (processing levels described in Section~\ref{sec:data}) to assess the relative atmospheric absorption of the signal as a function of flight time.  The transmission, shown in Figure~\ref{fig:absorb} in combination with the payload altitude, is calculated as the inverse of the relative absorption (i.e., (absorption coefficient)$^{-1}$). More than 4 minutes of data were unaffected by the atmosphere.  The atmospheric absorption was compensated for in the Level~1.5 processed data set by multiplying the images by their respective absorption coefficient.  These coefficients are provided in the header of this processed set.
     	
     	
     	A summary of the flight data parameters, as described in the preceding sections, is provided below in Table~\ref{tab:data_info}. 
@@ -189,7 +189,7 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
         Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
         Choosing a single ESIS channel as reference, in our case Camera 1, each other camera is co-aligned to it via a quadratic transformation that maximizes the zero-lag cross-correlation between it and the reference channel.
         After performing this additional internal alignment we find that not only is the zero-lag cross-correlation between each channel and the reference channel improved, but also the cross correlation between every other combination of channels.
-        Examining the cross-correlation ratio of each camera pair shows a less than 1 percent improvement in peak correlation, demonstrating the subtle non-linearity of ESIS' optical distortion function.
+        Examining the cross-correlation ratio of each camera pair shows a less than 1 percent improvement in peak correlation (Figure \ref{fig:cc}), demonstrating the subtle non-linearity of ESIS' optical distortion function.
         
         \begin{figure}
         	\centering
@@ -199,7 +199,7 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
         \end{figure}
         	
         Each ESIS channel has a linear trend in intensity along the dispersion direction due to internal vignetting in the optical system \citep{ESIS}.
-        This linear trend in the background is apparent in difference images that haven't been corrected.
+        This linear trend in the background is apparent in difference images that haven't been corrected (Figure \ref{fig:vig_correct}).
         
         To correct the trend, we divide out a linear trending background from each image with a slope oriented to the dispersion direction in each channel, each with a different slope.
         The vignetting field divided out for each channel is,
@@ -226,11 +226,19 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
             \item Red/Blue Events
             \item ????
         \end{itemize}
+        
+        \begin{figure}
+            \centering
+            \includegraphics{vig_correct.pdf}
+            \caption{Caption}
+            \label{fig:l3_dif}
+        \end{figure}
+        
     	A quick method for identifying solar events with significant velocity is by taking the difference between two ESIS channels.
     	Each ESIS channel disperses features with non-zero LOS velocities a different direction, determined by the asymuthal position of each grating. 
     	Stationary solar features will have the same presentation in each camera and moving features will be smeared in different directions.
     	Therefore, significant differences between ESIS images, for a given wavelength, highlight bright solar features with significant velocity.
-    	Figure \ref{fig:l3}b show the difference between two Level-3 images, Camera 2 minus Camera 3.
+    	Figure \ref{fig:l3_dif} shows the difference between two Level-3 images, Camera 2 minus Camera 3.
     	Smaller bi-polar features indicate solar events with significant LOS Doppler velocity and take on a variety of forms.
     	Larger features, most easily seen as the outline of other, fainter octagons, the residual of nearby Mg X spectral lines.
     
