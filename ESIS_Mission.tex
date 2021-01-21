@@ -10,7 +10,7 @@
 \end{abstract} 
 
 \section{Introduction}
-    \begin{itemize}
+	\begin{itemize}
         \item Instrument Heritage
             Brief summary since this is a repeat of the instrument paper.
         \item Scientific Motivation and Goals
@@ -26,91 +26,89 @@
         \item Summary of Coordinated Data????
     \end{itemize}
     
-\subsection{The Experiment}
-Description of the instrument/camera, point to the instrument paper
+	\subsection{The Experiment}
+		Description of the instrument/camera, point to the instrument paper
     
-\subsection{Flight Performance} \label{sec:flt}
-
-ESIS was launched at ????~UT on September 30, 2019 from White Sands Missile Range.  The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  For ???\,s, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. % Because the time on the Hi-C onboard DACS drifts, an adjustment of 126\,s was applied to all data headers in post-processing. 
-Table~\ref{tab:timeline} provides the timeline of the ESIS rocket flight. Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements.  The events given in Table~\ref{tab:timeline} and the approximate height at which they occurred are indicated in this figure.
-
-%\comments{[SS: I calculated some of the times from the launch countdown...]}
-
-\begin{center}
-\begin{table}[ht]
-\caption{ESIS Flight Event Timeline (September 30, 2019)}
-\begin{tabular}{lll}\hline
-{\bf} & {\bf Event} & {\bf Time (UTC)}\\ \hline
-0 & Launch        &    ???? \\
-1 & Start Dark Exposures  &  ????\\
-2 & End Dark  Exposures  &  ????\\
-3 & Shutter Door Open     &   ??? \\
-4 & Fine Pointing    &    \\
- & [Ring Laser Gyroscope (RLG) Enable] & ???\\
-5 & Data Acquisition     &     ???\\
-6 & Shutter door close    &   ??? \\ \hline
-\end{tabular}
-\label{tab:timeline}
-\end{table}
-\end{center}
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.7\textwidth]{figures/altevents.png}
-\caption{The altitude of the ESIS rocket determined from White Sands Missile Range radar data as a function of elapsed time from launch.  The event times listed in Table~\ref{tab:timeline} are labeled.}
-\label{fig:timeline}
-\end{center}
-\end{figure}
-
-
-\subsection{Pointing} \label{sec:point}
-
-To determine the roll offset and absolute pointing post flight, the AIA\,304\,\AA\ image taken at ???~UT was used as a reference against the ESIS images taken at ???~UT.  The roll offset, found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), is within the tolerances for SPARCS pointing.  Figure~\ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
-
-\begin{figure}[h!]
-\begin{center}
-%\includegraphics[width=0.7\textwidth]{}
-\caption{The reference AIA 304\,\AA\ data taken at ???~UT, which was used for determining the absolute pointing. The octagon indicates the ESIS FOV.}
-\label{fig:fov}
-\end{center}
-\end{figure}
-
-\begin{center}
-\begin{table}
-\caption{ESIS Flight Data Summary (*Solar coordinates; solar north at top of frame.)}
-\begin{tabular}{ll | l l}\hline
-Wavelength Range &   ???\,\AA\  & Image Size  & 2064$\times$1024\\
-Launch Date & September 30, 2019 & Field of View  & ?\arcmin octagonal \\
-Data Acquisition Time & ??? - ??? & Pointing  & (-?\arcsec, ?\arcsec)$\pm .3$\arcsec  \\
-Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
-Camera Noise*: & & Exposure Time & 10\,s\\
-\hspace{0.2in}NE Quad & [?,?,?,?] DN & Light Data Set: &\\
-\hspace{0.2in}NW Quad & [?,?,?,?] DN & \hspace{0.2in}No. of Images & 29\\
-\hspace{0.2in}SE Quad  & [?,?,?,?] DN & &\\
-\hspace{0.2in}SW Quad  & [?,?,?,?] DN & Dark Data Set & \\
-Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
-\hline
-\end{tabular}
-\label{tab:data_info}
-\end{table}
-\end{center}
-
-
+	\subsection{Flight Performance} \label{sec:flt}
 	
-\section{Data} \label{sec:data}
+		\begin{center}
+			\begin{table}[ht]
+				\caption{ESIS Flight Event Timeline (September 30, 2019)}
+				\label{tab:timeline}
+				\begin{tabular}{lll}\hline
+					{\bf} & {\bf Event} & {\bf Time (UTC)}\\ \hline
+					0 & Launch        &    ???? \\
+					1 & Start Dark Exposures  &  ????\\
+					2 & End Dark  Exposures  &  ????\\
+					3 & Shutter Door Open     &   ??? \\
+					4 & Fine Pointing    &    \\
+					& [Ring Laser Gyroscope (RLG) Enable] & ???\\
+					5 & Data Acquisition     &     ???\\
+					6 & Shutter door close    &   ??? \\ \hline
+				\end{tabular}
+			\end{table}
+		\end{center}
+	
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=0.7\textwidth]{figures/altevents.png}
+				\caption{The altitude of the ESIS rocket determined from White Sands Missile Range radar data as a function of elapsed time from launch.  The event times listed in Table~\ref{tab:timeline} are labeled.}
+				\label{fig:timeline}
+			\end{center}
+		\end{figure}
+
+		ESIS was launched at ????~UT on September 30, 2019 from White Sands Missile Range.  The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  For ???\,s, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. % Because the time on the Hi-C onboard DACS drifts, an adjustment of 126\,s was applied to all data headers in post-processing. 
+		Table~\ref{tab:timeline} provides the timeline of the ESIS rocket flight. Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements.  The events given in Table~\ref{tab:timeline} and the approximate height at which they occurred are indicated in this figure.
+
+
+	\subsection{Pointing} \label{sec:point}
+		
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=0.7\textwidth]{altevents.png}
+				\caption{The reference AIA 304\,\AA\ data taken at ???~UT, which was used for determining the absolute pointing. The octagon indicates the ESIS FOV.}
+				\label{fig:fov}
+			\end{center}
+		\end{figure}
+	
+		\begin{center}
+			\begin{table}
+				\caption{ESIS Flight Data Summary (*Solar coordinates; solar north at top of frame.)}
+				\label{tab:data_info}
+				\begin{tabular}{ll | l l}\hline
+					Wavelength Range &   ???\,\AA\  & Image Size  & 2064$\times$1024\\
+					Launch Date & September 30, 2019 & Field of View  & ?\arcmin octagonal \\
+					Data Acquisition Time & ??? - ??? & Pointing  & (-?\arcsec, ?\arcsec)$\pm .3$\arcsec  \\
+					Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
+					Camera Noise*: & & Exposure Time & 10\,s\\
+					\hspace{0.2in}NE Quad & [?,?,?,?] DN & Light Data Set: &\\
+					\hspace{0.2in}NW Quad & [?,?,?,?] DN & \hspace{0.2in}No. of Images & 29\\
+					\hspace{0.2in}SE Quad  & [?,?,?,?] DN & &\\
+					\hspace{0.2in}SW Quad  & [?,?,?,?] DN & Dark Data Set & \\
+					Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
+					\hline
+				\end{tabular}
+			\end{table}
+		\end{center}
+		
+
+		To determine the roll offset and absolute pointing post flight, the AIA\,304\,\AA\ image taken at ???~UT was used as a reference against the ESIS images taken at ???~UT.  The roll offset, found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), is within the tolerances for SPARCS pointing.  Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
+	
+\section{Data} 
+
     ESIS gathers an image in each of its four detectors (channels) during every exposure.  
     Each channel has it's own grating and detector and is located around the m = 1 circle in 45 degree increments. (\textbf{also a poor way to say this}
     
-    \begin{figure}
+    \begin{figure}[h!]
         \centering
-        % \includegraphics{}
+       	\includegraphics{l3.pdf}
         \caption{Raw CCD Data}
         \label{fig:Level0}
     \end{figure}
     
     We have broken our data prep/analysis pipeline into multiple levels, labeled one through four.
-    Level 1 data prepares raw CCD data for scientific work through a quadrant dependant bias subtraction and gain correction, as well as dark subtraction and despiking (optional).
-    Level 2 data adds additional meta data to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions (work in progress) \rts{This actually kinda works right now} \jdp{Kinda? ;) Maybe we'll have an "in preperation" to cite for this.}.
+    Level 1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as dark subtraction and despiking (optional).
+    Level 2 data adds additional meta data to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions (work in progress) \rts{This actually kinda works right now} \jdp{Kinda? ;) Maybe we'll have an "in preparation to cite for this.}.
     Level 3 data takes a cropped single wavelength from Level 1 data and maps to the sky plane via a non-linear, but wavelength independent mapping.
     And lastly Level 4 represents an inverted data product in the form of an [x, y , $\lambda$] cube (\textbf{probably a better way to write this}), the end goal of the ESIS instrument.
     Below each complete data level is explored in more detail.
@@ -138,113 +136,106 @@ Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
     
         The goals of the Level-1 dataset are to remove camera-level effects (pedestal, gain, and dark current), trim light insensitive pixels, and to remove spikes. to prepare for the images for coalignment.
     
-        \begin{itemize}
-            \item Bias Subtraction
-            \item Gain Correction
-         
-            
-                 Get in touch with MSFC about different apparent channel gains.
-            \item Dark Subtraction
-            \item Despiking
-        \end{itemize}
        Raw ESIS data (Figure \ref{fig:Level0}) must first be corrected for quadrant dependant gain and bias, have overscan and blank pixels removed, and be dark subtracted prior to further analysis.
        
 	       
 
 
     \subsection{Level 3 Data}
-
-    	
-        \newcommand{\levthreetime}{2019-09-30T18:08:51.644}
-        \begin{figure}
-            \centering
-            \includegraphics{aia_coalign.pdf}
-            \caption{}
-            \label{fig:coalign}
-        \end{figure}
-        
-        The ESIS Level-3 data product was created to provide a co-aligned, single wavelength image in each channel for quicker identification of events with non-zero LOS velocities, and easier comparison with coordinated data that doesn't require inversion. 
-        It will also allow for single wavelength inversion prior to the completion of a more complete optical distortion model.
-        Figure \ref{fig:coalign}a shows a final Level-3 image from Camera 1 taken at \levthreetime.
-        
-        In order to use Level 3 data for early inversion the intensity needs to normalized between channels and converted to photons to properly account for uncertainty.
-        Since each ESIS CCD has a quadrant specific gain \citep{ESIS}, the conversion from DN to photon is done to Level 1 data prior to co-alignment efforts.
-        The wavelength used when converting to photons corresponds to the spectral line cropped out of Level 1 prior to co-alignment, which in the case of Figure \ref{fig:coalign}a is 627.8 \AA. 
-        
-        The four ESIS channels were spatially co-aligned in two steps.  
-        First, each ESIS image is cropped around the desired spectral line and then co-aligned to the closest AIA 304 image in time.  
-        AIA 304 was chosen because it is the AIA EUV channel most visually similar to O V, in both the background and bright events.
-        Each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{update\_pointing.py} and \texttt{register.py} \citep{aiapy}.
-        The co-alignment was achieved through a linear transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
-        Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $.45$.
-        After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS information from AIA Level 1.5.
-        
-        \begin{figure}
-        	\centering
-        	\includegraphics{internal_align.pdf}
-        	\caption{For each ESIS exposure (or image sequence) every image pair, labeled in the legend, is cross-correlated to measure internal alignment quality.  The ratio of zero lag cross-correlation after a quadratic transformation to that of a linear transformation is plotted.  Every point being above ratio = 1 line indicates improved internal alignment for every combination of ESIS channels for each image sequence. }
-        	\label{fig:cc}
-        \end{figure}
-        
-        Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
-        Choosing a single ESIS channel as reference, in our case Camera 1, each other camera is co-aligned to it via a quadratic transformation that maximizes the zero-lag cross-correlation between it and the reference channel.
-        After performing this additional internal alignment we find that not only is the zero-lag cross-correlation between each channel and the reference channel improved, but also the cross correlation between every other combination of channels.
-        Examining the cross-correlation ratio of each camera pair shows a less than 1 percent improvement in peak correlation (Figure \ref{fig:cc}), demonstrating the subtle non-linearity of ESIS' optical distortion function.
-        
-        \begin{figure}
-        	\centering
-        	\includegraphics{vig_correct.pdf}
-        	\caption{}
-        	\label{fig:vig_correct}
-        \end{figure}
-        	
-        Each ESIS channel has a linear trend in intensity along the dispersion direction due to internal vignetting in the optical system \citep{ESIS}.
-        This linear trend in the background is apparent in difference images that haven't been corrected (Figure \ref{fig:vig_correct}).
-        
-        To correct the trend, we divide out a linear trending background from each image with a slope oriented to the dispersion direction in each channel, each with a different slope.
-        The vignetting field divided out for each channel is,
-            \begin{equation}
-                \label{eqn:vignet}
-                V(\alpha) = 
-            \end{equation}
-        
-        The slope of each background is a free parameter in our fit.
-        For each of the four ESIS channels we mask off the portion common to them all with no contribution from Mg X (\textbf{wavelength?}).
-        The four channels of ESIS give 6 possible difference images for fitting the vignetting function. 
-        For each difference image we take a mean of each column and fit a line to it as a function of column position.
-        When the average slope of all six fits is minimized we consider the vignetting corrected. 
-        
-
-        
-        
-      
-
-
-\section{Preliminary Results}
-    \subsection{Level-3 Difference Images}
-        \begin{itemize}
-            \item Red/Blue Events
-            \item ????
-        \end{itemize}
-        
-        \begin{figure}
-            \centering
-            \includegraphics{vig_correct.pdf}
-            \caption{Caption}
-            \label{fig:l3_dif}
-        \end{figure}
-        
-    	A quick method for identifying solar events with significant velocity is by taking the difference between two ESIS channels.
-    	Each ESIS channel disperses features with non-zero LOS velocities a different direction, determined by the asymuthal position of each grating. 
-    	Stationary solar features will have the same presentation in each camera and moving features will be smeared in different directions.
-    	Therefore, significant differences between ESIS images, for a given wavelength, highlight bright solar features with significant velocity.
-    	Figure \ref{fig:l3_dif} shows the difference between two Level-3 images, Camera 2 minus Camera 3.
-    	Smaller bi-polar features indicate solar events with significant LOS Doppler velocity and take on a variety of forms.
-    	Larger features, most easily seen as the outline of other, fainter octagons, the residual of nearby Mg X spectral lines.
+ 
     
-    \subsection{Main Event}
+   		\begin{figure}
+    		\centering
+    		\includegraphics{aia_coalign.pdf}
+    		\caption{Caption}
+    		\label{fig:coalign}
+    	\end{figure}
+    
+    	\newcommand{\levthreetime}{2019-09-30T18:08:51.644}
+    	The ESIS Level-3 data product was created to provide a co-aligned, single wavelength image in each channel for quicker identification of events with non-zero LOS velocities, and easier comparison with coordinated data that doesn't require inversion. 
+    	It will also allow for single wavelength inversion prior to the completion of a more complete optical distortion model.
+    	Figure \ref{fig:coalign}a shows a final Level-3 image from Camera 1 taken at \levthreetime.
+    
+     	In order to use Level 3 data for early inversion the intensity needs to normalized between channels and converted to photons to properly account for uncertainty.
+   		Since each ESIS CCD has a quadrant specific gain \citep{ESIS}, the conversion from DN to photon is done to Level 1 data prior to co-alignment efforts.
+   		The wavelength used when converting to photons corresponds to the spectral line cropped out of Level 1 prior to co-alignment, which in the case of Figure \ref{fig:coalign}a is 627.8 \AA.
+   		
+   		The four ESIS channels were spatially co-aligned in two steps.  
+   		First, each ESIS image is cropped around the desired spectral line and then co-aligned to the closest AIA 304 image in time.  
+   		AIA 304 was chosen because it is the AIA EUV channel most visually similar to O V, in both the background and bright events.
+   		Each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{update\_pointing.py} and \texttt{register.py} \citep{aiapy}.
+   		The co-alignment was achieved through a linear transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
+   		Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $.45$.
+   		After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS information from AIA Level 1.5.
 
-\section{Discussion/Conclusions and Future Work}
+    	\begin{figure}
+    		\centering
+    		\includegraphics{internal_align.pdf}
+%    		\caption{For each ESIS exposure (or image sequence) every image pair, labeled in the legend, is cross-correlated to measure internal alignment quality.  The ratio of zero lag cross-correlation after a quadratic transformation to that of a linear transformation is plotted.  Every point being above ratio = 1 line indicates improved internal alignment for every combination of ESIS channels for each image sequence.}
+			\caption{Caption}
+    		\label{fig:cc}	
+    	\end{figure}
+    
+    	Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
+    	Choosing a single ESIS channel as reference, in our case Camera 1, each other camera is co-aligned to it via a quadratic transformation that maximizes the zero-lag cross-correlation between it and the reference channel.
+    	After performing this additional internal alignment we find that not only is the zero-lag cross-correlation between each channel and the reference channel improved, but also the cross correlation between every other combination of channels.
+    	Examining the cross-correlation ratio of each camera pair shows a less than 1 percent improvement in peak correlation Figure \ref{fig:cc}, demonstrating the subtle non-linearity of ESIS' optical distortion function.
+    
+
+	       
+        	
+%        Each ESIS channel has a linear trend in intensity along the dispersion direction due to internal vignetting in the optical system \citep{ESIS}.
+%        This linear trend in the background is apparent in difference images that haven't been corrected (Figure \ref{fig:vig_correct} ).
+%        
+%  		\begin{figure}
+%        	\centering
+%        	\includegraphics{vig_correct.pdf}
+%        	\caption{Caption}
+%        	\label{fig:vig_correct}
+%        \end{figure}
+        
+        
+%        To correct the trend, we divide out a linear trending background from each image with a slope oriented to the dispersion direction in each channel, each with a different slope.
+%        The vignetting field divided out for each channel is,
+%            \begin{equation}
+%                \label{eqn:vignet}
+%                V(\alpha) = 
+%            \end{equation}
+%        
+%        The slope of each background is a free parameter in our fit.
+%        For each of the four ESIS channels we mask off the portion common to them all with no contribution from Mg X (\textbf{wavelength?}).
+%        The four channels of ESIS give 6 possible difference images for fitting the vignetting function. 
+%        For each difference image we take a mean of each column and fit a line to it as a function of column position.
+%        When the average slope of all six fits is minimized we consider the vignetting corrected. 
+%        
+
+  
+
+%\section{Preliminary Results}
+%
+%    \subsection{Level-3 Difference Images}
+%%        \begin{itemize}
+%%            \item Red/Blue Events
+%%            \item ????
+%%        \end{itemize}
+%	\begin{figure}[h!]
+%		\includegraphics{l3.pdf}
+%		\caption{Caption}
+%		\label{fig:l3_dif}
+%	\end{figure}
+%
+%        
+%    	A quick method for identifying solar events with significant velocity is by taking the difference between two ESIS channels.
+%    	Each ESIS channel disperses features with non-zero LOS velocities a different direction, determined by the asymuthal position of each grating. 
+%    	Stationary solar features will have the same presentation in each camera and moving features will be smeared in different directions.
+%    	Therefore, significant differences between ESIS images, for a given wavelength, highlight bright solar features with significant velocity.
+%    	Figure \ref{fig:l3_dif} shows the difference between two Level-3 images, Camera 2 minus Camera 3.
+%    	Smaller bi-polar features indicate solar events with significant LOS Doppler velocity and take on a variety of forms.
+%    	Larger features, most easily seen as the outline of other, fainter octagons, the residual of nearby Mg X spectral lines.
+%    
+%    \subsection{Main Event}
+%
+%\section{Discussion/Conclusions and Future Work}
 
 
 
