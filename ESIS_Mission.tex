@@ -236,30 +236,70 @@
   
 
 \section{Preliminary Results}
-        \begin{itemize}
-            \item Description of Difference Images, their value, and intensity normalization? 
-                \item Red/Blue Events, differences in interpretation
-                \item Bursty Event and time scales
-        \end{itemize}
+	September 30th, 2019 was a very quiet day on the sun.  
+	In fact, the last day prior to the ESIS launch that produced a B-class event \citep{GOES} \jdp{figure out how to cite GOES, also, I couldn't believe I had to go back so far so check me on this.}, was July 7th 2019.  
+	Because of this exceptionally quiet period on the sun we chose to point at disk center, in order to minimize projection effects.  
+	Despite the lack of solar activity ESIS managed to capture one hundred plus small, transient events and one significant eruption during the 5 minutes of observation \jdp{insert actual flight time}.
+	
+	Early work with MOSES images, very similar to ESIS images, has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{???}, and extra spectral content \citep{???}.  
+	It is for this reason that we have chosen to develop a data product quickly (Level-3) that would allow us to take differences.  
+	Also, simple events viewed in Level-3 difference images are easily interpretable with a little insight into how the instrument works and therefore serve as a sanity check for more complicated inversions. 
+	
+	In the following subsections we will show a handful of events easily identifiable in the ESIS difference images and explain how their presentation can be interpreted as a red/blue shift or line broadening.  
+	We will then demonstrate how simple inversions can be qualitatively validated by these interpretations and show progress toward inverting and interpreting the larger eruption captured by ESIS.
+	
     \subsection{Level-3 Difference Images}
 
-	\begin{figure*}[htb!]
-	    \centering
-% 		\includegraphics{}
-		\caption{Caption (this is the one with the allegedly undefined reference)}
-		\label{fig:l3_dif}
-	\end{figure*}
 
-        
-        A quick method for identifying solar events with significant velocity is by taking the difference between two ESIS channels.
-    	Each ESIS channel disperses features with non-zero LOS velocities a different direction, determined by the asymuthal position of each grating. 
-    	Stationary solar features will have the same presentation in each camera and moving features will be smeared in different directions.
-    	Therefore, significant differences between ESIS images, for a given wavelength, highlight bright solar features with significant velocity.
-    	Figure \ref{fig:l3_dif} shows the difference between two Level-3 images, Camera 2 minus Camera 3. 
-    	Smaller bi-polar features indicate solar events with significant LOS Doppler velocity and take on a variety of forms.
-    	Larger features, most easily seen as the outline of other, fainter octagons, the residual of nearby Mg X spectral lines.
+      
+    	Each ESIS channel disperses features with a non-zero LOS velocity a different direction, determined by the azimuthal position of each grating.
+    	The dispersion direction in each Level-3 image can be found by looking for intensity from the nearby Mg {\sc x} 609.8 \AA \ spectral line.
+    	In Figure \ref{fig:coalign}a, showing camera 2, this can be seen in the bottom left hand corner.  
+   		Since the the Mg {\sc x} line is shorter in wavelength, a blue shifted feature (with velocity toward the observer) would be smeared down and to the left, and a red shifted feature up and to the right.	
+   		Stationary solar features present the same in each ESIS channel.
+   		Therefore, taking the difference of two channels reveals a variety of interesting features.
+   		
+   		\begin{figure*}[htb!]
+   			\centering
+   			% 		\includegraphics{}
+   			\caption{Full FOV Difference Image}
+   			\label{fig:l3_dif}
+   		\end{figure*}
+
+    	Features in an ESIS difference image that have obvious and nearby positive and negative portions indicate solar events with significant LOS Doppler velocity.
+    	Simple, point like, transient brightenings with little to no spatial structure are the most easily interpretable of these features.
+    	\jdp{very well described in \citet{Rust2019} Section 1.3.1 I think.  Try to incorporate this.} 
+    	Taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.
+    	In these simple events, a qualitative understanding of their velocity can be ``read off'' of the difference images.
+    	For example, Figure \ref{fig:dif_events}a shows a V-shaped event that is pointed upward in the difference between the Camera 2 and Camera 3 Level-3 image.
+    	Since we know that the direction of positive wavelength dispersion is up and to the right in Camera 2 and up and to the left in Camera 3 we immediately know that this event is predominantly red shifted.
+    	For opposite reasons, a downward facing V-shaped event, Figure \ref{fig:dif_events}b, is predominantly blue shifted.
+    	Therefore, X-shaped events (Figure \ref{fig:dif_events}c), that occur equally if not more frequently than V-shaped events, indicate significant line broadening.
+    	While this gives us a quick and qualitative understanding of an event, even the smallest amount of spatial extent in a given feature leads to an entanglement of spatial and spectral information makes it very difficult to derive qualitative velocities without inversion. 
+    	
+    	\begin{figure}[htb!]
+    		\centering
+    		\caption{An example of a red, blue, and broadened transient brightenings.}
+    		\label{fig:dif_events}
+    	\end{figure}
+    	
+    	While ESIS images are littered with these simple ``point-like'' events, we also captured a handful spatially extended that are more difficult to interpret.
+    	The most obvious of these is a much larger eruption just below disk center \jdp{get some arcsecs}
+    	In difference images of this event we see a mess of positive and negative features intertwined in the brightest section that sometimes present as a V or X shape, but not always, and change their presentation significantly over time.
+    	There is also and imprint of fainter differences above the brightest knot of intensity showing motion along a spatially extended structure, likely from material being ejected from the eruption site.
+    	Dynamic and spatially extended events are excellent opportunities for ESIS to shine and clearly demonstrate the need for many different projection angles (ESIS channels) if we hope to disentangle spatial information from spectra.
+    	Despite the extra complexity, out understanding of ESIS difference images provides an excellent sanity check when interpreting future inversions.
+    	
+    	Larger positive or negative features with no obvious counterpart nearby, are indicative of extra spectral content \citep{RustThesis,MCOR}.
+    	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
+    	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	
     
-    \subsection{Main Event}
-
+    \subsection{Early Inversions}
+    	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and "inverted" to return a single, spatial-spectral cube, at every exposure.
+    	In general, each method of inversion starts with a spatial-spectral cube, passes it through a forward model of the ESIS optical system generating an image per channel, then compares each synthetic image to actual ESIS data.
+    	For out preliminary inversions of Level-3 data we use a Smoothed Multiplicative Algebraic Reconstruction Technique (SMART) used previously on MOSES data \citep{}, but with a new forward model of the ESIS instrument.
+    	MART (Multiplicative Algebraic Reconstruction Technique)
+    	
+    	
 \section{Discussion/Conclusions and Future Work}
 
