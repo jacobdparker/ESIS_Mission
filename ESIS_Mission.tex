@@ -315,7 +315,7 @@
     	With SMART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image, $f^{\theta_i}_{x'y'}$,=. There is one ESIS image for each $\theta_i$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
     	\begin{enumerate}
     		\item \label{step:guess} Create a guess cube, $G_{xy\lambda} = 1$ on the same domain as $I$. 
-    		\item \label{step:contrast} Enhance the contrast of $G$ and normalize, 
+    		\item \label{step:contrast} Enhance the contrast of $G$ and normalize \jdp{no idea why there is an extra G + in here ...}, 
     			\begin{equation}
 	    				G \leftarrow \frac{G+G^{(1+\Psi)}}{\sum_{xy\lambda}G+G^{(1+\Psi)}}\sum_{xy\lambda}G, 
     			\end{equation}
