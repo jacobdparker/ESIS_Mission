@@ -28,7 +28,8 @@
     \end{itemize}
     
 	\subsection{The Experiment}
-		Description of the instrument/camera, point to the instrument paper
+		ESIS gathers an image in each of its four detectors (channels) during every exposure.  
+		Each channel is identical, with its own grating and detector. They are arrayed at $45^{\circ}$ increments about the axis of symmetry of the paraboloidal primary mirror. ESIS has 4 channels currently, but is built to accommodate up to 6 (limited by interference with the optical bench).
     
 	\subsection{Flight Performance} \label{sec:flt}
 	
@@ -63,6 +64,10 @@
 
 
 	\subsection{Pointing} \label{sec:point}
+		September 30th, 2019 was a very quiet day on the sun.  
+		In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7th 2019 \jdp{figure out how to cite GOES, also, I couldn't believe I had to go back so far so check me on this}.  
+		Because of this exceptionally quiet period on the sun we chose to point at disk center, in order to minimize projection effects.  
+		Despite the lack of solar activity ESIS managed to capture \jdp{do some counting} small, transient events and one significant eruption during the $\approx$5 minutes of observation.
 		
 		\begin{figure}[ht]
 			\begin{center}
@@ -97,23 +102,21 @@
 	
 \section{Data} 
 
-    ESIS gathers an image in each of its four detectors (channels) during every exposure.  
-    Each channel has its own grating and detector and is located around the m = 1 circle in 45 degree increments. (\textbf{also a poor way to say this}
-    \cck{Each channel is identical, with its own grating and detector. They are arrayed at $45^{\circ}$ increments about the axis of symmetry of the paraboloidal primary mirror. ESIS has 4 channels currently, but is built to accommodate up to 6 (limited by interference with the optical bench).\footnote{\cck{This all might belong in the instrument description.}}}
+ 
     
     \begin{figure}[ht]
         \centering
 %       	\includegraphics{}
-        \caption{Raw CCD Data}
+        \caption{Level-0}
         \label{fig:Level0}
     \end{figure}
     
-    \cck{Refer to raw CCD data as Level 0?}
+  
     We have broken our data prep/analysis pipeline into multiple levels, labeled one through four.
-    Level 1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as dark subtraction and despiking (optional).
-    Level 2 data adds additional metadata \cck{(metadata is all one word)} to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions (work in progress) \rts{This actually kinda works right now} \jdp{ Maybe we'll have an ``in preparation'' to cite for this.}. \cck{Level 2 data is a necessary step toward L4, but will not be further described here. Instead, we seek a shortcut to interpretation of the bright O\,\textsc{v} spectral line, including image differences and simplified inversions.}
-    Level 3 data takes a cropped single wavelength from Level 1 data and maps to the sky plane via a non-linear, but wavelength independent mapping. \cck{Nonlinear coordinate transformation (don't want our reader to think it is nonlinear in intensity).}
-    And lastly Level 4, represents an inverted \cck{data product in the form of an} $[x, y , \lambda]$ \cck{(Keep all math symbols within \$ ... \$)} cube (\textbf{probably a better way to write this}), the end goal of the ESIS instrument. \cck{The highest level data product we envision, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion. Since inversion is not unique, there may be multiple L4 products obtained by different methods.}
+    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as dark subtraction and despiking (optional).
+    Level-2 data adds additional metadata to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions Level-2 data is a necessary step toward Level-4, but will not be further described here. Instead, we seek a shortcut to interpretation of the bright O\,\textsc{v} spectral line, including image differences and simplified inversions.
+    Level-3 data takes a cropped single wavelength from Level 1 data and maps to the sky plane via a non-linear coordinate transform, but wavelength independent mapping. 
+    The highest level data product we envision, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion. Since inversion is not unique, there may be multiple L4 products obtained by different methods.
     Below each complete data level is explored in more detail.
     
     \subsection{Level 1 Data}
@@ -223,27 +226,23 @@
         The vignetting field is rotated about the origin of each image in pixels, $[x_0, y_0] = [635,635]$, to account for the change in dispersion direction.
         Because ESIS images have a pointing drift as a function of time, or image sequence $s$, the image origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/26$, where $s_t $ is the total number, 28, of Level-3 images in time.
         
-        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from Mg {\sc x} 609.8 \AA. \cck{'twould help to have a figure illustrating the overlap of spectral lines. Maybe something already being prepared for another purpose?}
+        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from Mg {\sc x} 609.8 \AA. \cck{'twould help to have a figure illustrating the overlap of spectral lines. Maybe something already being prepared for another purpose?}\jdp{agreed, something like Figure 4 in the instrument paper?  Or, I could make a four panel showing the Mg X mask in each channel.  The latter might be nice for the following section since I have to explain how to find the dispersion direction in each Level-3 image.  What do you guys think?}
         The four channels of ESIS give 6 possible difference images for fitting the vignetting function for each image sequence $s$. 
         For each difference image we take a mean of each column and fit a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
         When the average slope of all 156 fits (6 difference images per each of the 26 exposures) is minimized we consider the vignetting corrected. 
-        The resulting final fit, $m_i = \vigfit$, predicts smaller slopes than are predicted using ray tracing and geometric optical models \citep{ESIS}, which can be attributed to a few likely culprits.
+        The resulting final fit, $m_i = \vigfit$, gives smaller slopes than are predicted using ray tracing and geometric optical models \citep{ESIS}, which can be attributed to a few likely culprits.
         One source of error likely comes from the imprint of adjacent spectral lines, the most obvious being that of Mg {\sc x} 626 \AA \ visible in Figure \ref{fig:vig_correct}c.
-        Since this Mg {\sc x} line overlaps almost entirely with O {\sc v}, and has an identical vignetting function, it adds intensity that prevents a perfect fit. \cck{If this were the only source of discrepancy between the vignetting function predicted by the raytrace and the fits obtained from the data, then we would simply use the same, predicted vignetting for every channel. However, we can anticipate slightly different vignetting in each channel due to variations in assembly....}
-        Another source of error comes from the ESIS optical system.
-        Each channel having a different slope was added as an additional three free parameters, despite the fact that our models predict an identical slope for each channel, because of known possible errors in the build up of ESIS.
+        Since this Mg {\sc x} line overlaps almost entirely with O {\sc v}, and has an identical vignetting function, it adds intensity that prevents a perfect fit. 
+        If this were the only source of discrepancy between the vignetting function predicted by the raytrace and the fits obtained from the data, then we would simply use the same, predicted vignetting for every channel. 
+        However, we can anticipate slightly different vignetting in each channel due to variations in assembly so we allow each channels slope to vary independently.
         A misalignment of the ESIS field stop center, the ESIS primary optic center, and the center of the ESIS grating array, all shift the geometry of the ESIS central obscuration and can easily modify the vignetting field in each channel.
-        Future implementations of a wavelength dependent optical distortion model and the creation of the Level-2 data product will yield a more consistent and contaminant free fit to the vignetting function. \cck{(I don't think it is helpful to make vague promises of a better vignetting estimate in the future, unless perhaps it is tied to global inversions.)}
-        Despite these errors \cck{Despite the uncertainties in vignetting, which we have found difficult to quantify}, Level-3 differences are much flatter in intensity post correction as is seen in Figure \ref{fig:vig_correct}c, and will therefore lead to a higher fidelity intensity recovery when inverting Level-3 data.
+        Despite the uncertainties in vignetting, which we have found difficult to quantify, Level-3 differences are much flatter in intensity post correction as is seen in Figure \ref{fig:vig_correct}c, and will therefore lead to a higher fidelity intensity recovery when inverting Level-3 data.
         
 
   
 
 \section{Preliminary Results}
-	September 30th, 2019 was a very quiet day on the sun.  
-	In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7th 2019 \jdp{figure out how to cite GOES, also, I couldn't believe I had to go back so far so check me on this}.  
-	Because of this exceptionally quiet period on the sun we chose to point at disk center, in order to minimize projection effects.  
-	Despite the lack of solar activity ESIS managed to capture \jdp{do some counting} small, transient events and one significant eruption during the $\approx$5 minutes of observation.
+
 	
 	Early work with MOSES images has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  
 	It is for this reason that we have chosen to develop a spatially data product quickly that would allow us to take differences (Level-3 data).  
@@ -305,7 +304,9 @@
     	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
     	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	
     
-    \subsection{Early Inversions}
+    \subsection{SMART}
+    	\jdp{For the sake of flow, I am considering moving everything about the inner workings of SMART to an appendix.... what do y'all think?}
+    
     	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
     	For out preliminary inversions of ESIS Level-3 data we have chosen to use as Smooth Multiplicative Algebraic Reconstruction Technique (SMART).
     	SMART adds an additional smoothing step to a simple MART applied in the past to limited-angle tomography problems like ours \citep{Okamoto1991,Verhoeven1993}.
@@ -321,7 +322,7 @@
     			\end{equation}
     		 	
     		\item \label{step:smooth} Convolve $G$ with smoothing kernel $K$, $G \leftarrow G * K$,
-    		where,
+    		in our case,
 		   		\begin{equation}
 	    			\label{eq:kernel}
 	    			K_{ijk} = \frac{2^{3-|i|-|j|-|k|}}{64} \quad \text{for}\quad i,j,k = -1,0,1.
@@ -367,7 +368,10 @@
     	The spectral dispersion of an ESIS grating, $\delta$ is equal to 28 m\AA\ pix$^{-1}$. 
     	We construct $G$ such that its resolution \jdp{bin size? step size?} in $\lambda$ is equal to $\delta$.
     	All negative values introduced by rotation are set to zero after each rotation.
+    
+    \subsection{Early Inversions}
     	
+    		
     	
     
     	
