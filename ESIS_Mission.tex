@@ -2,6 +2,7 @@
 \renewcommand{\arcmin}{$^{\prime}$}
 \newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
 \newcommand{\jdp}[1]{{\color{red} JDP: #1}} % JDP comment
+\newcommand{\cck}[1]{{\color{brown} CCK: #1}} % CCK comment
 
 \title{First Flight of the EUV Snapshot Imaging Spectrograph (ESIS)}
 
@@ -97,7 +98,8 @@
 \section{Data} 
 
     ESIS gathers an image in each of its four detectors (channels) during every exposure.  
-    Each channel has it's own grating and detector and is located around the m = 1 circle in 45 degree increments. (\textbf{also a poor way to say this}
+    Each channel has its own grating and detector and is located around the m = 1 circle in 45 degree increments. (\textbf{also a poor way to say this}
+    \cck{Each channel is identical, with its own grating and detector. They are arrayed at $45^{\circ}$ increments about the axis of symmetry of the paraboloidal primary mirror. ESIS has 4 channels currently, but is built to accommodate up to 6 (limited by interference with the optical bench).\footnote{\cck{This all might belong in the instrument description.}}}
     
     \begin{figure}[ht]
         \centering
@@ -106,11 +108,12 @@
         \label{fig:Level0}
     \end{figure}
     
+    \cck{Refer to raw CCD data as Level 0?}
     We have broken our data prep/analysis pipeline into multiple levels, labeled one through four.
     Level 1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as dark subtraction and despiking (optional).
-    Level 2 data adds additional meta data to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions (work in progress) \rts{This actually kinda works right now} \jdp{ Maybe we'll have an ``in preparation'' to cite for this.}.
-    Level 3 data takes a cropped single wavelength from Level 1 data and maps to the sky plane via a non-linear, but wavelength independent mapping.
-    And lastly Level 4 represents an inverted data product in the form of an [x, y , $\lambda$] cube (\textbf{probably a better way to write this}), the end goal of the ESIS instrument.
+    Level 2 data adds additional metadata \cck{(metadata is all one word)} to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions (work in progress) \rts{This actually kinda works right now} \jdp{ Maybe we'll have an ``in preparation'' to cite for this.}. \cck{Level 2 data is a necessary step toward L4, but will not be further described here. Instead, we seek a shortcut to interpretation of the bright O\,\textsc{v} spectral line, including image differences and simplified inversions.}
+    Level 3 data takes a cropped single wavelength from Level 1 data and maps to the sky plane via a non-linear, but wavelength independent mapping. \cck{Nonlinear coordinate transformation (don't want our reader to think it is nonlinear in intensity).}
+    And lastly Level 4, represents an inverted \cck{data product in the form of an} $[x, y , \lambda]$ \cck{(Keep all math symbols within \$ ... \$)} cube (\textbf{probably a better way to write this}), the end goal of the ESIS instrument. \cck{The highest level data product we envision, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion. Since inversion is not unique, there may be multiple L4 products obtained by different methods.}
     Below each complete data level is explored in more detail.
     
     \subsection{Level 1 Data}
@@ -130,7 +133,7 @@
         Also, the images in this dataset have had the 
         Camera-level effects such as pedestal, gain, dark current, and light-insensitive pixels have been removed from the images in this dataset.
         The images 
-        This dataset removes camera-level effects from the Level-0 dataset such as pedastal, gain, dark current and light-insensitive pixels (such as overscan pixels).
+        This dataset removes camera-level effects from the Level-0 dataset such as pedestal, gain, dark current and light-insensitive pixels (such as overscan pixels).
         
         
         Also, Level-1 images have the light-insensitive pixels (such as the overscan pixels) removed 
@@ -139,7 +142,7 @@
     
        Raw ESIS data (Figure \ref{fig:Level0}) must first be corrected for quadrant dependant gain and bias, have overscan and blank pixels removed, and be dark subtracted prior to further analysis.
        
-	       
+	       \cck{Seems like you have tried to write this a few different ways. Maybe starting with a sentence about the goal (signal proportional to photoelectrons), and then presenting an enumerated list of steps. Subsequent narrative can explain any procedures that aren't obvious or straightforward.}
 
 
     \subsection{Level 3 Data}
@@ -167,17 +170,17 @@
    		\begin{equation}
 	   		I_q = I_{DN} * Gain_q * 3.6\ \frac{eV}{e^{-}} * \frac{\lambda}{hc}.
    		\end{equation}
-   		With an average quadrant gain, $Gain_q$, of $2.56\ electron\ eV^{-1}$, a Silicon band gap energy of $3.6\ eV\ electron^{-1}$, and $19.6\ eV\ photon^{-1}$ each count in $DN \approxeq 0.46$ O V 627.8 \AA \ photons.
+   		With an average quadrant gain, $Gain_q$, of $2.56\ electron\ eV^{-1}$, a Silicon band gap energy of $3.6\ eV\ electron^{-1}$, and $19.6\ eV\ photon^{-1}$ each count in $DN \approxeq 0.46$ photons in O V 627.8 \AA .
    		Creating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
    		Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment.
    		
    		The four ESIS channels were spatially co-aligned in two steps.  
-   		First, each ESIS image is roughly cropped around the desired spectral line and then co-aligned to the closest AIA 304 image in time.
+   		First, each ESIS image is roughly cropped around the desired spectral line and then co-aligned to the closest AIA 304\,\AA\ image in time.
    		This rough cropping is why there is a remnant of the adjacent Mg {\sc x} 609.8 \AA \ spectral line in the bottom left corner of Figure \ref{fig:coalign}a.
    		AIA 304 was chosen because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
    		Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{update\_pointing.py} and \texttt{register.py} \citep{aiapy}.
    		The co-alignment was achieved through a linear transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
-   		Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $.45$.
+   		Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $0.45$.
    		After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS information from AIA Level 1.5 providing pointing information and easier co-alignment with other instruments.
 
     	Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
@@ -220,18 +223,18 @@
         The vignetting field is rotated about the origin of each image in pixels, $[x_0, y_0] = [635,635]$, to account for the change in dispersion direction.
         Because ESIS images have a pointing drift as a function of time, or image sequence $s$, the image origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/26$, where $s_t $ is the total number, 28, of Level-3 images in time.
         
-        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from Mg {\sc x} 609.8 \AA.
+        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from Mg {\sc x} 609.8 \AA. \cck{'twould help to have a figure illustrating the overlap of spectral lines. Maybe something already being prepared for another purpose?}
         The four channels of ESIS give 6 possible difference images for fitting the vignetting function for each image sequence $s$. 
         For each difference image we take a mean of each column and fit a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
-        When the average slope of all fits, 6 difference images per sequence with 26 sequences making 156 fits in total, is minimized we consider the vignetting corrected.
+        When the average slope of all 156 fits (6 difference images per each of the 26 exposures) is minimized we consider the vignetting corrected. 
         The resulting final fit, $m_i = \vigfit$, predicts smaller slopes than are predicted using ray tracing and geometric optical models \citep{ESIS}, which can be attributed to a few likely culprits.
         One source of error likely comes from the imprint of adjacent spectral lines, the most obvious being that of Mg {\sc x} 626 \AA \ visible in Figure \ref{fig:vig_correct}c.
-        Since this Mg {\sc x} line overlaps almost entirely with O {\sc v}, and has an identical vignetting function, it adds intensity that prevents a perfect fit.
+        Since this Mg {\sc x} line overlaps almost entirely with O {\sc v}, and has an identical vignetting function, it adds intensity that prevents a perfect fit. \cck{If this were the only source of discrepancy between the vignetting function predicted by the raytrace and the fits obtained from the data, then we would simply use the same, predicted vignetting for every channel. However, we can anticipate slightly different vignetting in each channel due to variations in assembly....}
         Another source of error comes from the ESIS optical system.
         Each channel having a different slope was added as an additional three free parameters, despite the fact that our models predict an identical slope for each channel, because of known possible errors in the build up of ESIS.
         A misalignment of the ESIS field stop center, the ESIS primary optic center, and the center of the ESIS grating array, all shift the geometry of the ESIS central obscuration and can easily modify the vignetting field in each channel.
-        Future implementations of a wavelength dependent optical distortion model and the creation of the Level-2 data product will yield a more consistent and contaminant free fit to the vignetting function.
-        Despite these errors, Level-3 difference are much flatter in intensity post correction as is seen in Figure \ref{fig:vig_correct}c, and will therefore lead to a higher fidelity intensity recovery when inverting Level-3 data.
+        Future implementations of a wavelength dependent optical distortion model and the creation of the Level-2 data product will yield a more consistent and contaminant free fit to the vignetting function. \cck{(I don't think it is helpful to make vague promises of a better vignetting estimate in the future, unless perhaps it is tied to global inversions.)}
+        Despite these errors \cck{Despite the uncertainties in vignetting, which we have found difficult to quantify}, Level-3 differences are much flatter in intensity post correction as is seen in Figure \ref{fig:vig_correct}c, and will therefore lead to a higher fidelity intensity recovery when inverting Level-3 data.
         
 
   
