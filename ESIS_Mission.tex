@@ -238,22 +238,20 @@
 
 \section{Preliminary Results}
 	September 30th, 2019 was a very quiet day on the sun.  
-	In fact, the last day prior to the ESIS launch that produced a B-class event \citep{GOES} \jdp{figure out how to cite GOES, also, I couldn't believe I had to go back so far so check me on this.}, was July 7th 2019.  
+	In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7th 2019 \jdp{figure out how to cite GOES, also, I couldn't believe I had to go back so far so check me on this}.  
 	Because of this exceptionally quiet period on the sun we chose to point at disk center, in order to minimize projection effects.  
-	Despite the lack of solar activity ESIS managed to capture one hundred plus small, transient events and one significant eruption during the 5 minutes of observation \jdp{insert actual flight time}.
+	Despite the lack of solar activity ESIS managed to capture \jdp{do some counting} small, transient events and one significant eruption during the $\approx$5 minutes of observation.
 	
-	Early work with MOSES images, very similar to ESIS images, has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{???}, and extra spectral content \citep{???}.  
-	It is for this reason that we have chosen to develop a data product quickly (Level-3) that would allow us to take differences.  
-	Also, simple events viewed in Level-3 difference images are easily interpretable with a little insight into how the instrument works and therefore serve as a sanity check for more complicated inversions. 
+	Early work with MOSES images has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  
+	It is for this reason that we have chosen to develop a spatially data product quickly that would allow us to take differences (Level-3 data).  
+	Simple events viewed in Level-3 difference images are easily interpretable with little insight into how the ESIS and therefore serve as a sanity check for more complicated inversions. 
 	
-	In the following subsections we will show a handful of events easily identifiable in the ESIS difference images and explain how their presentation can be interpreted as a red/blue shift or line broadening.  
-	We will then demonstrate how simple inversions can be qualitatively validated by these interpretations and show progress toward inverting and interpreting the larger eruption captured by ESIS.
+	In the following subsections we will show a handful of events easily identifiable in the ESIS Level-3 difference images and explain how their presentation can be interpreted as a red/blue shift or line broadening.  
+	We will then demonstrate how simple inversions can be qualitatively validated by these interpretations and show progress toward inverting and interpreting the largest eruption captured by ESIS.
 	
     \subsection{Level-3 Difference Images}
-
-
-      
-    	Each ESIS channel disperses features with a non-zero LOS velocity a different direction, determined by the azimuthal position of each grating.
+    
+    	Each ESIS channel disperses Doppler shifted features a different direction, determined by the azimuthal position of each grating.
     	The dispersion direction in each Level-3 image can be found by looking for intensity from the nearby Mg {\sc x} 609.8 \AA \ spectral line.
     	In Figure \ref{fig:coalign}a, showing camera 2, this can be seen in the bottom left hand corner.  
    		Since the the Mg {\sc x} line is shorter in wavelength, a blue shifted feature (with velocity toward the observer) would be smeared down and to the left, and a red shifted feature up and to the right.	
@@ -268,15 +266,18 @@
    		\end{figure*}
 
     	Features in an ESIS difference image that have obvious and nearby positive and negative portions indicate solar events with significant LOS Doppler velocity.
-    	Simple, point like, transient brightenings with little to no spatial structure are the most easily interpretable of these features.
-    	\jdp{very well described in \citet{Rust2019} Section 1.3.1 I think.  Try to incorporate this.} 
-    	Taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.
-    	In these simple events, a qualitative understanding of their velocity can be ``read off'' of the difference images.
+    	Simple, point-like, transient brightenings with little to no spatial structure are the most easily interpretable of these features.
+    	Their naturally confined spatial extent acts similarly to a spectrographic slit.
+    	Therefore, any spatial extent in an ESIS image is due to spectral dispersion.
+    	In these simple events, a qualitative understanding of their velocity can be ``read off'' of each ESIS image.
+    	This is effect is described in great detail in \citet{Rust2019} Section 1.3.1. \jdp{mention that he was able to calculate line profiles from this by slicing along the dispersion events}
+    	
+    	Due to the relative orientation of each ESIS channel's dispersion axis, taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.
     	For example, Figure \ref{fig:dif_events}a shows a V-shaped event that is pointed upward in the difference between the Camera 2 and Camera 3 Level-3 image.
     	Since we know that the direction of positive wavelength dispersion is up and to the right in Camera 2 and up and to the left in Camera 3 we immediately know that this event is predominantly red shifted.
     	For opposite reasons, a downward facing V-shaped event, Figure \ref{fig:dif_events}b, is predominantly blue shifted.
     	Therefore, X-shaped events (Figure \ref{fig:dif_events}c), that occur equally if not more frequently than V-shaped events, indicate significant line broadening.
-    	While this gives us a quick and qualitative understanding of an event, even the smallest amount of spatial extent in a given feature leads to an entanglement of spatial and spectral information makes it very difficult to derive qualitative velocities without inversion. 
+    	While this gives us a quick and qualitative understanding of a simple event, even the smallest amount of spatial extent in a given feature leads to an entanglement of spatial and spectral information making it very difficult to derive qualitative velocities without inversion. 
     	
     	\begin{figure}[htb!]
     		\centering
@@ -284,22 +285,89 @@
     		\label{fig:dif_events}
     	\end{figure}
     	
-    	While ESIS images are littered with these simple ``point-like'' events, we also captured a handful spatially extended that are more difficult to interpret.
+    	While ESIS images are littered with these simple point-like events, we also captured a handful spatially extended that are more difficult to interpret.
     	The most obvious of these is a much larger eruption just below disk center \jdp{get some arcsecs}
-    	In difference images of this event we see a mess of positive and negative features intertwined in the brightest section that sometimes present as a V or X shape, but not always, and change their presentation significantly over time.
+    	In difference images of this event (Figure \ref{fig:main_event}) we see a mess of positive and negative features intertwined in the brightest section that sometimes present as a V or X shape, but not always, and change their presentation significantly over time.
     	There is also and imprint of fainter differences above the brightest knot of intensity showing motion along a spatially extended structure, likely from material being ejected from the eruption site.
     	Dynamic and spatially extended events are excellent opportunities for ESIS to shine and clearly demonstrate the need for many different projection angles (ESIS channels) if we hope to disentangle spatial information from spectra.
     	Despite the extra complexity, out understanding of ESIS difference images provides an excellent sanity check when interpreting future inversions.
     	
-    	Larger positive or negative features with no obvious counterpart nearby, are indicative of extra spectral content \citep{RustThesis,MCOR}.
+    	\begin{figure}[htb!]
+    		\centering
+    		\caption{Differences between ESIS Camera 2 and 3 at several points throughout the event evolution demonstrating the complexity of the event, but also areas that can be interpreted more simply}
+    		\label{fig:main_event}
+    	\end{figure}
+    	
+    	Larger positive or negative features with no obvious counterpart nearby, are indicative of extra spectral content \citep{RustPhD,Parker2021}.
     	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
     	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	
     
     \subsection{Early Inversions}
-    	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and "inverted" to return a single, spatial-spectral cube, at every exposure.
-    	In general, each method of inversion starts with a spatial-spectral cube, passes it through a forward model of the ESIS optical system generating an image per channel, then compares each synthetic image to actual ESIS data.
-    	For out preliminary inversions of Level-3 data we use a Smoothed Multiplicative Algebraic Reconstruction Technique (SMART) used previously on MOSES data \citep{}, but with a new forward model of the ESIS instrument.
-    	MART (Multiplicative Algebraic Reconstruction Technique)
+    	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
+    	For out preliminary inversions of ESIS Level-3 data we have chosen to use as Smooth Multiplicative Algebraic Reconstruction Technique (SMART).
+    	SMART adds an additional smoothing step to a simple MART applied in the past to limited-angle tomography problems like ours \citep{Okamoto1991,Verhoeven1993}.
+    	When testing a variety of inversion methods on MOSES data \citet{FoxPhD} identified SMART as most promising of several methods in terms of speed and fidelity.
+    	\citet{RustPhD} applied a slightly different version of SMART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
+    	
+    	With SMART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image, $f^{\theta_i}_{x'y'}$,=. There is one ESIS image for each $\theta_i$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
+    	\begin{enumerate}
+    		\item \label{step:guess} Create a guess cube, $G_{xy\lambda} = 1$ on the same domain as $I$. 
+    		\item \label{step:contrast} Enhance the contrast of $G$ and normalize, 
+    			\begin{equation}
+	    				G \leftarrow \frac{G+G^{(1+\Psi)}}{\sum_{xy\lambda}G+G^{(1+\Psi)}}\sum_{xy\lambda}G, 
+    			\end{equation}
+    		 	
+    		\item \label{step:smooth} Convolve $G$ with smoothing kernel $K$, $G \leftarrow G * K$,
+    		where,
+		   		\begin{equation}
+	    			\label{eq:kernel}
+	    			K_{ijk} = \frac{2^{3-|i|-|j|-|k|}}{64} \quad \text{for}\quad i,j,k = -1,0,1.
+    			\end{equation}
+    		
+    		\item \label{step:project} Sum $G^{\theta_i}$ along lines of constant $x-\delta\lambda$ to calculate a projection for each angle $\theta_i$,
+    			\begin{equation}
+	    			p^{\theta_i}_{x'y'} = \sum_\lambda G^{\theta_i}_{(x-\delta\lambda)y\lambda}, 
+    			\end{equation}
+    		where,
+    			\begin{equation}
+	    			G^{\theta_i} = \mathcal{R}_\lambda(\theta_i)\,G,
+    			\end{equation} 
+    		and, $\mathcal{R}(\theta)$, is a rotation about the $\lambda$ axis. 	
+    			
+    		\item \label{step:chisquared} Calculate reduced chi-squared for each projection and check for convergence, in this case that $\chi_{R,\theta_i}^2 < 1$ , 
+	    		\begin{equation}
+	    			\chi_{R,\theta_i}^2 = \frac{1}{N_{x'} N_{y'}}\sum_{x'y'} \frac{(f^{\theta_i}_{x'y'}-p^{\theta_i}_{x'y'})^2}{p^{\theta_i}_{x'y'}+\sigma^2_{RN}},
+	    		\end{equation}
+	    	where $\sigma^2_{RN}$ is the read noise in photons squared, $N_{x'}$ is the total number of elements along $x'$.
+    		
+    		\item Calculate correction factors for each unconverged channel, $i_{uc}$, weighted by $\gamma$, 
+	    		\begin{equation} \label{eq:correctionfactor}
+		    		c^{\theta_i}_{x'y'} = \left[\frac{p^{\theta_i}_{x'y'}}{f^{\theta_i}_{x'y'}}\right]^\gamma,
+	    		\end{equation}
+	    	where $\gamma = 2/n$ with $n$ equal to the total number of channels.
+	    		
+	    	\item Assign correction factors to lines of constant $x-\delta\lambda$ in the domain of $G$,
+	    		\begin{equation}
+		    		C^{\theta_i}_{(x-\delta\lambda)y\lambda} = c^{\theta_i}_{x'y'}
+	    		\end{equation}	
+    		
+    		\item \label{step:correct} Apply a weighted product of each derotated correction to $G$ ,
+	    		\begin{equation}\label{eq:correct}
+	    		G \leftarrow G\left\lbrace  \,\prod_{i=i_uc}  \mathcal{R}_\lambda(-\theta_i)C^{\theta_i}_{xy\lambda} \right\rbrace^{1/m_{uc}},
+	    		\end{equation}
+    		where $m_{uc}$ is the total number of unconverged channels and 
+    		
+    		\item Repeat steps \ref{step:contrast}-\ref{step:correct}
+    		until every channel has converged at step \ref{step:chisquared}.
+    	\end{enumerate}
+    	For this particular implementation we use a contrast enhancement exponent of $\Psi = .2$ and have a total number of channels, $n=4$.
+    	The spectral dispersion of an ESIS grating, $\delta$ is equal to 28 m\AA\ pix$^{-1}$. 
+    	We construct $G$ such that its resolution \jdp{bin size? step size?} in $\lambda$ is equal to $\delta$.
+    	All negative values introduced by rotation are set to zero after each rotation.
+    	
+    	
+    
+    	
     	
     	
 \section{Discussion/Conclusions and Future Work}
