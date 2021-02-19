@@ -313,7 +313,7 @@
     	When testing a variety of inversion methods on MOSES data \citet{FoxPhD} identified SMART as most promising of several methods in terms of speed and fidelity.
     	\citet{RustPhD} applied a slightly different version of SMART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
     	
-    	With SMART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image, $f^{\theta_i}_{x'y'}$,=. There is one ESIS image for each $\theta_i$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
+    	With SMART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image, $f_{\theta x'y'}$,=. There is one ESIS image for each $\theta$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
     	\begin{enumerate}
     		\item \label{step:guess} Create a guess cube, $G_{xy\lambda} = 1$ on the same domain as $I$. 
     		\item \label{step:contrast} Enhance the contrast of $G$ and normalize \jdp{no idea why there is an extra G + in here ...}, 
@@ -330,34 +330,34 @@
     		
     		\item \label{step:project} Sum $G^{\theta_i}$ along lines of constant $x-\delta\lambda$ to calculate a projection for each angle $\theta_i$,
     			\begin{equation}
-	    			p^{\theta_i}_{x'y'} = \sum_\lambda G^{\theta_i}_{(x-\delta\lambda)y\lambda}, 
+	    			f'_{\theta x'y'} = \sum_\lambda G_{\theta(x-\delta\lambda)y\lambda}, 
     			\end{equation}
     		where,
     			\begin{equation}
-	    			G^{\theta_i} = \mathcal{R}_\lambda(\theta_i)\,G,
+	    			G_{\theta xy\lambda} = \mathcal{R}_\lambda(\theta)\,G_{xy\lambda},
     			\end{equation} 
     		and, $\mathcal{R}(\theta)$, is a rotation about the $\lambda$ axis. 	
     			
-    		\item \label{step:chisquared} Calculate reduced chi-squared for each projection and check for convergence, in this case that $\chi_{R,\theta_i}^2 < 1$ , 
+    		\item \label{step:chisquared} Calculate reduced chi-squared for each projection and check for convergence, in this case that $\chi_{R,\theta}^2 < 1$ , 
 	    		\begin{equation}
-	    			\chi_{R,\theta_i}^2 = \frac{1}{N_{x'} N_{y'}}\sum_{x'y'} \frac{(f^{\theta_i}_{x'y'}-p^{\theta_i}_{x'y'})^2}{p^{\theta_i}_{x'y'}+\sigma^2_{RN}},
+	    			\chi_{R,\theta}^2 = \frac{1}{N_{x'} N_{y'}}\sum_{x'y'} \frac{(f_{\theta x'y'}-f'_{\theta x'y'})^2}{f'_{\theta x'y'}+\sigma^2_{RN}},
 	    		\end{equation}
 	    	where $\sigma^2_{RN}$ is the read noise in photons squared, $N_{x'}$ is the total number of elements along $x'$.
     		
-    		\item Calculate correction factors for each unconverged channel, $i_{uc}$, weighted by $\gamma$, 
+    		\item Calculate correction factors for each unconverged channel, $\theta_{uc}$, weighted by $\gamma$, 
 	    		\begin{equation} \label{eq:correctionfactor}
-		    		c^{\theta_i}_{x'y'} = \left[\frac{p^{\theta_i}_{x'y'}}{f^{\theta_i}_{x'y'}}\right]^\gamma,
+		    		c_{\theta x'y'} = \left[\frac{f'_{\theta x'y'}}{f_{\theta x'y'}}\right]^\gamma,
 	    		\end{equation}
 	    	where $\gamma = 2/n$ with $n$ equal to the total number of channels.
 	    		
 	    	\item Assign correction factors to lines of constant $x-\delta\lambda$ in the domain of $G$,
 	    		\begin{equation}
-		    		C^{\theta_i}_{(x-\delta\lambda)y\lambda} = c^{\theta_i}_{x'y'}
+		    		C_{\theta (x-\delta\lambda)y\lambda} = c_{\theta x'y'}
 	    		\end{equation}	
     		
     		\item \label{step:correct} Apply a weighted product of each derotated correction to $G$ ,
 	    		\begin{equation}\label{eq:correct}
-	    		G \leftarrow G\left\lbrace  \,\prod_{i=i_uc}  \mathcal{R}_\lambda(-\theta_i)C^{\theta_i}_{xy\lambda} \right\rbrace^{1/m_{uc}},
+	    		G \leftarrow G\left\lbrace  \,\prod_{\theta=\theta_{uc}}  \mathcal{R}_\lambda(-\theta_i)C_{\theta xy\lambda} \right\rbrace^{1/m_{uc}},
 	    		\end{equation}
     		where $m_{uc}$ is the total number of unconverged channels and 
     		
