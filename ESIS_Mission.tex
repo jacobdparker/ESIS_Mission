@@ -3,6 +3,7 @@
 \newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
 \newcommand{\jdp}[1]{{\color{red} JDP: #1}} % JDP comment
 \newcommand{\cck}[1]{{\color{brown} CCK: #1}} % CCK comment
+\newcommand{\amy}[1]{{\color{cyan} ARW: #1}} 
 
 \title{First Flight of the EUV Snapshot Imaging Spectrograph (ESIS)}
 
@@ -30,8 +31,11 @@
 	\subsection{The Experiment}
 		ESIS gathers an image in each of its four detectors (channels) during every exposure.  
 		Each channel is identical, with its own grating and detector. They are arrayed at $45^{\circ}$ increments about the axis of symmetry of the paraboloidal primary mirror. ESIS has 4 channels currently, but is built to accommodate up to 6 (limited by interference with the optical bench).
+		
+		\amy{ Would not say the channels are identical, or would say identical except that they each disperse the solar image with different angles relative to solar north.  Maybe add an image like the one from Charles talk with AIA + octagon and the four detectors with dispersion axes/solar north location marked. People won't read the instrument paper.} 
     
 	\subsection{Flight Performance} \label{sec:flt}
+	\amy{I will work on this section, but I would like to reference the figure with AIA 304 with the octogan.  Will you make htat one?}
 	
 		\begin{center}
 			\begin{table}[ht]
@@ -65,7 +69,7 @@
 
 	\subsection{Pointing} \label{sec:point}
 		September 30th, 2019 was a very quiet day on the sun.  
-		In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7th 2019 \jdp{figure out how to cite GOES, also, I couldn't believe I had to go back so far so check me on this}.  
+		In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7th 2019 \jdp{I couldn't believe I had to go back so far so check me on this}.  
 		Because of this exceptionally quiet period on the sun we chose to point at disk center, in order to minimize projection effects.  
 		Despite the lack of solar activity ESIS managed to capture \jdp{do some counting} small, transient events and one significant eruption during the $\approx$5 minutes of observation.
 		
@@ -111,13 +115,20 @@
         \label{fig:Level0}
     \end{figure}
     
+  \amy{I am doing some word smithing as I go.  Suggest adding paragraph motivating the diferent data set levels.}
+  ESIS has captured a unique data set not  available from any other source.  In addition, the type of data that ESIS has collected (e.g., so-called ``overlappograms'', where spatial and spectral information are overlapping) is not a data product that NASA has obtained for many decades.  Due to the uniqueness of this dataset, we have established some data processing that different users may find useful.
   
-    We have broken our data prep/analysis pipeline into multiple levels, labeled one through four.
-    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as dark subtraction and despiking (optional).
-    Level-2 data adds additional metadata to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions Level-2 data is a necessary step toward Level-4, but will not be further described here. Instead, we seek a shortcut to interpretation of the bright O\,\textsc{v} spectral line, including image differences and simplified inversions.
-    Level-3 data takes a cropped single wavelength from Level 1 data and maps to the sky plane via a non-linear coordinate transform, but wavelength independent mapping. 
-    The highest level data product we envision, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion. Since inversion is not unique, there may be multiple L4 products obtained by different methods.
+    We have established four levels of data processing that are described in detail below.
+    \amy{Level 0 represents the raw data that was obtained by the four different camers during flight.}
+    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as dark subtraction and despiking (optional).  \amy{Is level 1 normalized?  What are the units?  Will LEvel 1 be publicly available?  Were the headers corrected for time and pointing?  Will despiking be applied to the publicly available data set?  We need to mention somewhere about the fact there were lots of spikes.}
+    Level-2 data adds additional metadata to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions. Level-2 data is a necessary step toward Level-4, but will not be further described here.Instead, we seek a shortcut to interpretation of the bright O\,\textsc{v} spectral line, including image differences and simplified inversions. \amy{Suggest leaving out previous two sentences.Couldn't level 3 also be He I?} 
+    Level-3 data is comprised of a single spectral line cropped from Level 1 data and mapped to the sky plane via a non-linear coordinate transform, \amy{suggest removing:} but wavelength independent mapping. 
+    The highest level data product we envision providing, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion of the Level 2 data. Since inversion is not unique, there may be multiple Level 4 products obtained by different methods.  Level 4 data products will be described in future publications as they become available.  
     Below each complete data level is explored in more detail.
+    
+    \subsection{Level 0 Data}
+    
+    Level 0 data is the raw data collected during the ESIS rocket flight.  Each image is written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors (?) included in the header.  There were () images collected from all cameras during flight.  Images taken before the shutter door opened or after the shutter door closed were used a dark images to generate Level 1 data.  There were () images taken while the shutter door was open during the time of pointing stability.  These images were processed into Level 1 data.  
     
     \subsection{Level 1 Data}
     \jdp{Moving Amy's comment about atmospheric absorption to this section.  Roy already has some nice plots of this and it can likely be discussed in a section explaining dark selection?}
