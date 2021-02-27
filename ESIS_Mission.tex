@@ -35,26 +35,30 @@
 		\amy{ Would not say the channels are identical, or would say identical except that they each disperse the solar image with different angles relative to solar north.  Maybe add an image like the one from Charles talk with AIA + octagon and the four detectors with dispersion axes/solar north location marked. People won't read the instrument paper.} 
     
 	\subsection{Flight Performance} \label{sec:flt}
-	\amy{I will work on this section, but I would like to reference the figure with AIA 304 with the octogan.  Will you make htat one?}
+
+	\amy{I will work on this section, but I would like to reference the figure with AIA 304 with the octogan.  Will you make that one?} \jdp{yes}
+
+
+% I don't think we need this.	
+%		\begin{center}
+%			\begin{table}[ht]
+%				\caption{ESIS Flight Event Timeline (September 30, 2019)}
+%				\label{tab:timeline}
+%				\begin{tabular}{lll}\hline
+%					{\bf} & {\bf Event} & {\bf Time (UTC)}\\ \hline
+%					0 & Launch        &    ???? \\
+%					1 & Start Dark Exposures  &  ????\\
+%					2 & End Dark  Exposures  &  ????\\
+%					3 & Shutter Door Open     &   ??? \\
+%					4 & Fine Pointing    &    \\
+%					& [Ring Laser Gyroscope (RLG) Enable] & ???\\
+%					5 & Data Acquisition     &     ???\\
+%					6 & Shutter door close    &   ??? \\ \hline
+%				\end{tabular}
+%			\end{table}
+%		\end{center}
 	
-		\begin{center}
-			\begin{table}[ht]
-				\caption{ESIS Flight Event Timeline (September 30, 2019)}
-				\label{tab:timeline}
-				\begin{tabular}{lll}\hline
-					{\bf} & {\bf Event} & {\bf Time (UTC)}\\ \hline
-					0 & Launch        &    ???? \\
-					1 & Start Dark Exposures  &  ????\\
-					2 & End Dark  Exposures  &  ????\\
-					3 & Shutter Door Open     &   ??? \\
-					4 & Fine Pointing    &    \\
-					& [Ring Laser Gyroscope (RLG) Enable] & ???\\
-					5 & Data Acquisition     &     ???\\
-					6 & Shutter door close    &   ??? \\ \hline
-				\end{tabular}
-			\end{table}
-		\end{center}
-	
+
 		\begin{figure}[ht]
 			\begin{center}
 				\includegraphics[width=0.7\textwidth]{figures/altevents.png}
@@ -63,6 +67,7 @@
 				\label{fig:timeline}
 			\end{center}
 		\end{figure}
+
 
 		ESIS was launched at ????~UT on September 30, 2019 from White Sands Missile Range.  The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  For ???\,s, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. % Because the time on the Hi-C onboard DACS drifts, an adjustment of 126\,s was applied to all data headers in post-processing. 
 		Table~\ref{tab:timeline} provides the timeline of the ESIS rocket flight. Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements.  The events given in Table~\ref{tab:timeline} and the approximate height at which they occurred are indicated in this figure.
@@ -88,8 +93,8 @@
 				\label{tab:data_info}
 				\begin{tabular}{ll | l l}\hline
 					Wavelength Range &   ???\,\AA\  & Image Size  & 2064$\times$1024\\
-					Launch Date & September 30, 2019 & Field of View  & ?\arcmin octagonal \\
-					Data Acquisition Time & ??? - ??? & Pointing  & (-?\arcsec, ?\arcsec)$\pm .3$\arcsec  \\
+					Launch Date & September 30, 2019 & Field of View  & $\approx 11.3$\arcmin octagonal \\
+					Data Acquisition Time & ??? - ??? & Pointing  & (15\arcsec, -35\arcsec)$\pm .3$\arcsec \jdp{???}  \\
 					Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
 					Camera Noise*: & & Exposure Time & 10\,s\\
 					\hspace{0.2in}NE Quad & [?,?,?,?] DN & Light Data Set: &\\
@@ -107,33 +112,32 @@
 	
 \section{Data} 
 
- 
-    
-    \begin{figure}[ht]
-        \centering
-%       	\includegraphics{}
-        \caption{Level-0}
-        \label{fig:Level0}
-    \end{figure}
-    
-  \amy{I am doing some word smithing as I go.  Suggest adding paragraph motivating the diferent data set levels.}
-  ESIS has captured a unique data set not  available from any other source.  In addition, the type of data that ESIS has collected (e.g., so-called ``overlappograms'', where spatial and spectral information are overlapping) is not a data product that NASA has obtained for many decades.  Due to the uniqueness of this dataset, we have established some data processing that different users may find useful.
+	ESIS has captured a unique data set not  available from any other source.  
+	In addition, the type of data that ESIS has collected (e.g., so-called ``overlappograms'', where spatial and spectral information are overlapping) is not a data product that NASA has obtained for many decades.  Due to the uniqueness of this dataset, we have established some data processing that different users may find useful.
+	\jdp{Probably can't leave MOSES out of this Amy.}
   
     We have established four levels of data processing that are described in detail below.
-    \amy{Level 0 represents the raw data that was obtained by the four different camers during flight.}
-    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as dark subtraction and despiking (optional).  \amy{Is level 1 normalized?  What are the units?  Will LEvel 1 be publicly available?  Were the headers corrected for time and pointing?  Will despiking be applied to the publicly available data set?  We need to mention somewhere about the fact there were lots of spikes.}
-    Level-2 data adds additional metadata to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions. Level-2 data is a necessary step toward Level-4, but will not be further described here.Instead, we seek a shortcut to interpretation of the bright O\,\textsc{v} spectral line, including image differences and simplified inversions. \amy{Suggest leaving out previous two sentences.Couldn't level 3 also be He I?} 
-    Level-3 data is comprised of a single spectral line cropped from Level 1 data and mapped to the sky plane via a non-linear coordinate transform, \amy{suggest removing:} but wavelength independent mapping. 
+    Level-0 represents the raw data that was obtained by the four different cameras during flight.
+    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as a dark subtraction.  \amy{Is level 1 normalized?  What are the units?  Will Level 1 be publicly available?  Were the headers corrected for time and pointing?  Will despiking be applied to the publicly available data set?  We need to mention somewhere about the fact there were lots of spikes.}
+    Level-2 data adds additional metadata to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions. 
+    Level-2 data is a necessary step toward our final data product, Level-4, but will not be further described here. \jdp{Do we need to say why?}
+    Instead, we seek a shortcut to interpretation of the ESIS data, Level-3, which allow for taking differences between images and simplified inversions.
+    Level-3 data is comprised of a single spectral line cropped from Level 1 data and mapped to the sky plane via a non-linear coordinate transform.
     The highest level data product we envision providing, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion of the Level 2 data. Since inversion is not unique, there may be multiple Level 4 products obtained by different methods.  Level 4 data products will be described in future publications as they become available.  
     Below each complete data level is explored in more detail.
     
     \subsection{Level 0 Data}
-    
-    Level 0 data is the raw data collected during the ESIS rocket flight.  Each image is written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors (?) included in the header.  There were () images collected from all cameras during flight.  Images taken before the shutter door opened or after the shutter door closed were used a dark images to generate Level 1 data.  There were () images taken while the shutter door was open during the time of pointing stability.  These images were processed into Level 1 data.  
+    		    \jdp{This likely will need to be rearranged since some of this processing goes in to prepping the Level-1 Data.}
+	    Level 0 data is the raw data collected during the ESIS rocket flight.  
+	    Each image is written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors (?) included in the header.  There were () images collected from all cameras during flight.  
+	    Images taken before the shutter door opened or after the shutter door closed were used a dark images to generate Level 1 data.  
+	    There were () images taken while the shutter door was open during the time of pointing stability.  
+	    These images were processed into Level 1 data.  
+
     
     \subsection{Level 1 Data}
-    \jdp{Moving Amy's comment about atmospheric absorption to this section.  Roy already has some nice plots of this and it can likely be discussed in a section explaining dark selection?}
-    
+	    \jdp{Moving Amy's comment about atmospheric absorption to this section.  Roy already has some nice plots of this and it can likely be discussed in a section explaining dark selection?}
+	    
   
     
     % 	[Copied from Hi-C paper as a reminder that we need to talk about atmospheric absorption somewhere.] We use the normalized total intensities of the Level~1.0 processed flight data (processing levels described in Section~\ref{sec:data}) to assess the relative atmospheric absorption of the signal as a function of flight time.  The transmission, shown in Figure~\ref{fig:absorb} in combination with the payload altitude, is calculated as the inverse of the relative absorption (i.e., (absorption coefficient)$^{-1}$). More than 4 minutes of data were unaffected by the atmosphere.  The atmospheric absorption was compensated for in the Level~1.5 processed data set by multiplying the images by their respective absorption coefficient.  These coefficients are provided in the header of this processed set.
@@ -238,7 +242,14 @@
         The vignetting field is rotated about the origin of each image in pixels, $[x_0, y_0] = [635,635]$, to account for the change in dispersion direction.
         Because ESIS images have a pointing drift as a function of time, or image sequence $s$, the image origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/26$, where $s_t $ is the total number, 28, of Level-3 images in time.
         
-        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from Mg {\sc x} 609.8 \AA. \cck{'twould help to have a figure illustrating the overlap of spectral lines. Maybe something already being prepared for another purpose?}\jdp{agreed, something like Figure 4 in the instrument paper?  Or, I could make a four panel showing the Mg X mask in each channel.  The latter might be nice for the following section since I have to explain how to find the dispersion direction in each Level-3 image.  What do you guys think?}
+        \begin{figure}[htb!]
+        	\centering
+        	\includegraphics{mgx_overlap.pdf}
+        	\caption{The red hashed region shows the overlap of the Mg X 609.8 \AA \ spectral line in each channel.}
+        	\label{fig:mgx_overlap}
+        \end{figure}
+        
+        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from Mg {\sc x} 609.8 \AA.
         The four channels of ESIS give 6 possible difference images for fitting the vignetting function for each image sequence $s$. 
         For each difference image we take a mean of each column and fit a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
         When the average slope of all 156 fits (6 difference images per each of the 26 exposures) is minimized we consider the vignetting corrected. 
@@ -274,7 +285,7 @@
    		
    		\begin{figure*}[htb!]
    			\centering
-   			% 		\includegraphics{}
+   			 		\includegraphics{l3_dif}
    			\caption{Full FOV Difference Image}
    			\label{fig:l3_dif}
    		\end{figure*}
@@ -295,6 +306,7 @@
     	
     	\begin{figure}[htb!]
     		\centering
+    		\includegraphics{dif_events}
     		\caption{An example of a red, blue, and broadened transient brightenings.}
     		\label{fig:dif_events}
     	\end{figure}
@@ -316,78 +328,84 @@
     	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
     	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	
     
-    \subsection{SMART}
-    	\jdp{For the sake of flow, I am considering moving everything about the inner workings of SMART to an appendix.... what do y'all think?}
     
-    	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
-    	For out preliminary inversions of ESIS Level-3 data we have chosen to use as Smooth Multiplicative Algebraic Reconstruction Technique (SMART).
-    	SMART adds an additional smoothing step to a simple MART applied in the past to limited-angle tomography problems like ours \citep{Okamoto1991,Verhoeven1993}.
-    	When testing a variety of inversion methods on MOSES data \citet{FoxPhD} identified SMART as most promising of several methods in terms of speed and fidelity.
-    	\citet{RustPhD} applied a slightly different version of SMART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
-    	
-    	With SMART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image, $f_{\theta x'y'}$,=. There is one ESIS image for each $\theta$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
-    	\begin{enumerate}
-    		\item \label{step:guess} Create a guess cube, $G_{xy\lambda} = 1$ on the same domain as $I$. 
-    		\item \label{step:contrast} Enhance the contrast of $G$ and normalize \jdp{no idea why there is an extra G + in here ...}, 
-    			\begin{equation}
-	    				G \leftarrow \frac{G+G^{(1+\Psi)}}{\sum_{xy\lambda}G+G^{(1+\Psi)}}\sum_{xy\lambda}G, 
-    			\end{equation}
-    		 	
-    		\item \label{step:smooth} Convolve $G$ with smoothing kernel $K$, $G \leftarrow G * K$,
-    		in our case,
-		   		\begin{equation}
-	    			\label{eq:kernel}
-	    			K_{ijk} = \frac{2^{3-|i|-|j|-|k|}}{64} \quad \text{for}\quad i,j,k = -1,0,1.
-    			\end{equation}
-    		
-    		\item \label{step:project} Sum $G_{\theta xy\lambda}$ along lines of constant $x-\delta\lambda$ to calculate a projection for each angle $\theta$,
-    			\begin{equation}
-	    			f'_{\theta x'y'} = \sum_\lambda G_{\theta(x-\delta\lambda)y\lambda}, 
-    			\end{equation}
-    		where,
-    			\begin{equation}
-	    			G_{\theta xy\lambda} = \mathcal{R}_\lambda(\theta)\,G_{xy\lambda},
-    			\end{equation} 
-    		and, $\mathcal{R}(\theta)$, is a rotation about the $\lambda$ axis. 	
-    			
-    		\item \label{step:chisquared} Calculate reduced chi-squared for each projection and check for convergence, in this case that $\chi_{R,\theta}^2 < 1$ , 
-	    		\begin{equation}
-	    			\chi_{R,\theta}^2 = \frac{1}{N_{x'} N_{y'}}\sum_{x'y'} \frac{(f_{\theta x'y'}-f'_{\theta x'y'})^2}{f'_{\theta x'y'}+\sigma^2_{RN}},
-	    		\end{equation}
-	    	where $\sigma^2_{RN}$ is the read noise in photons squared, $N_{x'}$ is the total number of elements along $x'$.
-    		
-    		\item Calculate correction factors for each unconverged channel, $\theta_{uc}$, weighted by $\gamma$, 
-	    		\begin{equation} \label{eq:correctionfactor}
-		    		c_{\theta x'y'} = \left[\frac{f'_{\theta x'y'}}{f_{\theta x'y'}}\right]^\gamma,
-	    		\end{equation}
-	    	where $\gamma = 2/n$ with $n$ equal to the total number of channels.
-	    		
-	    	\item Assign correction factors to lines of constant $x-\delta\lambda$ in the domain of $G$,
-	    		\begin{equation}
-		    		C_{\theta (x-\delta\lambda)y\lambda} = c_{\theta x'y'}
-	    		\end{equation}	
-    		
-    		\item \label{step:correct} Apply a weighted product of each derotated correction to $G$ ,
-	    		\begin{equation}\label{eq:correct}
-	    		G \leftarrow G\left\lbrace  \,\prod_{\theta=\theta_{uc}}  \mathcal{R}_\lambda(-\theta_i)C_{\theta xy\lambda} \right\rbrace^{1/m_{uc}},
-	    		\end{equation}
-    		where $m_{uc}$ is the total number of unconverged channels and 
-    		
-    		\item Repeat steps \ref{step:contrast}-\ref{step:correct}
-    		until every channel has converged at step \ref{step:chisquared}.
-    	\end{enumerate}
-    	For this particular implementation we use a contrast enhancement exponent of $\Psi = .2$ and have a total number of channels, $n=4$.
-    	The spectral dispersion of an ESIS grating, $\delta$ is equal to 28 m\AA\ pix$^{-1}$. 
-    	We construct $G$ such that its resolution \jdp{bin size? step size?} in $\lambda$ is equal to $\delta$.
-    	All negative values introduced by rotation are set to zero after each rotation.
     
     \subsection{Early Inversions}
+    	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
+    	For out preliminary inversions of ESIS Level-3 data we have chosen to use as Smooth Multiplicative Algebraic Reconstruction Technique (SMART).
+    	SMART is attractive for our first inversions because it \jdp{yada yada} and is described in detail in Appendix \ref{SMART}.
     	
-    		
-    	
-    
     	
     	
+    			
+    		   	
     	
 \section{Discussion/Conclusions and Future Work}
+
+
+
+
+
+\appendix
+\section{Smooth Multiplicative Algebraic Reconstruction Technique}\label{SMART}
+	\jdp{Now that this is floating more, I'll need to add a few things about MART and why it is attractive for this type of problem.}
+	SMART adds an additional smoothing step to a simple MART applied in the past to limited-angle tomography problems like ours \citep{Okamoto1991,Verhoeven1993}.
+	When testing a variety of inversion methods on MOSES data \citet{FoxPhD} identified SMART as most promising of several methods in terms of speed and fidelity.
+	\citet{RustPhD} applied a slightly different version of SMART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
+	
+	With SMART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image, $f_{\theta x'y'}$,=. There is one ESIS image for each $\theta$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
+	\begin{enumerate}
+		\item \label{step:guess} Create a guess cube, $G_{xy\lambda} = 1$ on the same domain as $I$. 
+		\item \label{step:contrast} Enhance the contrast of $G$ and normalize \jdp{no idea why there is an extra G + in here ...}, 
+			\begin{equation}
+				G \leftarrow \frac{G+G^{(1+\Psi)}}{\sum_{xy\lambda}G+G^{(1+\Psi)}}\sum_{xy\lambda}G, 
+			\end{equation}
+		
+		\item \label{step:smooth} Convolve $G$ with smoothing kernel $K$, $G \leftarrow G * K$,
+		in our case,
+			\begin{equation}
+			\label{eq:kernel}
+				K_{ijk} = \frac{2^{3-|i|-|j|-|k|}}{64} \quad \text{for}\quad i,j,k = -1,0,1.
+			\end{equation}
+		
+		\item \label{step:project} Sum $G_{\theta xy\lambda}$ along lines of constant $x-\delta\lambda$ to calculate a projection for each angle $\theta$,
+			\begin{equation}
+				f'_{\theta x'y'} = \sum_\lambda G_{\theta(x-\delta\lambda)y\lambda}, 
+			\end{equation}
+		where,
+			\begin{equation}
+				G_{\theta xy\lambda} = \mathcal{R}_\lambda(\theta)\,G_{xy\lambda},
+			\end{equation} 
+		and, $\mathcal{R}(\theta)$, is a rotation about the $\lambda$ axis. 	
+		
+		\item \label{step:chisquared} Calculate reduced chi-squared for each projection and check for convergence, in this case that $\chi_{R,\theta}^2 < 1$ , 
+			\begin{equation}
+				\chi_{R,\theta}^2 = \frac{1}{N_{x'} N_{y'}}\sum_{x'y'} \frac{(f_{\theta x'y'}-f'_{\theta x'y'})^2}{f'_{\theta x'y'}+\sigma^2_{RN}},
+			\end{equation}
+		where $\sigma^2_{RN}$ is the read noise in photons squared, $N_{x'}$ is the total number of elements along $x'$.
+		
+		\item Calculate correction factors for each unconverged channel, $\theta_{uc}$, weighted by $\gamma$, 
+			\begin{equation} \label{eq:correctionfactor}
+				c_{\theta x'y'} = \left[\frac{f'_{\theta x'y'}}{f_{\theta x'y'}}\right]^\gamma,
+			\end{equation}
+		where $\gamma = 2/n$ with $n$ equal to the total number of channels.
+		
+		\item Assign correction factors to lines of constant $x-\delta\lambda$ in the domain of $G$,
+			\begin{equation}
+				C_{\theta (x-\delta\lambda)y\lambda} = c_{\theta x'y'}
+			\end{equation}	
+		
+		\item \label{step:correct} Apply a weighted product of each derotated correction to $G$ ,
+			\begin{equation}\label{eq:correct}
+				G \leftarrow G\left\lbrace  \,\prod_{\theta=\theta_{uc}}  \mathcal{R}_\lambda(-\theta_i)C_{\theta xy\lambda} \right\rbrace^{1/m_{uc}},
+			\end{equation}
+		where $m_{uc}$ is the total number of unconverged channels and 
+		
+		\item Repeat steps A\ref{step:contrast}-A\ref{step:correct}
+		until every channel has converged at step A\ref{step:chisquared}.
+	\end{enumerate}
+		For this particular implementation we use a contrast enhancement exponent of $\Psi = .2$ and have a total number of channels, $n=4$.
+		The spectral dispersion of an ESIS grating, $\delta$ is equal to 28 m\AA\ pix$^{-1}$. 
+		We construct $G$ such that its resolution \jdp{bin size? step size?} in $\lambda$ is equal to $\delta$.
+		All negative values introduced by rotation are set to zero after each rotation.
 
