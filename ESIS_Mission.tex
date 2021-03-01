@@ -68,7 +68,7 @@
 		\end{figure}
 
 
-		ESIS was launched at ????~UT on September 30, 2019 from White Sands Missile Range.  The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  For ???\,s, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. % Because the time on the Hi-C onboard DACS drifts, an adjustment of 126\,s was applied to all data headers in post-processing. 
+		ESIS was launched at ????\rts{\timestart}~UT  on September 30, 2019 from White Sands Missile Range.  The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  For ???\,s \rts{what time are we going for here, time above 150 km?}, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. % Because the time on the Hi-C onboard DACS drifts, an adjustment of 126\,s was applied to all data headers in post-processing. 
 		Table~\ref{tab:timeline} provides the timeline of the ESIS rocket flight. Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements.  The events given in Table~\ref{tab:timeline} and the approximate height at which they occurred are indicated in this figure.
 
 
@@ -91,16 +91,16 @@
 				\caption{ESIS Flight Data Summary (*Solar coordinates; solar north at top of frame.)}
 				\label{tab:data_info}
 				\begin{tabular}{ll | l l}\hline
-					Wavelength Range &   ???\,\AA\  & Image Size  & 2064$\times$1024\\
-					Launch Date & September 30, 2019 & Field of View  & $\approx 11.3$\arcmin octagonal \\
-					Data Acquisition Time & ??? - ??? & Pointing  & (15\arcsec, -35\arcsec)$\pm .3$\arcsec \jdp{???}  \\
+					Wavelength Range &   ???\,\AA\ \rts{max range??} & Image Size  & 2064$\times$1024\\
+					Launch Date & September 30, 2019 & Field of View  & $\approx 11.3$\arcmin octagonal \rts{\fov} \\
+					Data Acquisition Time & ??? - ??? \rts{\datastart--\datastop~UT} & Pointing  & (15\arcsec, -35\arcsec)$\pm .3$\arcsec \jdp{???}  \\
 					Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
 					Camera Noise*: & & Exposure Time & 10\,s\\
-					\hspace{0.2in}NE Quad & [?,?,?,?] DN & Light Data Set: &\\
-					\hspace{0.2in}NW Quad & [?,?,?,?] DN & \hspace{0.2in}No. of Images & 29\\
-					\hspace{0.2in}SE Quad  & [?,?,?,?] DN & &\\
-					\hspace{0.2in}SW Quad  & [?,?,?,?] DN & Dark Data Set & \\
-					Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
+					\hspace{0.2in}NE Quad \rts{Ch1} & [?,?,?,?] DN \rts{\readnoiseI} & Light Data Set: &\\
+					\hspace{0.2in}NW Quad \rts{Ch2} & [?,?,?,?] DN \rts{\readnoiseII} & \hspace{0.2in}No. of Images & 29 \rts{\numdataframes (probably wrong)}\\
+					\hspace{0.2in}SE Quad \rts{Ch3} & [?,?,?,?] DN \rts{\readnoiseIII} & &\\
+					\hspace{0.2in}SW Quad \rts{Ch4} & [?,?,?,?] DN \rts{\readnoiseIV} & Dark Data Set & \\
+					Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \rts{\numdarkframes} \\
 					\hline
 				\end{tabular}
 			\end{table}
@@ -178,7 +178,7 @@
   		\begin{figure}[htb!]
     		\centering
     		\includegraphics{aia_coalign.pdf}
-    		\caption{Caption}
+    		\caption{Caption \rts{what happened to the y-axis ticks on the AIA image?}}
     		\label{fig:coalign}
     	\end{figure}
     	
@@ -189,7 +189,8 @@
    		\begin{equation}
 	   		I_q = I_{DN} * Gain_q * 3.6\ \frac{eV}{e^{-}} * \frac{\lambda}{hc}.
    		\end{equation}
-   		With an average quadrant gain, $Gain_q$, of $2.56\ electron\ eV^{-1}$, a Silicon band gap energy of $3.6\ eV\ electron^{-1}$, and $19.6\ eV\ photon^{-1}$ each count in $DN \approxeq 0.46$ photons in O V 627.8 \AA .
+   		\rts{Can we use a single letter for variable names? Right now it looks like $G \times a \times i \times n_q$ to me.}
+   		With an average quadrant gain, $Gain_q$, of $2.56\ electron\ eV^{-1}$ \rts{\SI[per-mode=symbol]{2.56}{\elementarycharge\per\electronvolt}}, a Silicon band gap energy of $3.6\ eV\ electron^{-1}$ \rts{\SI{3.6}{\electronvolt\per\elementarycharge}}, and $19.6\ eV\ photon^{-1}$ \rts{\SI[per-mode=symbol]{19.6}{\electronvolt\per\photon}} each count in $DN \approxeq 0.46$ photons in O V 627.8 \AA .
    		Creating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
    		Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment.
    		
@@ -197,10 +198,10 @@
    		First, each ESIS image is roughly cropped around the desired spectral line and then co-aligned to the closest AIA 304\,\AA\ image in time.
    		This rough cropping is why there is a remnant of the adjacent Mg {\sc x} 609.8 \AA \ spectral line in the bottom left corner of Figure \ref{fig:coalign}a.
    		AIA 304 was chosen because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
-   		Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{update\_pointing.py} and \texttt{register.py} \citep{aiapy}.
+   		Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{update\_pointing.py} and \texttt{register.py} \rts{Those functions are not located in modules by that name, you might just want to say \texttt{aiapy.calibrate.update\_pointing()}} \citep{aiapy}.
    		The co-alignment was achieved through a linear transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
    		Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $0.45$.
-   		After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS information from AIA Level 1.5 providing pointing information and easier co-alignment with other instruments.
+   		After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS \rts{Do we have a WCS citation anywhere?} information from AIA Level 1.5 providing pointing information and easier co-alignment with other instruments.
 
     	Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
     	Using a single ESIS channel as reference, in this case Camera 2, each other camera is co-aligned to it via a quadratic transformation that maximizes the zero-lag cross-correlation. 
@@ -208,7 +209,7 @@
     	Examining the cross-correlation ratio of each camera pair shows a less than 1 percent improvement in peak correlation Figure \ref{fig:cc}, demonstrating the subtle non-linearity of the ESIS optical distortion function.
     	In pixels, this corresponds to an average change in mapping of \jdp{\textbf{FIND THIS}}.
     	
-    	\begin{figure}[htb!]
+     	\begin{figure}[htb!]
     		\centering
     		\includegraphics{internal_align.pdf}
     		\caption{For each ESIS exposure (or image sequence) every channel pair, labeled in the legend, is cross-correlated to measure internal alignment quality.  The ratio of zero lag cross-correlation after a quadratic transformation to that of a linear transformation is plotted.  Every point being above the ratio = 1 line indicates improved internal alignment for every combination of ESIS channels for each image sequence.}
@@ -235,6 +236,9 @@
         	r = x_0 + [cos(\alpha_i)(x-x_0-x_{drift}*s) - sin(\alpha_i)(y-y_0-y_{drift}*s)].
         	\label{eqn:vignet2}
        	\end{equation}
+       	\rts{\begin{equation}
+       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\text{drift}}*s) - \sin(\alpha_i)(y-y_0-y_{\text{drift}}*s)].
+       		\end{equation}}
        	In Equation \ref{eqn:vignet}, $r_0$ is equal to 65 pixels, and represents the distance from the Level-3 image edge to the ESIS field stop octagon edge at $s = 0$, the first Level-3 image sequence.
        	Also, $m_{i}$ is the slope of the vignetting field, for each channel $i$, and is a free parameter of the fit.
         In Equation \ref{eqn:vignet2},  $\alpha_i$ is the angle of rotation of each ESIS Level-3 image relative to a Level-1 image row.
