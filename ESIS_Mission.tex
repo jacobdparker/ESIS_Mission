@@ -112,17 +112,17 @@
 \section{Data} 
 
 	ESIS has captured a unique data set not  available from any other source.  
-	In addition, the type of data that ESIS has collected (e.g., so-called ``overlappograms'', where spatial and spectral information are overlapping) is not a data product that NASA has obtained for many decades.  Due to the uniqueness of this dataset, we have established some data processing that different users may find useful.
-	\jdp{Probably can't leave MOSES out of this Amy.}
+	In addition, the type of data that ESIS has collected (e.g., so-called ``overlappograms'', where spatial and spectral information are overlapping) is not a data product that NASA has regularly obtained through satellite observations for many decades.  Due to the uniqueness of this dataset, we have established some data processing that different users may find useful.
+	\jdp{Probably can't leave MOSES out of this Amy.} \amy{I fixed it.  Is MOSES data publicly available?  We could point to SR data sets that are overlappograms.  But now that I am thinking about it, EIS makes overlappograms when they use a slot, so maybe this isn't hte best point.  Just want to make the point that it is unique.... }
   
-    We have established four levels of data processing that are described in detail below.
+    We have established several levels of data processing that are described in detail below.
     Level-0 represents the raw data that was obtained by the four different cameras during flight.
-    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as a dark subtraction.  \amy{Is level 1 normalized?  What are the units?  Will Level 1 be publicly available?  Were the headers corrected for time and pointing?  Will despiking be applied to the publicly available data set?  We need to mention somewhere about the fact there were lots of spikes.}
+    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias and dark subtraction, gain correction, and de-spiking. 
     Level-2 data adds additional metadata to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions. 
-    Level-2 data is a necessary step toward our final data product, Level-4, but will not be further described here. \jdp{Do we need to say why?}
-    Instead, we seek a shortcut to interpretation of the ESIS data, Level-3, which allow for taking differences between images and simplified inversions.
+    Level-2 data is a necessary step toward inverted data products,  but will not be further described here because the results are model dependent. \amy{see, I feel like you could have a 1 paragraph subsection on Level 2 that discusses some of the important parameters but doesnt' give them.  I will take a crack at it.}
+    %Instead, we seek a shortcut to interpretation of the ESIS data, Level-3, which allow for taking differences between images and simplified inversions.
     Level-3 data is comprised of a single spectral line cropped from Level 1 data and mapped to the sky plane via a non-linear coordinate transform.
-    The highest level data product we envision providing, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion of the Level 2 data. Since inversion is not unique, there may be multiple Level 4 products obtained by different methods.  Level 4 data products will be described in future publications as they become available.  
+    The highest level data product we envision providing in the future, Level 4, is the intensity as a function of $[x, y , \lambda]$, which will be the result of an inversion of the Level 2 data. \amy{Does it have to be level 2 data?  I would stop previous sentence after inversion.} Since inversion is not unique, there may be multiple Level 4 products obtained by different methods.  Level 4 data products will be described in future publications as they become available.  
     Below each complete data level is explored in more detail.
     
     \subsection{Level 0 Data}
@@ -145,6 +145,8 @@
     	
     	A summary of the flight data parameters, as described in the preceding sections, is provided below in Table~\ref{tab:data_info}. 
     	
+    	\jdp{Normalize level-1 to account for atmospheric effects}
+    	
         The goal is to get a signal proportional to the number of photoelectons. 
         The result of the Level-1 process is the number of photoelectrons 
         The Level-1 dataset is a sequence of images derived from the Level-0 (raw) dataset.
@@ -163,6 +165,8 @@
        
 	       \cck{Seems like you have tried to write this a few different ways. Maybe starting with a sentence about the goal (signal proportional to photoelectrons), and then presenting an enumerated list of steps. Subsequent narrative can explain any procedures that aren't obvious or straightforward.}
 
+\subsection{Level 2 Data}
+Level-2 data is a necessary step toward inverted data products,  but will not be further described here because the results are model dependent. \amy{will work on this}
 
     \subsection{Level 3 Data}
  
@@ -273,7 +277,8 @@
 	
 	Early work with MOSES images has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  
 	It is for this reason that we have chosen to develop a spatially data product quickly that would allow us to take differences (Level-3 data).  
-	Simple events viewed in Level-3 difference images are easily interpretable with little insight into how the ESIS and therefore serve as a sanity check for more complicated inversions. 
+	Simple events viewed in Level-3 difference images are easily interpretable \amy{is this a word} with little insight into how the ESIS \amy{are you missing a word?} and therefore serve as a sanity check for more complicated inversions. 
+	\amy{suggested re-write for previous sentence:  Simple events viewed in Level 3 difference images can be understood qualitatively and therefore serve as a sanity check for more complicated inversions.}
 	
 	In the following subsections we will show a handful of events easily identifiable in the ESIS Level-3 difference images and explain how their presentation can be interpreted as a red/blue shift or line broadening.  
 	We will then demonstrate how simple inversions can be qualitatively validated by these interpretations and show progress toward inverting and interpreting the largest eruption captured by ESIS.
@@ -311,7 +316,7 @@
     	\begin{figure}[htb!]
     		\centering
     		\includegraphics{dif_events}
-    		\caption{An example of a red, blue, and broadened transient brightenings.}
+    		\caption{An example of a red, blue, and broadened transient brightenings. \jdp{Think about adding back in the camera 2 and 3 images}}
     		\label{fig:dif_events}
     	\end{figure}
     	
