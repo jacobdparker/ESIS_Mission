@@ -53,8 +53,6 @@
     
 	\subsection{Flight Performance} \label{sec:flt}
 
-	\amy{I will work on this section, but I would like to reference the figure with AIA 304 with the octogan.  Will you make that one?} \jdp{yes}
-
 
 % I don't think we need this.	
 %		\begin{center}
@@ -112,7 +110,7 @@
 				\begin{tabular}{ll | l l}\hline
 					Wavelength Range &   ???\,\AA\ \rts{max range??} & Image Size  & 2064$\times$1024\\
 					Launch Date & September 30, 2019 & Field of View  & $\approx 11.3$\arcmin octagonal \rts{\fov} \\
-					Data Acquisition Time & ??? - ??? \rts{\datastart--\datastop~UT} & Pointing   &  \approx (15\arcsec, -35\arcsec)  \\
+					Data Acquisition Time & ??? - ??? \rts{\datastart--\datastop~UT} & Pointing   &  $\approx$ (15\arcsec, -35\arcsec)  \\
 					Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
 					Camera Noise*: & & Exposure Time & 10\,s\\
 					\hspace{0.2in}NE Quad \rts{Ch1} & [?,?,?,?] DN \rts{\readnoiseI} & Light Data Set: &\\
@@ -217,8 +215,8 @@
    		\begin{equation}
 	   		I_q = I_{DN} * G_q * 3.6\ \frac{\SI{}{\electronvolt}}{\SI{}{\elementarycharge}} * \frac{\lambda}{hc}.
    		\end{equation}
-   		With an average quadrant gain, $G_q$, of \SI[per-mode=symbol]{2.56}{\elementarycharge\per\electronvolt}, a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \spetralline{O}{v}{627.8} photon of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon} gives each count in $DN \approxeq 0.46$ photons.
-   		Creating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
+n average quadrant gain, $G_q$, of \SI[per-mode=symbol]{2.56}{\elementarycharge\per\electronvolt}, a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \spetralline{O}{v}{627.8} photon of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon} gives each count in $DN \approxeq 0.46$ photons.
+reating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
    		Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment.
    		
    		The four ESIS channels were spatially co-aligned in two steps.  
