@@ -5,7 +5,15 @@
 \usepackage{natbib}
 \bibliographystyle{aasjournal}
 
+% https://tex.stackexchange.com/questions/192610/use-emulateapj-aastex-with-siunitx
+\usepackage{savesym}
+\savesymbol{tablenum}
+\usepackage{siunitx}
+\restoresymbol{SIX}{tablenum}
+\DeclareSIUnit{\photon}{\gamma}
+
 \begin{document}
+	\input{variables_rts}
     \input{ESIS_Mission}
 	\bibliography{ESIS_Mission,solar_instrument_papers}
 \end{document}

@@ -5,17 +5,29 @@
 \newcommand{\cck}[1]{{\color{brown} CCK: #1}} % CCK comment
 \newcommand{\amy}[1]{{\color{cyan} ARW: #1}} 
 
+% #1- element #2- ionization state #3 -wavelength in angstroms
+\newcommand{\spetralline}[3]{#1\,{\sc #2}\,#3\,\AA}
+
+
+
 \title{First Flight of the EUV Snapshot Imaging Spectrograph (ESIS)}
 
 \author{Jacob D. Parker}
-\author{Roy Smart}
-\author{Charles Kankelborg}
-\author{Amy Winebarger}
-\author{Nelson Goldsworth}
+%\author{Roy Smart}
+%\author{Charles Kankelborg}
+%\author{Amy Winebarger}
+%\author{Nelson Goldsworth}
 
 \begin{abstract}
     This is the abstract.
 \end{abstract} 
+
+\section{To Do List}
+	\begin{itemize}
+		\item Go through and clean up spectral lines with new command so they are all the same.
+	\end{itemize}
+
+
 
 \section{Introduction}
 	\begin{itemize}
@@ -25,7 +37,6 @@
             There is A LOT of this copied from the proposal into the instrument paper.  I think it needs to be lightly summarized here.
         \item Sections Outline
     \end{itemize}
-    
 
 \section{ESIS Mission}
     \begin{itemize}
@@ -67,15 +78,16 @@
 
 		\begin{figure}[ht]
 			\begin{center}
-				\includegraphics[width=0.7\textwidth]{figures/altevents.png}
-				\includegraphics[width=\textwidth]{figures/signal_and_altitude_vs_time}
+				\includegraphics{figures/signal_and_altitude_vs_time}
 				\caption{The altitude of the ESIS rocket determined from White Sands Missile Range radar data as a function of elapsed time from launch.  The event times listed in Table~\ref{tab:timeline} are labeled.}
 				\label{fig:timeline}
 			\end{center}
 		\end{figure}
 
 
-		ESIS was launched at 18:04:00~UTC on September 30, 2019 from White Sands Missile Range.  The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  For ???\,s, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. % Because the time on the Hi-C onboard DACS drifts, an adjustment of 126\,s was applied to all data headers in post-processing. 
+		ESIS was launched at 18:04:00~UTC on September 30, 2019 from White Sands Missile Range.  
+		The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  
+		For ???\,s, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. 
 		Table~\ref{tab:timeline} provides the timeline of the ESIS rocket flight. Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements.  The events given in Table~\ref{tab:timeline} and the approximate height at which they occurred are indicated in this figure.
 
 
@@ -87,8 +99,8 @@
 		
 		\begin{figure}[ht]
 			\begin{center}
-%				\includegraphics[width=0.7\textwidth]{}
-				\caption{The reference AIA 304\,\AA\ data taken at ???~UT, which was used for determining the absolute pointing. The octagon indicates the ESIS FOV.}
+				\includegraphics{esis_pointing}
+				\caption{The reference AIA 304\,\AA\ data taken at 18:08:53~UT, which was used for determining the absolute pointing. The octagon indicates the ESIS FOV.}
 				\label{fig:fov}
 			\end{center}
 		\end{figure}
@@ -98,16 +110,16 @@
 				\caption{ESIS Flight Data Summary (*Solar coordinates; solar north at top of frame.)}
 				\label{tab:data_info}
 				\begin{tabular}{ll | l l}\hline
-					Wavelength Range &   ???\,\AA\  & Image Size  & 2064$\times$1024\\
-					Launch Date & September 30, 2019 & Field of View  & $\approx 11.3$\arcmin octagonal \\
-					Data Acquisition Time & ??? - ??? & Pointing  & (15\arcsec, -35\arcsec)$\pm .3$\arcsec \jdp{???}  \\
+					Wavelength Range &   ???\,\AA\ \rts{max range??} & Image Size  & 2064$\times$1024\\
+					Launch Date & September 30, 2019 & Field of View  & $\approx 11.3$\arcmin octagonal \rts{\fov} \\
+					Data Acquisition Time & ??? - ??? \rts{\datastart--\datastop~UT} & Pointing   &  \approx (15\arcsec, -35\arcsec)  \\
 					Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
 					Camera Noise*: & & Exposure Time & 10\,s\\
-					\hspace{0.2in}NE Quad & [?,?,?,?] DN & Light Data Set: &\\
-					\hspace{0.2in}NW Quad & [?,?,?,?] DN & \hspace{0.2in}No. of Images & 29\\
-					\hspace{0.2in}SE Quad  & [?,?,?,?] DN & &\\
-					\hspace{0.2in}SW Quad  & [?,?,?,?] DN & Dark Data Set & \\
-					Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ &  \hspace{0.2in}No. of Images & ? \\
+					\hspace{0.2in}NE Quad \rts{Ch1} & [?,?,?,?] DN \rts{\readnoiseI} & Light Data Set: &\\
+					\hspace{0.2in}NW Quad \rts{Ch2} & [?,?,?,?] DN \rts{\readnoiseII} & \hspace{0.2in}No. of Images & 29 \rts{\numdataframes (probably wrong)}\\
+					\hspace{0.2in}SE Quad \rts{Ch3} & [?,?,?,?] DN \rts{\readnoiseIII} & &\\
+					\hspace{0.2in}SW Quad \rts{Ch4} & [?,?,?,?] DN \rts{\readnoiseIV} & Dark Data Set & \\
+					Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ \rts{\platescalex, \platescaley}&  \hspace{0.2in}No. of Images & ? \rts{\numdarkframes} \\
 					\hline
 				\end{tabular}
 			\end{table}
@@ -119,17 +131,22 @@
 \section{Data} 
 
 	ESIS has captured a unique data set not  available from any other source.  
-	In addition, the type of data that ESIS has collected (e.g., so-called ``overlappograms'', where spatial and spectral information are overlapping) is not a data product that NASA has obtained for many decades.  Due to the uniqueness of this dataset, we have established some data processing that different users may find useful.
-	\jdp{Probably can't leave MOSES out of this Amy.}
+	In addition, the type of data that ESIS has collected (e.g., so-called ``overlappograms'', where spatial and spectral information are overlapping) is not a data product that NASA has regularly obtained through satellite observations for many decades.  Due to the uniqueness of this dataset, we have established some data processing that different users may find useful.
+	\jdp{Probably can't leave MOSES out of this Amy.} \amy{I fixed it.  Is MOSES data publicly available?  We could point to SR data sets that are overlappograms.  But now that I am thinking about it, EIS makes overlappograms when they use a slot, so maybe this isn't hte best point.  Just want to make the point that it is unique.... }
   
-    We have established four levels of data processing that are described in detail below.
+    We have established several levels of data processing that are described in detail below.
     Level-0 represents the raw data that was obtained by the four different cameras during flight.
-    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias subtraction and gain correction, as well as a dark subtraction.  \amy{Is level 1 normalized?  What are the units?  Will Level 1 be publicly available?  Were the headers corrected for time and pointing?  Will despiking be applied to the publicly available data set?  We need to mention somewhere about the fact there were lots of spikes.}
-    Level-2 data adds additional metadata to the Level 1 data, including a non-linear and wavelength dependent mapping from detector to field stop for use in inversions. 
-    Level-2 data is a necessary step toward our final data product, Level-4, but will not be further described here. \jdp{Do we need to say why?}
+    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias and dark subtraction and gain correction. 
+    Level-2 data will be corrected for atmospheric absorption and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
+    It will also be despiked, and contain a mask with the original data values for each corrected pixel for future respiking.
+    The coefficients of a non-linear and wavelength dependent coordinate mapping from detector to solar coordinates will also be included. 
+    Level-2 data is a necessary step toward inverted data products,  but will not be further described here because the results are model dependent and in development. \amy{see, I feel like you could have a 1 paragraph subsection on Level 2 that discusses some of the important parameters but doesnt' give them.  I will take a crack at it.}
     Instead, we seek a shortcut to interpretation of the ESIS data, Level-3, which allow for taking differences between images and simplified inversions.
     Level-3 data is comprised of a single spectral line cropped from Level 1 data and mapped to the sky plane via a non-linear coordinate transform.
-    The highest level data product we envision providing, Level 4, is an $[x, y , \lambda]$ data cube, which is the result of an inversion of the Level 2 data. Since inversion is not unique, there may be multiple Level 4 products obtained by different methods.  Level 4 data products will be described in future publications as they become available.  
+    The highest level data product we envision providing in the future, Level 4, is the intensity as a function of $[x, y , \lambda]$, which will be the result of an inversion.
+    % of the Level 2 data. \amy{Does it have to be level 2 data?  I would stop previous sentence after inversion.} 
+    Since inversion is not unique, there may be multiple Level 4 products obtained by different methods.  
+    Level 4 data products will be described in future publications as they become available.  
     Below each complete data level is explored in more detail.
     
     \subsection{Level 0 Data}
@@ -142,6 +159,7 @@
 
     
     \subsection{Level 1 Data}
+        \jdp{Don't forget to say something about tossing out the first two ESIS frames.}
 	    \jdp{Moving Amy's comment about atmospheric absorption to this section.  Roy already has some nice plots of this and it can likely be discussed in a section explaining dark selection?}
 	    
   
@@ -150,6 +168,7 @@
     	
     	
     	A summary of the flight data parameters, as described in the preceding sections, is provided below in Table~\ref{tab:data_info}. 
+    	
     	
         The goal is to get a signal proportional to the number of photoelectons. 
         The result of the Level-1 process is the number of photoelectrons 
@@ -169,6 +188,9 @@
        
 	       \cck{Seems like you have tried to write this a few different ways. Maybe starting with a sentence about the goal (signal proportional to photoelectrons), and then presenting an enumerated list of steps. Subsequent narrative can explain any procedures that aren't obvious or straightforward.}
 
+	\subsection{Level 2 Data}
+	Level-2 data is a necessary step toward inverted data products,  but will not be further described here because the results are model dependent. \amy{will work on this}
+	\jdp{If we are going to have a subsection for these other levels, we should say less about them under "Data" and just copy what is explained there to here.}
 
     \subsection{Level 3 Data}
  
@@ -193,9 +215,9 @@
    		Since each ESIS CCD has a quadrant specific gain \citep{ESIS}, the conversion from DN to photon is done to Level 1 data prior to co-alignment efforts.
    		The intensity in photons for each quadrant, $I_q$, then becomes,
    		\begin{equation}
-	   		I_q = I_{DN} * Gain_q * 3.6\ \frac{eV}{e^{-}} * \frac{\lambda}{hc}.
+	   		I_q = I_{DN} * G_q * 3.6\ \frac{\SI{}{\electronvolt}}{\SI{}{\elementarycharge}} * \frac{\lambda}{hc}.
    		\end{equation}
-   		With an average quadrant gain, $Gain_q$, of $2.56\ electron\ eV^{-1}$, a Silicon band gap energy of $3.6\ eV\ electron^{-1}$, and $19.6\ eV\ photon^{-1}$ each count in $DN \approxeq 0.46$ photons in O V 627.8 \AA .
+   		With an average quadrant gain, $G_q$, of \SI[per-mode=symbol]{2.56}{\elementarycharge\per\electronvolt}, a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \spetralline{O}{v}{627.8} photon of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon} gives each count in $DN \approxeq 0.46$ photons.
    		Creating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
    		Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment.
    		
@@ -203,10 +225,10 @@
    		First, each ESIS image is roughly cropped around the desired spectral line and then co-aligned to the closest AIA 304\,\AA\ image in time.
    		This rough cropping is why there is a remnant of the adjacent Mg {\sc x} 609.8 \AA \ spectral line in the bottom left corner of Figure \ref{fig:coalign}a.
    		AIA 304 was chosen because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
-   		Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{update\_pointing.py} and \texttt{register.py} \citep{aiapy}.
-   		The co-alignment was achieved through a linear transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
+   		Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{aiapy.calibrate.update\_pointing()} and \texttt{aiapy.calibrate.register.py}  \citep{aiapy}.
+   		The co-alignment was achieved through a linear coordinate transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
    		Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $0.45$.
-   		After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS information from AIA Level 1.5 providing pointing information and easier co-alignment with other instruments.
+   		After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS \rts{Do we have a WCS citation anywhere?}\jdp{I'll look for this.} information from AIA Level 1.5 providing pointing information and easier co-alignment with other instruments.
 
     	Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
     	Using a single ESIS channel as reference, in this case Camera 2, each other camera is co-aligned to it via a quadratic coordinate transformation that maximizes the zero-lag cross-correlation. 
@@ -214,7 +236,7 @@
     	Examining the cross-correlation ratio of each camera pair shows a less than 1 percent improvement in peak correlation Figure \ref{fig:cc}, demonstrating the subtle non-linearity of the ESIS optical distortion function.
     	In pixels, this corresponds to an average change in mapping of \jdp{\textbf{FIND THIS}}.
     	
-    	\begin{figure}[htb!]
+     	\begin{figure}[htb!]
     		\centering
     		\includegraphics{internal_align.pdf}
     		\caption{For each ESIS exposure (or image sequence) every channel pair, labeled in the legend, is cross-correlated to measure internal alignment quality.  The ratio of zero lag cross-correlation after a quadratic transformation to that of a linear transformation is plotted.  Every point being above the ratio = 1 line indicates improved internal alignment for every combination of ESIS channels for each image sequence.}
@@ -238,9 +260,10 @@
         \end{equation}
        	where,
        	\begin{equation}
-        	r = x_0 + [cos(\alpha_i)(x-x_0-x_{drift}*s) - sin(\alpha_i)(y-y_0-y_{drift}*s)].
+       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\text{drift}}*s) - \sin(\alpha_i)(y-y_0-y_{\text{drift}}*s)].
         	\label{eqn:vignet2}
        	\end{equation}
+       	
        	In Equation \ref{eqn:vignet}, $r_0$ is equal to 65 pixels, and represents the distance from the Level-3 image edge to the ESIS field stop octagon edge at $s = 0$, the first Level-3 image sequence.
        	Also, $m_{i}$ is the slope of the vignetting field, for each channel $i$, and is a free parameter of the fit.
         In Equation \ref{eqn:vignet2},  $\alpha_i$ is the angle of rotation of each ESIS Level-3 image relative to a Level-1 image row.
@@ -252,10 +275,11 @@
         	\centering
         	\includegraphics{mgx_overlap.pdf}
         	\caption{The red hashed region shows the overlap of the Mg {\sc x} 609.8 \AA \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in and attempt to bring out the subtle contamination.  The outline of the Mg {\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
+
         	\label{fig:mgx_overlap}
         \end{figure}
         
-        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from Mg {\sc x} 609.8 \AA.
+        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from \spetralline{Mg}{x}{609.8}.
         The four channels of ESIS give 6 possible difference images for fitting the vignetting function for each image sequence $s$. 
         For each difference image we take a mean of each column and fit a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
         When the average slope of all 156 fits (6 difference images per each of the 26 exposures) is minimized we consider the vignetting corrected. 
@@ -272,16 +296,13 @@
 
 \section{Preliminary Results}
 
-	
-	Early work with MOSES images has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  
-	It is for this reason that we have chosen to develop a spatially co-aligned data product quickly that would allow us to take differences between each ESIS channel, the Level-3 data.  
-	
-	In the following subsections we will show a handful of events easily identifiable in the ESIS Level-3 difference images and explain how their presentation can be interpreted as a red/blue shift or line broadening.  
-	We will then demonstrate how simple inversions can be qualitatively validated by these interpretations and show progress toward inverting and interpreting the largest eruption captured by ESIS.
+	In the following subsections we will show a handful of events in the ESIS Level-3 difference images and explain how their presentation can be qualitatively interpreted as a red/blue shift or line broadening.  
+	We will then demonstrate how our inversions can be qualitatively validated by these interpretations and show progress toward inverting and interpreting the largest eruption captured by ESIS.
 	
     \subsection{Level-3 Difference Images}
-    	
-    	Each ESIS channel disperses solar features in a different direction relative to solar north, determined by the azimuthal position of each grating.
+    	Early work with MOSES images has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  
+    	It is for this reason that we have chosen to develop a spatially co-aligned data product quickly that would allow us to take differences between each ESIS channel, the Level-3 data.
+    	Somce each ESIS channel disperses solar features in a different direction relative to solar north, determined by the azimuthal position of each grating.
     	The positive dispersion direction in each Level-3 image is indicated with an arrow in Figure \ref{fig:mgx_overlap}.
     	Since each feature is dispersed a different direction in each channel, taking the difference between two spatially aligned channels leave only intensity away from the spectral line core.
     	For our initial analysis, we focus on the dominant O {\sc v} 629.7 \AA \ spectral line in the ESIS passband.
@@ -308,24 +329,27 @@
     	This is effect is explored in great detail by \citet{Rust2019}, who sliced through these small events along the dispersion direction and measured line profiles.
     	
     	Due to the relative orientation of each ESIS channel's dispersion axis, taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.
-    	For example, the top panel of Figure \ref{fig:dif_events} shows a V-shaped event that is pointed downward in the difference between the Camera 2 and Camera 3 Level-3 image.
+    	For example Figure \ref{fig:dif_events}a shows a V-shaped event that is pointed downward in the difference between the Camera 2 and Camera 3 Level-3 image.
     	Since we know that the direction of positive wavelength dispersion is up and to the right in Camera 2 and up and to the left in Camera 3 (Figure \ref{fig:mgx_overlap}) we immediately know that this event is predominantly blue shifted.
     	For opposite reasons, a upward facing V-shaped event, like in the middle panel of Figure \ref{fig:dif_events}, is predominantly red shifted.
     	X-shaped events, seen in the bottom panel of Figure \ref{fig:dif_events}, that occur equally if not more frequently than V-shaped events, indicate significant line broadening.
     	While this gives us a quick and qualitative understanding of a simple event, even the smallest amount of spatial extent in a given feature leads to an entanglement of spatial and spectral information making it very difficult to derive qualitative velocities without inversion. 
-    		
+    	
+    	\begin{figure}[htb!]
+    		\includegraphics{main_event}
+    		\centering
+    		\caption{The largest eruption captured by ESIS shown at three different times. The event starts with a bidirectional flow with slight spatial separation, evolves into a strong red shift }
+    		\label{fig:main_event}
+    	\end{figure}
+		
     	While ESIS images are littered with these simple point-like events, we also captured a handful spatially extended objects that are more difficult to interpret.
-    	The most obvious of these is a much larger eruption near disk center, event 4 in Figure \ref{fig:main_event}.
+    	The most obvious of these is a much larger eruption near disk center, event d in Figure \ref{fig:l3_dif}.
     	In difference images of this event (Figure \ref{fig:main_event}) we see a mess of positive and negative features intertwined in the brightest section that sometimes present as a V or X shape, but not always, and evolve significantly in time.
     	There is also and imprint of fainter differences above the brightest knot of intensity showing motion along a spatially extended structure, likely from material being ejected from the eruption site.
     	Dynamic and spatially extended events are excellent opportunities for ESIS to shine and clearly demonstrate the need for many different projection angles (ESIS channels) if we hope to disentangle spatial information from spectra.
     	Despite the extra complexity, an understanding of ESIS difference images provides an excellent sanity check when interpreting future inversions.
     	
-    	\begin{figure}[htb!]
-    		\centering
-    		\caption{Differences between ESIS Camera 2 and 3 at several points throughout the event evolution demonstrating the complexity of the event, but also areas that can be interpreted more simply}
-    		\label{fig:main_event}
-    	\end{figure}
+    
     	
     	Larger positive or negative features with no obvious counterpart nearby, are indicative of extra spectral content \citep{RustPhD,Parker2021}.
     	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
