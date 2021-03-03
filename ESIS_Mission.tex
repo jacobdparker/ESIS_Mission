@@ -194,7 +194,7 @@ Level-2 data is a necessary step toward inverted data products,  but will not be
 	   		I_q = I_{DN} * Gain_q * 3.6\ \frac{eV}{e^{-}} * \frac{\lambda}{hc}.
    		\end{equation}
    		\rts{Can we use a single letter for variable names? Right now it looks like $G \times a \times i \times n_q$ to me.}
-   		With an average quadrant gain, $Gain_q$, of $2.56\ electron\ eV^{-1}$ \rts{\SI[per-mode=symbol]{2.56}{\elementarycharge\per\electronvolt}}, a Silicon band gap energy of $3.6\ eV\ electron^{-1}$ \rts{\SI{3.6}{\electronvolt\per\elementarycharge}}, and $19.6\ eV\ photon^{-1}$ \rts{\SI[per-mode=symbol]{19.6}{\electronvolt\per\photon}} each count in $DN \approxeq 0.46$ photons in O V 627.8 \AA .
+   		With an average quadrant gain, $Gain_q$, of $2.56\ electron\ eV^{-1}$ \rts{\SI{2.56}{\elementarycharge\per\electronvolt}}, a Silicon band gap energy of $3.6\ eV\ electron^{-1}$ \rts{\SI{3.6}{\electronvolt\per\elementarycharge}}, and $19.6\ eV\ photon^{-1}$ \rts{\SI{19.6}{\electronvolt\per\photon}} each count in $DN \approxeq 0.46$ photons in O V 627.8 \AA .
    		Creating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
    		Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment.
    		
@@ -241,7 +241,7 @@ Level-2 data is a necessary step toward inverted data products,  but will not be
         	\label{eqn:vignet2}
        	\end{equation}
        	\rts{\begin{equation}
-       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\text{drift}}*s) - \sin(\alpha_i)(y-y_0-y_{\text{drift}}*s)].
+       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\mathrm{drift}}*s) - \sin(\alpha_i)(y-y_0-y_{\mathrm{drift}}*s)].
        		\end{equation}}
        	In Equation \ref{eqn:vignet}, $r_0$ is equal to 65 pixels, and represents the distance from the Level-3 image edge to the ESIS field stop octagon edge at $s = 0$, the first Level-3 image sequence.
        	Also, $m_{i}$ is the slope of the vignetting field, for each channel $i$, and is a free parameter of the fit.
