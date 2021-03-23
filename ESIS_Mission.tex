@@ -156,7 +156,7 @@
 	    These images were processed into Level 1 data.  
 
     
-    \subsection{Level 1 Data}
+    \subsection{Level-1 Data}
         \jdp{Don't forget to say something about tossing out the first two ESIS frames.}
 	    \jdp{Moving Amy's comment about atmospheric absorption to this section.  Roy already has some nice plots of this and it can likely be discussed in a section explaining dark selection?}
 	    
@@ -167,24 +167,23 @@
     	
     	A summary of the flight data parameters, as described in the preceding sections, is provided below in Table~\ref{tab:data_info}. 
     	
+    	The Level-1 dataset contains each channel's image sequence in units of photoelectrons.
+    	Our procedure to convert from Level-0 to Level-1 is as follows:
     	
-        The goal is to get a signal proportional to the number of photoelectons. 
-        The result of the Level-1 process is the number of photoelectrons 
-        The Level-1 dataset is a sequence of images derived from the Level-0 (raw) dataset.
-        The images in this dataset have had camera-level effects such as pedestal, gain, and dark current removed.
-        Also, the images in this dataset have had the 
-        Camera-level effects such as pedestal, gain, dark current, and light-insensitive pixels have been removed from the images in this dataset.
-        The images 
-        This dataset removes camera-level effects from the Level-0 dataset such as pedestal, gain, dark current and light-insensitive pixels (such as overscan pixels).
-        
-        
-        Also, Level-1 images have the light-insensitive pixels (such as the overscan pixels) removed 
-    
-        The goals of the Level-1 dataset are to remove camera-level effects (pedestal, gain, and dark current), trim light insensitive pixels, and to remove spikes. to prepare for the images for coalignment.
-    
-       Raw ESIS data (Figure \ref{fig:Level0}) must first be corrected for quadrant dependant gain and bias, have overscan and blank pixels removed, and be dark subtracted prior to further analysis.
-       
-	       \cck{Seems like you have tried to write this a few different ways. Maybe starting with a sentence about the goal (signal proportional to photoelectrons), and then presenting an enumerated list of steps. Subsequent narrative can explain any procedures that aren't obvious or straightforward.}
+    	\begin{enumerate}
+    	    \item Calculate the bias of each quadrant of each image by taking the median of 
+    	    columns 21-50 of each quadrant. Columns 1-50 are blank pixels, and are insensitive to light. We didn't consider the first 20 columns of blank pixels since they were not as well-behaved as the rest of the columns.
+    	    \item Subtract the bias from every quadrant of every image in the dataset.
+    	    \item Identify the dark images as images taken before the shutter door opens or after the parachute deploys.
+    	    The reason for waiting until after the parachute deploys is that the atmospheric splashdown causes contamination on some of the images that would otherwise be considered darks.
+    	    \item Create a master dark for each channel by taking the median along the time axis of all the dark images.
+    	    \item Identify the data images as the images where the RLG is enabled and SPARCS is in fine mode.
+    	    \item Subtract the master dark from each data image.
+    	    \item Crop each image to remove the light-insensitive pixels.
+    	    \item Convert images from adu to electrons by multiplying each quadrant of each image by the gain for that quadrant (measured before flight at MSFC).
+    	\end{enumerate}
+    	
+	In addition to the images, the Level-1 dataset also stores the time, exposure length, and altitude associated with each image.
 
 	\subsection{Level 2 Data}
 	Level-2 data is a necessary step toward inverted data products,  but will not be further described here because the results are model dependent. \amy{will work on this}
@@ -315,7 +314,9 @@
  		\begin{figure}[htb!]
    			\centering
    			\includegraphics{dif_events}
-   			\caption{Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened event respectively. The both the difference between Camera 2 and 3, and their straight intensities are included to show intensity at line center, and off.}
+   			\caption{Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened event respectively. The both the difference between Camera 2 and 3, and their straight intensities are included to show intensity at line center, and off.
+   			    \rts{You should share y-axes to save space here I think.}
+   			}
    			\label{fig:dif_events}. 
    		\end{figure}
 
@@ -377,14 +378,14 @@
 \appendix
 \section{Multiplicative Algebraic Reconstruction Technique}\label{MART}
 	\jdp{Now that this is floating more, I'll need to add a few things about MART and why it is attractive for this type of problem.}
-	SMART adds an additional smoothing step to a simple MART applied in the past to limited-angle tomography problems like ours \citep{Okamoto1991,Verhoeven1993}.
+	MART adds an additional smoothing step to a simple MART applied in the past to limited-angle tomography problems like ours \citep{Okamoto1991,Verhoeven1993}.
 	When testing a variety of inversion methods on MOSES data \citet{FoxPhD} identified MART as most promising of several methods in terms of speed and fidelity.
 	\citet{RustPhD} applied a slightly different version of MART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
 	
 	With MART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image or projection, $f_{\theta x'y'}$,=. There is one ESIS image for each $\theta$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
 	\begin{enumerate}
 		\item \label{step:guess} Create a guess cube, $G_{xy\lambda} = 1$ on the same domain as $I$. 
-		\item \label{step:contrast} Enhance the contrast of $G$ and normalize \jdp{no idea why there is an extra G + in here ...}, 
+		\item \label{step:contrast} Enhance the contrast of $G$ and normalize. 
 			\begin{equation}
 				G \leftarrow \frac{G+G^{(1+\Psi)}}{\sum_{xy\lambda}G+G^{(1+\Psi)}}\sum_{xy\lambda}G, 
 			\end{equation}
