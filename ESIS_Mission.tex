@@ -293,9 +293,8 @@
   
 
 \section{Preliminary Results}
-
-	In the following subsections we will show a handful of events in the ESIS Level-3 difference images and explain how their presentation can be qualitatively interpreted as a red/blue shift or line broadening.  
-	We will then demonstrate how our inversions can be qualitatively validated by these interpretations and show progress toward inverting and interpreting the largest eruption captured by ESIS.
+	
+	jdp{I don't know what to put here ...}
 	
     \subsection{Level-3 Difference Images}
     	Early work with MOSES images has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  
@@ -342,24 +341,52 @@
 		
     	While ESIS images are littered with these simple point-like events, we also captured a handful spatially extended objects that are more difficult to interpret.
     	The most obvious of these is a much larger eruption near disk center, event d in Figure \ref{fig:l3_dif}.
-    	In difference images of this event (Figure \ref{fig:main_event}) we see a mess of positive and negative features intertwined in the brightest section that sometimes present as a V or X shape, but not always, and evolve significantly in time.
-    	There is also and imprint of fainter differences above the brightest knot of intensity showing motion along a spatially extended structure, likely from material being ejected from the eruption site.
+    	This large event is shown at three times in Figure \ref{fig:main_event}
+    	In difference images (left column) there is a mess of positive and negative features intertwined in the brightest portion of the event that sometimes present as a V or X shape, but not always, and evolve significantly in time.
+    	The top row shows this event early in it's evolution. 
+    	Intensity is concentrated to a small region and presents as two jets, one red and one blue, with a slight spatial separation.
+    	Shortly after (middle row) the event is dominated by a significant red shift (upward facing V) at the location of initial brightening, 
+    	There is also an imprint of fainter differences above the brightest knot of intensity showing motion along a spatially extended structure.
+    	The difference in this faint structure is opposite in polarity to the intensity below, and therefore appears to be ejected blue shifted material from the site of initial brightening.
+    	By the end of the event (bottom row), the dominate red shift subsides, leaving a complicated spectral signature and the brightest portion of the event, and in adjacent region up and to the left.  
     	Dynamic and spatially extended events are excellent opportunities for ESIS to shine and clearly demonstrate the need for many different projection angles (ESIS channels) if we hope to disentangle spatial information from spectra.
     	Despite the extra complexity, an understanding of ESIS difference images provides an excellent sanity check when interpreting future inversions.
     	
     
-    	
     	Larger positive or negative features with no obvious counterpart nearby, are indicative of extra spectral content \citep{RustPhD,Parker2021}.
     	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
-    	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	
-    
+    	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	 
     
     
     \subsection{Early Inversions}
     	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
     	For out preliminary inversions of ESIS Level-3 data we have chosen to use a Multiplicative Algebraic Reconstruction Technique (MART).
     	MART is attractive for our first inversions because it is fast, requires no training or assumptions about the data, and automatically enforces image  positivity.
-    	We describe out particular implementation in more detail in Appendix \ref{MART}.
+    	We describe our particular implementation in more detail in Appendix \ref{MART}.
+    	
+    	\begin{figure}[htb!]
+    		%    		\includegraphics{main_event}
+    		\centering
+    		\caption{}
+    		\label{fig:perfect_x_inverted}
+    	\end{figure}
+    	
+    	The first event we inverted is the broadened event highlighted in Figure \ref{fig:dif_events}c due it's compact nature, strong spectral signature, and interesting temporal evolution.
+    	The brightening begins at 18:06:31 UT and is gone at 18:10:01 UT.
+    	Early and late in it's temporal evolution it has no measurable Doppler velocity.
+    	By 18:07:11 a shifted line profile, peaked around 50 km/s and heavily skewed dominated the line profile. 
+    	The red wing of the distribution develops a second peak at about half the intensity of the blue wing, with a maximum velocity of over 100 km/s.
+    	Throughout the four minutes of the event is visible, the line profile evolves significantly at the ESIS ten second cadence.
+    	This is especially noticeable in the red wing, that peaks, flickers several times, and then subsides leaving the blue wing.
+    	This is clearly visible in both the MART inversion and the presentation in the difference images.
+    	Summing the inverted intensity in lambda shows no notable spatial structure.
+    	
+    	
+    	
+
+    	
+    	
+    	
     	
     	
     	
