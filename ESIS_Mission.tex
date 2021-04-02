@@ -6,7 +6,9 @@
 \newcommand{\amy}[1]{{\color{cyan} ARW: #1}} 
 
 % #1- element #2- ionization state #3 -wavelength in angstroms
-\newcommand{\spetralline}[3]{#1\,{\sc #2}\,#3\,\AA}
+\newcommand{\spectralline}[3]{#1\,{\sc #2}\,#3\,\AA \,}
+\newcommand{\ov}{\spectralline{O}{v}{627.8}}
+\newcommand{\mgxbright}{\spectralline{Mg}{x}{609.8}}
 
 
 
@@ -19,13 +21,14 @@
 %\author{Nelson Goldsworth}
 
 \begin{abstract}
-    This is the abstract.
+  	The Extreme Ultraviolet Snapshot Imaging Spectragraph (ESIS) was launched on board a sounding rocket from White Sands Missle Range on September 30 th, 2019.
+  	ESIS is a slittless spectrograph designed to capture both spectral and spatial information simultaneously over a large field of view.
+  	We present the initial preparation of this unique data set, how it can be interpreted qualitatively with little effort, and some initial inversions of the data.
+  	Using a Multiplicative Algebraic Reconstruction technique we are able to combine information from all four ESIS channels into a single spatial-spectral cube at ever exposure.
+  	We analyze two small explosive events in the \ov spectral line with jets  near $\pm$100 km/s that evolve on 10 s time scales and have significant spatial distribution.
+  	In it's short 5 minutes of observing time ESIS captured tens of the small events across its $\approx$11' field of view, as well as several larger extended eruptions, demonstrating its advantage over traditional slit spectrogprahs in capturing spectral line profiles over a large field of view.
+  	
 \end{abstract} 
-
-\section{To Do List}
-	\begin{itemize}
-		\item Go through and clean up spectral lines with new command so they are all the same.
-	\end{itemize}
 
 
 
@@ -38,41 +41,21 @@
         \item Sections Outline
     \end{itemize}
 
-\section{ESIS Mission}
-    \begin{itemize}
-        \item Brief description of the instrument, mostly pointing to the instrument paper.  Describe ESIS enough so that the data levels make sense. Need to consult the instrument paper to see what fits here. 
-        \item ESIS Flight info.  Time, airtime, pointing, stability, etc.  Suggestions welcome here.
-        \item Summary of Coordinated Data????
-    \end{itemize}
+\section{ESIS}
+
     
 	\subsection{The Experiment}
+	  	ESIS is a slittless spectrograph consisting of a single parabolic primary mirror, and octagonal field stop and 4 concave diffraction gratings that each focus onto their own CCD.
 		ESIS gathers an image in each of its four detectors (channels) during every exposure.  
-		Each channel is identical, with its own grating and detector. They are arrayed at $45^{\circ}$ increments about the axis of symmetry of the paraboloidal primary mirror. ESIS has 4 channels currently, but is built to accommodate up to 6 (limited by interference with the optical bench).
+		Each channel is identical, with its own grating and detector. 
+		They are arrayed at $45^{\circ}$ increments about the axis of symmetry of the paraboloidal primary mirror such that each channel disperses the solar image a different direction. ESIS has 4 channels currently, but is built to accommodate up to 6 (limited by interference with the optical bench).
 		
-		\amy{ Would not say the channels are identical, or would say identical except that they each disperse the solar image with different angles relative to solar north.  Maybe add an image like the one from Charles talk with AIA + octagon and the four detectors with dispersion axes/solar north location marked. People won't read the instrument paper.} 
+
     
-	\subsection{Flight Performance} \label{sec:flt}
+	\subsection{Mission} 
 
 
-% I don't think we need this.	
-%		\begin{center}
-%			\begin{table}[ht]
-%				\caption{ESIS Flight Event Timeline (September 30, 2019)}
-%				\label{tab:timeline}
-%				\begin{tabular}{lll}\hline
-%					{\bf} & {\bf Event} & {\bf Time (UTC)}\\ \hline
-%					0 & Launch        &    ???? \\
-%					1 & Start Dark Exposures  &  ????\\
-%					2 & End Dark  Exposures  &  ????\\
-%					3 & Shutter Door Open     &   ??? \\
-%					4 & Fine Pointing    &    \\
-%					& [Ring Laser Gyroscope (RLG) Enable] & ???\\
-%					5 & Data Acquisition     &     ???\\
-%					6 & Shutter door close    &   ??? \\ \hline
-%				\end{tabular}
-%			\end{table}
-%		\end{center}
-	
+
 
 		\begin{figure}[ht]
 			\begin{center}
@@ -84,12 +67,11 @@
 
 
 		ESIS was launched at 18:04:00~UTC on September 30, 2019 from White Sands Missile Range.  
-		The target of observation was quiet sun at disk center.  The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  
+		The target of observation was quiet sun at disk center.  
+		The Solar Pointing and Aerobee Control System (SPARCS) maintained a constant target for the duration of the flight.  
 		For ???\,s, ESIS recorded full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence. 
 		Table~\ref{tab:timeline} provides the timeline of the ESIS rocket flight. Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements.  The events given in Table~\ref{tab:timeline} and the approximate height at which they occurred are indicated in this figure.
 
-
-	\subsection{Pointing} \label{sec:point}
 		September 30th, 2019 was a very quiet day on the sun.  
 		In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7th 2019 \jdp{I couldn't believe I had to go back so far so check me on this}.  
 		Because of this exceptionally quiet period on the sun we chose to point at disk center, in order to minimize projection effects.  
@@ -114,7 +96,7 @@
 					Camera Gain &   [4 cameras]$2.5 \pm 0.02$\,elec DN$^{-1}$ & Roll & $??? \pm ???^\circ$ CW \\
 					Camera Noise*: & & Exposure Time & 10\,s\\
 					\hspace{0.2in}NE Quad \rts{Ch1} & [?,?,?,?] DN \rts{\readnoiseI} & Light Data Set: &\\
-					\hspace{0.2in}NW Quad \rts{Ch2} & [?,?,?,?] DN \rts{\readnoiseII} & \hspace{0.2in}No. of Images & 29 \rts{\numdataframes (probably wrong)}\\
+					\hspace{0.2in}NW Quad \rts{Ch2} & [?,?,?,?] DN \rts{\readnoiseII} & \hspace{0.2in}No. of Images & \rts{\numdataframes (probably wrong)}\\
 					\hspace{0.2in}SE Quad \rts{Ch3} & [?,?,?,?] DN \rts{\readnoiseIII} & &\\
 					\hspace{0.2in}SW Quad \rts{Ch4} & [?,?,?,?] DN \rts{\readnoiseIV} & Dark Data Set & \\
 					Plate Scale  & 0.??\arcsec\ pixel$^{-1}$ \rts{\platescalex, \platescaley}&  \hspace{0.2in}No. of Images & ? \rts{\numdarkframes} \\
@@ -214,7 +196,7 @@
    		\begin{equation}
 	   		I_q = I_{DN} * G_q * 3.6\ \frac{\SI{}{\electronvolt}}{\SI{}{\elementarycharge}} * \frac{\lambda}{hc}.
    		\end{equation}
-		With an average quadrant gain, $G_q$, of \SI[per-mode=symbol]{2.56}{\elementarycharge\per\electronvolt}, a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \spetralline{O}{v}{627.8} photon of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon} gives each count in $DN \approxeq 0.46$ photons.
+		With an average quadrant gain, $G_q$, of \SI[per-mode=symbol]{2.56}{\elementarycharge\per\electronvolt}, a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \ov photon of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon} gives each count in $DN \approxeq 0.46$ photons.
 		Creating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
    		Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment.
    		
@@ -266,7 +248,7 @@
         In Equation \ref{eqn:vignet2},  $\alpha_i$ is the angle of rotation of each ESIS Level-3 image relative to a Level-1 image row.
         In this case, $\alpha_i = [112.5^{\circ}, 67.5^{\circ}, 22.5^{\circ}, -22.5^{\circ}]$, for cameras one through four respectively.
         The vignetting field is rotated about the origin of each image in pixels, $[x_0, y_0] = [635,635]$, to account for the change in dispersion direction.
-        Because ESIS images have a pointing drift as a function of time, or image sequence $s$, the image origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/26$, where $s_t $ is the total number, 28, of Level-3 images in time.
+        Because ESIS images have a pointing drift as a function of time, or image sequence $s$, the image origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/29$, where $s_t $ is the total number, 29, of Level-3 images in time.
         
         \begin{figure}[htb!]
         	\centering
@@ -276,7 +258,7 @@
         	\label{fig:mgx_overlap}
         \end{figure}
         
-        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from \spetralline{Mg}{x}{609.8}.
+        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from \mgxbright.
         The four channels of ESIS give 6 possible difference images for fitting the vignetting function for each image sequence $s$. 
         For each difference image we take a mean of each column and fit a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
         When the average slope of all 156 fits (6 difference images per each of the 26 exposures) is minimized we consider the vignetting corrected. 
@@ -293,7 +275,7 @@
 
 \section{Preliminary Results}
 	
-	jdp{I don't know what to put here ...}
+	\jdp{I don't know what to put here ...}
 	
     \subsection{Level-3 Difference Images}
     	Early work with MOSES images has demonstrated the utility of using differences between channels to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  
@@ -371,6 +353,10 @@
     		\caption{}
     		\label{fig:perfect_x_inverted}
     	\end{figure}
+    	
+    	We have inverted two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif} using MART.
+    	Both events have an X-shaped presentation, begin and end within the ESIS observing time, and show noticeable temporal evolution in velocity.
+    	Since both events have a double peaked nature, seen in both the Level-3 data and in resulting inversions, 
     	
     	The first event we inverted is the broadened event highlighted in Figure \ref{fig:dif_events}c due it's compact nature, strong spectral signature, and interesting temporal evolution.
     	The brightening begins at 18:06:31 UT and is gone at 18:10:01 UT.
