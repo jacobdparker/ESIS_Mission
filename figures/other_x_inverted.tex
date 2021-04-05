@@ -1,0 +1,21 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.pathreplacing}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\graphicspath{{figures/}}
+
+
+\begin{document}
+	\begin{tikzpicture}
+	
+	%begin by adding a node for each figure
+	\node[inner sep=0pt] (imgs) at (0,0)
+		{\includegraphics[]{otherx_inverta}};
+	\node[inner sep=0pt] (lps) at (0,-10.5)
+		{\includegraphics[]{otherx_invertb}};
+	
+
+	\end{tikzpicture}
+\end{document}
