@@ -116,11 +116,11 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 			\end{center}
 		\end{figure}
 
-\amy{Roy: can you change the text in Figure 2 to be "lights" instead of "signal"}.
+\amy{Roy: can you change the text in Figure 2 to be "lights" instead of "signal"}. \rts{Changed it to `light frames' and also changed it to `upleg/downleg dark frames' to match.}
 
-		ESIS was launched at 18:04:00~UTC on September 30, 2019 from White Sands Missile Range.  Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements, as well as several key events during the flight.  The ESIS cameras began exposing at launch with 10 s cadence and continued to record full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence throughout the flight. During the initial acceleration phase of the rocket flight, while the shutter door was still closed, these exposures serve as darks.  At () s after launch, the shutter door to the experiment opened.  The Sun was acquired by the Solar Pointing and Aerobee Control System (SPARCS) and the Ring-Laser-Gyro (RLG) was enabled at ()s indicating the rocket was in Fine Pointing Mode.  During this mode, SPARCS maintained a constant target with $<$ 1\arcsec drift and $< $ jitter.  However, thermal expansion of optical components inside the instrument caused the apparent drift of the solar image on the detectors, as discussed in detail in Section 3.  At ()s, the shutter door closed ending solar observations.  Exposures continued until the system shutdown at (), providing several additional dark frames at the end of the flight.  When the  parachute  deployed at roughly 18:12:20, there was  ``atmospheric splashdown'' that caused contamination on some of the images that would otherwise be considered darks.  During flight, ESIS captured () usable dark frames and () usable light frames.  A summary of the flight and data collected is given in Table~\ref{tab:data_info}.
+		ESIS was launched at 18:04:00~UTC \rts{\timeMissionStart~UTC} on September 30, 2019 \rts{\dateMission} from White Sands Missile Range.  Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements, as well as several key events during the flight.  The ESIS cameras began exposing at launch with 10 s cadence and continued to record full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence throughout the flight. During the initial acceleration phase of the rocket flight, while the shutter door was still closed, these exposures serve as darks.  At () s \rts{\timeMissionShutterOpen} after launch, the shutter door to the experiment opened.  The Sun was acquired by the Solar Pointing and Aerobee Control System (SPARCS) and the Ring-Laser-Gyro \rts{ring laser gyro} (RLG) was enabled at ()s \rts{\timeMissionRlgEnable} indicating the rocket was in Fine Pointing Mode.  During this mode, SPARCS maintained a constant target with $<$ 1\arcsec drift and $< $ jitter.  However, thermal expansion of optical components inside the instrument caused the apparent drift of the solar image on the detectors, as discussed in detail in Section 3.  At ()s \rts{\timeMissionShutterClose}, the shutter door closed ending solar observations.  Exposures continued until the system shutdown at () \rts{\timeDataStop (do we want t-time or clock time here?)}, providing several additional dark frames at the end of the flight.  When the  parachute  deployed at roughly 18:12:20, there was  ``atmospheric splashdown'' that caused contamination on some of the images that would otherwise be considered darks. \rts{The atmospheric splashdown and parachute deploy are actually separate events, the parachute deploy happens at \timeParachuteDeploy.}  During flight, ESIS captured () \rts{\numDarkFrames} usable dark frames and () \rts{\numDataFrames} usable light frames.  A summary of the flight and data collected is given in Table~\ref{tab:data_info}.
 		
-		September 30th, 2019 was a very quiet day on the Sun.  In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7, 2019.  Because of this exceptionally quiet period on the Sun, we chose to point at disk center in order to minimize projection effects.   The actual pointing of the center of the ESIS octagonal field stop and roll were found after flight by comparing ESIS  data to an AIA\,304\,\AA\ image taken at 18:08:53~UT.  The ESIS field of view projected onto the AIA 304\,\AA\ image is shown in Figure \ref{fig:fov} as a green octagon.  The pointing was found to be $\approx$ (15\arcsec, -35\arcsec) and the roll offset was found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), both within the tolerances for SPARCS pointing.  Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
+		September 30th, 2019 \rts{\dateMission} was a very quiet day on the Sun.  In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7, 2019.  Because of this exceptionally quiet period on the Sun, we chose to point at disk center in order to minimize projection effects.   The actual pointing of the center of the ESIS octagonal field stop and roll were found after flight by comparing ESIS  data to an AIA\,304\,\AA\ image taken at 18:08:53~UT.  The ESIS field of view projected onto the AIA 304\,\AA\ image is shown in Figure \ref{fig:fov} as a green octagon.  The pointing was found to be $\approx$ (15\arcsec, -35\arcsec) and the roll offset was found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), both within the tolerances for SPARCS pointing.  Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
 		
 		\amy{Was pointing at sun center really to minimize projection effects?  Or to aid in coordinating observations with other observatories since no clear target was available?  Or just because?  Saying "minimize projection effects" seems kind of random in the middle of the paragraph.}
 		
@@ -142,20 +142,20 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 			\caption{ESIS Flight Data Summary}
 			\label{tab:data_info}
 			\begin{tabular}{ll|ll}\hline
-				Launch Date & September 30, 2019 & Image Size  & 2064$\times$1024 pixels\\
-				Data Acquisition Time & \datastart--\datastop~UT & Avg. Noise: & 4.0 $\pm$ 0.2 DN\\
-			    Pointing   &  $\approx$ (15\arcsec, -35\arcsec) & Avg. Gain &   $2.5 \pm 0.1$\,elec DN$^{-1}$ \\
+				Launch Date & \rts{\dateMission} & Image Size  & 2064$\times$1024 pixels \rts{\imageShape~pix}\\
+				Data Acquisition Time & \rts{\timeDataStart--\timeDataStop~UTC} & Avg. Noise: & 4.0 $\pm$ 0.2 DN \rts{\readoutNoise}\\
+			    Pointing   &  $\approx$ (15\arcsec, -35\arcsec) & Avg. Gain &   $2.5 \pm 0.1$\,elec DN$^{-1}$ \rts{\gain} \\
 				Field of View  & $\approx 11.3$\arcmin octagonal  & Exposure Time & 10\,s \\
 				Roll & $??? \pm ???^\circ$ CW & Exposure Time & 10\,s\\
-			    Spatial  Plate Scale  &  \rts{\platescalex, \platescaley} & No. Light Exp: &\rts{\numdataframes} \\
-				Spectral  Plate Scale  &  \rts{\platescalex, \platescaley} & No. Dark Exp: &\rts{\numdataframes}\\
+			    Spatial  Plate Scale  &  \rts{\plateScale} & No. Light Exp: &\rts{\numDataFrames} \\
+				Spectral  Plate Scale  &  \rts{\dispersion} & No. Dark Exp: &\rts{\numDarkFrames}\\
 					\hline
 			\end{tabular}
 		\end{center}
 		\end{table}
 		
 		
-		\amy{Notes on this table: Change data acquisition time to full time from first dark to last dark.  Change gain and noise to average +stdev of the values.  Correct plate scale.  Double check whether level1 include top/bottom 8 pixels.  Double check roll and number of image.  Basically double check all values.  And why isn't it centering??}
+		\amy{Notes on this table: Change data acquisition time to full time from first dark to last dark. \rts{done.}  Change gain and noise to average +stdev of the values. \rts{done.} Correct plate scale. \rts{done.} Double check whether level1 include top/bottom 8 pixels. \rts{We do keep those 8 pixels currently. Where can I learn more about these pixels? I can't find any mention in the e2v manual.}  Double check roll and number of image.  Basically double check all values.  And why isn't it centering??}
 
 
 	
@@ -201,20 +201,28 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	    Each image was written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors included in the header.   There were (30) light images that were processed into Level 1 data and (19) dark images using to process the data.
 	   
 	    \amy{ We need to show an example of Level 1 data.  Two thoughts, one showing a pre and post processed data in 1 channel or an example of the post-processed data in all channels.}
+	    \rts{Please see Figure \ref{fig:L0_to_L1} for an initial attempt at this figure. A challenge with this figure is that the Level-0 and Level-1 are two different sizes, so you can't share the x and y axes.}
+	    
+	    \begin{figure}
+	    	\centering
+	    	\includegraphics{L0_to_L1}
+	    	\caption{The top panel is the raw, Level-0 image captured by Channel \defaultChannel\ of ESIS during apogee. The bottom panel is the same image after Level-1 processing.}
+	    	\label{fig:L0_to_L1}
+	    \end{figure}
     	
     	
     	The Level-1 dataset contains each channel's image sequence in units of photoelectrons.
     	Our procedure to convert from Level-0 to Level-1 is as follows:
     	
     	\begin{enumerate}
-    	    \item Calculate and subtract the bias of each quadrant of each image (light or dark) by taking the median of columns 21-50 of each quadrant. Columns 1-50 are ``non-active'' pixels, and are insensitive to light or dark current. Through lab testing of the ESIS cameras, it was found that the median of columns 21-50 well-represented each quadrant's bias.  \amy{actually, don't you use the inverse on the other side of each image?}
+    	    \item Calculate and subtract the bias of each quadrant of each image (light or dark) by taking the median of columns 21-50 of each quadrant. Columns 1-50 are ``non-active'' pixels, and are insensitive to light or dark current. Through lab testing of the ESIS cameras, it was found that the median of columns 21-50 well-represented each quadrant's bias.  \amy{actually, don't you use the inverse on the other side of each image?} \rts{I was thinking in the coordinate system of the tap, we can change it if confusing.}
     	    \item Create a master dark image for each channel by taking the median along the time axis of all the bias-subtracted dark images taken before the shutter door opens or after the parachute deploys.
     	    \item Subtract the master dark from each bias-subtracted light image, i.e., images taken when the shutter door is open, the RLG is enabled, and SPARCS is in Fine Poining Mode.
     	    \item Crop each image to remove the non-active pixels.
     	    \item Convert images from DN to electrons by multiplying each quadrant of each image by the gain for that quadrant.
     	\end{enumerate}
     	
-	In addition to the images, the Level-1 fits header is updated with the time, exposure length, and altitude associated with each image using standard FITS header keywords. \amy{but isn't that in the original level 0 fits files?}
+	In addition to the images, the Level-1 fits header is updated with the time, exposure length, and altitude associated with each image using standard FITS header keywords. \amy{but isn't that in the original level 0 fits files?} \rts{The original fits files have time at the end of the exposure, we corrected the time to the middle of the exposure. Also the exposure time was in units of ticks in the Level-0 fits file. In Level-1 the exposure time is in units of seconds.}
 	
 	Atmospheric absorption
 	
