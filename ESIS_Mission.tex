@@ -82,6 +82,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     % 	operated in frame-transfer mode. Details like this are in the instrument paper 
     	The portion of the solar spectrum that is captured by each detector ranges from \hei to \ov.
     	
+    	\amy{Reminder to add line list and discuss relative brightness/degree of overlap using Figure 1 as a reference.}
+    	
         \begin{figure}[ht]
 			\begin{center}
 				% \includegraphics{}
@@ -117,18 +119,18 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 			\end{center}
 		\end{figure}
 
-\amy{Roy: can you change the text in Figure 2 to be "lights" instead of "signal"}. \rts{Changed it to `light frames' and also changed it to `upleg/downleg dark frames' to match.}
+%\amy{Roy: can you change the text in Figure 2 to be "lights" instead of "signal"}. \rts{Changed it to `light frames' and also changed it to `upleg/downleg dark frames' to match.}
 
-		ESIS was launched at 18:04:00~UTC \rts{\timeMissionStart~UTC} on September 30, 2019 \rts{\dateMission} from White Sands Missile Range.  Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements, as well as several key events during the flight.  The ESIS cameras began exposing at launch with 10 s cadence and continued to record full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence throughout the flight. During the initial acceleration phase of the rocket flight, while the shutter door was still closed, these exposures serve as darks.  At () s \rts{\timeMissionShutterOpen} after launch, the shutter door to the experiment opened.  The Sun was acquired by the Solar Pointing and Aerobee Control System (SPARCS) and the Ring-Laser-Gyro \rts{ring laser gyro} (RLG) was enabled at ()s \rts{\timeMissionRlgEnable} indicating the rocket was in Fine Pointing Mode.  During this mode, SPARCS maintained a constant target with $<$ 1\arcsec drift and $< $ jitter.  However, thermal expansion of optical components inside the instrument caused the apparent drift of the solar image on the detectors, as discussed in detail in Section 3.  At ()s \rts{\timeMissionShutterClose}, the shutter door closed ending solar observations.  Exposures continued until the system shutdown at () \rts{\timeDataStop (do we want t-time or clock time here?)}, providing several additional dark frames at the end of the flight.   A summary of the flight and data collected is given in Table~\ref{tab:data_info}.
+		ESIS was launched at 18:04:00~UTC %\rts{\timeMissionStart~UTC} 
+		on \dateMission\ from White Sands Missile Range.  Figure~\ref{fig:timeline} provides the height of the sounding rocket as a function of time, determined from White Sands Missile Range radar measurements, as well as several key events during the flight.  The ESIS cameras began exposing at launch and continued to record full detector ($\sim$2k$\times$1k) images with a 10\,s exposure and cadence throughout the flight. During the initial acceleration phase of the rocket flight, while the shutter door was still closed, these exposures serve as darks.  At \timeMissionShutterOpen\ after launch, the shutter door to the experiment opened.  The Sun was acquired by the Solar Pointing and Aerobee Control System (SPARCS) and the ring laser gyro (RLG) was enabled at \timeMissionRlgEnable\ indicating the rocket was in Fine Pointing Mode.  During this mode, SPARCS maintained a constant target; however, thermal expansion of optical components inside the instrument caused the apparent drift of the solar image on the detectors, as discussed in detail in Section 3.  At  \timeMissionShutterClose, the shutter door closed ending solar observations.  Exposures continued until the system shutdown at \timeDataStop, providing several additional dark frames at the end of the flight.   A summary of the flight and data collected is given in Table~\ref{tab:data_info}.
 		
-		September 30th, 2019 \rts{\dateMission} was a very quiet day on the Sun.  In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7, 2019.  Because of this exceptionally quiet period on the Sun, we chose to point at disk center in order to minimize projection effects.   The actual pointing of the center of the ESIS octagonal field stop and roll were found after flight by comparing ESIS  data to an AIA\,304\,\AA\ image taken at 18:08:53~UT.  The ESIS field of view projected onto the AIA 304\,\AA\ image is shown in Figure \ref{fig:fov} as a green octagon.  The pointing was found to be $\approx$ (15\arcsec, -35\arcsec) and the roll offset was found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), both within the tolerances for SPARCS pointing.  Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
+	    \dateMission\ was a very quiet day on the Sun.  In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7, 2019.  Because of this exceptionally quiet period on the Sun, we chose to point at disk center in order to minimize projection effects.   The actual pointing of the center of the ESIS octagonal field stop and roll were found after flight by comparing ESIS  data to an AIA\,304\,\AA\ image taken at 18:08:53~UT.  The ESIS field of view projected onto the AIA 304\,\AA\ image is shown in Figure \ref{fig:fov} as a green octagon.  The pointing was found to be $\approx$ (15\arcsec, -35\arcsec) and the roll offset was found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), both within the tolerances for SPARCS pointing.  Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
 		
 		\amy{Was pointing at sun center really to minimize projection effects?  Or to aid in coordinating observations with other observatories since no clear target was available?  Or just because?  Saying "minimize projection effects" seems kind of random in the middle of the paragraph.}
 		
-		Light emitted by the Sun is absorbed by the Earth's atmosphere.  The degree of absorption depends both on the depth of the atmosphere that the telescope is looking through (i.e., altitude of the rocket) and the wavelength of light.  Figure~\ref{fig:timeline} shows the mean intensity in each of the ESIS channels as a function of time.  Atmospheric absorption clearly impacted the observations in the up and down leg of the flight.  Accounting for atmospheric absorption will be discussion in Section 3.  Note that though there are 30 light frames the first and last several frames were greatly impacted by atmospheric absorption and have limited usefulness.  
-		When the  parachute  deployed at roughly 18:12:20, there was  ``atmospheric splashdown'' that caused contamination on some of the images that would otherwise be considered darks. \rts{The atmospheric splashdown and parachute deploy are actually separate events, the parachute deploy happens at \timeParachuteDeploy.}  During flight, ESIS captured () \rts{\numDarkFrames} usable dark frames and () \rts{\numDataFrames} usable light frames. 
+	
+		Each of the ESIS cameras collected 71 images during flight.  The first two images are unusable; the first image has an exposure time of 0\,s and is basically a dump of the dark current in the camera, while the second image has an exposure time slightly longer than 10\,s.  All the other images have a 10\,s exposure time.  Thirty of these images were light frames, meaning the shutter door was open and the RLG was enabled. The time during the rocket flight when light frames were collected is shaded green in Figure \ref{fig:timeline}.  Light emitted by the Sun is absorbed by the Earth's atmosphere.  The degree of absorption depends both on the depth of the atmosphere that the telescope is looking through (i.e., altitude of the rocket) and the wavelength of light.  Figure~\ref{fig:timeline} shows the mean intensity in each of the ESIS channels as a function of time.  Atmospheric absorption clearly impacted the observations in the up and down leg of the flight.  Accounting for atmospheric absorption will be discussed in Section 3.  Though there are \numDataFrames\ light frames, the first and last several frames were greatly impacted by atmospheric absorption and have limited usefulness.  As the rocket was re-entering the atmosphere, there was  ``atmospheric splashdown'' that caused contamination on some of the images that would otherwise be considered darks.  This effect can be seen as the small bump in the mean intensities at roughly 18:12:20 in Figure~\ref{fig:timeline}.  We restrict the darks to the data taken after the first two images, but before the shutter door opened in the upleg, and after atmospheric splashdown in the downleg; these times are shaded with gray in Figure~\ref{fig:timeline}.  In total there were \numDarkFrames\ usable dark images.  
 		
-		%\amY{I think this sentence goes lower in the preliminary results section.  I will move it there. Despite the lack of solar activity ESIS managed to capture \jdp{do some counting} small, transient events and one significant eruption during the $\approx$5 minutes of observation.}
 		
 		\begin{figure}[ht]
 			\begin{center}
@@ -144,13 +146,13 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 			\caption{ESIS Flight Data Summary}
 			\label{tab:data_info}
 			\begin{tabular}{ll|ll}\hline
-				Launch Date & \rts{\dateMission} & Image Size  & 2064$\times$1024 pixels \rts{\imageShape~pix}\\
-				Data Acquisition Time & \rts{\timeDataStart--\timeDataStop~UTC} & Avg. Noise: & 4.0 $\pm$ 0.2 DN \rts{\readoutNoise}\\
-			    Pointing   &  $\approx$ (15\arcsec, -35\arcsec) & Avg. Gain &   $2.5 \pm 0.1$\,elec DN$^{-1}$ \rts{\gain} \\
+				Launch Date & \rts{\dateMission} & Image Size  & \rts{\imageShape~pix}\\
+				Data Acquisition Time & \rts{\timeDataStart--\timeDataStop~UTC} & Avg. Noise: & \rts{\readoutNoise}\\
+			    Pointing   &  $\approx$ (15\arcsec, -35\arcsec) & Avg. Gain &   \rts{\gain} \\
 				Field of View  & $\approx 11.3$\arcmin octagonal  & Exposure Time & 10\,s \\
-				Roll & $??? \pm ???^\circ$ CW & Exposure Time & 10\,s\\
-			    Spatial  Plate Scale  &  \rts{\plateScale} & No. Light Exp: &\rts{\numDataFrames} \\
-				Spectral  Plate Scale  &  \rts{\dispersion} & No. Dark Exp: &\rts{\numDarkFrames}\\
+				Roll & $??? \pm ???^\circ$ CW & No. Light Exp: &\rts{\numDataFrames}\\
+			    Spatial  Plate Scale  &  \rts{\plateScale} & No. Dark Exp: &\rts{\numDarkFrames} \\
+				Spectral  Plate Scale  &  \rts{\dispersion} & \\
 					\hline
 			\end{tabular}
 		\end{center}
@@ -200,31 +202,32 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     
     % 	[Copied from Hi-C paper as a reminder that we need to talk about atmospheric absorption somewhere.] We use the normalized total intensities of the Level~1.0 processed flight data (processing levels described in Section~\ref{sec:data}) to assess the relative atmospheric absorption of the signal as a function of flight time.  The transmission, shown in Figure~\ref{fig:absorb} in combination with the payload altitude, is calculated as the inverse of the relative absorption (i.e., (absorption coefficient)$^{-1}$). More than 4 minutes of data were unaffected by the atmosphere.  The atmospheric absorption was compensated for in the Level~1.5 processed data set by multiplying the images by their respective absorption coefficient.  These coefficients are provided in the header of this processed set.
     	A summary of the flight data parameters, as described in the preceding sections, is provided in Table~\ref{tab:data_info}. Level-0 data is the raw data collected during the ESIS rocket flight.  
-	    Each image was written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors included in the header.   There were (30) light images that were processed into Level 1 data and (19) dark images using to process the data.
+	    Each image was written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors included in the header.   There were \numDataFrames\ light images that were processed into Level 1 data and \numDarkFrames\ dark images used to process the data.
+	    
+	    Each camera includes a detector with 2048$\times$2064 active pixels.  The detector is operated in frame transfer mode, meaning the exposed portion of the detector is shifted into a storage portion that is read out during the next exposure. The storage portion is simply a mechanically masked region of the detector. The data is read out through 4 ports.  The read out register has 50 additional dummy pixels, or non-active pixels (NAPs), that are read out before each row of the detector data.  When the detector is read out, those 50 pixels are stored as part of the image, so a stored image Level-0 data file is 2148$\times$1040 pixels.   During pre-flight lab testing, it was found that the median intensity in columns 21-50 of the NAPs of each read out port was an excellent proxy for the detector bias.  Additionally the data from each port is converted from analog to digital through a unique circuit.  Though the same components were used, slight variations in the circuits caused slight differences in the gain (elec / DN) and read  noise associated with each quadrant.  The gain for each quadrant in each camera was measured prior to flight.  The noise was measured from usable dark images during flight.  \amy{(Is this true?)} The average and standard deviations in these values are given in Table~\ref{tab:data_info}.
 	   
 	    \amy{ We need to show an example of Level 1 data.  Two thoughts, one showing a pre and post processed data in 1 channel or an example of the post-processed data in all channels.}
-	    \rts{Please see Figure \ref{fig:L0_to_L1} for an initial attempt at this figure. A challenge with this figure is that the Level-0 and Level-1 are two different sizes, so you can't share the x and y axes.}
+	    \rts{Please see Figure \ref{fig:L0_to_L1} for an initial attempt at this figure. A challenge with this figure is that the Level-0 and Level-1 are two different sizes, so you can't share the x and y axes.  }. \amy{I really like this image}. 
 	    
 	    \begin{figure}
 	    	\centering
 	    	\includegraphics{L0_to_L1}
-	    	\caption{The top panel is the raw, Level-0 image captured by Channel \defaultChannel\ of ESIS during apogee. The bottom panel is the same image after Level-1 processing.}
+	    	\caption{The top panel is the raw, Level-0 image captured by Channel \defaultChannel\ of ESIS during apogee. The bottom panel is the same image after Level-1 processing. \amy{ The Sun viewed through the octagonal field stop in the \ov spectral line is on the right side of the detector, this portion of the detector was cropped to generate Level-3 data.  The Sun viewed through the octagonal field stop in the \hei line is partially on the left side of the detector. The \mgxbright line is between and partially overlapping both of these two strong lines.}}
 	    	\label{fig:L0_to_L1}
 	    \end{figure}
     	
-    	
     	The Level-1 dataset contains each channel's image sequence in units of photoelectrons.
-    	Our procedure to convert from Level-0 to Level-1 is as follows:
+    	Our procedure to convert from Level-0 to Level-1 is described below. An example of a Level 0 and Level 1 image is shown in Figure~\ref{fig:L0_to_L1}.
     	
     	\begin{enumerate}
-    	    \item Calculate and subtract the bias of each quadrant of each image (light or dark) by taking the median of columns 21-50 of each quadrant. Columns 1-50 are ``non-active'' pixels, and are insensitive to light or dark current. Through lab testing of the ESIS cameras, it was found that the median of columns 21-50 well-represented each quadrant's bias.  \amy{actually, don't you use the inverse on the other side of each image?} \rts{I was thinking in the coordinate system of the tap, we can change it if confusing.}
-    	    \item Create a master dark image for each channel by taking the median along the time axis of all the bias-subtracted dark images taken before the shutter door opens or after the parachute deploys.
-    	    \item Subtract the master dark from each bias-subtracted light image, i.e., images taken when the shutter door is open, the RLG is enabled, and SPARCS is in Fine Poining Mode.
+    	    \item Calculate and subtract the bias of each quadrant of each image (light or dark) by taking the median of columns 21-50 of the NAPs for each read out port.   
+    	    \item Create a master dark image for each channel by taking the median along the time axis of all the bias-subtracted usable dark images.
+    	    \item Subtract the master dark from each bias-subtracted light image.
     	    \item Crop each image to remove the non-active pixels.
     	    \item Convert images from DN to electrons by multiplying each quadrant of each image by the gain for that quadrant.
     	\end{enumerate}
     	
-	In addition to the images, the Level-1 fits header is updated with the time, exposure length, and altitude associated with each image using standard FITS header keywords. \amy{but isn't that in the original level 0 fits files?} \rts{The original fits files have time at the end of the exposure, we corrected the time to the middle of the exposure. Also the exposure time was in units of ticks in the Level-0 fits file. In Level-1 the exposure time is in units of seconds.}
+	In addition to the images, the Level-1 fits header is updated with the time, exposure length, and altitude associated with each image using standard FITS header keywords.   
 	
 	Atmospheric absorption
 	
@@ -356,7 +359,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 
 \section{Preliminary Results}
 
-	   ESIS is an extremely unique instrument.  It is not only a slitless imaging spectrograph, of which there only a handful of examples, it is also a Computed Tomographic Imaging Spectrograph (CTIS).  The ESIS and MOSES sounding rocket instruments are the only CTIS instruments ever to observe the Sun. MOSES only took two projections of the spatial-spectral data cube by observing $\pm$ 1 orders, so its data is relatively simple when compared to the ESIS data set.   In this section, we provide some preliminary analysis of the ESIS Level-3 data to both demonstrate that the ESIS mission accomplished its scientific goal of detecting the velocity signatures of small scale eruptive events, but also to provide useful qualitative and quantitative understanding of this data.  
+	   ESIS is an extremely unique instrument.  It is not only a slitless imaging spectrograph, of which there only a handful of examples, it is also a Computed Tomography Imaging Spectrograph (CTIS).  To our knowledge, the ESIS and MOSES sounding rocket instruments are the only CTIS instruments ever flown to observe the Sun, and  the Advanced Stokes Polarimeter on the Dunn Solar Telescope at the National Solar Observatory is the only ground based CTIS to capture solar data \citep{deforest2004}.  MOSES only took two projections of the spatial-spectral data cube by observing $\pm$ 1 orders, so its data is relatively simple when compared to the ESIS data set.   In this section, we provide some preliminary analysis of the ESIS Level-3 data to both demonstrate that the ESIS mission accomplished its scientific goal of detecting the velocity signatures of small scale eruptive events, but also to provide useful qualitative and quantitative understanding of this data.  
 		
 	    Despite the lack of solar activity, ESIS managed to capture tens of small, transient events and one significant eruption during the $\approx$5 minutes of observation in the \ov spectral line.  We provide a few examples of these events in this section.  Additional analysis is provided in a series of upcoming papers.  
 	
