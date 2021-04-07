@@ -10,7 +10,7 @@
 \newcommand{\ov}{\spectralline{O}{v}{627.8}}
 \newcommand{\mgxbright}{\spectralline{Mg}{x}{609.8}}
 \newcommand{\hei}{\spectralline{He}{i}{584.3}}
-\newcommand{\heii}{\spectralline{He}{ii}{304}}
+\newcommand{\heii}{\spectralline{He}{ii}{304s}}
 
 
 
@@ -35,9 +35,8 @@
 
 \section{Introduction}
 
-    The solar transition region (TR) is region of the solar plasma that exists at temperatures between the
-    dense, cool (20,000 K) solar chromosphere and the tenuous, million-degree corona. 
-    Initially, the transition region was viewed as simply the thin interface region between the chromosphere and corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers. 
+    The solar transition region (TR) refers to the portion of the solar atmosphere that emits at temperatures between 20,000 K and 800,000 K degrees. 
+    Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
     It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+ km/s.  \amy{this is from proposal, I will add more description and references and basically re-write.}
     
@@ -87,7 +86,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         \begin{figure}[ht]
 			\begin{center}
 				\includegraphics{detector_layout}
-				\caption{Figure showing each ESIS projection, in an array, with solar.  JDP working on it. \rts{Here is a preliminary version of this figure. I showed this to Charles and he was still in favor of the original version of this figure. We should talk about it.}}
+				\caption{Figure showing each ESIS projection, in an array, with solar.  JDP working on it. \rts{Here is a preliminary version of this figure. I showed this to Charles and he was still in favor of the original version of this figure. We should talk about it.} \amy{I don't understand the arrows.  I think it would be more clear if there was a single arrow pointed north in the original image and the original image + octagon was black.  On the detector, to me it would make more sense if yellow -> red, and black or purple (the He line) went to blue and they each had a single arrow in the center pointed north.  Also good to list channels on this image.}}
 				\label{fig:level_1_array}
 			\end{center}
 		\end{figure}
@@ -126,10 +125,12 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		
 	    \dateMission\ was a very quiet day on the Sun.  In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7, 2019.  Because of this exceptionally quiet period on the Sun, we chose to point at disk center in order to minimize projection effects.   The actual pointing of the center of the ESIS octagonal field stop and roll were found after flight by comparing ESIS  data to an AIA\,304\,\AA\ image taken at 18:08:53~UT.  The ESIS field of view projected onto the AIA 304\,\AA\ image is shown in Figure \ref{fig:fov} as a green octagon.  The pointing was found to be $\approx$ (15\arcsec, -35\arcsec) and the roll offset was found to be $\sim0.???\pm 0.005^\circ$ (clockwise about Sun center), both within the tolerances for SPARCS pointing.  Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. The ESIS FOV is indicated by the octagon.  
 		
-		\amy{Was pointing at sun center really to minimize projection effects?  Or to aid in coordinating observations with other observatories since no clear target was available?  Or just because?  Saying "minimize projection effects" seems kind of random in the middle of the paragraph.}
+		%\amy{Was pointing at sun center really to minimize projection effects?  Or to aid in coordinating observations with other observatories since no clear target was available?  Or just because?  Saying "minimize projection effects" seems kind of random in the middle of the paragraph.}
 		
 	
-		Each of the ESIS cameras collected 71 images during flight.  The first two images are unusable; the first image has an exposure time of 0\,s and is basically a dump of the dark current in the camera, while the second image has an exposure time slightly longer than 10\,s.  All the other images have a 10\,s exposure time.  Thirty of these images were light frames, meaning the shutter door was open and the RLG was enabled. The time during the rocket flight when light frames were collected is shaded green in Figure \ref{fig:timeline}.  Light emitted by the Sun is absorbed by the Earth's atmosphere.  The degree of absorption depends both on the depth of the atmosphere that the telescope is looking through (i.e., altitude of the rocket) and the wavelength of light.  Figure~\ref{fig:timeline} shows the mean intensity in each of the ESIS channels as a function of time.  Atmospheric absorption clearly impacted the observations in the up and down leg of the flight.  Accounting for atmospheric absorption will be discussed in Section 3.  Though there are \numDataFrames\ light frames, the first and last several frames were greatly impacted by atmospheric absorption and have limited usefulness.  As the rocket was re-entering the atmosphere, there was  ``atmospheric splashdown'' that caused contamination on some of the images that would otherwise be considered darks.  This effect can be seen as the small bump in the mean intensities at roughly 18:12:20 in Figure~\ref{fig:timeline}.  We restrict the darks to the data taken after the first two images, but before the shutter door opened in the upleg, and after atmospheric splashdown in the downleg; these times are shaded with gray in Figure~\ref{fig:timeline}.  In total there were \numDarkFrames\ usable dark images.  
+		Each of the ESIS cameras collected 71 images during flight.  The first two images are unusable; the first image has an exposure time of 0\,s and is basically a dump of the dark current in the camera, while the second image has an exposure time slightly longer than 10\,s caused by the cameras syncing to a single trigger of the master camera.  All the other images have a 10\,s exposure time.  Thirty of these images were light frames, meaning the shutter door was open and the RLG was enabled. The time during the rocket flight when light frames were collected is shaded green in Figure \ref{fig:timeline}.  Light emitted by the Sun is absorbed by the Earth's atmosphere.  The degree of absorption depends both on the depth of the atmosphere that the telescope is looking through (i.e., altitude of the rocket) and the wavelength of light.  Figure~\ref{fig:timeline} shows the mean intensity in each of the ESIS channels as a function of time.  Atmospheric absorption clearly impacted the observations in the up and down leg of the flight.  Accounting for atmospheric absorption will be discussed in Section 3.  Though there are \numDataFrames\ light frames, the first and last several frames were greatly impacted by atmospheric absorption and have limited usefulness.  As the rocket was re-entering the atmosphere, there was  ``atmospheric splashdown'' that caused contamination on some of the images that would otherwise be considered darks.  This effect can be seen as the small bump in the mean intensities at roughly 18:12:20 in Figure~\ref{fig:timeline}.  For dark frames, then we restrict the darks to the data taken after the first two images, but before the shutter door opened in the upleg, and after atmospheric splashdown in the downleg; these times are shaded with gray in Figure~\ref{fig:timeline}.  In total there were \numDarkFrames\ usable dark images.  
+		
+		\amy{Add note about extra spikes due to a geomagnetic storm?}
 		
 		
 		\begin{figure}[ht]
@@ -167,47 +168,41 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 
     We have established several levels of data processing that are described in detail below.
     Level-0 represents the raw data that was obtained by the four different cameras during flight.
-    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias and dark subtraction and gain correction. \amy{Additionally, Level 1 will be corrected for atmospheric absorption and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
-    It will also be despiked, and contain a mask with the original data values for each corrected pixel for future respiking, if desired.  }
+    Level-1 data prepares raw CCD data for scientific work through a quadrant dependent bias and gain correction, removing non-active pixels, and a dark subtraction.
+    Normally, for solar observatories like AIA, higher level data would be further be corrected for solar pointing and roll by interpolating the data into a standard solar map.  
+    For ESIS this correction is complicated.  First, the effective pointing of the instrument changed from image to image due to thermal expansion of optical components during the rocket flight.  
+    Second the data itself is complicated to represent due to the spatial-spectral overlap on the detector.  
+    Third, to retain the most information in the data, it is desired to included detailed mapping from the solar spectral cube to each unique detector instead of shifting, rotating, or cropping the detector data.  
+    Finally, the ESIS optical instrument distorted the solar image by design. 
+    This distortion can be measured and corrected manually, at least for the \ov data, by comparing the ESIS data to co-temporal AIA 304\,\AA\ data.  
+    To account for  distortion for the full wavelength range requires an accurate optical model.
+    Hence, we define two additional levels of data sets.  
+    Level-2 data will include updated header information with accurate coefficients of a non-linear and wavelength dependent coordinate mapping from solar coordinates to each detector for each image.   
+    Level-2 data will be corrected for atmospheric absorption and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
+    It will also be despiked, and contain a mask with the original data values for each corrected pixel for future respiking, if desired.
+    Level-2 data is a necessary step toward fully inverted data products,  but will not be further described here because the results are optical model dependent and currently in development.   
+    Instead it will be presented in a forthcoming paper.  
+    % Level-2 data will be released at the publication of that paper.  
 
-   %Level-2 data will be corrected for atmospheric absorption and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
-    %It will also be despiked, and contain a mask with the original data values for each corrected pixel for future respiking, if desired.
+    Instead, we seek a shortcut to interpretation of the ESIS data, which allows for taking differences between images and simplified inversions.
+    Level-3 data is comprised of a single spectral line cropped from Level 1 data and mapped to the sky plane via a non-linear coordinate transform derived from a coalignment to co-temporal AIA data and an internal coalignment of each ESIS channel to a reference channel.
     
-    \amy{Normally, for solar observatories like AIA, higher level data would be further be corrected for solar pointing and roll by interpolating the data into a standard solar map.  For ESIS this correction is complicated.  First, the effective pointing of the instrument changed from image to image due to thermal expansion of optical components during the rocket flight.  Second the data itself is complicated to represent due to the spatial-spectral overlap on the detector.  Third, to retain the most information in the data, it is desired to included detailed mapping from the solar spectral cube to each unique detector instead of shifting, rotating, or cropping the detector data.  Finally, the ESIS optical instrument distorted the solar image by design. This distortion can be measured and corrected manually, at least for the \ov data, by comparing the ESIS data to co-temporal AIA 304\,\AA\ data.  To account for  distortion for the full wavelength range requires an accurate optical model. } 
-    
-    Hence, we define two additional levels of data sets.  Level-2 data will include updated header information with accurate coefficients of a non-linear and wavelength dependent coordinate mapping from solar coordinates to each detector for each image.   Level-2 data is a necessary step toward inverted data products,  but will not be further described here because the results are optical model dependent and currently in development.   Instead it will be presented in a forthcoming paper.  Level-2 data will be released at the publication of that paper.  
-
-    Instead, we seek a shortcut to interpretation of the ESIS data, which allow for taking differences between images and simplified inversions.
-    Level-3 data is comprised of a single spectral line cropped from Level 1 data and mapped to the sky plane via a non-linear coordinate transform derived from comparisons with co-temporal AIA data.
-    
-    The highest level data product we envision providing in the future, Level-4, is the solar-spectral data cube, i.e., the intensity as a function of $[x, y , \lambda]$, which will be the results of inversions of the combined Level-2 datasets.     Since inversions generally do not produce unique solutions, there may be multiple Level-4 products obtained by different inversion methods.  Level-4 data products will be described in future publications as they become available.   
+    The highest level data product we envision providing in the future, Level-4, is the spatial-spectral data cube, i.e., the intensity as a function of $[x, y , \lambda]$, which will be the results of various inversion methods.    
+    Since inversions generally do not produce unique solutions, there may be multiple Level-4 products obtained by different inversion methods.  
+    % Level-4 data products will be described in future publications as they become available.   
     
     Level-1 and Level-3 data will be made publicly available through various solar data archives. Below we describe these two data sets in more detail. 
     
-    \amy{I am combining the Level 0 with Level 1 data description below.  I think the fact that these two are the ones that are publicly available motivates limiting the subsections to them.}
-    
-       
-    \amy{This makes it sound like Level 3 comes from Level 1, but isn't also corrected for atmospheric absorption and despiked?  I'm going to suggest that we go back to Level 1 include atmospheric absorption correction and despiking, which I think was your plan already but I nixxed it.  SORRY !!! I have edited the text below.}
-    
-    %\subsection{Level 0 Data}
-    %		    \jdp{This likely will need to be rearranged since some of this processing goes in to prepping the Level-1 Data.}
-	     
-
     
     \subsection{Level-1 Data}
-     %   \jdp{Don't forget to say something about tossing out the first two ESIS frames.}
-	  %  \jdp{Moving Amy's comment about atmospheric absorption to this section.  Roy already has some nice plots of this and it can likely be discussed in a section explaining dark selection?}
-	    
-  
-    
-    % 	[Copied from Hi-C paper as a reminder that we need to talk about atmospheric absorption somewhere.] We use the normalized total intensities of the Level~1.0 processed flight data (processing levels described in Section~\ref{sec:data}) to assess the relative atmospheric absorption of the signal as a function of flight time.  The transmission, shown in Figure~\ref{fig:absorb} in combination with the payload altitude, is calculated as the inverse of the relative absorption (i.e., (absorption coefficient)$^{-1}$). More than 4 minutes of data were unaffected by the atmosphere.  The atmospheric absorption was compensated for in the Level~1.5 processed data set by multiplying the images by their respective absorption coefficient.  These coefficients are provided in the header of this processed set.
+     
     	A summary of the flight data parameters, as described in the preceding sections, is provided in Table~\ref{tab:data_info}. Level-0 data is the raw data collected during the ESIS rocket flight.  
 	    Each image was written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors included in the header.   For each channel, there were \numDataFrames\ light images that were processed into Level 1 data and \numDarkFrames\ dark images used to process the data.
 	    
-	    Each camera includes a detector with 2048$\times$2064 active pixels.  The detector is operated in frame transfer mode, meaning the exposed portion of the detector is shifted into a storage portion that is read out during the next exposure. The storage portion is simply a mechanically masked region of the detector. The data is read out through 4 ports.  The read out register has 50 additional dummy pixels, or non-active pixels (NAPs), that are read out before each row of the detector data.  When the detector is read out, those 50 pixels are stored as part of the image, so a stored image Level-0 data file is 2148$\times$1040 pixels.   During pre-flight lab testing, it was found that the median intensity in columns 21-50 of the NAPs of each read out port was an excellent proxy for the detector bias.  Additionally the data from each port is converted from analog to digital through a unique circuit.  Though the same components were used, slight variations in the circuits caused slight differences in the gain (elec / DN) and read  noise associated with each quadrant.  The gain for each quadrant in each camera was measured prior to flight.  The noise was measured from usable dark images during flight.  \amy{(Is this true?)} The average and standard deviations in these values are given in Table~\ref{tab:data_info}.
+	    Each camera includes a detector with 2048 columns and 2064 rows.  The detector is operated in frame transfer mode, meaning the exposed portion of the detector is shifted into a storage portion that is read out during the next exposure. The storage portion is simply a mechanically masked region of the detector. The intention was that the storage region would be 520 rows per quadrant while the exposed region would be 512 rows per quadrant, producing an image that was 1024 rows in total.  An oversight during implementation inverted the size of the storage and exposed region, meaning the final image had 1040 rows.  Having a larger exposed region than storage region implies that eight rows originally exposed at the central portion of the detector were not behind the mechanical mask when the read out was initiated. However, because these rows were only unmasked for roughly 20 ms and the solar flux was low, there was no discernible impact on the data.
+	    
+	    The data is read out through 4 ports in the detector.  The read out register has 50 additional dummy pixels, or non-active pixels (NAPs), that are read out before each row of the detector data.  When the detector is read out, those 50 pixels are stored as part of the image.  Two additional ``overscan" pixels are read after each row of data and also stored as part of the image.  A stored Level-0 data file, then, is 2152$\times$1040 pixels.   During pre-flight lab testing, it was found that the median intensity in columns 21-50 of the NAPs of each read out port was an excellent proxy for the detector bias.  Additionally the data from each port is converted from analog to digital through a unique circuit.  Though the same components were used, slight variations in the circuits caused slight differences in the gain (elec / DN) and read  noise associated with each quadrant.  The gain for each quadrant in each camera was measured prior to flight.  The noise was measured from usable dark images during flight.  The average and standard deviations in these values are given in Table~\ref{tab:data_info}.
 	   
-	    \amy{ We need to show an example of Level 1 data.  Two thoughts, one showing a pre and post processed data in 1 channel or an example of the post-processed data in all channels.}
-	    \rts{Please see Figure \ref{fig:L0_to_L1} for an initial attempt at this figure. A challenge with this figure is that the Level-0 and Level-1 are two different sizes, so you can't share the x and y axes.  }. \amy{I really like this image}. 
 	    
 	    \begin{figure}
 	    	\centering
@@ -216,25 +211,20 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	    	\label{fig:L0_to_L1}
 	    \end{figure}
     	
-    	The Level-1 dataset contains each channel's image sequence in units of photoelectrons.
+    
     	Our procedure to convert from Level-0 to Level-1 is described below. An example of a Level 0 and Level 1 image is shown in Figure~\ref{fig:L0_to_L1}.
     	
     	\begin{enumerate}
-    	    \item Calculate and subtract the bias of each quadrant of each image (light or dark) by taking the median of columns 21-50 of the NAPs for each read out port.   
+    	    \item Calculate and subtract the bias of each quadrant of each usable image (light or dark) by taking the median of columns 21-50 of the NAPs for each read out port.   
     	    \item Create a master dark image for each channel by taking the median along the time axis of all the bias-subtracted usable dark images.
     	    \item Subtract the master dark from each bias-subtracted light image.
-    	    \item Crop each image to remove the non-active pixels.
+    	    \item Crop each image to remove the non-active and overscan pixels.
     	    \item Convert images from DN to electrons by multiplying each quadrant of each image by the gain for that quadrant.
     	\end{enumerate}
+    	The resulting Level-1 dataset contains each channel's image sequence in units of photoelectrons.
     	
 	In addition to the images, the Level-1 fits header is updated with the time, exposure length, and altitude associated with each image using standard FITS header keywords.   
 	
-	Atmospheric absorption
-	
-	Despiking
-	
-	Maybe a list of FITS header keywords?  
-
 
     \subsection{Level 3 Data}
  
@@ -254,18 +244,18 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	\end{figure}
     	
     
-  \amy{We need an image of Level 1 data here, with the portion that is cropped/rotated to make 4a. It can just be part of 4 and and be above the two images or its own figure or we can include the cropped lines in the image I suggested in the previous section.}
+  %\amy{We need an image of Level 1 data here, with the portion that is cropped/rotated to make 4a. It can just be part of 4 and and be above the two images or its own figure or we can include the cropped lines in the image I suggested in the previous section.}
   
-  \amy{Note that I added a comment about Level3 processing in the caption of Figure 4, maybe that suffices for the image I am referring too}
-  
-  \subsubsection{Optical distortion correction and channel co-alignmentment}
+  %\amy{Note that I added a comment about Level3 processing in the caption of Figure 4, maybe that suffices for the image I am referring too}
+
+    \subsubsection{Optical distortion correction and channel co-alignmentment}
    		
-   		The four ESIS channels were spatially co-aligned in two steps.  
-   		First, each ESIS image is roughly cropped around the \ov spectral line \amy{(roughly pixels 1100 - 2000 of the Leve-1 data shown in Figure~\ref{fig:L0_to_L1})} and then co-aligned to the closest AIA 304\,\AA\ image in time.  AIA 304 channel was chosen for co-alignment because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
-   		Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{aiapy.calibrate.update\_pointing()} and \texttt{aiapy.calibrate.register.py}  \citep{aiapy}.
-   		The co-alignment was achieved through a linear coordinate transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
-   		Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $0.45$.
-   		After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS \rts{Do we have a WCS citation anywhere?}\jdp{I'll look for this.} information from AIA Level 1.5 providing pointing information and easier co-alignment with other instruments.
+   	    The four ESIS channels were spatially co-aligned in two steps.
+        First, each ESIS image is roughly cropped around the \ov spectral line, (roughly pixels 1100 - 2000 of the Level-1 data shown in Figure~\ref{fig:L0_to_L1}) and then co-aligned to the closest AIA 304\,\AA\ image in time.  
+        The AIA 304 channel was chosen for co-alignment because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
+        Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{aiapy.calibrate.update\_pointing()} and \texttt{aiapy.calibrate.register.py}  \citep{aiapy}.
+        The co-alignment was achieved through a linear coordinate transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
+        After the transformation each ESIS channel is re-binned to AIA resolution and can be assigned the WCS \rts{Do we have a WCS citation anywhere?}\jdp{I'll look for this.} information from AIA Level 1.5 providing pointing information and easier co-alignment with other instruments.
    		
    		%Amy- I don't think this is the right place to talk about hte contribution of Mg X.  Commenting out for now.  
    		%This rough cropping is why there is a remnant of the adjacent Mg {\sc x} 609.8 \AA \ spectral line in the bottom left corner of Figure \ref{fig:coalign}a.
@@ -290,7 +280,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
  		\begin{figure}[htb!]
 			\centering
 			\includegraphics{vig_correct.pdf}
-			\caption{Caption}
+			\caption{What the hell is 2.5?}
 			\label{fig:vig_correct}
 		\end{figure}
 
@@ -344,7 +334,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         A misalignment of the ESIS field stop center, the ESIS primary optic center, and the center of the ESIS grating array, all shift the geometry of the ESIS central obscuration and can easily modify the vignetting field in each channel.
         Despite the uncertainties in vignetting, which we have found difficult to quantify, Level-3 differences are much flatter in intensity post vignetting correction as is seen in Figure \ref{fig:vig_correct}c, and will therefore lead to a higher fidelity intensity recovery when inverting Level-3 data.
         
-          \subsubsection{Relative Radiometric correction }	 
+          \subsubsection{Relative Radiometric correction }
+          \jdp{make sense of this with level1}
    	In order to use Level-3 data for early inversion the intensity in DN needs to  converted to photons in order properly account for uncertainty and then normalized between channels.
    		Since each ESIS CCD has a quadrant specific gain \citep{ESIS}, the conversion from DN to photon is done to Level 1 data prior to co-alignment efforts.
    		The intensity in photons for each quadrant, $I_q$, then becomes,
@@ -355,6 +346,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		Creating Level-3 data for other wavelengths in the ESIS passband then only requires a different wavelength for conversion.
    		Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment. \amy{And vignetting correction?  If the conversion from DN to photon is done in Level 1, why isn't it discussed there?  For Level 3, only the last sentence is needed, no?  I think you want to point out the you only use the region where MG X bright is not.}
   
+  \amy{atmospheric absorption and despiking - mention somewhere}
 
 \section{Preliminary Results}
 
