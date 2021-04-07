@@ -35,7 +35,7 @@
 
 \section{Introduction}
 
-    The solar transition region (TR) is the solar plasma that exists at temperatures between the
+    The solar transition region (TR) is region of the solar plasma that exists at temperatures between the
     dense, cool (20,000 K) solar chromosphere and the tenuous, million-degree corona. 
     Initially, the transition region was viewed as simply the thin interface region between the chromosphere and corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
@@ -202,7 +202,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     
     % 	[Copied from Hi-C paper as a reminder that we need to talk about atmospheric absorption somewhere.] We use the normalized total intensities of the Level~1.0 processed flight data (processing levels described in Section~\ref{sec:data}) to assess the relative atmospheric absorption of the signal as a function of flight time.  The transmission, shown in Figure~\ref{fig:absorb} in combination with the payload altitude, is calculated as the inverse of the relative absorption (i.e., (absorption coefficient)$^{-1}$). More than 4 minutes of data were unaffected by the atmosphere.  The atmospheric absorption was compensated for in the Level~1.5 processed data set by multiplying the images by their respective absorption coefficient.  These coefficients are provided in the header of this processed set.
     	A summary of the flight data parameters, as described in the preceding sections, is provided in Table~\ref{tab:data_info}. Level-0 data is the raw data collected during the ESIS rocket flight.  
-	    Each image was written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors included in the header.   There were \numDataFrames\ light images that were processed into Level 1 data and \numDarkFrames\ dark images used to process the data.
+	    Each image was written to a fits files with on-board timestamp, camera number, and other parameters, such as the read out from temperature sensors included in the header.   For each channel, there were \numDataFrames\ light images that were processed into Level 1 data and \numDarkFrames\ dark images used to process the data.
 	    
 	    Each camera includes a detector with 2048$\times$2064 active pixels.  The detector is operated in frame transfer mode, meaning the exposed portion of the detector is shifted into a storage portion that is read out during the next exposure. The storage portion is simply a mechanically masked region of the detector. The data is read out through 4 ports.  The read out register has 50 additional dummy pixels, or non-active pixels (NAPs), that are read out before each row of the detector data.  When the detector is read out, those 50 pixels are stored as part of the image, so a stored image Level-0 data file is 2148$\times$1040 pixels.   During pre-flight lab testing, it was found that the median intensity in columns 21-50 of the NAPs of each read out port was an excellent proxy for the detector bias.  Additionally the data from each port is converted from analog to digital through a unique circuit.  Though the same components were used, slight variations in the circuits caused slight differences in the gain (elec / DN) and read  noise associated with each quadrant.  The gain for each quadrant in each camera was measured prior to flight.  The noise was measured from usable dark images during flight.  \amy{(Is this true?)} The average and standard deviations in these values are given in Table~\ref{tab:data_info}.
 	   
@@ -234,10 +234,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	Despiking
 	
 	Maybe a list of FITS header keywords?  
-	
-	Units?  electrons?  will that be the distributed unit?
-	
-	It also strikes me that we never give a line list, though we refer to the different lines several times.  This seems like an appropriate place to give a line list?  Or in the experiment description?
+
 
     \subsection{Level 3 Data}
  
@@ -246,7 +243,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	\newcommand{\levthreetime}{2019-09-30T18:08:51.644}
     	
     	The ESIS Level-3 data product is created to provide a co-aligned, single wavelength image in each channel for quick identification of events with significant line-of-sight velocities and easy comparison with coordinated data that does not require inversion. 
-    	Level-3 data also allows for single wavelength inversion prior to the completion of the final optical distortion model and the Level-2 data product.  A description of both qualitative and quantitative analysis of Level-3 data is given in Section 4.  Generating Level-3 data products require several steps including 1) correction of the optical distortion and internal co-alignment of the four ESIS channels, 2) correction of each channel for vignetting, including identifying regions where the contributions of the overlapping \mgxbright line confuse the \ov data, and 3) correcting for the relative radiometric differences in each channel.  Each of these corrections are described in detail below. 
+    	Level-3 data also allows for single wavelength inversion prior to the completion of the final optical distortion model and the Level-2 data product.  A description of both qualitative and quantitative analysis of Level-3 data is given in Section 4.  Generating Level-3 data products require several steps including 1) correction of the optical distortion and internal co-alignment of the four ESIS channels, 2) correction of each channel for vignetting, including identifying regions where the contributions of the overlapping \mgxbright line confuse the \ov data, and 3) correction for the relative radiometric differences in each channel.  Each of these corrections are described in detail below. 
     	Figure \ref{fig:coalign}a shows an example of a Level-3 image from Channel 1 taken at \levthreetime.
     	
   		\begin{figure}[htb!]
@@ -257,12 +254,14 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	\end{figure}
     	
     
-  \amy{We need an image of Level 1 data here, with the portion that is cropped/rotated to make 4a. It can just be part of 4 and and be above the two images or its own figure or we can include the cropped lines in hte image I suggested in the previous section.}
+  \amy{We need an image of Level 1 data here, with the portion that is cropped/rotated to make 4a. It can just be part of 4 and and be above the two images or its own figure or we can include the cropped lines in the image I suggested in the previous section.}
+  
+  \amy{Note that I added a comment about Level3 processing in the caption of Figure 4, maybe that suffices for the image I am referring too}
   
   \subsubsection{Optical distortion correction and channel co-alignmentment}
    		
    		The four ESIS channels were spatially co-aligned in two steps.  
-   		First, each ESIS image is roughly cropped around the \ov spectral line and then co-aligned to the closest AIA 304\,\AA\ image in time.  AIA 304 channel was chosen for co-alignment because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
+   		First, each ESIS image is roughly cropped around the \ov spectral line \amy{(roughly pixels 1100 - 2000 of the Leve-1 data shown in Figure~\ref{fig:L0_to_L1})} and then co-aligned to the closest AIA 304\,\AA\ image in time.  AIA 304 channel was chosen for co-alignment because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
    		Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{aiapy.calibrate.update\_pointing()} and \texttt{aiapy.calibrate.register.py}  \citep{aiapy}.
    		The co-alignment was achieved through a linear coordinate transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of are shown in Figure \ref{fig:coalign}b.
    		Despite each image being in a different wavelength and at slightly different times we found an average zero lag cross-correlation of approximately $0.45$.
