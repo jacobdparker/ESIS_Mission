@@ -2,17 +2,18 @@
 \renewcommand{\arcmin}{$^{\prime}$}
 \newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
 \newcommand{\jdp}[1]{{\color{red} JDP: #1}} % JDP comment
-\newcommand{\cck}[1]{{\color{brown} CCK: #1}} % CCK comment
+\newcommand{\cck}[1]{{\color{brown} #1}} % CCK comment
 \newcommand{\amy}[1]{{\color{cyan} ARW: #1}}
 
 % #1- element #2- ionization state #3 -wavelength in angstroms
-\newcommand{\spectralline}[3]{#1\,{\sc #2}\,#3\,\AA \,}
+\newcommand{\spectralline}[3]{#1\,{\textsc{#2}}\ #3\,\AA\ } % cck fixed up typesetting of this command....
 \newcommand{\ov}{\spectralline{O}{v}{627.8}}
 \newcommand{\mgxbright}{\spectralline{Mg}{x}{609.8}}
+\newcommand{\mgxdim}{\spectralline{Mg}{x}{626}}
 \newcommand{\hei}{\spectralline{He}{i}{584.3}}
 \newcommand{\heii}{\spectralline{He}{ii}{304}}
 
-
+% This gives us \sout for striking out text in comments....
 
 \title{First Flight of the EUV Snapshot Imaging Spectrograph (ESIS)}
 
@@ -23,38 +24,40 @@
 %\author{Nelson Goldsworth}
 
 \begin{abstract}
-  	The Extreme-ultraviolet Snapshot Imaging Spectrograph (ESIS) was launched on a sounding rocket from White Sands Missile Range on September 30, 2019.
-  	ESIS is a Computed Tomography Imaging Spectrograph (CTIS) designed to capture both spectral and spatial information simultaneously over a large field of view to provide velocity information on small scale transient events that are prevalent at transition region temperatures.
-  	In this paper, we review the ESIS instrument, mission, and the data captured.
-  	We demonstrate how this unique data set can be interpreted qualitatively, and further present some initial quantitative inversions of the data.
-  	Using a Multiplicative Algebraic Reconstruction technique we are able to combine information from all four ESIS channels into a single spatial-spectral cube at every exposure.
-  	We analyze two small explosive events in the \ov spectral line with jets  near $\pm$100 km/s that evolve on 10 s time scales and vary significantly over small spatial scales.
-  	In the 5 minutes of observing time, ESIS captured tens of the small events across the $\approx$11' field of view, as well as several larger extended eruptions, demonstrating the advantage of CTIS instruments over traditional slit spectrographs in capturing the spatial and spectral information of dynamic solar features across large fields of view.
+    The Extreme-ultraviolet Snapshot Imaging Spectrograph (ESIS) was launched on a sounding rocket from White Sands Missile Range on September 30, 2019.
+    ESIS is a Computed Tomography Imaging Spectrograph (CTIS) designed to capture both spectral and spatial information simultaneously over a large field of view to provide velocity information on small scale transient events that are prevalent at transition region temperatures.
+    In this paper, we review the ESIS instrument, mission, and the data captured.
+    We demonstrate how this unique data set can be interpreted qualitatively, and further present some initial quantitative inversions of the data.
+    Using a Multiplicative Algebraic Reconstruction \cck{Technique (MART)} we are able to combine information from all four ESIS channels into a single spatial-spectral cube at every exposure.
+    We analyze two small explosive events in the \ov spectral line with jets  near $\pm 100$\,km/s that evolve on 10\,s time scales and vary significantly over small spatial scales.
+    In the 5 minutes of observing time, ESIS captured tens of the small events across the $\approx 11'$ field of view, as well as several larger extended eruptions, demonstrating the advantage of CTIS instruments over traditional slit spectrographs in capturing the spatial and spectral information of dynamic solar features across large fields of view.
   	
 \end{abstract} 
 
+\cck{Nitpicky things: I've been working on fixing units (always a thin space between the number and the unit). Fix any you see! I fixed up the typesetting of the spectralline macro as well. Also the arcmin and arcsec commands are not appropriately defined (should use ensuremath) and are not uniformly used in the text; I recommend simply using primes (not backslash prime, but the apostrophe within math mode), which is less effort.}
+
 \section{Introduction}
 
-    The solar transition region (TR) refers to the portion of the solar atmosphere that emits at temperatures between 20,000 K and 800,000 K degrees. 
-    Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers. 
+    \cck{Observationally,} the solar transition region (TR) refers to the portion of the solar atmosphere \cck{\sout{that emits}} at temperatures between 20,000\,K and 800,000\,K \cck{\sout{degrees}}. 
+    Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenuous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
-    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+ km/s.  \amy{this is from proposal, I will add more description and references and basically re-write.}
+    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+\,km/s.  \amy{this is from proposal, I will add more description and references and basically re-write.}
     
     Investigations of TR events to date are severely limited by available observational capabilities. 
     Historically, slit spectrographs have been used to study the solar atmosphere.   
-    Two-dimensional spectral information must be built by rastering the slit over the region of interest, which takes much longer than the timescales of TR phenomena and confuses whether events are temporally evolving or varying spatially.  
-    One solution to simultaneously capture spatial and spectral information over a large field of view is to use an slitless imaging spectrograph.  
-    The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.  
+    Two-dimensional spectral information must be built by rastering the slit over the region of interest, which takes much longer than the timescales of TR phenomena and confuses whether events are evolving temporally or varying spatially.  
     
-    The difficulty in unfolding the data has limited its usefulness for extended astrophysical objects like the Sun. 
-    Only two satellite missions have routinely captured solar slitless spectrograph data; {\it Skylab} \citep{Tousey1973} and the Res-K instrument of the Russian KRONOS-I mission \citep{Zhitnik1998}, though others have been recently developed and proposed \citep{winebarger2019,golub2020}. Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec and 266\arcsec slots that can produce overlappogram data.  Though this data is not often taken for scientific analysis, it has been used as a flare trigger and since analyzed to aid in interpretation of impulsive phase of solar flares \citep{harra2017,harra2020}.
+    \cck{[Moved to following paragraph] One solution to simultaneously capture spatial and spectral information over a large field of view is to use a slitless imaging spectrograph.  
+    The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.} 
+    The difficulty in unfolding \cck{slitless spectrograph} data has limited its usefulness for extended astrophysical objects like the Sun. 
+    Only two satellite missions have routinely captured solar slitless spectrograph data; {\it Skylab} \citep{Tousey1973} and the Res-K instrument of the Russian KRONOS-I mission \citep{Zhitnik1998}, though others have been recently developed and proposed \citep{winebarger2019,golub2020}. Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec and 266\arcsec slots that can produce overlappogram data.  Though \cck{EIS slot data are} not often taken for scientific analysis, \cck{they have} been used as a flare trigger and since analyzed to aid in interpretation of impulsive phase of solar flares \citep{harra2017,harra2020}.
     In addition to these satellite observatories, there have been several solar observations with slitless spectrographs on sounding rocket flights, including the Multi-Order Solar EUV Spectrograph (MOSES) instrument by Kankelborg and collaborators \citep{Kankelborg01,Fox10}.
     MOSES captured the zero and plus and minus one order of the \heii line simultaneously. Doppler shifts were then detected as the spectral displacements in opposite directions in the $\pm$ 1 orders.
     
-    Slitless spectrograph data can be thought of as a projection of a spatial-spectral data cube, $I(x,y,\lambda)$, onto a two dimensional detector.  
-    To invert temperature or density information from slitless spectrograph data, only a single projection of this cube is required, as demonstrated by \cite{winebarger2019}.  
-    However, to disentangle quantitative velocity information from slitless spectrograph data, additional projections of the data cube with different relative dispersive directions is necessary.  
-    An instrument that captures multiple projections of the spatial-spectral data cube is called a Computed Tomography Imaging Spectrograph (CTIS).  MOSES is an example of a CTIS, as it captured three projections in the $\pm$ 1 and 0 orders.  
+    Slitless spectrograph data can be thought of as a projection of a \cck{three dimensional} spatial-spectral data cube, $I(x,y,\lambda)$, onto a two dimensional detector.  
+    \cck{\sout{To invert temperature or density information from slitless spectrograph data, only a single projection of this cube is required, as demonstrated by \cite{winebarger2019}.}} To a limited extent, it proved possible to isolate individual line intensities for bright spectral features such as flare kernels using the Skylab data \citep{TBD}. Slitless spectrographs using two projections (usually one dispersed, and one undispersed) have proven sufficient to implement an efficient ground-based magnetograph \citep{deforest2004}, map Doppler shifts in the solar transition region \citep{Courrier2018}, and invert temperature or density information \citep{winebarger2019}. 
+    However, as with any tomographic inversion problem \citep{Kak_Slaney}, the fidelity of reconstruction improves dramatically as projections are added. This is particularly true as the complexity of the object increases, causing the overlap of multiple features along the projection. 
+    An instrument that captures multiple projections of the spatial-spectral data cube is called a Computed Tomography Imaging Spectrograph (CTIS)\cite{Descour,Dereniak}.  MOSES is an example of a CTIS, as it captured three projections in the $\pm$ 1 and 0 orders.  \cite{Fox10} was able to extract line widths and doppler shifts from a relatively complex explosive event observed by MOSES in \spectralline{He}{ii}{304}.  \cite{Rust2019} found unambiguous evidence of explosive events with well resolved, double-peaked spectral line profiles in the same data set.
     
     In 2013, the Extreme-ultraviolet Snapshot Imaging Spectrograph (ESIS) was proposed to the NASA Low Cost Access to Space (LCAS) program and subsequently selected.  
     ESIS is a CTIS with four unique projections of the spatial-spectral data cube and is designed to capture velocity information in small-scale reconnection events in the \ov emission line that is formed in the solar transition region.  
@@ -216,10 +219,6 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	    The data is read out through 4 ports in the detector.  The read out register has 50 additional dummy pixels, or non-active pixels (NAPs), that are read out before each row of the detector data.  When the detector is read out, those 50 pixels are stored as part of the image.  Two additional ``overscan" pixels are read after each row of data and also stored as part of the image.  A stored Level-0 data file, then, is 2152$\times$1040 pixels.   During pre-flight lab testing, it was found that the median intensity in columns 21-50 of the NAPs of each read out port was an excellent proxy for the detector bias.  Additionally the data from each port is converted from analog to digital through a unique circuit.  Though the same components were used, slight variations in the circuits caused slight differences in the gain (elec / DN) and read  noise associated with each quadrant.  The gain for each quadrant in each camera was measured prior to flight.  The noise was measured from usable dark images during flight.  The average and standard deviations in these values are given in Table~\ref{tab:data_info}.
     
     \subsection{Level-1 Data}
-        
-    
-	   
-	    
 	    \begin{figure}
 	    	\centering
 	    	\includegraphics{L0_to_L1}
@@ -249,8 +248,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	\newcommand{\levthreetime}{2019-09-30T18:08:51.644}
     	
     	The ESIS Level-3 data product is created to provide a co-aligned, single wavelength image in each channel for quick identification of events with significant line-of-sight velocities and easy comparison with coordinated data that does not require inversion. 
-    	Level-3 data also allows for single wavelength inversion prior to the completion of the final optical distortion model and the Level-2 data product.  A description of both qualitative and quantitative analysis of Level-3 data is given in Section 4.  Generating Level-3 data products require several steps including 1) converting to photons and despiking Level-1 data, 2) correction of the optical distortion and internal co-alignment of the four ESIS channels, 3) correction of each channel for vignetting, including identifying regions where the contributions of the overlapping \mgxbright line confuse the \ov data, and 4) correction for the relative radiometric differences in each channel.  Each of these corrections are described in detail below. 
-    	Figure \ref{fig:coalign}a shows an example of a Level-3 image from Channel 1 taken at \levthreetime.
+    	Level-3 data also allows for single wavelength inversion prior to the completion of the final optical distortion model and the Level-2 data product.  A description of both qualitative and quantitative analysis of Level-3 data is given in Section 4.  Generating Level-3 data products require several steps including 1) converting to  Level-1 data photons and despiking, 2) correcting the optical distortion and internal co-alignment of the four ESIS channels, 3) correcting of each channel for vignetting, including identifying regions where the contributions of the overlapping \mgxbright line confuse the \ov data, and 4) correcting the relative radiometric differences in each channel.  Each of these corrections are described in detail below. 
+    	Figure \ref{fig:coalign}a shows an example of a Level-3 image from Channel 2 \jpd{verify this} taken at \levthreetime.
     	
   		\begin{figure}[htb!]
     		\centering
@@ -261,13 +260,13 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	
     
     \subsection{Conversion to Photons and Despiking}
-        In order to use Level-3 data for early inversion the intensity needs to  converted to photons in order properly account for uncertainty and then normalized between channels.
+        In order to use Level-3 data for early inversion the intensity needs to  converted to photons in order properly account for uncertainty in the data.
         The conversion from electron to photon is done to Level 1 data prior to co-alignment efforts.
-   		The intensity in photons , $I_q$, then becomes,
+   		The intensity in photons , $I_{\photon}$, then becomes,
    		\begin{equation}
-	   		I_q = I_{\SI{}{\elementarycharge}} * 3.6\ \frac{\SI{}{\electronvolt}}{\SI{}{\elementarycharge}} * \frac{\lambda}{hc}.
+	   		I_{\photon} = I_{\SI{}{\elementarycharge}} * 3.6\ \frac{\SI{}{\electronvolt}}{\SI{}{\elementarycharge}} * \frac{\lambda}{hc}.
    		\end{equation}
-		With a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \ov photon of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon} gives each count in $DN \approxeq 0.46$ photons.
+		With a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \ov photon of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon} each count in $DN \approxeq 0.46$ photons.
 		Creating Level-3 data for a different spectral line in the ESIS passband simply requires using a different wavelength when converting to photons.
 		
 		Due to a substantial number of charged particle hits on the ESIS detectors Level-1 data was also despiked in order to minimize ill effects on co-alignment and inversion.
@@ -279,11 +278,11 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         First, each ESIS image is roughly cropped around the \ov spectral line, (roughly pixels 1000 - 2048 of the Level-1 data shown in Figure~\ref{fig:L0_to_L1}) and then co-aligned to the closest AIA 304\,\AA\ image in time.  
         The AIA 304 channel was chosen for co-alignment because it is the AIA EUV channel most visually similar to O V, in both the background and bright events (Figure \ref{fig:coalign}b).
         Prior to co-alignment each AIA image was prepped to Level-1.5 using the aiapy routines \texttt{aiapy.calibrate.update\_pointing()} and \texttt{aiapy.calibrate.register.py}  \citep{aiapy}.
-        The co-alignment was achieved through a linear coordinate transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of this are shown in Figure \ref{fig:coalign}b.
+        The co-alignment was achieved through a linear coordinate transformation of the cropped ESIS image that maximizes the zero lag cross-correlation between it and AIA 304, the results of this are shown in Figure \ref{fig:coalign}.
         
     	Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
     	Using a single ESIS channel as reference, in this case Channel 2, each other channel is co-aligned to it via a quadratic coordinate transformation that maximizes the zero-lag cross-correlation. 
-    	Figure \ref{fig:cc} shows ratio of peak cross-correlation after the quadratic internal alignment to that of the linear co-alignment with AIA for every camera pair and every exposure.
+    	Figure \ref{fig:cc} shows the ratio of peak cross-correlation after the quadratic internal alignment to that of the linear co-alignment with AIA for every camera pair and every exposure.
     	After performing this additional internal alignment we find that not only is the co-alignment between each channel and the reference channel improved (dots in Figure \ref{fig:cc}), but also the co-alignment between every other combination of channels (stars in Figure \ref{fig:cc}).
     	This ratio is greater than 1 in all cases and shows a less than 1 percent improvement in peak correlation, demonstrating the subtle non-linearity of the ESIS optical distortion function.
     	In pixels, this corresponds to an average change in mapping of \jdp{\textbf{FIND THIS}}.
@@ -310,9 +309,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
   
   
         Each ESIS channel has a linear trend in intensity across the octagonal field of view along the dispersion direction due to internal vignetting in the optical system caused by \jdp{insightful comment here} \citep{ESIS}.
-        In the co-aligned Level-3 images where solar north is rotated to the top of the image, the dispersion axes runs at different angles relative to solar north in each channel, so the impact of the vignetting field can be seen in the linearly trending background when taking the difference between two channels (\Figure \ref{fig:vig_correct}a).
-
-        Measuring the vignetting function from the data is additionally complicated by the overlap of the bright \mgxbright line.  This line overlaps different regions of the field of view in each channel, see Figure~\ref{fig:mgx_overlap}.  To  better estimate the vignetting, then, we restrict ourselves to the portion of the field of view without the \mgxbright overlap in any channel.  
+        In the co-aligned Level-3 images, where solar north is rotated to the top of the image, the dispersion axes runs at different angles relative to solar north in each channel, so the impact of the vignetting field can be seen in the linearly trending background when taking the difference between two channels (\Figure \ref{fig:vig_correct}a).
+        We seek to minimize the linear trend in intensity seen in Level-3 difference images by dividing out a linearly trending background, aligned to the dispersion axis, in every image.
         
         We define the vignetting field for each channel, $i$ at each time, $s$, as a function of the pixels in the Level-3 data, $(x,y)$, as 
         \begin{equation}
@@ -321,7 +319,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         \end{equation}
        	where
        	\begin{equation}
-       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\text{drift}}*s) - \sin(\alpha_i)(y-y_0-y_{\text{drift}}*s/s_t)].
+       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\text{drift}}*s/s_t) - \sin(\alpha_i)(y-y_0-y_{\text{drift}}*s/s_t)].
         	\label{eqn:vignet2}
        	\end{equation}
         
@@ -330,36 +328,47 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         In Equation \ref{eqn:vignet2},  $\alpha_i$ is the angle of rotation of each ESIS Level-3 image relative to a Level-1 image row.
         In this case, $\alpha_i = [112.5^{\circ}, 67.5^{\circ}, 22.5^{\circ}, -22.5^{\circ}]$ for Channels 1-4, respectively.
         The vignetting field is rotated about the origin of each image in pixels, $[x_0, y_0] = [635,635]$, to account for the change in dispersion direction.
-        Because ESIS images have a slight pointing drift the field of view defined by the octagon moves in Level-3 data as a function of time or image sequence, $s$.
+        ESIS images have a slight pointing drift, so the field of view defined by the octagon moves in Level-3 data as a function of time or image sequence, $s$.
         Therefore the vignetting field is translated to follow this drift.
-        This is achieved through a change in origin of rotation.
+        This is achieved through a change in origin.
         At each time $s$, the origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/29$, where $s_t $ is the total number, 29, of Level-3 images in time. 
         
-        \begin{figure}[htb!]
-        	\centering
-        	\includegraphics{mgx_overlap.pdf}
-        	\caption{The red hashed region shows the overlap of the Mg {\sc x} 609.8 \AA \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in and attempt to bring out the subtle contamination.  The outline of the Mg {\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
-
-        	\label{fig:mgx_overlap}
-        \end{figure}
-        
-        To correct the vignetting we seek to minimize the linear trend in intensity seen in Level-3 difference images.
-        We measure this trend by taking the mean of each column and fitting a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
-        When fitting for the vignetting field slope, $m_i$, for each  of the four ESIS channels we mask off the portion common to them all with no contribution from \mgxbright.
+        Due to inconsistencies between predicted vignetting field slope and what is seen in the data we choose to fit the linearly trending background in each difference image and use the vignetting field slopes, $m_i$, as free parameters to minimize it.
+        We measure the trend in the background by taking the mean of each column in the difference image and fitting a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
         The four channels of ESIS give 6 possible difference images for fitting the vignetting function for each image sequence $s$. 
-        When the average slope of all 174 fits (6 difference images per each of the \numDataFrames \ exposures) 
-        is minimized we consider the vignetting corrected. 
+        When the average slope of all 174 fits (6 difference images per each of the \numDataFrames \ exposures) is minimized we consider the vignetting corrected.
+        Measuring the trend from the data is additionally complicated by the overlap of the bright \mgxbright line.  
+        This line overlaps different regions of the field of view in each channel, see Figure~\ref{fig:mgx_overlap}.  
+        Therefore when fitting the background we restrict ourselves to the portion of the field of view without the \mgxbright overlap in any channel.
+        We also only use column means between the red bars in Figure \ref{fig:vig_correct} to ensure sufficient pixel numbers in each column.  
+        
         The resulting final fit, $m_i = \vigfit$, gives smaller slopes than are predicted using ray tracing and geometric optical models \citep{ESIS}, which can be attributed to a few likely culprits. 
-        One source of error likely comes from the imprint of adjacent spectral lines, the most obvious being that of Mg {\sc x} 626 \AA \ visible in Figure \ref{fig:vig_correct}c.
+        One source of error likely comes from the imprint of adjacent spectral lines, the most obvious being that of \mgxdim visible in Figure \ref{fig:vig_correct}c.
         Since this Mg {\sc x} line overlaps almost entirely with O {\sc v}, and has an identical vignetting function, it adds intensity that prevents a perfect fit. 
         If this were the only source of discrepancy between the vignetting function predicted by the raytrace and the fits obtained from the data, then we would simply use the same, predicted vignetting for every channel. 
         However, we can anticipate slightly different vignetting in each channel due to variations in assembly so we allow each channels slope to vary independently.
         A misalignment of the ESIS field stop center, the ESIS primary optic center, and the center of the ESIS grating array, all shift the geometry of the ESIS central obscuration and can easily modify the vignetting field in each channel.
         Despite the uncertainties in vignetting, which we have found difficult to quantify, Level-3 differences are much flatter in intensity post vignetting correction as is seen in Figure \ref{fig:vig_correct}c, and will therefore lead to a higher fidelity intensity recovery when inverting Level-3 data.
+
+        
+        
+        
+        
+        \begin{figure}[htb!]
+        	\centering
+        	\includegraphics{mgx_overlap.pdf}
+        	\caption{The red hashed region shows the overlap of the \mgxbright spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in and attempt to bring out the subtle contamination.  The outline of the Mg {\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
+
+        	\label{fig:mgx_overlap}
+        \end{figure}
+        
+        
         
     \subsubsection{Relative Radiometric correction }
         
-        Normalizing the intensity of each channel is done by equalizing the image mean over a shared piece of sun, and is therefore performed after inter-channel co-alignment. 
+        Normalizing the intensity of each channel is done by equalizing the image mean over the least contaminated shared piece of sun, and is therefore performed after inter-channel co-alignment and the vignetting correction.
+        We divide each image by it's mean in the region of the field of view uncontaminated by \mgxbright in everychannel (shape shown in Figure \ref{fig:vig_correct} a and c) and multiplying it by the mean in that same region from the brightest image in the brightest channel (Channel 2 at apogee)
+        This not only normalizes the intensity between each channel at every exposure, but also corrects for the effects of atmospheric absorption mentioned in earlier sections. 
 
 \section{Preliminary Results}
 
@@ -368,14 +377,20 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	    Despite the lack of solar activity, ESIS managed to capture tens of small, transient events and one significant eruption during the $\approx$5 minutes of observation in the \ov spectral line.  We provide a few examples of these events in this section.  Additional analysis is provided in a series of upcoming papers.  
 	
     \subsection{Level-3 Difference Images}
-    	Early work with MOSES images demonstrated the utility of examining difference images between different projects of the spatial-spectral cube (channels) to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and extra spectral content \citep{RustPhD, Rust2019,Parker2021}.  \amy{what does extra spectral content mean?}
+    	Early work with MOSES images demonstrated the utility of examining difference images between different projects of the spatial-spectral cube (channels) to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and spectral contamination \citep{RustPhD, Rust2019,Parker2021}.
     	It is for this reason that we developed a spatially co-aligned data product (the Level-3 data) quickly that would allow us to take differences between each ESIS channels.
     	Each ESIS channel disperses solar features in a different direction relative to solar north, determined by the azimuthal position of each grating.
     	The positive dispersion direction in each Level-3 image is indicated by the arrows  in Figure \ref{fig:mgx_overlap}.
-    	In the case of an eruptive event with a velocity signature, the Doppler shift is dispersed a different direction in each channel, meaning taking the difference between two spatially aligned channels leave only intensity away from the spectral line core.  To put it another way, subtracting the data from two channels removes all the spatial structures that overlap in the two channels and leaves only the velocity signatures.  \amy{I don't know if this is helping, but feel this needs additional description.}
+    	In the case of an eruptive event with a velocity signature, the Doppler shift is dispersed a different direction in each channel, meaning taking the difference between two spatially aligned channels leave only intensity away from the spectral line core.  
+    	To put it another way, subtracting the data from two channels removes all the spatial structures that overlap in the two channels and leaves only the velocity signatures. 
     	%For our initial analysis, we focus on the dominant O {\sc v} 629.7 \AA \ spectral line in the ESIS passband. \amy{I think this is a given since it is the only one in level3}
     	
-    	Figure~\ref{fig:l3_dif} shows the difference between Channels 2 and 3 for the full ESIS field of view.  Several regions of the field of view show black and white features, a few of these are marked with red boxes and will be discussed in detail below.  The small black features tend to lie at an angle -22.5$^\circ$ with solar north, which is the direction of dispersion of Channel 3, while white features tend to lie at an angle of 22.5 $^\circ$ with solar north, which is the direction of dispersion of Channel 2.  Due to the relative orientation of each ESIS channel's dispersion axis, taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.  Every X or V-shaped features in an ESIS difference image, Figure~\ref{fig:l3_dif}, that have obvious, and nearby, positive and negative portions indicate solar events with significant line-of-sight (LOS) Doppler velocity.   Other things to note in this image is the white octagon that overlays the lower left quadrant of the image, this is the \mgxbright line that overlaps the \ov line in Channel 2.  The dark octagon on the lower right quadrant is the portion of the \mgxbright line that overlaps the \ov line in Channel 3.    
+    	Figure~\ref{fig:l3_dif} shows the difference between Channels 2 and 3 for the full ESIS field of view.  
+    	Several regions of the field of view show black and white features, a few of these are marked with red boxes and will be discussed in detail below.  
+    	The small black features tend to lie at an angle -22.5$^\circ$ with solar north, which is the direction of dispersion of Channel 3, while white features tend to lie at an angle of 22.5 $^\circ$ with solar north, which is the direction of dispersion of Channel 2.  
+    	Due to the relative orientation of each ESIS channel's dispersion axis, taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.  
+    	Every X or V-shaped features in an ESIS difference image, Figure~\ref{fig:l3_dif}, that have obvious, and nearby, positive and negative portions indicate solar events with significant line-of-sight (LOS) Doppler velocity.   
+    	Other things to note in this image is the white octagon that overlays the lower left quadrant of the image, this is the \mgxbright line that overlaps the \ov line in Channel 2.  The dark octagon on the lower right quadrant is the portion of the \mgxbright line that overlaps the \ov line in Channel 3.    
    		
    		\begin{figure*}[htb!]
    			\centering
@@ -395,14 +410,17 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 
     	Simple, point-like, transient brightenings with little or no spatial structure are the easiest events to interpret because their naturally confined spatial extent acts similarly to a spectrographic slit.
     	Therefore, any spatial extent in an ESIS image is mostly due to spectral dispersion. \amy{I think the previous sentence is confusing.}
-    	In these simple events, a qualitative understanding of their velocity can be ``read off'' of each ESIS image.
-    	This is effect was explored in great detail by \citet{Rust2019}, who sliced through these small events along the dispersion direction and measured line profiles.
+    	In these simple events, a qualitative understanding of their velocity can be ``read off'' of each ESIS difference image.
+    	This is effect was explored in great detail by \citet{Rust2019}, who sliced through these small events along the dispersion direction to measured line profiles.
     	
-    	Here we explore the velocity signature in three examples of simple point-line events marked a-c in Figure~\ref{fig:l3_dif}.  Figure \ref{fig:dif_events} shows the difference image in the first column for all three events, then the Channels 2 and 3 data in the subsequent columns. Figure \ref{fig:dif_events}a shows a V-shaped event that is pointed downward in the difference between the Channel 2 and Channel 3 Level-3 image.
+    	Here we explore the velocity signature in three examples of simple point-line events marked a-c in Figure~\ref{fig:l3_dif}.  
+    	Figure \ref{fig:dif_events} shows the difference image in the first column for all three events, then the Channels 2 and 3 data in the subsequent columns. 
+    	Figure \ref{fig:dif_events}a shows a V-shaped event that is pointed downward in the difference between the Channel 2 and Channel 3 Level-3 image.
     	Since we know that the direction of positive wavelength dispersion is up and to the right in Channel 2 and up and to the left in Channel 3 (Figure \ref{fig:mgx_overlap}) we immediately know that this event is predominantly blue shifted.  
     	Similarly, an upward facing V-shaped event, like the one shown in Figure \ref{fig:dif_events}b, is predominantly red shifted.
-    	X-shaped events, shown in Figure \ref{fig:dif_events}c, that occur equally if not more frequently than V-shaped events, indicate significant line broadening. \amy{suggest enhanced emission in both the red and blue wing of the line profile?}
-    	Difference images can provide immediate qualitative understanding of these simple, point-like events.  During the 5 minute rocket flight, tens of similar events were detected in the ESIS field of view.  
+    	X-shaped events, shown in Figure \ref{fig:dif_events}c, that occur equally if not more frequently than V-shaped events, suggest enhanced emission in both the red and blue wing of the line profile
+    	Difference images can provide immediate qualitative understanding of these simple, point-like events.  
+    	During the 5 minute rocket flight, tens of similar events were detected in the ESIS field of view.  
     	
     	%While this gives us a quick and qualitative understanding of a simple event, even the smallest amount of spatial extent in a given feature leads to an entanglement of spatial and spectral information making it very difficult to derive qualitative velocities without inversion. 
     	
@@ -428,10 +446,10 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	Despite the extra complexity, an understanding of ESIS difference images provides an excellent sanity check when interpreting future inversions.
     	
     
-    	Larger positive or negative features with no obvious counterpart nearby, are indicative of extra spectral content \citep{RustPhD,Parker2021}.
-    	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
-    	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	 
-    	\amy{roy's paper already slated for 2022?  I mention some of this above, don't know if we need to keep it in both places.}
+    % 	Larger positive or negative features with no obvious counterpart nearby, are indicative of spectral contamination \citep{RustPhD,Parker2021}.
+    % 	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
+    % 	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	 
+    % 	\amy{roy's paper already slated for 2022?  I mention some of this above, don't know if we need to keep it in both places.}
     
     
     \subsection{Early Inversions}
