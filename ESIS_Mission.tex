@@ -305,12 +305,12 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         %The vignetting field divided out for each channel is,
         We define the vignetting field for each channel, $i$ at each time, $s$, as a function of the pixels in the Level-3 data, $(x,y)$, as 
         \begin{equation}
-            V_{is}(x,y) = m_{i} * [r(x,y) - r_0] + 1,
+            V_{is}(x,y) = m_{i} * [r(x,y,s) - r_0] + 1,
             \label{eqn:vignet}
         \end{equation}
        	where
        	\begin{equation}
-       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\text{drift}}*s) - \sin(\alpha_i)(y-y_0-y_{\text{drift}}*s)].
+       		r = x_0 + [\cos(\alpha_i)(x-x_0-x_{\text{drift}}*s) - \sin(\alpha_i)(y-y_0-y_{\text{drift}}*s/s_t)].
         	\label{eqn:vignet2}
        	\end{equation}
        	
@@ -319,7 +319,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         In Equation \ref{eqn:vignet2},  $\alpha_i$ is the angle of rotation of each ESIS Level-3 image relative to a Level-1 image row.
         In this case, $\alpha_i = [112.5^{\circ}, 67.5^{\circ}, 22.5^{\circ}, -22.5^{\circ}]$ for Channels 1-4, respectively.
         The vignetting field is rotated about the origin of each image in pixels, $[x_0, y_0] = [635,635]$, to account for the change in dispersion direction.
-        Because ESIS images have a pointing drift as a function of time, or image sequence, $s$, the image origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/29$, where $s_t $ is the total number, 29, of Level-3 images in time. \amy{I think there might be a simpler way to give this last equation on teh drift.  And why does the vignetting depend on solar pointing?}
+        Because ESIS images have a slight pointing drift, causing the octagon to move as a function of time, as a function of time, or image sequence $s$, the image origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/29$, where $s_t $ is the total number, \numDataFrames, of Level-3 images in time. \amy{I think there might be a simpler way to give this last equation on teh drift.  And why does the vignetting depend on solar pointing?}
         
         \begin{figure}[htb!]
         	\centering
@@ -429,27 +429,52 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     
     \subsection{Early Inversions}
     	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
-    	For out preliminary inversions of ESIS Level-3 data we have chosen to use a Multiplicative Algebraic Reconstruction Technique (MART).
+    	For out preliminary inversions of ESIS Level-3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
     	MART is attractive for our first inversions because it is fast, requires no training or assumptions about the data, and automatically enforces image  positivity.
     	We describe our particular implementation in more detail in Appendix \ref{MART}.
     	
     	\begin{figure}[htb!]
     		\includegraphics{perfect_x_inverted}
     		\centering
-    		\caption{This figure and associate animation show the temporal evolution of the \ov line profile at 9 spatial locations across the explosive event highlighted in Figure \ref{fig:l3_dif}c.}
+    		\caption{MART inverted results of event c in Figure \ref{fig:l3_dif}. The integrated intensity (top row) and corresponding Level-3 difference image (second row) are shown at 4 different times. A red box on each difference image marks the FOV used in the top row.  The \ov line profile at each position marked with a red dot is plotted in the matching 3x3 grid in a different color for each time (in order red, green, blue, black). Each MART line profile (dots) is overplotted with a double gaussian fit (solid line).  Bulk shifts in km/s for each component of the fit are added for each time in their respective color. }
     		\label{fig:perfect_x_inverted}
     	\end{figure}
         
         \begin{figure}[htb!]
     	\includegraphics{other_x_inverted}
     	\centering
-    	\caption{}
+    	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif} presented in the same fashion as Figure \ref{fig:perfect_x_inverted}.}
     	\label{fig:other_x_inverted}
-    \end{figure}
+    	\end{figure}
     	
-    	We have inverted two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif} using MART.
+    	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations, we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
     	Both events have an X-shaped presentation, begin and end within the ESIS observing time, and show noticeable temporal evolution in velocity.
-    	Since both events have a double peaked nature, seen in both the Level-3 data and in resulting inversions, 
+		Each figure shows the total integrated intensity (top row) and Channel 2-3 Level-3 difference image (second row) at four different times.  
+		The FOV of the integrated intensity is shown as a red box on the difference image below. 
+		Inverted \ov line profiles at each spatial location marked by a red dot in the integrated intensity image are plotted in the matching 3x3 grid for each time (in the order red, green, blue, black).
+		We performed a double gaussian fit for each line profile (solid line) and plotted it over the MART inverted data (dots).
+		The deviation from line center of each gaussian is recorded in km s$^{-1}$ in the color matching line profile.
+		In the animation, we plot the red and blue components of each fit separately as dashed lines, their sum as a solid line in fuschia, and the MART inverted line profile in  
+		
+		Event c described Figure \ref{fig:perfect_x_inverted} lasts just over 4 minutes and shows significant temporal evolution in the line profile.
+		Throughout the event the blue component of the \ov line dominates and is centered at $\approx$ -50 km s$^{-1}$.
+		This blue component persists for the entire duration of the event with very slight deviations intensity and velocity.
+		The red component of the event is bursty in nature, with two small peaks in intensity at 18:07:41 and 18:08:11, and is centered at $\approx$ 110 km s$^{-1}$.
+		While there are a several frames where the red component of the line appears as an additional peak in the line profile and is well fit by a second gaussian, most of the time it presents more as an asymmetric broadening in the red wing of the line making the velocities from the fit less reliable.
+		This explosive event covers is $\approx$ 3 arcseconds in diameter and show little spatial variation in the line profile across the event.
+		
+		The explosive event highlighted Figure \ref{fig:other_x_inverted}, event d, is similar to event c in that is has enhancements in both the red and blue wing of the line profile, but is more complicated in it's presentation.
+		Event d  begins at 18:07:11 and it's intensity has almost completely died away by the last Level-3 image, but not entirely. 
+		\jdp{verify after Level-3 rebuild}
+		A strong blue component in the line profile centered near -125 km s$^{-1}$  peaks at 18:08:01 dominates early in the event evolution.
+		This blue component is brightest in the lower left portion of the event.
+		The red component of the line profile peaks at 18:08:51 and is centered near 50 km s$^{-1}$.
+		Unlike event c, the blue component of the line is less persistent in time.
+		Also, the blue and red components of the event do not occur in the same spatial location.
+		This is visible both in the grid of line profiles and the difference images.
+		Intensity in the line profiles show the blue component peaking in the lower left, while the red component peaks in the middle to right columns.
+		In the difference images there is a clear vertical and horizontal separation between the blue downward facing V and the red upward facing V. 
+		A closer look at the inverted data shows an $\approx$ 1.35 arcsecond spatial separation between centroids of the blue and red component.  
     	
     	
     			
@@ -468,7 +493,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	When testing a variety of inversion methods on MOSES data \citet{FoxPhD} identified MART as most promising of several methods in terms of speed and fidelity.
 	\citet{RustPhD} applied a slightly different version of MART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
 	
-	With MART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image or projection, $f_{\theta x'y'}$,=. There is one ESIS image for each $\theta$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
+	With MART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image or projection, $f_{\theta x'y'}$. There is one ESIS image for each $\theta$ representing the relative orientations of each ESIS channel. The procedure is executed as follows:
 	\begin{enumerate}
 		\item \label{step:guess} Create a guess cube, $G_{xy\lambda} = 1$ on the same domain as $I$. 
 		\item \label{step:contrast} Enhance the contrast of $G$ and normalize. 
@@ -510,7 +535,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 				C_{\theta (x-\delta\lambda)y\lambda} = c_{\theta x'y'}
 			\end{equation}	
 		
-		\item \label{step:correct} Apply a weighted product of each derotated correction to $G$ ,
+		\item \label{step:correct} Apply a weighted product to each derotated correction to $G$ ,
 			\begin{equation}\label{eq:correct}
 				G \leftarrow G\left\lbrace  \,\prod_{\theta=\theta_{uc}}  \mathcal{R}_\lambda(-\theta_i)C_{\theta xy\lambda} \right\rbrace^{1/m_{uc}},
 			\end{equation}
