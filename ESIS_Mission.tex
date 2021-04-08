@@ -1,5 +1,7 @@
-\renewcommand{\arcsec}{$^{\prime\prime}$} %redundant command definition, but needed for thesis template
-\renewcommand{\arcmin}{$^{\prime}$}
+\renewcommand\arcmin{\mbox{$^\prime$}}
+\renewcommand\arcsec{\mbox{$^{\prime\prime}$}}
+% Above taken straight from aastex63.cls, needed for use with other cls files
+
 \newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
 \newcommand{\jdp}[1]{{\color{red} JDP: #1}} % JDP comment
 \newcommand{\cck}[1]{{\color{brown} #1}} % CCK comment
@@ -16,6 +18,7 @@
 
 
 % This gives us \sout for striking out text in comments....
+% \sout command defined in aastex63.cls
 
 \title{First Flight of the EUV Snapshot Imaging Spectrograph (ESIS)}
 
@@ -30,7 +33,7 @@
     ESIS is a Computed Tomography Imaging Spectrograph (CTIS) designed to capture both spectral and spatial information simultaneously over a large field of view to provide velocity information on small scale transient events that are prevalent at transition region temperatures.
     In this paper, we review the ESIS instrument, mission, and the data captured.
     We demonstrate how this unique data set can be interpreted qualitatively, and further present some initial quantitative inversions of the data.
-    Using a Multiplicative Algebraic Reconstruction \cck{Technique (MART)} we are able to combine information from all four ESIS channels into a single spatial-spectral cube at every exposure.
+    Using a Multiplicative Algebraic Reconstruction Technique (MART) we are able to combine information from all four ESIS channels into a single spatial-spectral cube at every exposure.
     We analyze two small explosive events in the \ov spectral line with jets  near $\pm 100$\,km/s that evolve on 10\,s time scales and vary significantly over small spatial scales.
     In the 5 minutes of observing time, ESIS captured tens of the small events across the $\approx 11'$ field of view, as well as several larger extended eruptions, demonstrating the advantage of CTIS instruments over traditional slit spectrographs in capturing the spatial and spectral information of dynamic solar features across large fields of view.
   	
@@ -40,7 +43,7 @@
 
 \section{Introduction}
 
-    \cck{Observationally,} the solar transition region (TR) refers to the portion of the solar atmosphere \cck{\sout{that emits}} at temperatures between 20,000\,K and 800,000\,K \cck{\sout{degrees}}. 
+    Observationally, the solar transition region (TR) refers to the portion of the solar atmosphere at temperatures between 20,000\,K and 800,000\,K. 
     Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenuous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
     It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+\,km/s.  \amy{this is from proposal, I will add more description and references and basically re-write.}
@@ -49,10 +52,12 @@
     Historically, slit spectrographs have been used to study the solar atmosphere.   
     Two-dimensional spectral information must be built by rastering the slit over the region of interest, which takes much longer than the timescales of TR phenomena and confuses whether events are evolving temporally or varying spatially.  
     
-    \cck{[Moved to following paragraph] One solution to simultaneously capture spatial and spectral information over a large field of view is to use a slitless imaging spectrograph.  
-    The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.} 
-    The difficulty in unfolding \cck{slitless spectrograph} data has limited its usefulness for extended astrophysical objects like the Sun. 
-    Only two satellite missions have routinely captured solar slitless spectrograph data; {\it Skylab} \citep{Tousey1973} and the Res-K instrument of the Russian KRONOS-I mission \citep{Zhitnik1998}, though others have been recently developed and proposed \citep{winebarger2019,golub2020}. Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec and 266\arcsec slots that can produce overlappogram data.  Though \cck{EIS slot data are} not often taken for scientific analysis, \cck{they have} been used as a flare trigger and since analyzed to aid in interpretation of impulsive phase of solar flares \citep{harra2017,harra2020}.
+    One solution to simultaneously capture spatial and spectral information over a large field of view is to use a slitless imaging spectrograph.  
+    The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.
+    The difficulty in unfolding slitless spectrograph data has limited its usefulness for extended astrophysical objects like the Sun. 
+    Only two satellite missions have routinely captured solar slitless spectrograph data; {\it Skylab} \citep{Tousey1973} and the Res-K instrument of the Russian KRONOS-I mission \citep{Zhitnik1998}, though others have been recently developed and proposed \citep{winebarger2019,golub2020}. 
+    Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec and 266\arcsec slots that can produce overlappogram data.  
+    Though EIS slot data are not often taken for scientific analysis, they have been used as a flare trigger and since analyzed to aid in interpretation of impulsive phase of solar flares \citep{harra2017,harra2020}.
     In addition to these satellite observatories, there have been several solar observations with slitless spectrographs on sounding rocket flights, including the Multi-Order Solar EUV Spectrograph (MOSES) instrument by Kankelborg and collaborators \citep{Kankelborg01,Fox10}.
     MOSES captured the zero and plus and minus one order of the \heii line simultaneously. Doppler shifts were then detected as the spectral displacements in opposite directions in the $\pm$ 1 orders.
     
