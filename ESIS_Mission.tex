@@ -246,7 +246,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	In addition to the images, the Level-1 fits header is updated with the time, exposure length, and altitude associated with each image using standard FITS header keywords.   
 	
 
-    \subsection{Level 3 Data}
+    \subsection{Level 3 Data} \label{sec:level-3}
  
     
     	\newcommand{\vigfit}{[0.44, 0.34, 0.38, 0.5]}
@@ -383,7 +383,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		
 	    Despite the lack of solar activity, ESIS managed to capture tens of small, transient events and one significant eruption during the $\approx$5 minutes of observation in the \ov spectral line.  We provide a few examples of these events in this section.  Additional analysis is provided in a series of upcoming papers.  
 	
-    \subsection{Level-3 Difference Images}
+    \subsection{Level-3 Difference Images} \label{sec:dif_images}
     	Early work with MOSES images demonstrated the utility of examining difference images between different projects of the spatial-spectral cube (channels) to identify solar features with significant line-of-sight velocity \citep{Fox2010,FoxPhD,RustPhD,Rust2019}, and spectral contamination \citep{RustPhD, Rust2019,Parker2021}.
     	It is for this reason that we developed a spatially co-aligned data product (the Level-3 data) quickly that would allow us to take differences between each ESIS channels.
     	Each ESIS channel disperses solar features in a different direction relative to solar north, determined by the azimuthal position of each grating.
@@ -459,7 +459,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     % 	\amy{roy's paper already slated for 2022?  I mention some of this above, don't know if we need to keep it in both places.}
     
     
-    \subsection{Early Inversions}
+    \subsection{Early Inversions} \label{sec:inversions}
     	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
     	For out preliminary inversions of ESIS Level-3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
     	MART is attractive for our first inversions because it is fast, requires no training or assumptions about the data, and automatically enforces image  positivity.
@@ -498,7 +498,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		The explosive event highlighted Figure \ref{fig:other_x_inverted}, event d, is similar to event c in that is has enhancements in both the red and blue wing of the line profile, but is more complicated in it's presentation.
 		Event d  begins at 18:07:11 and it's intensity has almost completely died away by the last Level-3 image, but not entirely. 
 		\jdp{verify after Level-3 rebuild}
-		A strong blue component in the line profile centered near -125 km s$^{-1}$  peaks at 18:08:01 dominates early in the event evolution.
+		A strong blue component in the line profile centered near -125\,km\,s$^{-1}$  peaks at 18:08:01 dominates early in the event evolution.
 		This blue component is brightest in the lower left portion of the event.
 		The red component of the line profile peaks at 18:08:51 and is centered near 50 km s$^{-1}$.
 		Unlike event c, the blue component of the line is less persistent in time.
@@ -506,13 +506,60 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		This is visible both in the grid of line profiles and the difference images.
 		Intensity in the line profiles show the blue component peaking in the lower left, while the red component peaks in the middle to right columns.
 		In the difference images there is a clear vertical and horizontal separation between the blue downward facing V and the red upward facing V. 
-		A closer look at the inverted data shows an $\approx$ 1.35 arcsecond spatial separation between centroids of the blue and red component.  
+		A closer look at the inverted data shows an $\approx$ 1.35 arcsecond spatial separation between centroids of the blue and red component.
+		\begin{figure}[htb!]
+			\includegraphics{perfect_x_invertcomp}
+			\centering
+			\caption{Comparison of MART ouputs for a single timestamp in event c. \jdp{Needs to be made smaller and might not belong here or be needed}.}
+			\label{fig:perfect_x_invertcomp}
+		\end{figure}
+		
+		\jdp{Pretty unorganized and straight off the top of my head.  Does this go in the appendix?}
+		Despite a couple free parameters in our MART algorithm, namely the exponent used on the contrast enhancement filter and the number of times it is applied (see Appendix \ref{MART} step \ref{step:contrast}), we find velocities consistent with a qualitative interpretation of the difference image movies, and bulk flows within $\approx\pm$ 15\,km\,s$^{-1}$.
+		
+		\jdp{Maybe everything from here down should be added to the appendix, as well as the figure.}
+		The purpose of the contrast enhancement filter is to fight the tendency of the MART algorithm to smear intensity along the projection directions in a way that is consistent with the data, but results in a very artificial looking background and excess intensity way out in the wings of the spectral line.
+		This is most evident in the red spectral lines in Figure \ref{fig:perfect_x_invertcomp} where the contrast enhancement filter wasn't used at all.
+		Despite excess intensity in the wings of the lines, the brightest pixels are still double peaked in nature and the two Gaussian fits do a decent job of fitting the inverted line profiles.
+		The blue spectral lines in Figure \ref{fig:perfect_x_invertcomp} show line profiles after repeating the contrast enhancement step enough times such that the solution reaches an equilibrium and returns the same results once converged.
+		Since the contrast enhancement filter is designed to pull intensity from the background and into regions of stronger signal, it has the effect of clumping the intensity into a smaller area.
+		This causes much less intensity way in the wings of the line profile and narrower peaks overall.  
+		Unfortunately this also has the ill effect of clumping background intensity with little signal instead of allowing for a flat noisy background as expected.  
+		Therefore we choose to compromise and run the filtering step enough times such that the majority of the artificial intensity in the wings has been beaten down, but not so much that we artificially remove a flat noisy background in low signal regions.  
+		To do this we landed on running the filtering step 25 times, and using a contrast enhancement exponent of .2 in an effort to not over filter the MART output.
+		
+		
+		    
     	
     	
     			
     		   	
     	
 \section{Discussion/Conclusions and Future Work}
+	The ESIS sounding rocket mission, launched September 30th 2019, was successful in capturing spatial and spectral information over is entire 11\,arcminute field of view in multiple wavelengths (\hei, \mgxbright, and \ov) at every exposure.
+	We have processed the data into multiple levels such that preliminary scientific work can be done, included a Level-3 data product that allows for taking spatial differences between channels, and early inversion (Section \ref{sec:level-3}).
+	Level-3 difference images in the \ov wavelength (Section \ref{sec:dif_images}) reveal a host of small transient brightenings across the field of view with significant line-of-sight Doppler velocity, some in excess of $\pm 100\,$km\,s$^{-1}$.
+	They also real several larger events with large velocities, most notably the eruption identified near disk center (event e in Figure \ref{fig:l3_dif})
+	
+	We use a Multiplicative Algebraic Reconstruction Technique (MART, Appendix \ref{MART}) to disentangle the combine spatial and spectral information in the four ESIS Level-3 images to find a single spatial-spectral cube ([x,y,$\lambda$]) for two small transient brightenings (Section \ref{sec:inversions}).
+	Our inversions reveal strong red and blue jets with bulk flows in excess of 100\,km s$^{-1}$ that evolve on the timescale of the ESIS cadence, 10 seconds.
+	These two events are spatially compact, a few arcseconds, and have lifetimes of a few minutes.
+	Despite their compact nature, the red and blue components measured are separate and distinct in both space and time. 
+	This especially noticeable in event d (Figure \ref{fig:l3_dif} and \ref{fig:other_x_inverted}) where the centroids of the blue and red jet are displaced by a little over an arcsecond.
+	
+	The bimodal nature and absence of line core emission in these small brightenings is similar observations made by \citet{Rust2019} \heii using MOSES data.
+	This presentation is quite different from line profiles observed by IRIS \citep{depontieu2014} in \spectralline{Si}{iv}{1394}, where small transient events show smaller bulk flows, dominant line core emission, and excessive non-thermal broadening \jdp{probably best to cite a bunch of ee observations and not just IRIS}.
+	Assuming such high bulk flows are indicative of reconnection outflows, suggests a very small reconnection region with little to no stationary emitting plasma, pointing away from a dominate tearing mode instability, and toward a Petschek type reconnection.
+	Several of these events were captured in \hei, \mgxbright, and \ov simultaneously, putting ESIS in a position to measure if the bi-modal nature of these line profiles is unique to \ov or persists at lower and higher temperatures in future work.
+	Also, IRIS was running small four step coarse rasters near disk center during the hour long ESIS launch window.
+	Although none of the events analyzed in this paper were captured by IRIS, a closer look at the IRIS data may reveal small explosive events suitable for direct comparison with ESIS line profiles.
+	
+	During the roughly 5 minutes of ESIS observing time it captured tens of events, evolving on 10 seconds timescales, over it's 11.3\,arcminute field of view.
+	Even seemingly simple explosive events evolve fast enough in time, and have significant spatial distributions of intensity and velocity, such that rastering a traditional slit spectrograph would fail to capture the event completely. 
+	This combined with the fact that ESIS can measure tens of events like this simultaniously makes it a powerful tool for capturing and diagnosing small eruptions in the solar atmosphere.
+	Future multi-wavelength inversions of the ESIS data will allow for more accurate estimates of the frequency and distribution of explosive events across a large portion of the solar disk and at different heights in the solar atmosphere than have been possible with slit spectrographs.
+	It will also allow us to track energy and material moving through multiple layers of the solar atmosphere to form a clearer picture of where and how these reconnection events unfold. 
+	
 
 
 
