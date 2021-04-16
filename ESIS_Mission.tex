@@ -44,12 +44,14 @@
     Observationally, the solar transition region (TR) refers to the portion of the solar atmosphere at temperatures between 20,000\,K and 800,000\,K. 
     Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenuous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
-    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+\,km/s.  \amy{this is from proposal, I will add more description and references and basically re-write.}
+    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+\,km/s.
+    \citet{innes1997} found fast bi-directional jets in \spectralline{Si}{iv}{1394} line profiles taken by SUMER \citep{SUMER} separated by a few arcseconds and inferred they must be do to an inclined reconnection current sheet.
+    Higher resolution spectrographs such as the Interface Region Imaging Spectrograph \citep[IRIS]{depontieu2014} and the  have pointed toward the Tearing Mode Instability as a dominant reconnection mode \citep{Innes2015}
+    
     
     Investigations of TR events to date are severely limited by available observational capabilities. 
     Historically, slit spectrographs have been used to study the solar atmosphere.   
     Two-dimensional spectral information must be built by rastering the slit over the region of interest, which takes much longer than the timescales of TR phenomena and confuses whether events are evolving temporally or varying spatially.  
-    \jdp{Somewhere in these first two paragraphs we should expand and describe some more explosive event work.  }
     
     One solution to simultaneously capture spatial and spectral information over a large field of view is to use a slitless imaging spectrograph.  
     The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.
@@ -93,13 +95,14 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	The light that exits the field stop is reimaged  by the four spherical diffraction gratings onto their own CCD.
     % 	operated in frame-transfer mode. Details like this are in the instrument paper 
     	The portion of the solar spectrum that is captured by each detector ranges from \hei to \ov.
+    	\jdp{Re-adding Amy's note. Do we care about relative line intensity here?  Is this covered in the instrument paper?  Also, do we report a raw number from Chianti or something adjusted by instrument throughput? (is coatings matter, this in instrument paper stuff.) }
     	
-    	\amy{Reminder to add line list and discuss relative brightness/degree of overlap using Figure 1 as a reference.}
+ 
     	
         \begin{figure}[ht]
 			\begin{center}
 				\includegraphics{detector_layout}
-				\caption{A modeled layout showing the orientation of each ESIS detector relative to the solar image at the octagonal fieldstop.  The location of the brightest wavelengths in the passband is shown on each detector.}
+				\caption{A modeled layout showing the orientation of each ESIS channels' detector relative to the solar image at the octagonal fieldstop.  The locations of the brightest wavelengths (\hei, \mgxbright, and \ov) in the passband are shown on each detector.  The \hei line is designed to hang off the detectors edge, as can be seen in Figure \ref{fig:L0_to_L1}. }
 				\label{fig:level_1_array}
 			\end{center}
 		\end{figure}
