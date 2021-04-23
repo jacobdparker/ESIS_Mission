@@ -4,7 +4,7 @@
 
 \newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
 \newcommand{\jdp}[1]{{\color{red} JDP: #1}} % JDP comment
-\newcommand{\cck}[1]{{\color{brown} #1}} % CCK comment
+\newcommand{\cck}[1]{{\color{brown} CCK: #1}} % CCK comment
 \newcommand{\amy}[1]{{\color{cyan} ARW: #1}}
 
 % #1- element #2- ionization state #3 -wavelength in angstroms
@@ -55,25 +55,25 @@
     Observationally, the solar transition region (TR) refers to the portion of the solar atmosphere at temperatures between 20,000\,K and 800,000\,K. 
     Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenuous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers \citep[see][and references therein]{tian2017}. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
-    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+\,km/s.
+    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. \amy{incomplete thought?} The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+\,km/s.
     
     Explosive events have been found to present in different ways and have been observed by many instruments since their original discovery.
-    \citet{innes1997} found fast bi-directional jets in \siiv \ line profiles taken by the  SUMER \citep{SUMER} separated by a few arcseconds and inferred they must be associated with the outflows of an inclined reconnection current sheet.
-    Higher resolution observations from the Interface Region Imaging Spectrograph \citep[IRIS]{depontieu2014} have shown that Si\,{\sc iv} line profiles often show very bright line cores with broad wings and very non-gaussian, more triangular presentations.
+    \citet{innes1997} found fast bi-directional jets in \siiv \ line profiles taken by the  SUMER \amy{spell out acronym} \citep{SUMER} separated by a few arcseconds and inferred they must be associated with the outflows of an inclined reconnection current sheet.
+    Higher resolution observations from the Interface Region Imaging Spectrograph \citep[IRIS]{depontieu2014} have shown that Si\,{\sc iv} line profiles often show very bright line cores with broad wings and very non-gaussian, more triangular presentations. \amy{add ref?}
     This enhanced line core emission points to a larger amount of stationary plasma, and has been attributed to the presence of a dominate Tearing Mode Instability during the reconnection \citep{Innes2015}.
-    Enhanced emission in the line core of a larger explosive event viewed in \heii \ by MOSES has also been attributed to the tearing mode instability \citep{Fox10} despite tens of smaller events in the same data having clear bi-modal profiles \citep{Rust2019}.
-    In order to determine which, if any, of these presentations is  we require high cadence velocity data over a wide range of temperatures simultaneously, something difficult to achieve even in multi-instrument studies.
+    Enhanced emission in the line core of a larger explosive event viewed in \heii \ by MOSES \amy{acronyn} has also been attributed to the tearing mode instability \citep{Fox10} despite tens of smaller events in the same data having clear bi-modal profiles \citep{Rust2019}.
+    In order to determine which, if any, of these presentations is \amy{missing word} we require high cadence velocity data over a wide range of temperatures simultaneously, something difficult to achieve even in multi-instrument studies.
     
     
     Investigations of TR events to date are severely limited by available observational capabilities. 
-    Historically, slit spectrographs have been used to study the solar atmosphere.   
+    Historically, slit spectrographs have been used to  study\amy{insted of study, "determine velocity of the plasma  in"?} the solar atmosphere.   
     Two-dimensional spectral information must be built by rastering the slit over the region of interest, which takes much longer than the timescales of TR phenomena and confuses whether events are evolving temporally or varying spatially.  
     
     One solution to simultaneously capture spatial and spectral information over a large field of view is to use a slitless imaging spectrograph.  
     The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.
     The difficulty in unfolding slitless spectrograph data has limited its usefulness for extended astrophysical objects like the Sun. 
     Only two satellite missions have routinely captured solar slitless spectrograph data; {\it Skylab} \citep{Tousey1973} and the Res-K instrument of the Russian KRONOS-I mission \citep{Zhitnik1998}, though others have been recently developed and proposed \citep{winebarger2019,golub2020}. 
-    Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec and 266\arcsec slots that can produce overlappogram data.  
+    Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec\ and 266\arcsec\ slots that can produce overlappogram data.  
     Though EIS slot data are not often taken for scientific analysis, they have been used as a flare trigger and since analyzed to aid in interpretation of impulsive phase of solar flares \citep{harra2017,harra2020}.
     In addition to these satellite observatories, there have been several solar observations with slitless spectrographs on sounding rocket flights, including the Multi-Order Solar EUV Spectrograph (MOSES) instrument by Kankelborg and collaborators \citep{Kankelborg01,Fox10}.
     MOSES captured the zero and plus and minus one order of the \heii \ line simultaneously. 
@@ -116,6 +116,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	Assuming a log electron density of \SI[per-mode=symbol]{10}{\elementarycharge\per\cm^3} and a quiet sun DEM, combined with the Schmeltz 2012 abundance file \citep{schmelz2012}, Chianti \citep{ChiantiI,ChiantiX} predicts an intensity relative to \ov \ of .7, .13, .06, .37, .12, and 1 respectively.
     	The .37 relative intensity of the \mgxbright \ line includes a contribution from another O\,\textsc{iv} line within .04 angstroms.
     	
+    	\amy{suggest adding 0 in front of decimal places.  I think you need to do a little more explanation here - couple more sentences.}
     
  
     	
@@ -127,6 +128,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 			\end{center}
 		\end{figure}
 
+\amy{Is that really the orientation of the channels?}
     	
     	
     	Each grating and detector pair, referred in this paper as a channel, is itself an imaging spectrograph.  
@@ -172,7 +174,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	    The ESIS FOV is indicated by the octagon.  
 	    
 		Each of the ESIS cameras collected 71 images during flight.  The first two images are unusable; the first image has an exposure time of 0\,s and is basically a dump of the dark current in the camera, while the second image has an exposure time slightly longer than 10\,s caused by the cameras syncing to a single trigger of the master camera.  
-		All the other images have a 10\,s exposure time.  Thirty of these images were light frames, meaning the shutter door was open and the RLG was enabled. 
+		All the other images have a 10\,s exposure time.  \amy{double check 30} Thirty of these images were light frames, meaning the shutter door was open and the RLG was enabled. 
 		The time during the rocket flight when light frames were collected is shaded green in Figure \ref{fig:timeline}.  
 		Light emitted by the Sun is absorbed by the Earth's atmosphere.  
 		The degree of absorption depends both on the depth of the atmosphere that the telescope is looking through (i.e., altitude of the rocket) and the wavelength of light.  
@@ -278,7 +280,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	In addition to the images, the Level-1 fits header is updated with the time, exposure length, and altitude associated with each image using standard FITS header keywords.   
 	
 
-    \subsection{Level 3 Data} \label{sec:level-3}
+    \subsection{Level-3 Data} \label{sec:level-3}
  
     
     	\newcommand{\vigfit}{[0.44, 0.34, 0.38, 0.5]}
@@ -296,7 +298,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	\end{figure}
     	
     
-    \subsection{Conversion to Photons and Despiking}
+    \subsubsection{Conversion to Photons and Despiking}
         In order to use Level-3 data for early inversion the intensity needs to  converted to photons in order properly account for uncertainty in the data.
         The conversion from electron to photon is done to Level 1 data prior to co-alignment efforts.
    		The intensity in photons , $I_{\gamma}$, then becomes,
@@ -306,6 +308,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		With a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \ov \ photon 
 		of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon}, each count in electrons is $\approxeq .18$\,photons.
 		Creating Level-3 data for a different spectral line in the ESIS passband simply requires using a different wavelength when converting to photons.
+		
+		\amy{suggest giving number in electron / photon.  Add 0 before decimal.}
 		
 		Due to a substantial number of charged particle hits on the ESIS detectors Level-1 data was also despiked in order to minimize ill effects on co-alignment and inversion.
 		\jdp{Taking a stab at this.  Is this right Roy?  Also, do we need this?}
@@ -335,12 +339,12 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         
     	Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
     	Using a single ESIS channel as reference, in this case Channel 2, each other channel is co-aligned to it via a quadratic coordinate transformation that maximizes the zero-lag cross-correlation. 
-    	Figure \ref{fig:cc} shows the ratio of peak cross-correlation after the quadratic internal alignment to that of the linear co-alignment with AIA for every camera pair and every exposure.
+    	Figure \ref{fig:cc} shows the ratio of peak cross-correlation after the quadratic internal alignment to that of the linear co-alignment with AIA for every camera pair and every exposure\amy{; a ratio greater than 1 implies this second step improved co-alignment}.
     	After performing this additional internal alignment we find that not only is the co-alignment between each channel and the reference channel improved (dots in Figure \ref{fig:cc}), but also the co-alignment between every other combination of channels (stars in Figure \ref{fig:cc}).
     	This ratio is greater than 1 in all cases and shows a less than 1 percent improvement in peak correlation, demonstrating the subtle non-linearity of the ESIS optical distortion function.
-    	In pixels, this corresponds to an average change in mapping of \jdp{\textbf{FIND THIS}}.
+    	In pixels, this corresponds to an average change in mapping of $\approx$ 0.4 pixels.
     	
-        After the co-alignment is complete each Level-3 image has been re-binned to AIA resolution, .6 arcsecond per pixel, and can be assigned the WCS information \citep{WCS} from the nearest image AIA in time, providing pointing information and easier co-alignment with other instruments.
+        After the co-alignment is complete each Level-3 image has been re-binned to AIA resolution, 0.6 arcsecond per pixel, and can be assigned the WCS information \citep{WCS} from the nearest image AIA in time, providing pointing information and easier co-alignment with coordinating instruments.
     	
 
     	
