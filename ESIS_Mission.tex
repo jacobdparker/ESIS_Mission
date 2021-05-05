@@ -289,7 +289,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	
     	The ESIS Level-3 data product is created to provide a co-aligned, single wavelength image in each channel for quick identification of events with significant line-of-sight velocities and easy comparison with coordinated data that does not require inversion. 
     	Level-3 data also allows for single wavelength inversion prior to the completion of the final optical distortion model and the Level-2 data product.  A description of both qualitative and quantitative analysis of Level-3 data is given in Section 4.  Generating Level-3 data products require several steps including 1) converting to  Level-1 data photons and despiking, 2) correcting the optical distortion and internal co-alignment of the four ESIS channels, 3) correcting of each channel for vignetting, including identifying regions where the contributions of the overlapping \mgxbright \ line confuse the \ov \ data, and 4) correcting the relative radiometric differences in each channel.  Each of these corrections are described in detail below. 
-    	Figure \ref{fig:coalign}a shows an example of a Level-3 image from Channel 2 \jdp{verify this} taken at \levthreetime.
+    	Figure \ref{fig:coalign}a shows an example of a Level-3 image from Channel 2 taken at \levthreetime.
     	
   		\begin{figure}[htb!]
     		\centering
@@ -416,7 +416,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         \begin{figure}[htb!]
         	\centering
         	\includegraphics{mgx_overlap.pdf}
-        	\caption{The red hashed region shows the overlap of the \mgxbright \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in and attempt to bring out the subtle contamination.  The outline of the Mg\,{\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
+        	\caption{The red hashed region shows the overlap of the \mgxbright \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in an attempt to bring out the subtle contamination.  The outline of the Mg\,{\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
 
         	\label{fig:mgx_overlap}
         \end{figure}
@@ -445,7 +445,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	   % Additional analysis is provided in a series of upcoming papers.  
 	   
     \subsection{Level-3 Difference Images} \label{sec:dif_images}
-    	Early work with MOSES images demonstrated the utility of examining differences between different projections of the spatial-spectral cube (channels) to identify solar features with significant line-of-sight velocity \citep{Fox10,FoxPhD,RustPhD,Rust2019}, and spectral contamination \citep{RustPhD, Rust2019,Parker2021}.
+    	Early work with MOSES images demonstrated the utility of examining differences between different projections of the spatial-spectral cube (channels) to identify solar features with significant line-of-sight velocity \citep{Fox10,FoxPhD,RustPhD,Rust2019}, and spectral contamination \citep{RustPhD, Rust2019}.
     	It is for this reason that we developed a spatially co-aligned data product (the Level-3 data) quickly that would allow us to take differences between each ESIS channels.
     	Each ESIS channel disperses solar features in a different direction relative to solar north, determined by the azimuthal position of each grating.
     	The positive dispersion direction in each Level-3 image is indicated by the arrows  in Figure \ref{fig:mgx_overlap}.
@@ -455,7 +455,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	
     	Figure~\ref{fig:l3_dif} shows the difference between Channels 2 and 3 for the full ESIS field of view.  
     	Several regions of the field of view show black and white features, a few of these are marked with red boxes and will be discussed in detail below.  
-    	The small black features tend to lie at an angle -22.5$^\circ$ with solar north, which is the direction of dispersion of Channel 3, while white features tend to lie at an angle of 22.5 $^\circ$ with solar north, which is the direction of dispersion of Channel 2.  
+    	The small black features tend to lie at an angle $-22.5^\circ$ with solar north, which is the direction of dispersion of Channel 3, while white features tend to lie at an angle of 22.5$^\circ$ with solar north, which is the direction of dispersion of Channel 2.  
     	Due to the relative orientation of each ESIS channel's dispersion axis, taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.  
     	Every X or V-shaped features in an ESIS difference image, Figure~\ref{fig:l3_dif}, that have obvious, and nearby, positive and negative portions indicate solar events with significant line-of-sight (LOS) Doppler velocity.   
     	Other things to note in this image is the white octagon that overlays the lower left quadrant of the image; this is the \mgxbright \ line that overlaps the \ov \ line in Channel 2.  The dark octagon on the lower right quadrant is the portion of the \mgxbright \ line that overlaps the \ov \ line in Channel 3.    
@@ -497,7 +497,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	%While this gives us a quick and qualitative understanding of a simple event, even the smallest amount of spatial extent in a given feature leads to an entanglement of spatial and spectral information making it very difficult to derive qualitative velocities without inversion. 
     	
     	\begin{figure}[htb!]
-    		\includegraphics{main_event}
+    		\includegraphics{main_event_dif}
     		\centering
     		\caption{The largest eruption captured by ESIS shown at three different times (complete evolution in animation). The event starts with as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. }
     		\label{fig:main_event}
@@ -516,7 +516,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	By the end of the event (bottom row), the dominate red shift subsides, leaving a complicated spectral signature and the brightest portion of the event, and in adjacent region up and to the left.  
     	Dynamic and spatially extended events are excellent opportunities for ESIS to shine and clearly demonstrate the need for many different projection angles (ESIS channels) if we hope to disentangle spatial information from spectra.
     	Despite the extra complexity, an understanding of ESIS difference images provides an excellent sanity check when interpreting future inversions.
-    	In the following section we will focus on inverting two smaller events (c and d), and will save a more in depth analysis of Event E for a future publication. 
+    	In the following section we will focus on inverting two smaller events (c and d), and will save a more in depth analysis of Event e for a future publication. 
     	
     \amy{I think you did a good job of decribing this event in the text.  You may want to add some arrows in the figure that you can refer to in the text for added clarity.}
     % 	Larger positive or negative features with no obvious counterpart nearby, are indicative of spectral contamination \citep{RustPhD,Parker2021}.
@@ -526,20 +526,34 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     
     
     \subsection{Early Inversions} \label{sec:inversions}
-    	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
-    	For out preliminary inversions of \ov \  ESIS Level-3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
+    	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, $I(x,y,\lambda)$, at every exposure.
+    	For out preliminary inversions of the \ov \  ESIS Level-3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
     	MART is attractive for our first inversions because it is fast, requires no training or assumptions about the data, and automatically enforces image  positivity.
     	We describe our particular implementation in more detail in Appendix \ref{MART}.
     	
     	\begin{figure}[htb!]
-    		\includegraphics{perfect_x_inverted}
+   			\begin{tikzpicture}	
+	    		%begin by adding a node for each figure
+	    		\node[inner sep=0pt] (imgs) at (0,0)
+	    		{\includegraphics[]{perfectx_inverta}};
+	    		\node[inner sep=0pt] (lps) at (0,-10.4)
+	    		{\includegraphics[]{perfectx_invertb}};
+    		\end{tikzpicture}
+%    		\includegraphics{perfect_x_inverted}
     		\centering
     		\caption{MART inverted results of event c in Figure \ref{fig:l3_dif}. The integrated intensity (top row) and corresponding Level-3 difference image (second row) are shown at 4 different times. A red box on each difference image marks the FOV used in the top row.  The \ov \ line profile at each position marked with a red dot is plotted in the matching 3x3 grid in a different color for each time (in order red, green, blue, black). Each MART line profile (dots) is overplotted with a double gaussian fit (solid line).  Bulk shifts in km/s for each component of the fit are added for each time in their respective color. }
     		\label{fig:perfect_x_inverted}
     	\end{figure}
         
         \begin{figure}[htb!]
-    	\includegraphics{other_x_inverted}
+       		\begin{tikzpicture}
+	        	%begin by adding a node for each figure
+	        	\node[inner sep=0pt] (imgs) at (0,0)
+	        	{\includegraphics[]{otherx_inverta}};
+	        	\node[inner sep=0pt] (lps) at (0,-10.8)
+	        	{\includegraphics[]{otherx_invertb}};
+        	\end{tikzpicture}
+%    	\includegraphics{other_x_inverted}
     	\centering
     	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif} presented in the same fashion as Figure \ref{fig:perfect_x_inverted}.}
     	\label{fig:other_x_inverted}
@@ -559,16 +573,15 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		Event c described Figure \ref{fig:perfect_x_inverted} lasts just over 4 minutes and shows significant temporal evolution in the line profile.
 		Throughout the event the blue component of the \ov \ line dominates and is centered at $\approx$ -50 km s$^{-1}$.
 		This blue component persists for the entire duration of the event with very slight deviations intensity and velocity.
-		The red component of the event is bursty in nature, with two small peaks in intensity at 18:07:41 and 18:08:11, and is centered at $\approx$ 110 km s$^{-1}$.
+		The red component of the event is bursty in nature, with two small peaks in intensity at 18:07:36 and 18:08:16, and is centered at $\approx$ 110 km s$^{-1}$.
 		While there are a several frames where the red component of the line appears as an additional peak in the line profile and is well fit by a second gaussian, most of the time it presents more as an asymmetric broadening in the red wing of the line making the velocities from the fit less reliable.
 		This explosive event is $\approx$ 3 arcseconds in diameter and shows little spatial variation in the line profile across the event.
 		
 		The explosive event highlighted Figure \ref{fig:other_x_inverted}, event d, is similar to event c in that is has enhancements in both the red and blue wing of the line profile, but is more complicated in it's presentation.
-		Event d  begins at 18:07:11 and it's intensity has almost completely died away by the last Level-3 image, but not entirely. 
-		\jdp{verify time after Level-3 rebuild}
-		A strong blue component in the line profile centered near -125\,km\,s$^{-1}$  peaks at 18:08:01 dominates early in the event evolution.
+		Event d  begins at 18:07:16 and it's intensity has almost completely died away by the last Level-3 image.
+		A strong blue component in the line profile centered near -130\,km\,s$^{-1}$  peaks at 18:08:06 dominates early in the event evolution.
 		This blue component is brightest in the lower left portion of the event.
-		The red component of the line profile peaks at 18:08:51 and is centered near 50 km s$^{-1}$.
+		The red component of the line profile peaks at 18:08:56 and is centered near 50 km s$^{-1}$.
 		Unlike event c, the blue component of the line is less persistent in time.
 		Also, the blue and red components of the event do not occur in the same spatial location.
 		This is visible both in the grid of line profiles and the difference images.
