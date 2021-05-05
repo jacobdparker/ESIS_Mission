@@ -4,7 +4,7 @@
 
 \newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
 \newcommand{\jdp}[1]{{\color{red} JDP: #1}} % JDP comment
-\newcommand{\cck}[1]{{\color{brown} #1}} % CCK comment
+\newcommand{\cck}[1]{{\color{brown} CCK: #1}} % CCK comment
 \newcommand{\amy}[1]{{\color{cyan} ARW: #1}}
 
 % #1- element #2- ionization state #3 -wavelength in angstroms
@@ -22,7 +22,7 @@
 \newcommand{\esispointing}{[18\arcsec, -19\arcsec]}
 \newcommand{\esisroll}{$.85^{\circ}$}
 \newcommand{\esisfov}{11.5\arcmin}
-\newcommand{\aianearapogee}{\jdp{update this}\,UTC}
+\newcommand{\aianearapogee}{18:08:17\,UTC}
 
 
 
@@ -55,25 +55,29 @@
     Observationally, the solar transition region (TR) refers to the portion of the solar atmosphere at temperatures between 20,000\,K and 800,000\,K. 
     Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenuous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers \citep[see][and references therein]{tian2017}. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
-    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} and associated flows of 100+\,km/s.
+    It is in the low transition region where the magnetic pressure begins dominate the plasma pressure. \amy{incomplete thought?} 
+    The transition region is rife with magnetically driven phenomena such as explosive events \cite[e.g.,][]{dere1991} and microflares \citep{gontikakis2012} which manifest supersonic flows.
     
+    Explosive events were discovered in rocket flights \citep{Dere1989}. 
+    Explosive event outflows are typically of order $\pm 100$\,km/s. 
+    The release of free magnetic energy in the low-$\beta$ plasma was implicated because these flows are much faster than the TR sound speed (e.g., $\approx50$\,km/s \jdp{check me on this, I am struggling with the derivation and finding inconsistent answers} for C\,\textsc{iv}, formed at $10^5$\,K).
     Explosive events have been found to present in different ways and have been observed by many instruments since their original discovery.
-    \citet{innes1997} found fast bi-directional jets in \siiv \ line profiles taken by the  SUMER \citep{SUMER} separated by a few arcseconds and inferred they must be associated with the outflows of an inclined reconnection current sheet.
-    Higher resolution observations from the Interface Region Imaging Spectrograph \citep[IRIS]{depontieu2014} have shown that Si\,{\sc iv} line profiles often show very bright line cores with broad wings and very non-gaussian, more triangular presentations.
+    \citet{innes1997} found fast bi-directional jets in \siiv \ line profiles taken by the Solar Ultraviolet Measurements of Emitted Radiation instrument (SUMER)  \citep{SUMER} separated by a few arcseconds and inferred they must be associated with the outflows of an inclined reconnection current sheet.
+    Higher resolution observations from the Interface Region Imaging Spectrograph \citep[IRIS]{depontieu2014} have shown that Si\,{\sc iv} line profiles often show very bright line cores with broad wings and very non-gaussian, more triangular presentations. \amy{add ref?}\jdp{the next reference is intended to back this up.  Do we need more?}
     This enhanced line core emission points to a larger amount of stationary plasma, and has been attributed to the presence of a dominate Tearing Mode Instability during the reconnection \citep{Innes2015}.
-    Enhanced emission in the line core of a larger explosive event viewed in \heii \ by MOSES has also been attributed to the tearing mode instability \citep{Fox10} despite tens of smaller events in the same data having clear bi-modal profiles \citep{Rust2019}.
-    In order to determine which, if any, of these presentations is  we require high cadence velocity data over a wide range of temperatures simultaneously, something difficult to achieve even in multi-instrument studies.
+    Enhanced emission in the line core of a larger explosive event viewed in \heii \ by the Multi-Order Solar Extereme-ultraviolet Spectrograph (MOSES)  has also been attributed to the tearing mode instability \citep{Fox10} despite tens of smaller events in the same data having clear bi-modal profiles \citep{Rust2019}.
+    In order to determine which, if any, of these presentations is typical we require high cadence velocity data over a wide range of temperatures simultaneously, something difficult to achieve even in multi-instrument studies.
     
     
     Investigations of TR events to date are severely limited by available observational capabilities. 
-    Historically, slit spectrographs have been used to study the solar atmosphere.   
+    Historically, slit spectrographs have been used to determine velocity of the plasma in the solar atmosphere.   
     Two-dimensional spectral information must be built by rastering the slit over the region of interest, which takes much longer than the timescales of TR phenomena and confuses whether events are evolving temporally or varying spatially.  
     
     One solution to simultaneously capture spatial and spectral information over a large field of view is to use a slitless imaging spectrograph.  
     The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.
     The difficulty in unfolding slitless spectrograph data has limited its usefulness for extended astrophysical objects like the Sun. 
     Only two satellite missions have routinely captured solar slitless spectrograph data; {\it Skylab} \citep{Tousey1973} and the Res-K instrument of the Russian KRONOS-I mission \citep{Zhitnik1998}, though others have been recently developed and proposed \citep{winebarger2019,golub2020}. 
-    Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec and 266\arcsec slots that can produce overlappogram data.  
+    Additionally, the currently-operating Extreme-ultraviolet Imaging Spectrograph (EIS; \citet{culhane2007}) on the {\it Hinode} mission \citep{kosugi2007} includes 40\arcsec\ and 266\arcsec\ slots that can produce overlappogram data.  
     Though EIS slot data are not often taken for scientific analysis, they have been used as a flare trigger and since analyzed to aid in interpretation of impulsive phase of solar flares \citep{harra2017,harra2020}.
     In addition to these satellite observatories, there have been several solar observations with slitless spectrographs on sounding rocket flights, including the Multi-Order Solar EUV Spectrograph (MOSES) instrument by Kankelborg and collaborators \citep{Kankelborg01,Fox10}.
     MOSES captured the zero and plus and minus one order of the \heii \ line simultaneously. 
@@ -113,11 +117,10 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     % 	operated in frame-transfer mode. Details like this are in the instrument paper 
     	The portion of the solar spectrum that is captured by each detector ranges from $\approx$ 584\,\AA \ to 630\,\AA. 
     	Within this passband the dominant spectral lines are \hei, \oiii, \oiv, \mgxbright, \mgxdim, and \ov.
-    	Assuming a log electron density of \SI[per-mode=symbol]{10}{\elementarycharge\per\cm^3} and a quiet sun DEM, combined with the Schmeltz 2012 abundance file \citep{schmelz2012}, Chianti \citep{ChiantiI,ChiantiX} predicts an intensity relative to \ov \ of .7, .13, .06, .37, .12, and 1 respectively.
+    	Assuming a log electron density of \SI[per-mode=symbol]{10}{\elementarycharge\per\cm^3} and a quiet sun DEM, combined with the Schmeltz 2012 abundance file \citep{schmelz2012}, Chianti \citep{ChiantiI,ChiantiX} predicts an intensity relative to \ov \ of 0.7, 0.13, 0.06, 0.37, 0.12, and 1 respectively.
     	The .37 relative intensity of the \mgxbright \ line includes a contribution from another O\,\textsc{iv} line within .04 angstroms.
-    	
-    
- 
+    	While this paper focuses primariy on the dominant \ov \ spectral line, future work will be focused on measuring plasma veloity in at least the three dominate spectral lines, \hei, \mgxbright, and \ov.
+
     	
         \begin{figure}[ht]
 			\begin{center}
@@ -127,8 +130,6 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 			\end{center}
 		\end{figure}
 
-    	
-    	
     	Each grating and detector pair, referred in this paper as a channel, is itself an imaging spectrograph.  
     	The channels are arrayed at $45^{\circ}$ increments about the axis of symmetry of the paraboloidal primary mirror such that each channel disperses the solar image a different direction. 
     	Hence, each of these channels capture a unique projection of the spatial spectral cube, shown in Figure \ref{fig:level_1_array}. 
@@ -171,8 +172,10 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	    Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. 
 	    The ESIS FOV is indicated by the octagon.  
 	    
-		Each of the ESIS cameras collected 71 images during flight.  The first two images are unusable; the first image has an exposure time of 0\,s and is basically a dump of the dark current in the camera, while the second image has an exposure time slightly longer than 10\,s caused by the cameras syncing to a single trigger of the master camera.  
-		All the other images have a 10\,s exposure time.  Thirty of these images were light frames, meaning the shutter door was open and the RLG was enabled. 
+		Each of the ESIS cameras collected 71 images during flight.  
+		The first two images are unusable; the first image has an exposure time of 0\,s and is basically a dump of the dark current in the camera, while the second image has an exposure time slightly longer than 10\,s caused by the cameras syncing to a single trigger of the master camera.  
+		All the other images have a 10\,s exposure time. 
+		Twenty nine of these images were light frames, meaning the shutter door was open and the RLG was enabled. 
 		The time during the rocket flight when light frames were collected is shaded green in Figure \ref{fig:timeline}.  
 		Light emitted by the Sun is absorbed by the Earth's atmosphere.  
 		The degree of absorption depends both on the depth of the atmosphere that the telescope is looking through (i.e., altitude of the rocket) and the wavelength of light.  
@@ -281,8 +284,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     \subsection{Level-3 Data} \label{sec:level-3}
  
     
-    	\newcommand{\vigfit}{[0.44, 0.34, 0.38, 0.5]}
-    	\newcommand{\levthreetime}{2019-09-30T18:08:51.644}
+    	\newcommand{\vigfit}{[.35, 0.28, 0.34, 0.6]}
+    	\newcommand{\levthreetime}{18:08:46}
     	
     	The ESIS Level-3 data product is created to provide a co-aligned, single wavelength image in each channel for quick identification of events with significant line-of-sight velocities and easy comparison with coordinated data that does not require inversion. 
     	Level-3 data also allows for single wavelength inversion prior to the completion of the final optical distortion model and the Level-2 data product.  A description of both qualitative and quantitative analysis of Level-3 data is given in Section 4.  Generating Level-3 data products require several steps including 1) converting to  Level-1 data photons and despiking, 2) correcting the optical distortion and internal co-alignment of the four ESIS channels, 3) correcting of each channel for vignetting, including identifying regions where the contributions of the overlapping \mgxbright \ line confuse the \ov \ data, and 4) correcting the relative radiometric differences in each channel.  Each of these corrections are described in detail below. 
@@ -296,7 +299,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	\end{figure}
     	
     
-    \subsection{Conversion to Photons and Despiking}
+    \subsubsection{Conversion to Photons and Despiking}
         In order to use Level-3 data for early inversion the intensity needs to  converted to photons in order properly account for uncertainty in the data.
         The conversion from electron to photon is done to Level 1 data prior to co-alignment efforts.
    		The intensity in photons , $I_{\gamma}$, then becomes,
@@ -304,11 +307,15 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	   		I_{\gamma} = I_{\SI{}{\elementarycharge}} * 3.6 \frac{\SI{}{\electronvolt}}{\SI{}{\elementarycharge}} * \frac{\lambda}{hc}.
    		\end{equation}
 		With a Silicon band gap energy of \SI[per-mode=symbol]{3.6}{\electronvolt\per\elementarycharge}, and an energy per \ov \ photon 
-		of \SI[per-mode=symbol]{19.6}{\electronvolt\per\photon}, each count in electrons is $\approxeq .18$\,photons.
+		of 19.6 \SI{}{\electronvolt} per photon gives 0.18 photons per electron.
 		Creating Level-3 data for a different spectral line in the ESIS passband simply requires using a different wavelength when converting to photons.
 		
+		
 		Due to a substantial number of charged particle hits on the ESIS detectors Level-1 data was also despiked in order to minimize ill effects on co-alignment and inversion.
-		\jdp{Taking a stab at this.  Is this right Roy?  Also, do we need this?}
+		Available despikers were difficult to tune in such a way that they eliminated spikes, but not small transient events (e.g. explosive events).
+		Therefore we developed a new despiker that allows for a different spike intensity threshold for each local median bin, and leverages the time axis of the images.
+		We are aware of only one other despiker that uses the time axis for spike identification, used by \citet{Aschwanden2000(trace_unspike_time)} on data from the Transition Region and Coronal Expoler \citep[TRACE]{handy1999}.
+		
 		Our despiking routine is implemented in the following steps:
 		\begin{itemize}
 		    \item Create one 2-D histogram for each data dimension (image row, image column, and time) comparing each pixel's value to its local median, taken over 11 pixels, for a fixed number of local median bins (128).
@@ -335,26 +342,27 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         
     	Since ESIS has a slightly non-linear distortion function \citep{ESIS}, an additional internal alignment step is performed.
     	Using a single ESIS channel as reference, in this case Channel 2, each other channel is co-aligned to it via a quadratic coordinate transformation that maximizes the zero-lag cross-correlation. 
-    	Figure \ref{fig:cc} shows the ratio of peak cross-correlation after the quadratic internal alignment to that of the linear co-alignment with AIA for every camera pair and every exposure.
+    	Figure \ref{fig:cc} shows the ratio of peak cross-correlation after the quadratic internal alignment to that of the linear co-alignment with AIA for every camera pair and every exposure
+    	A ratio greater than 1 implies this second step improved co-alignment.
     	After performing this additional internal alignment we find that not only is the co-alignment between each channel and the reference channel improved (dots in Figure \ref{fig:cc}), but also the co-alignment between every other combination of channels (stars in Figure \ref{fig:cc}).
     	This ratio is greater than 1 in all cases and shows a less than 1 percent improvement in peak correlation, demonstrating the subtle non-linearity of the ESIS optical distortion function.
-    	In pixels, this corresponds to an average change in mapping of \jdp{\textbf{FIND THIS}}.
+    	In pixels, this corresponds to an average change in mapping of $\approx$ 0.4 pixels.
     	
-        After the co-alignment is complete each Level-3 image has been re-binned to AIA resolution, .6 arcsecond per pixel, and can be assigned the WCS information \citep{WCS} from the nearest image AIA in time, providing pointing information and easier co-alignment with other instruments.
+        After the co-alignment is complete each Level-3 image has been re-binned to AIA resolution, 0.6 arcsecond per pixel, and can be assigned the WCS information \citep{WCS} from the nearest image AIA in time, providing pointing information and easier co-alignment with coordinating instruments.
     	
 
     	
      	\begin{figure}[htb!]
     		\centering
     		\includegraphics{internal_align.pdf}
-    		\caption{\jdp{update channel pairs from (0,1) to (1,2).  1 column width?} For each ESIS exposure (or image sequence) every channel pair, labeled in the legend, is cross-correlated to measure internal alignment quality.  The ratio of zero lag cross-correlation after a quadratic transformation to that of a linear transformation is plotted.  Every point being above the ratio = 1 line indicates improved internal alignment for every combination of ESIS channels at each image sequence.}
+    		\caption{For each ESIS exposure (or image sequence) every channel pair, labeled in the legend, is cross-correlated to measure internal alignment quality.  The ratio of zero lag cross-correlation after a quadratic transformation to that of a linear transformation is plotted.  Every point being above the ratio = 1 line indicates improved internal alignment for every combination of ESIS channels at each image sequence.}
     		\label{fig:cc}	
     	\end{figure}
     	
  		\begin{figure}[htb!]
 			\centering
 			\includegraphics{vig_correct.pdf}
-			\caption{\jdp{update}Panels a and c show example difference between images with \mgxbright \ masked that are uncorrected and corrected for vignetting respectively.  The line fit to the column mean as a function of column (fit between the red bars) shows a difference in background of $\approx 5$ photons before correction (panel b) at the edges of the field of view, and .4 photons after (panel d). }
+			\caption{Panels a and c show example difference between images with \mgxbright \ masked that are uncorrected and corrected for vignetting respectively.  The line fit to the column mean as a function of column (fit between the red bars) shows a difference in background of $\approx 5$ photons before correction (panel b) at the edges of the field of view, and .4 photons after (panel d). }
 			\label{fig:vig_correct}
 		\end{figure}
 
@@ -382,8 +390,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         The vignetting field is rotated about the origin of each image in pixels, $[x_0, y_0] = [635,635]$, to account for the change in dispersion direction.
         ESIS images have a slight pointing drift, so the field of view defined by the octagon moves in Level-3 data as a function of time or image sequence, $s$.
         Therefore the vignetting field is translated to follow this drift.
-        This is achieved through a change in origin.
-        At each time $s$, the origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/29$, where $s_t $ is the total number, 29, of Level-3 images in time. 
+        This correction is achieved through a change in origin.
+        At each time $s$, the origin is translated by $[x_{drift},y_{drift}]*s/s_t = [8_{pix},-4_{pix}]*s/29$, where $s_t $ is the total number, 29, of Level-3 images in time. \amy{why do you use st on the left side of the equation and 29 on the right?  Why not st both sides.  I guess I am questioning this equation, s/st is on both sides.  I think it only needs to be on the RHS?}\jdp{Charles, what do you think of this?  I am attempting to show that there is a linear pointing drift as a function of time in the x and y axis.  I'm worried if I plug numnbers in that point will be lost.  As it stands the left side here matches Equation \ref{eqn:vignet2}, and the right hand side shows the values for $x_{drift}$, $y_{drift}$, and $s_t$ filled in.}
         
         Due to inconsistencies between predicted vignetting field slope and what is seen in the data we choose to fit the linearly trending background in each difference image and use the vignetting field slopes, $m_i$, as free parameters to minimize it.
         We measure the trend in the background by taking the mean of each column in the difference image and fitting a line to it as a function of column position, shown in the right hand column of Figure \ref{fig:vig_correct}.
@@ -408,7 +416,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         \begin{figure}[htb!]
         	\centering
         	\includegraphics{mgx_overlap.pdf}
-        	\caption{\jdp{update}The red hashed region shows the overlap of the \mgxbright \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in and attempt to bring out the subtle contamination.  The outline of the Mg\,{\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
+        	\caption{The red hashed region shows the overlap of the \mgxbright \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in and attempt to bring out the subtle contamination.  The outline of the Mg\,{\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
 
         	\label{fig:mgx_overlap}
         \end{figure}
@@ -418,8 +426,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
         
     \subsubsection{Relative Radiometric correction }
         
-        Normalizing the intensity of each channel is done by equalizing the image mean over the least contaminated shared piece of sun, and is therefore performed after inter-channel co-alignment and the vignetting correction.
-        We divide each image by it's mean in the region of the field of view uncontaminated by \mgxbright \ in everychannel (shape shown in Figure \ref{fig:vig_correct} a and c) and multiplying it by the mean in that same region from the brightest image in the brightest channel (Channel 2 at apogee)
+        Normalizing the intensity of each channel is done by equalizing the image mean over the least contaminated shared piece of Sun, and is therefore performed after inter-channel co-alignment and the vignetting correction.
+        We divide each image by it's mean in the region of the field of view uncontaminated by \mgxbright \ in every channel (shape shown in Figure \ref{fig:vig_correct} a and c) and multiplying it by the mean in that same region from the brightest image in the brightest channel (Channel 2 at apogee)
         This not only normalizes the intensity between each channel at every exposure, but also corrects for the effects of atmospheric absorption mentioned in earlier sections. 
 
 
@@ -432,10 +440,10 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 	   ESIS added an additional projection, the ability to independently focus each channel, and a explicit field of view defined by the field stop, a significant upgrade in flexibility and data quality over MOSES.
 	   In this section, we provide some preliminary analysis of the ESIS Level-3 data to both demonstrate that the ESIS mission accomplished its scientific goal of detecting the velocity signatures of small scale eruptive events, but also to provide useful qualitative and quantitative understanding of this data.  
 		
-	    Despite the lack of solar activity, ESIS managed to capture tens of small, transient events and one significant eruption during the $\approx$5 minutes of observation in the \ov \ spectral line.  
+	    Despite the lack of solar activity, ESIS managed to capture tens of small, transient events and one larger event during the $\approx$5 minutes of observation in the \ov \ spectral line.  
 	    We provide a few examples of these events in this section.  
 	   % Additional analysis is provided in a series of upcoming papers.  
-	
+	   
     \subsection{Level-3 Difference Images} \label{sec:dif_images}
     	Early work with MOSES images demonstrated the utility of examining differences between different projections of the spatial-spectral cube (channels) to identify solar features with significant line-of-sight velocity \citep{Fox10,FoxPhD,RustPhD,Rust2019}, and spectral contamination \citep{RustPhD, Rust2019,Parker2021}.
     	It is for this reason that we developed a spatially co-aligned data product (the Level-3 data) quickly that would allow us to take differences between each ESIS channels.
@@ -450,19 +458,24 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	The small black features tend to lie at an angle -22.5$^\circ$ with solar north, which is the direction of dispersion of Channel 3, while white features tend to lie at an angle of 22.5 $^\circ$ with solar north, which is the direction of dispersion of Channel 2.  
     	Due to the relative orientation of each ESIS channel's dispersion axis, taking the difference of these small events leaves a V-shaped or X-shaped structure in it's place.  
     	Every X or V-shaped features in an ESIS difference image, Figure~\ref{fig:l3_dif}, that have obvious, and nearby, positive and negative portions indicate solar events with significant line-of-sight (LOS) Doppler velocity.   
-    	Other things to note in this image is the white octagon that overlays the lower left quadrant of the image, this is the \mgxbright \ line that overlaps the \ov \ line in Channel 2.  The dark octagon on the lower right quadrant is the portion of the \mgxbright \ line that overlaps the \ov \ line in Channel 3.    
+    	Other things to note in this image is the white octagon that overlays the lower left quadrant of the image; this is the \mgxbright \ line that overlaps the \ov \ line in Channel 2.  The dark octagon on the lower right quadrant is the portion of the \mgxbright \ line that overlaps the \ov \ line in Channel 3.    
    		
    		\begin{figure*}[htb!]
    			\centering
    			\includegraphics{l3_dif}
-   			\caption{Full FOV Difference between Channel 2 and Channel 3 Level-3 images.  Events a-c are highlighted in Figure \ref{fig:dif_events}.  A time series of Event e is shown in Figure~\ref{fig:main_event}.  Inverted results for Events c and d are shown in Section \ref{sec:inversions}}
+   			\caption{Full FOV Difference between Channel 2 and Channel 3 Level-3 images.  
+   			Arrows denote the postive dispersion direction in Channel 2 and 3.
+   			Events a-c are highlighted in Figure \ref{fig:dif_events}.    
+   			Inverted results for Events c and d are shown in Section \ref{sec:inversions}. 
+   			A time series of Event e is shown in Figure~\ref{fig:main_event}.}
    			\label{fig:l3_dif}
    		\end{figure*}
+   	
    	
  		\begin{figure}[htb!]
    			\centering
    			\includegraphics{dif_events}
-   			\caption{\jdp{Update}Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened even, respectively. The difference between Channels 2 and 3 is shown in the left hand column, while the Channel 2 and Channel 3 intensities are shown in the middle and right columns.  The velocity signature is most easily seen in the difference image, while the straight intensities provide information on the line core intensities. 
+   			\caption{Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened even, respectively. The difference between Channels 2 and 3 is shown in the left hand column, while the Channel 2 and Channel 3 intensities are shown in the middle and right columns.  The velocity signature is most easily seen in the difference image, while the straight intensities provide information on the line core intensities. 
    			}
    			\label{fig:dif_events}. 
    		\end{figure}
@@ -486,7 +499,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	\begin{figure}[htb!]
     		\includegraphics{main_event}
     		\centering
-    		\caption{\jdp{update.  Also, it might be sweet to animate this one for the paper.} The largest eruption captured by ESIS shown at three different times. The event starts with as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. }
+    		\caption{The largest eruption captured by ESIS shown at three different times (complete evolution in animation). The event starts with as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. }
     		\label{fig:main_event}
     	\end{figure}
 		
@@ -505,7 +518,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	Despite the extra complexity, an understanding of ESIS difference images provides an excellent sanity check when interpreting future inversions.
     	In the following section we will focus on inverting two smaller events (c and d), and will save a more in depth analysis of Event E for a future publication. 
     	
-    
+    \amy{I think you did a good job of decribing this event in the text.  You may want to add some arrows in the figure that you can refer to in the text for added clarity.}
     % 	Larger positive or negative features with no obvious counterpart nearby, are indicative of spectral contamination \citep{RustPhD,Parker2021}.
     % 	The most easily seen impact of this is a faint octagon edge visible in Figure \ref{fig:l3_dif} from Mg {\sc x} 625.9 \AA.
     % 	Extra spectral content will act as a source of error when inverting Level-3 data, but will be properly accounted for by a wavelength dependent optical distortion model and the completion of the ESIS Level-2 data set \citep{Smart2022}. 	 
@@ -514,7 +527,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     
     \subsection{Early Inversions} \label{sec:inversions}
     	In order to better disentangle the spectral and spatial information captured by ESIS, information from every channel is combined and ``inverted'' to return a single, spatial-spectral cube, at every exposure.
-    	For out preliminary inversions of ESIS Level-3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
+    	For out preliminary inversions of \ov \  ESIS Level-3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
     	MART is attractive for our first inversions because it is fast, requires no training or assumptions about the data, and automatically enforces image  positivity.
     	We describe our particular implementation in more detail in Appendix \ref{MART}.
     	
@@ -534,7 +547,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	
     	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations, we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
     	Both events have an X-shaped presentation, begin and end within the ESIS observing time, and show noticeable temporal evolution in velocity.
-		Each figure shows the total integrated intensity (top row) and Channel 2-3 Level-3 difference image (second row) at four different times.  
+		Each figure shows the total \ov \ integrated intensity, the output of the MART inversion summed along the wavelength dimension, in the top row  at four different times. 
+		The second row shows uninverted Channel 2-3 Level-3 difference images at those same times for comparison.
 		The FOV of the integrated intensity is shown as a red box on the difference image below. 
 		Inverted \ov \ line profiles at each spatial location marked by a red dot in the integrated intensity image are plotted in the matching 3x3 grid for each time (in the order red, green, blue, black).
 		We performed a double gaussian fit for each line profile in order to more easily pick out the location of each peak in velocity.
@@ -563,8 +577,9 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		A closer look at the inverted data shows an $\approx$ 1.35 arcsecond spatial separation between centroids of the blue and red component.
 
 		Despite a couple free parameters in our MART algorithm, namely the exponent used on the contrast enhancement filter and the number of times it is applied (Appendix \ref{MART} steps \ref{step:contrast} and \ref{step:smooth}) we consistently find line profiles consistent with a qualitative interpretation of the difference image movies, and measure bulk flows within $\approx\pm$ 15\,km\,s$^{-1}$ of each other for a given exposure.
-		Figure \ref{fig:perfect_x_invert} shows the results of tweaking these free parameters for a single timestamp of Event C and is paired with an explanation of their impact in Appendix \ref{MART}.
+		Figure \ref{fig:perfect_x_invertcomp} shows the results of tweaking these free parameters for a single timestamp of Event C and is paired with an explanation of their impact in Appendix \ref{MART}.
 	    		   	
+
     	
 \section{Discussion/Conclusions and Future Work}
 	The ESIS sounding rocket mission, launched September 30th 2019, was successful in capturing spatial and spectral information over is entire \esisfov \ field of view in multiple wavelengths (\hei, \mgxbright, and \ov) at every exposure.
