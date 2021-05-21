@@ -116,6 +116,15 @@
 In this section we provide an overview of the ESIS experiment as well as the time and conditions of the ESIS rocket launch and subsequent data collection.   
 
 	\subsection{The Experiment}
+	
+		\begin{deluxetable}{c|c|c}
+			\caption{Dominant spectral lines observed by ESIS.  Intensities are relative to \ov.}
+			\label{tab:linelist}
+			\tablehead{\colhead{Ion} & \colhead{$\lambda$ (\AA)} & \colhead{Intensity}}
+			\startdata
+			\input{linelist_table_trim.tex}
+			\enddata
+		\end{deluxetable}
 	  	
     	The full ESIS experiment includes an optical instrument, a set of detectors, an on board data acquisition system, and ground support equipment and is described in great detail in the preceding paper \citep{ESIS}.
     	The ESIS optical design consists of a single parabolic primary mirror, an octagonal field stop placed at an intermediate focal plane, and 4 spherical diffraction gratings each with their own corresponding CCD detector.
@@ -125,12 +134,18 @@ In this section we provide an overview of the ESIS experiment as well as the tim
     	The light that exits the field stop is reimaged  by the four spherical diffraction gratings onto their own CCD.
     % 	operated in frame-transfer mode. Details like this are in the instrument paper 
     	The portion of the solar spectrum that is captured by each detector ranges from $\approx$ 584\,\AA \ to 630\,\AA. 
-    	Within this passband the dominant spectral lines are \hei, \oiii, \oiv, \mgxbright, \mgxdim, and \ov.
-    	Assuming a constant log pressure of 15\,cm$^{-3}$\,K$^{-1}$and a quiet sun DEM, combined with the Schmeltz 2012 abundance file \citep{schmelz2012}, Chianti \citep{ChiantiI,ChiantiX} predicts an intensity relative to \ov \ of 0.7, 0.124, 0.06, 0.36, 0.12, and 1 respectively.
-    	The 0.36 relative intensity of the \mgxbright \ line includes a blend with %contribution from 
-    	the \oivTwo \ line within 0.04\,\AA\ which, in this example, accounts for roughly one third of the intensity.
+%    	Within this passband the dominant spectral lines are \hei, \oiii, \oiv, \mgxbright, \mgxdim, and \ov.
+    	Table \ref{tab:linelist} shows the dominant lines observed by ESIS.
+    	Intensities relative to \ov \ are calculated using Chianti \citep{ChiantiI,ChiantiX} assuming a constant log pressure of 15\,K\,cm$^{-3}$ and a quiet sun DEM, combined with the Schmeltz 2012 abundance file \citep{schmelz2012}.
+   		While this paper focuses primariy on the dominant \ov \ spectral line, future work will be focused on measuring plasma velocity in other bright lines.
+   		
     	
-    	While this paper focuses primariy on the dominant \ov \ spectral line, future work will be focused on measuring plasma velocity in other bright lines. % at least the three dominant spectral lines, \hei, \mgxbright, and \ov.
+
+%    	 \ of 0.7, 0.124, 0.06, 0.36, 0.12, and 1 respectively.
+%    	The 0.36 relative intensity of the \mgxbright \ line includes a blend with %contribution from 
+%    	the \oivTwo \ line within 0.04\,\AA\ which, in this example, accounts for roughly one third of the intensity.
+    	
+     % at least the three dominant spectral lines, \hei, \mgxbright, and \ov.
 
     	
         \begin{figure}[ht]
