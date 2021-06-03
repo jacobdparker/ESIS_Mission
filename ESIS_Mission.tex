@@ -222,7 +222,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		\begin{figure}[ht]
 			\begin{center}
 				\includegraphics{esis_pointing}
-				\caption{\jdp{made smaller for two column, could be changed back easily}The reference AIA 304\,\AA\ data taken at \aianearapogee was used for determining the absolute pointing. The octagon indicates the ESIS FOV.}
+				\caption{\jdp{made smaller for two column, could be changed back easily}The reference AIA 304\,\AA\ data taken at \aianearapogee \ was used for determining the absolute pointing. The octagon indicates the ESIS FOV.}
 				\label{fig:fov}
 			\end{center}
 		\end{figure}
@@ -260,7 +260,9 @@ a quadrant dependent bias and gain correction, cropping of non-active pixels, an
 Normally, for solar observatories like AIA, higher level data would be further corrected for solar pointing and roll by interpolating the data onto a common grid, referenced to solar coordinates.\footnote{See the Guide to SDO Data Analysis, \url{http://helio.cfa.harvard.edu/trace/SSXG/ynsu/Ji/SDO_Data_Analysis_guide.pdf}.}  For ESIS this step would be complicated, and would not be the best treatment of the data.  
 % First, the effective pointing of the instrument changed from image to image due to thermal expansion of optical components during the rocket flight.  
 First, the spatial-spectral overlap on the detector complicates the notion of image alignment. Second, interpolation inherent in such geometrical corrections degrades spatial resolution unnecessarily.  
-Finally, the ESIS optics slightly distort the solar image, mainly due to anamorphic magnification by the gratings, which occurs along the dispersion direction for each channel. In fact, the relationship between position and wavelength in each pixel depends on distortion parameters which we expect to vary subtly across the field of view, so that the distortion cannot be undone without simultaneously inverting the spatial-spectral cube across all wavelengths. \cck{Check me: is the previous sentence correct?} Because of this complication, we define two additional data levels.  
+Finally, the ESIS optics slightly distort the solar image, mainly due to anamorphic magnification by the gratings, which occurs along the dispersion direction for each channel. 
+In fact, the relationship between position and wavelength in each pixel depends on distortion parameters which we expect to vary subtly across the field of view, so that the distortion cannot be undone without simultaneously inverting the spatial-spectral cube across all wavelengths.
+Because of this complication, we define two additional data levels.  
 
 Level 2 data will include updated header information with accurate coefficients of a non-linear and wavelength dependent coordinate mapping from solar coordinates and wavelength to each detector for each image. It will also be corrected for atmospheric absorption and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
 In addition, Level 2 data will be despiked, and store a mask for future respiking.
