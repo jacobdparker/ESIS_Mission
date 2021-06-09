@@ -463,10 +463,10 @@ A misalignment of the ESIS field stop center, the ESIS primary optic center, and
 % This misalignment would result in each channel having a vignetting field with a different slope.
 When performing this vignetting correction we found we needed to allow the slope to vary for each channel to achieve a quality fit.
 Another difference between the fit and the model is the slope of each vignetting field.
-Our fits to Level 3 data show less vignetting in every channel than in predicted by our optical models. 
+Our fits to Level 3 data show less vignetting in every channel than is predicted by our optical models. 
 This likely comes from the imprint of adjacent spectral lines, the most obvious being that of \mgxdim \ visible in Figure \ref{fig:vig_correct}c.
 Since this Mg {\sc x} line overlaps almost entirely with O {\sc v}, and has an identical vignetting function, it adds intensity that prevents a perfect fit. 
-It is also possible that there is a subtlty to the ESIS vignetting calculation that we have failed to account for in our ray trace and geometric optical optics.
+It is also possible that there is a subtlty to the ESIS vignetting calculation that we have failed to account for in our ray trace and geometric optical models.
 Despite the uncertainties in vignetting, which we have found difficult to quantify, Level 3 differences are much flatter in intensity post vignetting correction as is seen in Figure \ref{fig:vig_correct}c, and will therefore lead to a higher fidelity intensity recovery when inverting Level 3 data.
 
 \cck{This presentation seems to say that the only reasonable cause for the major discrepancy in vignetting (between design and typical fits for $m_i$) is the various systematic errors in fitting. We are basically contradicting ourselves here, and leaving our readers in a quandary. I think the reasonable courses of acton are: (1) Stick to our decision (for L3 anyway), and don't mention the raytrace calculations which are evidently wrong for reasons that we do not understand. (2) Change our minds and apply a fixed vignetting slope based on the raytrace, under the assumption that the disagreement is a result of systematic errors from other spectral lines.}
