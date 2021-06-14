@@ -52,7 +52,8 @@
     We demonstrate how this unique data set can be interpreted qualitatively, and further present some initial quantitative inversions of the data.
     Using a Multiplicative Algebraic Reconstruction Technique (MART) we are able to combine information from all four ESIS channels into a single spatial-spectral cube at every exposure.
     We analyze two small explosive events in the \ov \ spectral line with jets  near $\pm 100$\,km/s that evolve on 10\,s time scales and vary significantly over small spatial scales.
-    In the 5 minutes of observing time, ESIS captured tens of the small events across the $\approx 11.5'$ field of view, as well as several larger extended eruptions, demonstrating the advantage of CTIS instruments over traditional slit spectrographs in capturing the spatial and spectral information of dynamic solar features across large fields of view. \cck{Once we are settled on the conclusions section, let's review the Abstract to see if more science can be added.}
+    In the 5 minutes of observing time, ESIS captured tens of the small events across the $\approx 11.5'$ field of view, as well as several larger extended eruptions, demonstrating the advantage of CTIS instruments over traditional slit spectrographs in capturing the spatial and spectral information of dynamic solar features across large fields of view. 
+%    \cck{Once we are settled on the conclusions section, let's review the Abstract to see if more science can be added.}
   	
 \end{abstract} 
 
@@ -343,11 +344,6 @@ of 19.6\,\SI{}{\electronvolt} gives 0.18 photons per electron.
 Due to geomagnetic activity on launch day, our detectors received a substantial number of charged particle hits. 
 We therefore elected to despike the data.
 Available despikers were difficult to tune in such a way that they eliminated particle hits, but not small transient events (e.g. explosive events). We therefore developed a new despiking algorithm, which is identified in Appendix \ref{despike}.
-
-
-
-
-
 
         
 \subsubsection{Optical distortion correction and channel co-alignment}
@@ -777,7 +773,7 @@ For example, with our 99.9th percentile threshold, the algorithm can find as few
 			\begin{equation}
 				g_{\theta x'y'} = \sum_\lambda G_{\theta(x'-\delta\lambda)y'\lambda}, 
 			\end{equation}
-		\jdp{Should I set $\delta=1$ here since it is described above?}
+%		\jdp{Should I set $\delta=1$ here since it is described above?}
 		where
 			\begin{equation}
 				G_{\theta x'y'\lambda} = \mathcal{R}_\lambda(\theta)\,G_{xy\lambda},
@@ -859,10 +855,10 @@ For example, with our 99.9th percentile threshold, the algorithm can find as few
 	In this configuration, a single exposure of a small region like Event C (with final inverted dimensions of $[x,y,\lambda] = [140,140,41]$\,pixels) can be inverted in $\approx$75\,seconds on a single thread of a four core 2.8\,GHz processor.
 	Since the inversion of each ESIS exposure is independent, inversions can be done on multiple threads to increase efficiency when inverting additional exposures.
 	
-	\cck{Need to introduce the parameter variation exercise and its motivation, and simply describe the figure, indicating which parameters were varied and how for all three examples, before diving into its interpretation. Do the three examples given here suffice to show that we have explored the 2 free parameters in the inversion? Would it be useful (and accurate) to indicate that many more combinations have been tried, but these examples are shown to illustrate the character of what was seen in the results?}
-	
-	\cck{Missing discussion of the results in Figure 14 with respect to the robustness of our conclusions. What things are reliably the same, (practically) regardless of the inversion parameters?}
-	
-	\cck{Mention something about computing performance. I think where we're at is that the cost is almost trivial--i.e., anybody can do this, provided they are paitient enough to wait a few hours. Also, do we want to make the code available--either by archiving current versions as supplementary material, or by pointing to a git repo?}
+%	\cck{Need to introduce the parameter variation exercise and its motivation, and simply describe the figure, indicating which parameters were varied and how for all three examples, before diving into its interpretation. Do the three examples given here suffice to show that we have explored the 2 free parameters in the inversion? Would it be useful (and accurate) to indicate that many more combinations have been tried, but these examples are shown to illustrate the character of what was seen in the results?}
+%	
+%	\cck{Missing discussion of the results in Figure 14 with respect to the robustness of our conclusions. What things are reliably the same, (practically) regardless of the inversion parameters?}
+%	
+%	\cck{Mention something about computing performance. I think where we're at is that the cost is almost trivial--i.e., anybody can do this, provided they are paitient enough to wait a few hours. Also, do we want to make the code available--either by archiving current versions as supplementary material, or by pointing to a git repo?}
 	  
 
