@@ -58,6 +58,10 @@
 
 \section{Introduction}
 
+Add a note about MOSES not working
+Add note about detector tilt also contributing to magnification.
+AIA figure showing ejected material.
+
     Observationally, the solar transition region (TR) refers to the portion of the solar atmosphere at temperatures between 20,000\,K and 800,000\,K. 
     Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenuous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers \citep[see][and references therein]{tian2017}. 
     Though undoubtedly this type of transition region exists in hot coronal loops, the concept of the transition region has been expanded over the last twenty years to include a dynamic and complicated three-dimensional geometry. 
@@ -464,14 +468,6 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 	   In this section, we provide a preliminary analysis of the ESIS Level 3 data. Our aims are to assess the ability of the ESIS data to (1) provide velocity signatures of dynamic events and (2) aid in developing a useful qualitative and quantitative understanding of the events.
 	   Despite the lack of solar activity, ESIS managed to capture tens of small, transient events and one larger event during the $\approx 5$ minutes of observation in the \ov \ spectral line.  
 	   We analyze five example events in this section.  
-	   % Additional analysis is provided in a series of upcoming papers.  
-	   
-	   %\cck{The order
-	   %should generally be to ask questions, describe/analyze data,
-	   %and then draw conclusions. Original wording (below) seemed to
-	   %beg the question.
-	   %``...to both demonstrate that the ESIS mission accomplished its scientific goal of detecting the velocity signatures of small scale eruptive events, but also to provide useful qualitative and quantitative understanding of this data.''} 
-		
 	   
     \subsection{Level 3 Difference Images} \label{sec:dif_images} 
     	Early work with MOSES images demonstrated the utility of examining differences between different projections of the spatial-spectral cube (channels) to identify solar features with significant line-of-sight velocity \citep{Fox10,FoxPhD,RustPhD,Rust2019}, and to diagnose spectral contamination \citep{RustPhD, Rust2019}.
@@ -493,8 +489,7 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     	%leaves only intensity away from the O\,\textsc{v} spectral line core.  
     	%To put it another way, subtracting the data from two channels removes all the spatial structures that overlap in the two channels and leaves  easily identifiable velocity signatures. 
     	%For our initial analysis, we focus on the dominant O {\sc v} 629.7 \AA \ spectral line in the ESIS passband. \amy{I think this is a given since it is the only one in level3}
-    	In the difference image,
-    	Small-scale black and white lobes frequently appear near the locations of bright features on the Sun. A few of such features are marked with red boxes and will be discussed in detail below.  
+    	In the difference image, small-scale black and white lobes frequently appear near the locations of bright features on the Sun. A few of such features are marked with red boxes and will be discussed in detail below.  
     	The small black lobes tend to lie at an angle of $-22.5^\circ$ with respect to solar north, which is the direction of dispersion of Channel 3, while white lobes tend to lie at an angle of $+22.5^\circ$ with solar north, which is the direction of dispersion of Channel 2. A sufficiently compact and well-isolated brightening functions as its own spectrograph slit. 
     	The lobes then form V-, $\Lambda$-, or X-shaped features. 
     	Furthermore, intersection of the lobes occurs at the line center. 
@@ -511,7 +506,7 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
   			\centering
   			\includegraphics{l3_dif}
   			\caption{Full FOV Difference between Channel 2 and Channel 3 Level 3 images.  
-  			Arrows denote the postive dispersion direction in Channel 2 and 3.
+  			Arrows denote the positive dispersion direction in Channel 2 and 3.
   			Events a-c are highlighted in Figure \ref{fig:dif_events}.    
   			Inverted results for Events c and d are shown in Section \ref{sec:inversions}. 
   			A time series of Event e is shown in Figure~\ref{fig:main_event}.}
@@ -549,7 +544,7 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     	\begin{figure}[htb!]
     		\includegraphics{main_event_dif}
     		\centering
-    		\caption{The largest and most complex velocity event %eruption
+    		\caption{The largest and most complex velocity event (e) %eruption
     		captured by ESIS shown at three different times (complete evolution in animation). The event starts as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the animation for additional context.}
     		\label{fig:main_event}
     	\end{figure}
@@ -578,17 +573,16 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     
     \subsection{Early Inversions} \label{sec:inversions}
     	In order to better disentangle the spectral and spatial information captured by ESIS, and to provide quantitative velocity information, all four channels must be combined and ``inverted'' to return a single, spatial-spectral cube, $I(x,y,\lambda)$, at every exposure.
-    	For out preliminary inversions of the \ov \  ESIS Level 3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
+    	For our preliminary inversions of the \ov \  ESIS Level 3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
     	MART is attractive for our first inversions because it is fast, requires no training or explicit assumptions about the data, and automatically enforces image  positivity.
-    	We describe our MART implementation in % more detail in 
-    	Appendix \ref{MART}.
+    	We describe our MART implementation in Appendix \ref{MART}.
     	
     	\begin{figure}[htb!]
   			\begin{tikzpicture}	
 	    		%begin by adding a node for each figure
 	    		\node[inner sep=0pt] (imgs) at (0,0)
 	    		{\includegraphics[]{perfectx_inverta}};
-	    		\node[inner sep=0pt] (lps) at (0,-10.4)
+	    		\node[inner sep=0pt] (lps) at (0,-10.5)
 	    		{\includegraphics[]{perfectx_invertb}};
     		\end{tikzpicture}
 %    		\includegraphics{perfect_x_inverted}
@@ -687,9 +681,9 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 	Also, IRIS was running small four step coarse rasters near disk center during the hour long ESIS launch window.
 	Although none of the events analyzed in this paper were captured by IRIS, a closer look at the IRIS data may reveal small explosive events suitable for direct comparison with ESIS line profiles.
 	
-	The largest event captured by ESIS (Figure \ref{fig:main_event}) most notably shows a strong red shift at the brightest part of the event (location a) and later a faint string of blue shifted material (location b) rising above.
+	The largest event captured by ESIS (Figure \ref{fig:main_event}) most notably shows a strong red shift at the brightest part of the event (location a) and a faint string of blue shifted material (location b) rising above.
 	The faint blue shift, combined with the appearance of rising material in the cooler AIA channels, gives the appearance of a small jet or possible mini-filament eruption.
-	The brightest part of the event being red shifted also matches the idea that "jet bright points" are the result of a small post-reconnection arcade near the structures base \citep[see][and references therein]{Sterling2015}.
+	The brightest part of the event being red shifted also matches the idea that ``jet bright points'', found at the base of the erupting structure, are the result of a small post-reconnection arcade \citep[see][and references therein]{Sterling2015}.
 	Future work on this event will focus on comparing multiple inversion methods, and examining multiple spectral lines in the ESIS passband, to ensure we have the clearest possible picture of the velocity distribution before drawing serious conclusions.
 	
 	The next major tasks in the analysis of ESIS data will be to invert the entire spatial-spectral cube, from \spectralline{He}{ii}{584} to \spectralline{O}{v}{630}. 
@@ -698,13 +692,13 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 	It will also allow us to track energy and material moving through multiple layers of the solar atmosphere to form a clearer picture of where and how these reconnection events unfold. 
 	
 
-%\begin{acknowledgements}
-%	This work was supported primarily by NASA Grant NNX14AK71G.
-%	Roy Smart acknowledges NASA NESSF program grant 80NSSC17K0524.
-%	We would also like to acknowledge the NASA SRPO and NSROC employees involved, all of whom went above and beyond to support ESIS from start to finish, we couldn't have done it without you. 
-%	CHIANTI is a collaborative project involving George Mason University, the University of Michigan (USA), University of Cambridge (UK) and NASA Goddard Space Flight Center (USA).
-%	This research used version 0.5.0 (10.5281/zenodo.4676478) of the aiapy open source software package \citep{aiapy}.
-%\end{acknowledgements}
+\begin{acknowledgements}
+	This work was supported primarily by NASA Grant NNX14AK71G.
+	Roy Smart acknowledges NASA NESSF program grant 80NSSC17K0524.
+	We would also like to acknowledge the NASA SRPO and NSROC employees involved, all of whom went above and beyond to support ESIS from start to finish, we couldn't have done it without you. 
+	CHIANTI is a collaborative project involving George Mason University, the University of Michigan (USA), University of Cambridge (UK) and NASA Goddard Space Flight Center (USA).
+	This research used version 0.5.0 (10.5281/zenodo.4676478) of the aiapy open source software package \citep{aiapy}.
+\end{acknowledgements}
 
 
 
@@ -734,30 +728,29 @@ Usually, a percentile-based threshold would result in identifying a fixed number
 For example, with our 99.9th percentile threshold, the algorithm can find as few as zero or as many as 2129 bad pixels in a $2048\times 1040$ Level 1 image. 
 
 \section{Multiplicative Algebraic Reconstruction Technique}\label{MART}
-	Multiplicative Algebraic Reconstruction Technique (MART) was developed for limited-angle tomography problems, in which a small number of projections are used to reconstruct a volume \citep{Okamoto1991,Verhoeven1993}. 
+	The Multiplicative Algebraic Reconstruction Technique (MART) was developed for limited-angle tomography problems, in which a small number of projections are used to reconstruct a volume \citep{Okamoto1991,Verhoeven1993}. 
 	As ESIS has only four projections through the $(x,y,\lambda)$ volume, it is a good candidate for this approach.
-	When testing a variety of inversion methods on MOSES data \citet{FoxPhD} identified MART as most promising of several methods in terms of speed and fidelity.
+	When testing a variety of inversion methods on MOSES data, \citet{FoxPhD} identified MART as most promising of several methods in terms of speed and fidelity.
 	\citet{RustPhD} applied a slightly different version of MART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
-	Due to its speed, lack of required training, and automatic enforcement of image positivity we have chosen MART for our first inversion of Level 3 ESIS data.
-
+	Due to its speed, simplicity, and automatic enforcement of image positivity we have chosen MART for our first inversion of Level 3 ESIS data.
 	
-	With MART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using every ESIS image.
+	With MART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using all four ESIS images from a single exposure.
 	Each ESIS image, $i_{\theta x'y'}$, can be expressed as an angled projection through $I_{xy\lambda}$ onto a 2-D detector, or,
 	\begin{equation}
-	    i_{\theta x'y'} = \sum_\lambda I_{\theta(x'-\delta\lambda)y'\lambda},
+	    i_{\theta x'y'} = \sum_\lambda I_{\theta x'(y'-\delta\lambda)\lambda},
 	\end{equation}
 	where
 	\begin{equation}
 		I_{\theta x'y'\lambda} = \mathcal{R}_\lambda(\theta)\,I_{xy\lambda},
 	\end{equation} 
-	and, $\mathcal{R}_\lambda (\theta)$, is a rotation about the $\lambda$ axis into the primed detector coordinates $[x',y']$.
-	There is one ESIS image for each $\theta$ representing the relative orientations of each ESIS channel.
-	Projections through $I$ are done along lines of constant $x'-\delta\lambda$.
+	and, $\mathcal{R}_\lambda (\theta)$, is a rotation about the $\lambda$ axis into the primed detector coordinates $[x',y']$. 
+	In this rotated system, $y'$ is the dispersion direction.
+	There is one ESIS image for each $\theta \in \left\{ -67.5^{\circ}, -22.5^{\circ}, 22.5^{\circ},67.5^{\circ} \right\}$, representing the  orientations of each ESIS channel.
+	Projections through $I$ are done along lines of constant $y'-\delta\lambda$.
 	For our specific implementation, the resolution of $I_{xy\lambda}$ in $\lambda$ is chosen to be 28\,m\AA\,pix$^{-1}$, the spectral dispersion of an ESIS grating, such that $\delta = 1$. 
 
-	MART attempts to find the true spatial spectral cube $I_{xy\lambda}$ by iteratively correcting a guess cube, $G_{xy\lambda}$, until it's projected images, $g_{\theta x'y'}$, match each esis image, $i_{\theta x'y'}$, with a reduced chi-squared, $\chi_{R,\theta}^2$,  less than one.
-	Multiple different $G_{xy\lambda}$ can satisfy $\chi_{R,\theta}^2<1$ so we implement an additional outer filtering loop that enhances the contrast of $G_{xy\lambda}$ and applies smoothing prior to beginning additional MART corrections to further constrain our inversions.
-	Our procedure is executed as follows:
+	MART attempts to find the true spatial spectral cube $I_{xy\lambda}$ by iteratively correcting a guess cube, $G_{xy\lambda}$, until its projected images, $g_{\theta x'y'}$, match each ESIS image, $i_{\theta x'y'}$, with a reduced chi-squared, $\chi_{R,\theta}^2$,  less than one.
+	Our procedure is as follows:
 	\begin{enumerate}
 		\item \label{step:guess} Create a guess cube,
 		initialized as 
@@ -773,18 +766,17 @@ For example, with our 99.9th percentile threshold, the algorithm can find as few
 			\label{eq:kernel}
 				K_{ijk} = \frac{2^{3-|i|-|j|-|k|}}{64} \quad \text{for}\quad i,j,k = -1,0,1.
 			\end{equation}
-		\item \label{step:project} Sum $G_{\theta xy\lambda}$ along lines of constant $x-\delta\lambda$ to calculate a projection for each angle $\theta$,
+		\item \label{step:project} Assuming $\delta=1$, sum $G_{\theta x'y'\lambda}$ along lines of constant $y'-\lambda$ to calculate a projection for each angle $\theta$,
 			\begin{equation}
-				g_{\theta x'y'} = \sum_\lambda G_{\theta(x'-\delta\lambda)y'\lambda}, 
+				g_{\theta x'y'} = \sum_\lambda G_{\theta x'(y'-\lambda)\lambda}, 
 			\end{equation}
-		\jdp{Should I set $\delta=1$ here since it is described above?}
 		where
 			\begin{equation}
 				G_{\theta x'y'\lambda} = \mathcal{R}_\lambda(\theta)\,G_{xy\lambda},
 			\end{equation} 
 		and, $\mathcal{R}_\lambda (\theta)$, is a rotation about the $\lambda$ axis. 	
 		
-		\item \label{step:chisquared} Calculate reduced chi-squared for each projection and check for convergence, in this case that $\chi_{R,\theta}^2 < 1$ , 
+		\item \label{step:chisquared} Calculate reduced chi-squared and check for each channel for convergence, in this case that $\chi_{R,\theta}^2 < 1$ , 
 			\begin{equation}
 				\chi_{R,\theta}^2 = \frac{1}{N_{x'} N_{y'}}\sum_{x'y'} \frac{(i_{\theta x'y'}-g_{\theta x'y'})^2}{g_{\theta x'y'}+\sigma^2_{RN}},
 			\end{equation}
@@ -796,24 +788,25 @@ For example, with our 99.9th percentile threshold, the algorithm can find as few
 			\end{equation}
 		where $\gamma = 2/n$ with $n$ equal to the total number of channels.
 		
-		\item Assign correction factors to lines of constant $x-\delta\lambda$ in the domain of $G$,
+		\item Assign correction factors to lines of constant $x-\delta\lambda$ in the volume $(x',y',\lambda)$, %domain of $G$,
 			\begin{equation}
-				C_{\theta (x'-\delta\lambda)y'\lambda} = c_{\theta x'y'}
+				C_{\theta x'(y'-\lambda)\lambda} = c_{\theta x'y'}
 			\end{equation}	
-		
 		\item \label{step:correct} Apply a weighted product of each derotated correction to $G$ ,
 			\begin{equation}\label{eq:correct}
-				G \leftarrow G\left\lbrace  \,\prod_{\theta=\theta_{uc}}  \mathcal{R}_\lambda(-\theta_i)C_{\theta x'y'\lambda} \right\rbrace^{1/m_{uc}},
+				G \leftarrow G\left\lbrace  \,\prod_{\theta\in\Theta_{\mathrm{uc}}}  \mathcal{R}_\lambda(-\theta)C_{\theta x'y'\lambda} \right\rbrace^{1/m_{\mathrm{uc}}},
 			\end{equation}
-		where $m_{uc}$ is the total number of unconverged channels and 
+		where $m_{\mathrm{uc}}$ is the total number of unconverged channels and $\Theta_{\mathrm{uc}}$ denotes the set of unconverged channels.
 		
 		\item Repeat steps \ref{MART}\ref{step:project}-\ref{MART}\ref{step:correct}
 		until every channel has converged at step \ref{MART}\ref{step:chisquared}. Once converged proceed to next step.
 		\item Return to Step \ref{MART}\ref{step:contrast} if additional filtering is desired.
 	\end{enumerate}
-	When applied to  ESIS Level 3 data the total number of channels, $n = 4$.
-	All negative values introduced by rotation, the result of ringing due to the Gibbs phenomenon associated with interpolation when rotating the data cube, are set to zero.
-	In our case, this ringing occurs mostly at the sharp discontinuity at the edge of the field stop octagon. 
+    The above algorithm begins with an arbitrary, flat guess (step \ref{MART}\ref{step:guess}). The guess is rapidly modified to fit the data projections $i_{\theta x' y'}$ by steps \ref{MART}\ref{step:project}-\ref{MART}\ref{step:correct}, which project through the guess, compare the results to the data, calculate and apply intrinsically positive correction factors. These steps are very similar to prior implementations of the MART algorithm.
+	When applied to  ESIS Level 3 data the total number of channels is $n = 4$. 
+	The rotations $\mathcal{R}_{\lambda}(\pm{\theta})$ cause ringing due to the Gibbs phenomenon associated with resampling and interpolation. 
+	All negative values resulting from this ringing are set to zero.
+	In our case, the ringing occurs mostly at the sharp discontinuity at the edge of the field stop octagon. 
 	
 	\begin{figure}[htb!]
 		\begin{tikzpicture}
@@ -831,38 +824,45 @@ For example, with our 99.9th percentile threshold, the algorithm can find as few
 	\end{figure}
 	
 	
-    Our implementation of MART has two free parameters, namely the contrast enhancement exponent $\Psi$ and the number of times the filtering step (steps \ref{MART}\ref{step:contrast} and \ref{MART}\ref{step:smooth}) is applied.
-    The contrast enhancement and smoothing steps are designed to fight the tendency of MART to smear intensity along the dispersion directions in a way that matches the data, but results in artificial intensity in the far wings of the inverted spectra.
-	Since the enhanced wing artifacts from bright features intersect and form a gridlike pattern of enhancements, we use the nickname ``plaid'' to describe
-	this artifact.
-
+    The inversion is ill-posed, in the sense that multiple different $G_{xy\lambda}$ cubes can satisfy $\chi_{R,\theta}^2<1$. 
+    In particular, tomographic inversion algorithms such as MART tend to smear intensity along the projection directions \citep{KakSlaney2001}. 
+    This tendency is especially strong when there are only a few projections. 
+    This smearing results in rapid convergence to an intensity distribution in the volume that matches the projection data, but results in artificial streaks that intersect and produce anomalous bright sources. 
+    Since the resulting artifact forms a gridlike pattern of enhancements, we use the nickname ``plaid'' to describe it. 
+    In the reconstructed ESIS data cube, the plaid artificially enhances the wings of the spectral line wherever projections through unrelated intense sources happen to meet. 
+    To suppress the plaid, we implement an outer filtering loop that enhances the contrast of $G_{xy\lambda}$ and applies smoothing prior to the MART corrections to further constrain our inversions. 
+    The contrast enhancement (step \ref{MART}\ref{step:contrast}) works to suppress the intensity of the artifacts and redistribute their intensity into the brightest features. 
+    We aim thereby to arrive at a solution with the fewest sources that are consistent with the appearance of the data. 
+    By itself, the contrast enhancement can tend to develop excess power at the Nyquist frequency and (sometimes) numerical instability. 
+    These undesired effects of contrast enhancement are suppressed by a smoothing filter (step \ref{MART}\ref{step:smooth}).
+    
+    As a result of the plaid suppression technique described above, our implementation of MART has two free parameters, namely the contrast enhancement exponent $\Psi$ and the number of times the filtering step (steps \ref{MART}\ref{step:contrast} and \ref{MART}\ref{step:smooth}) is applied.
     In order to better understand the impact of these two parameters on our inversions we inverted a single exposure of Event c (Figure \ref{fig:l3_dif} and \ref{fig:perfect_x_inverted}) using several different values of each free parameter.
     During this exercise we found that lowering $\Psi$ resulted in faster MART convergence, but required more applications of the filtering step to minimize the plaid.
-    Increasing $\Psi$ lowered the number of required filtering loops, but increased the convergence time of each MART iteration and quickly lead to overfiltered and artificial looking results.
-    In the end we chose to use $\Psi=0.2$ in an effort to not overfilter our inversions and maintain a reasonable total algorithm convergence time.   
+    Increasing $\Psi$ lowered the number of required filtering loops, but increased the convergence time of each MART iteration and quickly led to overfiltered and artificial looking results.
+    For smaller values of $\Psi$, less than approximately .4, we find $\Psi$ to be nearly degenerate with the number of filtering steps, i.e. inversions found using a lower $\Psi$ and more filtering steps are similar to those found using a higher $\Psi$ and less filtering steps.
+    In the end we chose to use $\Psi=0.2$ in an effort to not overfilter our inversions and maintain a reasonable total algorithm convergence time. 
     
     Figure \ref{fig:perfect_x_invertcomp} shows the results of changing the total number of filtering steps with $\Psi=0.2$.
-    While other numbers of filtering steps were tried, we chose to display the inverted results after 0, 25, and 75 steps since they sufficiently illustrate the effect of varying this parameter. 
-	The impact of plaid is most evident in the red spectral lines in Figure \ref{fig:perfect_x_invertcomp} where the contrast enhancement filter wasn't used at all.
-	Despite excess intensity in the wings of the lines from excessive plaid, the brightest pixels are still double peaked in nature and the two Gaussian fits do a decent job of fitting the inverted line profiles.
-	The blue spectral lines in Figure \ref{fig:perfect_x_invertcomp} show line profiles after repeating the filtering step 75 times, which is enough times for the solution to reach an equilibrium that returns the same results once converged.
+    While other numbers of filtering steps were tried, the inverted results after 0, 25, and 75 steps sufficiently illustrate the effect of varying this parameter. 
+	The impact of plaid is most evident in the red spectral lines in Figure \ref{fig:perfect_x_invertcomp}, where the contrast enhancement filter wasn't used at all.
+	Despite excess intensity in the wings of the lines from excessive plaid, the brightest pixels are still double peaked in nature and the two Gaussian fits reasonably approximate the inverted line profiles.
+	The blue spectral lines in Figure \ref{fig:perfect_x_invertcomp} correspond to 75 filtering steps, after which point the filtering has converged, in the sense that further filtering iterations have no effect.
 	Since the contrast enhancement filter is designed to pull intensity from the background and into regions of stronger signal, it has the effect of clumping the intensity into a smaller area.
-	This causes much less intensity in the wings of the line profile and narrower peaks overall.  
-	Unfortunately this also has the ill effect of clumping background intensity where there is little signal instead of allowing for a flat noisy background as expected.  
-	Therefore we choose to compromise and run the filtering step enough times, in our case 25, such that the majority of the artificial intensity in the wings has been beaten down, but not so much that we artificially remove a flat noisy background in low signal regions.
+	This causes much less intensity in the far wings of the line profile and narrower peaks overall.  
+	Unfortunately this also has the ill effect of clumping background intensity where there is very little signal.
+	In low signal regions where we would expect a relatively flat, low intensity, and noisy line profile overfiltering can cause what little intensity is there to clump together artificially far out in the wings of the line.
+	Therefore we choose to compromise and run the filtering step enough times, in our case 25, such that the majority of the artificial intensity in the wings has been beaten down, but not so much that we artificially remove a flat noisy line profile in low signal regions. 
 	
-	Regardless of which combination of parameters we chose, we find that our inverted results match qualitative interpretations of ESIS difference images.
-	Applying more or less filtering does affect how bi-modal each spectral line presents and slightly changes measured width and bulk flows.
-	Despite these difference we find surprising agreement in measured bulk flows from two Gaussian fits, even when including including spectral lines with zero filtering and a maximum amount of plaid (red lines in Figure \ref{fig:perfect_x_invertcomp}).
-	
+	Regardless of the parameters chosen, we find that our inverted results match qualitative interpretations of ESIS difference images.
+	The degree of filtering affects the breadth of the individual Gaussian components, so that they are more or less resolved. 
+	Their velocities, and relative intensities also vary, but are less affected. 
+	An extreme parameter range was explored, from no filtering to maximal (fully converged) filtering. 
+	We have argued that both extremes represent implausible solutions on physical grounds. Consequently, we conclude that the relative velocities and intensities of the double Gaussian fits are robust, while their widths are uncertain. 
+		
 	The final configuration we used when inverting all Level 3 data used 25 filtering steps and a contrast enhancement exponent of $\Psi=.2$.
 	In this configuration, a single exposure of a small region like Event C (with final inverted dimensions of $[x,y,\lambda] = [140,140,41]$\,pixels) can be inverted in $\approx$75\,seconds on a single thread of a four core 2.8\,GHz processor.
 	Since the inversion of each ESIS exposure is independent, inversions can be done on multiple threads to increase efficiency when inverting additional exposures.
 	
-	\cck{Need to introduce the parameter variation exercise and its motivation, and simply describe the figure, indicating which parameters were varied and how for all three examples, before diving into its interpretation. Do the three examples given here suffice to show that we have explored the 2 free parameters in the inversion? Would it be useful (and accurate) to indicate that many more combinations have been tried, but these examples are shown to illustrate the character of what was seen in the results?}
-	
-	\cck{Missing discussion of the results in Figure 14 with respect to the robustness of our conclusions. What things are reliably the same, (practically) regardless of the inversion parameters?}
-	
-	\cck{Mention something about computing performance. I think where we're at is that the cost is almost trivial--i.e., anybody can do this, provided they are paitient enough to wait a few hours. Also, do we want to make the code available--either by archiving current versions as supplementary material, or by pointing to a git repo?}
 	  
 
