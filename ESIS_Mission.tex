@@ -52,16 +52,13 @@
     We demonstrate how this unique data set can be interpreted qualitatively, and further present some initial quantitative inversions of the data.
     Using a Multiplicative Algebraic Reconstruction Technique (MART) we are able to combine information from all four ESIS channels into a single spatial-spectral cube at every exposure.
     We analyze two small explosive events in the \ov \ spectral line with jets  near $\pm 100$\,km/s that evolve on 10\,s time scales and vary significantly over small spatial scales.
-    In the 5 minutes of observing time, ESIS captured tens of the small events across the $\approx 11.5'$ field of view, as well as several larger extended eruptions, demonstrating the advantage of CTIS instruments over traditional slit spectrographs in capturing the spatial and spectral information of dynamic solar features across large fields of view. 
-%    \cck{Once we are settled on the conclusions section, let's review the Abstract to see if more science can be added.}
+    We also present a qualitative analysis of a small jet-like eruption captured by ESIS, and draw early comparisons to previously observed mini-filament eruptions.
+    In the 5 minutes of observing time, ESIS captured tens of these small events across the $\approx 11.5'$ field of view, as well as several larger extended eruptions, demonstrating the advantage of CTIS instruments over traditional slit spectrographs in capturing the spatial and spectral information of dynamic solar features across large fields of view. 
+
   	
 \end{abstract} 
 
 \section{Introduction}
-
-Add a note about MOSES not working
-Add note about detector tilt also contributing to magnification.
-AIA figure showing ejected material.
 
     Observationally, the solar transition region (TR) refers to the portion of the solar atmosphere at temperatures between 20,000\,K and 800,000\,K. 
     Initially, the transition region was viewed as simply the thin interface region between the dense, cool chromosphere and tenuous, million-degree corona, where the temperature of the plasma dramatically increased two orders of magnitude over tens of kilometers \citep[see][and references therein]{tian2017}. 
@@ -107,8 +104,10 @@ AIA figure showing ejected material.
     
     In 2013, the Extreme-ultraviolet Snapshot Imaging Spectrograph (ESIS) was proposed to the NASA Low Cost Access to Space (LCAS) program and subsequently selected.  
     ESIS is a CTIS with four unique projections of the spatial-spectral data cube and is designed to capture velocity information in small-scale reconnection events in the \ov \ emission line that is formed in the solar transition region. 
-    ESIS builds off of the MOSES concept, but adds an additional projection, the ability to independently focus each channel, and an explicit field of view defined by the field stop, a significant upgrade in flexibility and data quality over MOSES
-    The ESIS mission was launched from White Sands Missile Range on September 30,  2019; this paper is a description of the ESIS mission, data and preliminary results.  
+    ESIS builds off of the MOSES concept, but adds an additional projection, the ability to independently focus each channel, and an explicit field of view defined by the field stop, a significant upgrade in flexibility and data quality over MOSES.
+    ESIS was launched along with MOSES from White Sands Missile Range on September 30,  2019.
+    Unfortunately the MOSES shutter failed to open during the flight and did not collect any solar images as a result.
+    Therefore, this paper is a description of the ESIS mission, data and preliminary results.  
     The ESIS experiment, target, and flight is described in Section 2.  
     Section 3 provides information on the data processing.  Preliminary results are given in Section 4; these include both qualitative and quantitative measures of small-scale velocity events in the solar transition region.  The ESIS mission was successful in  observing tens of small-scale reconnection events over the short rocket flight, as well as demonstrating the usefulness of CTIS observations and developing the analysis techniques required to interpret this unique data.
 
@@ -179,7 +178,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		
 	    \dateMission\ was a very quiet day on the Sun.  
 	    In fact, the last  B-class event detected by GOES \citep{GOES} prior to the ESIS launch was July 7, 2019.  Because of this exceptionally quiet period on the Sun, we chose to point at disk center. 
-	    The actual pointing of the center of the ESIS octagonal field stop and roll were found after flight by comparing the ESIS exposure nearest apogee at \timeApogeeFrame\,UTC to the closest AIA\,304\,\AA\ image taken at \aianearapogee.  
+	    The actual pointing of the center of the ESIS octagonal field stop and roll were found after flight by comparing the ESIS exposure nearest apogee at \timeApogeeFrame\,UTC to the closest 304\,\AA \ image in time taken by the Atmospheric Imaging Assembly (AIA; \citet{lemen2012}), taken at \aianearapogee.  
 	    The ESIS field of view projected onto the AIA 304\,\AA\ image is shown in Figure \ref{fig:fov} as a green octagon.  
 	    The pointing was found to be $\approx$ \esispointing \ and the roll offset was found to be $\approx \esisroll$ \ (clockwise about Sun center), both within the tolerances for SPARCS pointing.  
 	    Figure \ref{fig:fov} shows the full-disk AIA\,304\,\AA\ image. 
@@ -241,7 +240,7 @@ Level 1 data incorporates %prepares raw CCD data for scientific work through
 a quadrant dependent bias and gain correction, cropping of non-active pixels, and dark subtraction.
 Normally, for solar observatories like AIA, higher level data would be further corrected for solar pointing and roll by interpolating the data onto a common grid, referenced to solar coordinates.\footnote{See the Guide to SDO Data Analysis, \url{http://helio.cfa.harvard.edu/trace/SSXG/ynsu/Ji/SDO_Data_Analysis_guide.pdf}.}  For ESIS this step would be complicated, and would not be the best treatment of the data.  
 First, the spatial-spectral overlap on the detector complicates the notion of image alignment. Second, interpolation inherent in such geometrical corrections degrades spatial resolution unnecessarily.  
-Finally, the ESIS optics slightly distort the solar image, mainly due to anamorphic magnification by the gratings, which occurs along the dispersion direction for each channel. 
+Finally, the ESIS optics slightly distort the solar image, mainly due to the tilt of each CCD and also anamorphic magnification by the gratings, which occurs along the dispersion direction for each channel. 
 In fact, the relationship between position and wavelength in each pixel depends on distortion parameters which we expect to vary subtly across the field of view, so that the distortion cannot be undone without simultaneously inverting the spatial-spectral cube across all wavelengths.
 Because of this complication, we define two additional data levels.  
 
@@ -532,20 +531,26 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     		captured by ESIS shown at three different times (complete evolution in animation). The event starts as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the animation for additional context.}
     		\label{fig:main_event}
     	\end{figure}
+    
+   		\begin{figure}[htb!]
+    		\includegraphics{main_event_aia_context}
+    		\centering
+    		\caption{Co-aligned AIA 304\,\AA, 171\,\AA, and 193\,\AA\ images of event e  (highlighted in Figure \ref{fig:main_event}) are shown with identical locations labeled. The location of peak intensity (e1) in the ESIS Level 3 data is also the location of brightest intensity in these EUV channels. We also note a jet like structure which is very diffuse in the cooler 304\,\AA\ images, and visible as a thin line of intensity in 171\,\AA \ and 193\,\AA \ between the e1 and e2 labels that matches the location of the faint blue shifted structure visible in Level 3 difference images. Animations of these AIA channels, included with Figure \ref{fig:main_event}, show material traveling along this line and being ejected away from location e1.}
+    		\label{fig:main_event_aia}
+    	\end{figure}
 		
     	During the ESIS flight, we also captured a handful of spatially extended Doppler signatures that are more difficult to interpret.
     	The most obvious of these is an eruption near disk center, Event e in Figure \ref{fig:l3_dif}.
     	This large event is shown at three times in Figure \ref{fig:main_event}.
     	The entanglement of spatial and spectral information in this relatively complex event makes it difficult to derive a qualitative interpretation from the difference images (left column of the figure).
-    	A cluster of overlapping positive and negative lobes in the brightest portion of the event (location a) sometimes present as a $\Lambda$, V, or X shape, but not always, and evolve significantly in time.
+    	A cluster of overlapping positive and negative lobes in the brightest portion of the event (location e1) sometimes present as a $\Lambda$, V, or X shape, but not always, and evolve significantly in time.
     	The top row shows this event early in its evolution. 
     	Intensity is concentrated to a small region and presents as two jets, one red and one blue, with the red shifted source slightly to the right of the blue shifted source. 
     	100 seconds later (middle row), the event is dominated by a significant red shift (upward facing V) at the location of initial brightening. 
-    	There is also an imprint of fainter differences above the brightest knot of intensity (location b) showing motion along a spatially extended structure.
-    	The difference lobes in this faint structure are opposite in polarity to the intensity below, and therefore 
-    	appear to represent  blue shifted material ejected from the site of initial brightening.
-    	This is supported by the appearance of a thin string of ejected material at the same location in AIA 304\,\AA, 171\,\AA, and 193\,\AA.
-    	By the end of the event (another 70 seconds later, bottom row) the dominant red shift subsides, leaving a complicated spectral signature at the brightest portion of the event, and in the adjacent region up and to the left (location c).  
+    	There is also an imprint of fainter differences above the brightest knot of intensity (location e2) showing motion along a spatially extended structure.
+    	The difference lobes in this faint structure are opposite in polarity to the intensity below, and therefore appear to represent  blue shifted material ejected from the site of initial brightening.
+    	This is supported by the appearance of a thin string of ejected material at the same location in AIA 304\,\AA, 171\,\AA, and 193\,\AA \ (Figure \ref{fig:main_event_aia} and the animation associated with Figure \ref{fig:main_event}).
+    	By the end of the event (another 70 seconds later, bottom row) the dominant red shift subsides, leaving a complicated spectral signature at the brightest portion of the event, and in the adjacent region up and to the left (location e3).  
     	
     	So far, we have been exploiting two of the four ESIS channels with our difference image. This approach is qualitative,
     	and its limitations become apparent with complex and spatially extended dynamics as we saw in event e.
@@ -560,6 +565,12 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     	For our preliminary inversions of the \ov \  ESIS Level 3 data we used a Multiplicative Algebraic Reconstruction Technique (MART).
     	MART is attractive for our first inversions because it is fast, requires no training or explicit assumptions about the data, and automatically enforces image  positivity.
     	We describe our MART implementation in Appendix \ref{MART}.
+    	
+    	When constructing the ESIS Level 3 data, each channel is co-aligned to a reference channel (Section \ref{sec:level 3}).
+    	By doing this, we are assuming that the mean velocity in \ov \ is zero prior to inverting.
+    	Work by \citet{Peter1999} suggests that the transition from a mean red shift to a mean blue shift at disk center occurs around .5\,MK.
+    	Therefore, since \ov \ is a relatively hot transition region line, and is formed near .22\,MK, we expect a systematic error in our inverted velocities of less than 10\,km\,s$^{-1}$ as a result of this assumption.
+    	 
     	
     	\begin{figure}[htb!]
   			\begin{tikzpicture}	
@@ -665,9 +676,10 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 	Also, IRIS was running small four step coarse rasters near disk center during the hour long ESIS launch window.
 	Although none of the events analyzed in this paper were captured by IRIS, a closer look at the IRIS data may reveal small explosive events suitable for direct comparison with ESIS line profiles.
 	
-	The largest event captured by ESIS (Figure \ref{fig:main_event}) most notably shows a strong red shift at the brightest part of the event (location a) and a faint string of blue shifted material (location b) rising above.
+	The largest event captured by ESIS (Figure \ref{fig:main_event} and Figure \ref{fig:main_event_aia}) most notably shows a strong red shift at the brightest part of the event (location a) and a faint string of blue shifted material (location e2) rising above.
 	The faint blue shift, combined with the appearance of rising material in the cooler AIA channels, gives the appearance of a small jet or possible mini-filament eruption.
-	The brightest part of the event being red shifted also matches the idea that ``jet bright points'', found at the base of the erupting structure, are the result of a small post-reconnection arcade \citep[see][and references therein]{Sterling2015}.
+	The brightest part of the event being red shifted also matches the idea that ``jet bright points'', a common feature of smaller jets found at the base of the erupting structure, are the result of a small post-reconnection arcade \citep[see][and references therein]{Sterling2015}.
+	The ability of ESIS to capture velocity information across this dynamic event at a 10 second cadence gives us a great advantage when trying understand the underlying physics, and is an exciting opportunity for future study and collaboration.
 	Future work on this event will focus on comparing multiple inversion methods, and examining multiple spectral lines in the ESIS passband, to ensure we have the clearest possible picture of the velocity distribution before drawing serious conclusions.
 	
 	The next major tasks in the analysis of ESIS data will be to invert the entire spatial-spectral cube, from \spectralline{He}{ii}{584} to \spectralline{O}{v}{630}. 
@@ -676,13 +688,13 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 	It will also allow us to track energy and material moving through multiple layers of the solar atmosphere to form a clearer picture of where and how these reconnection events unfold. 
 	
 
-\begin{acknowledgements}
+\acknowledgements
 	This work was supported primarily by NASA Grant NNX14AK71G.
 	Roy Smart acknowledges NASA NESSF program grant 80NSSC17K0524.
 	We would also like to acknowledge the NASA SRPO and NSROC employees involved, all of whom went above and beyond to support ESIS from start to finish, we couldn't have done it without you. 
 	CHIANTI is a collaborative project involving George Mason University, the University of Michigan (USA), University of Cambridge (UK) and NASA Goddard Space Flight Center (USA).
 	This research used version 0.5.0 (10.5281/zenodo.4676478) of the aiapy open source software package \citep{aiapy}.
-\end{acknowledgements}
+
 
 
 
@@ -717,6 +729,7 @@ For example, with our 99.9th percentile threshold, the algorithm can find as few
 	When testing a variety of inversion methods on MOSES data, \citet{FoxPhD} identified MART as most promising of several methods in terms of speed and fidelity.
 	\citet{RustPhD} applied a slightly different version of MART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
 	Due to its speed, simplicity, and automatic enforcement of image positivity we have chosen MART for our first inversion of Level 3 ESIS data.
+	
 	
 	With MART we seek to reconstruct the true spatial-spectral cube, $I_{xy\lambda}$, using all four ESIS images from a single exposure.
 	Each ESIS image, $i_{\theta x'y'}$, can be expressed as an angled projection through $I_{xy\lambda}$ onto a 2-D detector, or,
