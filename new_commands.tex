@@ -1,0 +1,26 @@
+\renewcommand\arcmin{\mbox{$^\prime$}}
+\renewcommand\arcsec{\mbox{$^{\prime\prime}$}}
+% Above taken straight from aastex63.cls, needed for use with other cls files
+
+\newcommand{\rts}[1]{{\color{violet} RTS: #1}} % RTS comment
+\newcommand{\jdp}[1]{{\color{red} JDP: #1}} % JDP comment
+\newcommand{\cck}[1]{{\color{brown} CCK: #1}} % CCK comment
+\newcommand{\amy}[1]{{\color{cyan} ARW: #1}}
+
+% #1- element #2- ionization state #3 -wavelength in angstroms
+\newcommand{\spectralline}[3]{#1\,{\textsc{#2}}\ #3\,\AA } 
+\newcommand{\ov}{\spectralline{O}{v}{629.7}}
+\newcommand{\oiii}{\spectralline{O}{iii}{599.6}}
+\newcommand{\oiv}{\spectralline{O}{iv}{608.4}}
+\newcommand{\oivTwo}{\spectralline{O}{iv}{609.83}}
+\newcommand{\mgxbright}{\spectralline{Mg}{x}{609.79}}
+\newcommand{\mgxdim}{\spectralline{Mg}{x}{624.9}}
+\newcommand{\hei}{\spectralline{He}{i}{584.3}}
+\newcommand{\heii}{\spectralline{He}{ii}{304}}
+\newcommand{\siiv}{\spectralline{Si}{iv}{1394}}
+
+%ESIS pointing info
+\newcommand{\esispointing}{[18\arcsec, -19\arcsec]}
+\newcommand{\esisroll}{\ensuremath{0.85^{\circ}}}
+\newcommand{\esisfov}{11.5\arcmin}
+\newcommand{\aianearapogee}{18:08:17\,UTC}
