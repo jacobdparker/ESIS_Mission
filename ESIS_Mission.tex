@@ -205,7 +205,8 @@ Finally, the ESIS optics slightly distort the solar image, mainly due to the til
 In fact, the relationship between position and wavelength in each pixel depends on distortion parameters which we expect to vary subtly across the field of view, so that the distortion cannot be undone without simultaneously inverting the spatial-spectral cube across all wavelengths.
 Because of this complication, we define two additional data levels.  
 
-Level 2 data will include updated header information with accurate coefficients of a non-linear and wavelength dependent coordinate mapping from solar coordinates and wavelength to each detector for each image. It will also be corrected for atmospheric absorption and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
+Level 2 data will include updated header information with accurate coefficients of a non-linear and wavelength dependent coordinate mapping from solar coordinates and wavelength to each detector for each image. 
+Each image will also be corrected for differing levels of absorption from the earth's atmosphere during the course of the flight and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
 In addition, Level 2 data will be despiked, and store a mask for future respiking.
 Level 2 data is a necessary step toward inverted data products that cover the full ESIS wavelength range. The Level 2 distortion model must incorporate not only the optical design parameters, but the consequences of small element-by-element misalignments that inevitably occur when an optical system is built up.  This model is in active development, hence the Level 2 product will not be described further here.
 
@@ -462,7 +463,7 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
  		\begin{figure}
   			\centering
   			\includegraphics{dif_events}
-  			\caption{Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened even, respectively. The difference between Channels 2 and 3 is shown in the left hand column, while the Channel 2 and Channel 3 intensities are shown in the middle and right columns.  The velocity signature is most easily seen in the difference image, while the straight intensities provide information on the line core intensities. 
+  			\caption{Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened event, respectively. The difference between Channels 2 and 3 is shown in the left hand column, while the Channel 2 and Channel 3 intensities are shown in the middle and right columns.  The velocity signature is most easily seen in the difference image, while the straight intensities provide information on the line core intensities. 
   			}
   			\label{fig:dif_events}. 
   		\end{figure}
