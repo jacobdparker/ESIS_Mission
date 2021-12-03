@@ -205,7 +205,8 @@ Finally, the ESIS optics slightly distort the solar image, mainly due to the til
 In fact, the relationship between position and wavelength in each pixel depends on distortion parameters which we expect to vary subtly across the field of view, so that the distortion cannot be undone without simultaneously inverting the spatial-spectral cube across all wavelengths.
 Because of this complication, we define two additional data levels.  
 
-Level 2 data will include updated header information with accurate coefficients of a non-linear and wavelength dependent coordinate mapping from solar coordinates and wavelength to each detector for each image. It will also be corrected for atmospheric absorption and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
+Level 2 data will include updated header information with accurate coefficients of a non-linear and wavelength dependent coordinate mapping from solar coordinates and wavelength to each detector for each image. 
+Each image will also be corrected for differing levels of absorption from the earth's atmosphere during the course of the flight and contain a header keyword tracking the correction as a function of time for use in instrument noise models.
 In addition, Level 2 data will be despiked, and store a mask for future respiking.
 Level 2 data is a necessary step toward inverted data products that cover the full ESIS wavelength range. The Level 2 distortion model must incorporate not only the optical design parameters, but the consequences of small element-by-element misalignments that inevitably occur when an optical system is built up.  This model is in active development, hence the Level 2 product will not be described further here.
 
@@ -462,7 +463,7 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
  		\begin{figure}
   			\centering
   			\includegraphics{dif_events}
-  			\caption{Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened even, respectively. The difference between Channels 2 and 3 is shown in the left hand column, while the Channel 2 and Channel 3 intensities are shown in the middle and right columns.  The velocity signature is most easily seen in the difference image, while the straight intensities provide information on the line core intensities. 
+  			\caption{Events a, b and c identified in Figure \ref{fig:l3_dif} are examples of a mostly blue, red, and broadened event, respectively. The difference between Channels 2 and 3 is shown in the left hand column, while the Channel 2 and Channel 3 intensities are shown in the middle and right columns.  The velocity signature is most easily seen in the difference image, while the straight intensities provide information on the line core intensities. 
   			}
   			\label{fig:dif_events}. 
   		\end{figure}
@@ -580,17 +581,10 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     	
     	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations, we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
     	Both events have an X-shaped presentation, begin and end within the ESIS observing time, and show noticeable temporal evolution in velocity.
-		Each figure shows the total \ov \ integrated intensity, %output by the MART inversion summed 
-		obtained by summing the MART inversion
-		along the wavelength dimension, 
-		in the top row  at four different times. 
+		Each figure shows the total \ov \ integrated intensity, obtained by summing the MART inversion along the wavelength dimension, in the top row  at four different times. 
 		The second row shows uninverted Channel 2-3 Level 3 difference images at those same times for comparison.
-		The FOV of the intensity image from the top row is shown as a red box on the difference image. % below. 
-		% Inverted \ov \ line profiles at each spatial location marked by a red dot in the integrated intensity image 
-		% are plotted in the matching 3x3 grid for each time (in the order red, green, blue, black).
-		Inverted \ov line profiles are plotted in a $3\times 3$ grid, corresponding to the grid of 9 positions marked
-		in red on the intensity images. The red, green, blue, and black curves correspond to the four times indicated in
-		the top row.
+		The FOV of the intensity image from the top row is shown as a red box on the difference image.
+		Inverted \ov\ line profiles are plotted in a $3\times 3$ grid, corresponding to the grid of 9 positions marked in red on the intensity images. The red, green, blue, and black curves correspond to the four times indicated in the top row.
 		We performed a double Gaussian fit for each line profile in order to more easily pick out the location of each peak in velocity.
 		The results of the fit (solid line) is plotted over the MART inverted data (dots).
 		The deviation from line center of each Gaussian is recorded in km s$^{-1}$ in the color matching the line profile.
