@@ -22,10 +22,10 @@
     Enhanced emission in the line core of a larger explosive event viewed in \heii \ by the Multi-Order Solar Extreme-ultraviolet Spectrograph (MOSES)  has also been attributed to the tearing mode instability \citep{Fox2010} despite tens of smaller events in the same data having clear bi-modal profiles \citep{Rust2019}.
     In order to determine which, if any, of these presentations is typical we require high cadence velocity data over a wide range of temperatures simultaneously, something difficult to achieve even in multi-instrument studies.
     
-    
     Investigations of TR events to date are severely limited by available observational capabilities. 
     Historically, slit spectrographs have been used to determine velocity of the plasma in the solar atmosphere.   
     Spectrally resolved images of the sky plane must be built by rastering the slit over the region of interest, which takes much longer than the timescales of TR phenomena and confuses whether events are evolving temporally or varying spatially.  
+    In order to fully capture the velocity distribution and temporal evolution of quickly evolving solar events, particularly those with larger spatial extents, we need to utilize instruments capable of gathering spectra in every pixel over a larger field of view, at every exposure.
     
     One solution to simultaneously capture spatial and spectral information over a large field of view is to use a slitless imaging spectrograph.  
     The data from these instruments, sometimes called overlapograms, have spatial and spectral information overlapped in the dispersive direction, requiring the data to be inverted or unfolded.
@@ -53,9 +53,13 @@
     ESIS builds off of the MOSES concept, but adds an additional projection, the ability to independently focus each channel, and an explicit field of view defined by the field stop, a significant upgrade in flexibility and data quality over MOSES.
     ESIS was launched along with MOSES from White Sands Missile Range on September 30,  2019.
     Unfortunately the MOSES shutter failed to open during the flight and did not collect any solar images as a result.
-    Therefore, this paper is a description of the ESIS mission, data and preliminary results.  
+    In this paper we will describe the ESIS mission, the data, and show a preliminary analysis of several observed events.
+    We will also demonstrate that ESIS is capable of measuring velocity over a wide field of view at a rapid cadence in a way no slit spectrograph can.
+    
     The ESIS experiment, target, and flight is described in Section 2.  
-    Section 3 provides information on the data processing.  Preliminary results are given in Section 4; these include both qualitative and quantitative measures of small-scale velocity events in the solar transition region.  The ESIS mission was successful in  observing tens of small-scale reconnection events over the short rocket flight, as well as demonstrating the usefulness of CTIS observations and developing the analysis techniques required to interpret this unique data.
+    Section 3 provides information on the data processing.  
+    Preliminary results are given in Section 4; these include both qualitative and quantitative measures of small-scale velocity events in the solar transition region.  
+    The ESIS mission was successful in  observing tens of small-scale reconnection events over the short rocket flight, as well as demonstrating the usefulness of CTIS observations and developing the analysis techniques required to interpret this unique data.
 
 
 \section{ESIS Mission}
@@ -120,7 +124,8 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 		\begin{figure}
 			\begin{center}
 				\includegraphics{signal_and_altitude_vs_time}
-				\caption{The altitude of the ESIS rocket determined from White Sands Missile Range radar data as a function of elapsed time from launch.  The event times listed in Table~\ref{tab:data_info} are labeled.}
+				\caption{The altitude of the ESIS rocket determined from White Sands Missile Range radar data as a function of elapsed time from launch.  The event times listed in Table~\ref{tab:data_info} are labeled.
+				}
 				\label{fig:timeline}
 			\end{center}
 		\end{figure}
@@ -394,7 +399,8 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
         \begin{figure}
         	\centering
         	\includegraphics{mgx_overlap.pdf}
-        	\caption{The red hashed region shows the overlap of the \mgxbright \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in an attempt to bring out the subtle contamination.  The outline of the Mg\,{\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}. }
+        	\caption{The red hashed region shows the overlap of the \mgxbright \ spectral line in each channel that is masked prior to the vignetting correction and intensity normalization. These images are displayed in log scale in an attempt to bring out the subtle contamination.  The outline of the Mg\,{\sc x} can be seen very clearly in difference images like Figure \ref{fig:l3_dif}.
+        	}
 
         	\label{fig:mgx_overlap}
         \end{figure}
@@ -447,7 +453,7 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     	% Other things to 
     	    
    		
-  		\begin{figure*}
+  		\begin{figure}
   			\centering
   			\includegraphics{l3_dif}
   			\caption{Full FOV Difference between Channel 2 and Channel 3 Level 3 images.  
@@ -455,9 +461,9 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
   			Events a-c are highlighted in Figure \ref{fig:dif_events}.    
   			Inverted results for Events c and d are shown in Section \ref{sec:inversions}. 
   			A time series of Event e is shown in Figure~\ref{fig:main_event}.
-  			The associated animation shows these difference images throughout the ESIS observation.}
+  			The associated \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}) shows these difference images throughout the ESIS observation.}
   			\label{fig:l3_dif}
-  		\end{figure*}
+  		\end{figure}
    	
    	
  		\begin{figure}
@@ -488,11 +494,14 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     	%While this gives us a quick and qualitative understanding of a simple event, even the smallest amount of spatial extent in a given feature leads to an entanglement of spatial and spectral information making it very difficult to derive qualitative velocities without inversion. 
     	
     	\begin{figure}
-    		\includegraphics{main_event_dif}
-    		\centering
-    		\caption{The largest and most complex velocity event (e) %eruption
-    		captured by ESIS shown at three different times (complete evolution in animation). The event starts as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the animation for additional context.}
-    		\label{fig:main_event}
+    		\begin{center}
+    			\includegraphics{main_event_dif}
+    			\caption{The largest and most complex velocity event (e) %eruption
+    				captured by ESIS shown at three different times (complete evolution in animation). The event starts as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}) for additional context.
+    			}
+    			\label{fig:main_event}
+    		\end{center}
+    		
     	\end{figure}
     
    		\begin{figure}
@@ -534,18 +543,20 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     	Work by \citet{Peter1999} suggests that the transition from a mean red shift to a mean blue shift at disk center occurs around .5\,MK.
     	Therefore, since \ov \ is a relatively hot transition region line, and is formed near .22\,MK, we expect a systematic error in our inverted velocities of less than 10\,km\,s$^{-1}$ as a result of this assumption.
     	 
-    	
+   
     	\begin{figure}
 %    		IF Thesis
-			\resizebox{6in}{!}{% 			
-				\begin{tikzpicture}	
-				%begin by adding a node for each figure
-				\node[inner sep=0pt] (imgs) at (0,0)
-				{\includegraphics[]{perfectx_inverta}};
-				\node[inner sep=0pt] (lps) at (0,-10.5)
-				{\includegraphics[]{perfectx_invertb}};
-				\end{tikzpicture}
-    		}
+			\begin{center}
+				\resizebox{5.75in}{!}{% 			
+					\begin{tikzpicture}	
+					%begin by adding a node for each figure
+					\node[inner sep=0pt] (imgs) at (0,0)
+					{\includegraphics[]{perfectx_inverta}};
+					\node[inner sep=0pt] (lps) at (0,-10.5)
+					{\includegraphics[]{perfectx_invertb}};
+					\end{tikzpicture}
+	    		}
+    		\end{center}
 %  			\begin{tikzpicture}	
 %	    		%begin by adding a node for each figure
 %	    		\node[inner sep=0pt] (imgs) at (0,0)
@@ -553,13 +564,21 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 %	    		\node[inner sep=0pt] (lps) at (0,-10.5)
 %	    		{\includegraphics[]{perfectx_invertb}};
 %    		\end{tikzpicture}
-    		\caption{MART inverted results for event c in Figure \ref{fig:l3_dif}. The integrated intensity (top row) and corresponding Level 3 difference image (second row) are shown at 4 different times. The red box marks the FOV used in the top row.  The \ov \ line profile at each position marked with a red dot is plotted in the matching 3x3 grid in a different color for each time (in order red, green, blue, black). Each MART line profile (dots) is overplotted with a double gaussian fit (solid line).  Bulk shifts in km/s for each component of the fit are provided in the legend for each time in their respective color. }
+    		\caption{MART inverted results for event c in Figure \ref{fig:l3_dif}. 
+    			The integrated intensity (top row) and corresponding Level 3 difference image (second row) are shown at 4 different times. The red box marks the FOV used in the top row.  
+    			The \ov \ line profile at each position marked with a red dot is plotted in the matching 3x3 grid in a different color for each time (in order red, green, blue, black). 
+    			Each MART line profile (dots) is overplotted with a double gaussian fit (solid line).  
+    			Bulk shifts in km/s for each component of the fit are provided in the legend for each time in their respective color. 
+    			Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}). }
     		\label{fig:perfect_x_inverted}
     	\end{figure}
+    
+    \footnotetext{text}
+    	
         
         \begin{figure}
 %        	IF Thesis
-			\resizebox{6in}{!}{%
+			\resizebox{5.75in}{!}{%
      			\begin{tikzpicture}
 					%begin by adding a node for each figure
 					\node[inner sep=0pt] (imgs) at (0,0)
@@ -575,11 +594,12 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 %	        	\node[inner sep=0pt] (lps) at (0,-10.8)
 %	        	{\includegraphics[]{otherx_invertb}};
 %        	\end{tikzpicture}
-    	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif} presented in the same fashion as Figure \ref{fig:perfect_x_inverted}.}
+    	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif} presented in the same fashion as Figure \ref{fig:perfect_x_inverted}. Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}).
+    	}
     	\label{fig:other_x_inverted}
     	\end{figure}
     	
-    	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations, we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
+    	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations (Appendix \ref{ani}), we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
     	Both events have an X-shaped presentation, begin and end within the ESIS observing time, and show noticeable temporal evolution in velocity.
 		Each figure shows the total \ov \ integrated intensity, obtained by summing the MART inversion along the wavelength dimension, in the top row  at four different times. 
 		The second row shows uninverted Channel 2-3 Level 3 difference images at those same times for comparison.
@@ -590,6 +610,8 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 		The deviation from line center of each Gaussian is recorded in km s$^{-1}$ in the color matching the line profile.
 		In the animation, we plot the red and blue components of each fit separately as dashed lines, their sum as a solid line in fuschia, and the MART inverted line profile in  green dots.
 		
+
+		
 		Event c, shown in Figure \ref{fig:perfect_x_inverted}, lasts just over 4 minutes and shows significant temporal evolution in the line profile.
 		Throughout the event the blue component of the \ov \ line dominates and is centered at $\approx -50$\,km\,s$^{-1}$.
 		This blue component persists for the entire duration of the event with % very slight deviations 
@@ -597,6 +619,17 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 		The red component of the event is bursty in nature, with two small peaks in intensity at 18:07:36 and 18:08:16, and is centered at $\approx$ 120 km s$^{-1}$. 
 	    The red and blue components of the line are only occasionally well separated, but the two Gaussian fit consistently follows the inverted line profiles with only small deviations.
 		This explosive event is $\approx$ 3 arcseconds in diameter and shows little spatial variation in the line profile across the event.
+		
+			\begin{figure}
+				\includegraphics{otherx_timeseries.pdf}
+				\caption{The peak intensity of the blue and red component of the gaussian fit performed on the inversion of event d is shown at two different spatial locations.
+				The peak intensities from the lower left corner dot in Figure \ref{fig:other_x_inverted}, at x,y = 157.5\arcsec, -119.1\arcsec, are shown as a solid line.
+				Those from the middle dot of the right most column, x,y = 159.9\arcsec, 117.9\arcsec, are shown here as a dashed lines.
+				The time series of these peak intensities more clearly shows the separation in time of each jet.
+				It also shows the spatial separation of the red and blue jets, particularly at the position of the dashed line, where intensity from the blue portion of the event is almost completely absent.
+				}
+				\label{fig:otherx_timeseries}
+			\end{figure}
 		
 		The explosive event highlighted in Figure \ref{fig:other_x_inverted}, event d, is similar to event c in that is has enhancements in both the red and blue wing of the line profile, but is more complicated in its presentation.
 		Event d  begins around 18:07:16 and its intensity has almost completely died away by the last Level 3 image.
@@ -606,7 +639,7 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 		The red component of the line profile peaks at 18:08:56 and is centered near 50 km s$^{-1}$.
 		Unlike event c, the blue component of the line is less persistent in time.
 		Also, the blue and red components of the event do not occur in the same spatial location.
-		This is visible both in the grid of line profiles and the difference images.
+		This is visible both in the grid of line profiles and the difference images, it is also highlighted in Figure \ref{fig:otherx_timeseries}.
 		Intensity in the line profiles show the blue component peaking in the lower left, while the red component peaks in the middle to right columns.
 		In the difference images, this corresponds to a clear vertical and horizontal separation between the blue $\Lambda$ and the red V. 
 		A closer look at the inverted data shows an $\approx$ 1.35 arcsecond spatial separation between centroids of the blue and red component.
@@ -626,10 +659,6 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 	We have processed the  ESIS data into multiple levels such that preliminary scientific work can be done, including a Level 3 data product (Section \ref{sec:level 3}) that allows for taking spatial differences between channels, and early inversion.
 	Level 3 difference images in the \ov \ wavelength (Section \ref{sec:dif_images}) reveal a host of small transient brightenings across the field of view with significant line-of-sight Doppler velocity, some in excess of $\pm 100\,$km\,s$^{-1}$.
 	They also reveal several larger and more complex events with large velocities, most notably the eruption identified near disk center (event e in Figure \ref{fig:l3_dif}).
-	
-    During the roughly 5 minutes of ESIS observing time it captured tens of events with supersonic velocities, evolving on 10\,s timescales, over its \esisfov \ field of view.
-	Even seemingly simple explosive events evolve fast enough in time, and have significant spatial distributions of intensity and velocity, such that rastering a traditional slit spectrograph would fail to capture the event completely. 
-	This, combined with the fact that ESIS can measure many events like this simultaneously, makes it a powerful tool for capturing and diagnosing dynamic events in the solar atmosphere.
 	
 	We use a Multiplicative Algebraic Reconstruction Technique (MART, Appendix \ref{MART}) to disentangle the combined spatial and spectral information in the four ESIS Level 3 images to find a single spatial-spectral cube $(x,y,\lambda)$, covering just the \ov\ line, for two small transient brightenings (Section \ref{sec:inversions}).
 	Our inversions reveal strong red and blue jets with bulk flows in excess of 100\,km s$^{-1}$ that evolve on the timescale of the ESIS cadence, 10 seconds.
@@ -659,6 +688,12 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
 	A self-consistent inversion will be required to separate out the dimmer \mgxdim, and perhaps even the faint \oiii \ line. This will require a careful characterization of the wavelength-dependent distortion in the images, which is currently underway.
 	Future multi-wavelength inversions of the ESIS data will allow for more accurate estimates of the frequency and distribution of explosive events across a large portion of the solar disk and at different heights in the solar atmosphere than have been possible with slit spectrographs.
 	It will also allow us to track energy and material moving through multiple layers of the solar atmosphere to form a clearer picture of where and how these reconnection events unfold. 
+	
+	During the roughly 5 minutes of observing time, ESIS captured tens of events with supersonic velocities, evolving on 10\,s timescales, over its \esisfov \ field of view, a feat no other currently operating solar instrument is capable of.
+	A closer look at the ESIS data revealed that even seemingly simple explosive events evolve fast enough in time, and have significant spatial distributions of intensity and velocity, such that rastering a traditional slit spectrograph would fail to capture the event completely, possible skewing the interpretation of the data. 
+	This, combined with the fact that ESIS can, and did, measure many events like this simultaneously, makes it a powerful tool for capturing and diagnosing dynamic events in the solar atmosphere.
+	We believe this first flight of ESIS successfully demonstrated the viablility of CTIS style instruments for studying solar transients and that solar physics community should continue to pursue the technology, and implement it in future missions. 
+	
 	
 	
 
