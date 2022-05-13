@@ -1,8 +1,3 @@
-% This gives us \sout for striking out text in comments....
-% \sout command defined in aastex63.cls
-
-
-
 
 
 \section{Introduction}
@@ -17,7 +12,7 @@
     The release of free magnetic energy in the low-$\beta$ plasma was implicated because these flows are much faster than the TR sound speed (e.g., $\approx55$\,km/s  for C\,\textsc{iv}, formed at $10^5$\,K).
     Explosive events have been found to present in different ways and have been observed by many instruments since their original discovery.
     \citet{innes1997} found fast bi-directional jets in \siiv \ line profiles taken by the Solar Ultraviolet Measurements of Emitted Radiation instrument (SUMER)  \citep{SUMER} separated by a few arcseconds and inferred they must be associated with the outflows of an inclined reconnection current sheet.
-    Higher resolution observations from the Interface Region Imaging Spectrograph \citep[IRIS]{IRIS} have shown that Si\,{\sc iv} line profiles often show very bright line cores with broad wings and very non-gaussian, more triangular profiles.
+    Higher resolution observations from the Interface Region Imaging Spectrograph \citep[IRIS]{depontieu2014} have shown that Si\,{\sc iv} line profiles often show very bright line cores with broad wings and very non-gaussian, more triangular profiles.
     This enhanced line core emission points to a larger amount of stationary plasma, and has been attributed to the presence of a dominate Tearing Mode Instability during the reconnection \citep{Innes2015}.
     Enhanced emission in the line core of a larger explosive event viewed in \heii \ by the Multi-Order Solar Extreme-ultraviolet Spectrograph (MOSES)  has also been attributed to the tearing mode instability \citep{Fox2010} despite tens of smaller events in the same data having clear bi-modal profiles \citep{Rust2019}.
     In order to determine which, if any, of these presentations is typical we require high cadence velocity data over a wide range of temperatures simultaneously, something difficult to achieve even in multi-instrument studies.
@@ -461,7 +456,9 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
   			Events a-c are highlighted in Figure \ref{fig:dif_events}.    
   			Inverted results for Events c and d are shown in Section \ref{sec:inversions}. 
   			A time series of Event e is shown in Figure~\ref{fig:main_event}.
-  			The associated \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}) shows these difference images throughout the ESIS observation.}
+%  			The associated \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}) shows these difference images throughout the ESIS observation.
+  			The associated animation shows these difference images throughout the ESIS observation.	
+  	}
   			\label{fig:l3_dif}
   		\end{figure}
    	
@@ -497,7 +494,9 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
     		\begin{center}
     			\includegraphics{main_event_dif}
     			\caption{The largest and most complex velocity event (e) %eruption
-    				captured by ESIS shown at three different times (complete evolution in animation). The event starts as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}) for additional context.
+    				captured by ESIS shown at three different times (complete evolution in animation). The event starts as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. 
+%    				Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}) for additional context.
+					Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the animation for additional context.
     			}
     			\label{fig:main_event}
     		\end{center}
@@ -546,60 +545,64 @@ Despite the uncertainties in vignetting, which we have found difficult to quanti
    
     	\begin{figure}
 %    		IF Thesis
-			\begin{center}
-				\resizebox{5.75in}{!}{% 			
-					\begin{tikzpicture}	
-					%begin by adding a node for each figure
-					\node[inner sep=0pt] (imgs) at (0,0)
-					{\includegraphics[]{perfectx_inverta}};
-					\node[inner sep=0pt] (lps) at (0,-10.5)
-					{\includegraphics[]{perfectx_invertb}};
-					\end{tikzpicture}
-	    		}
-    		\end{center}
-%  			\begin{tikzpicture}	
-%	    		%begin by adding a node for each figure
-%	    		\node[inner sep=0pt] (imgs) at (0,0)
-%	    		{\includegraphics[]{perfectx_inverta}};
-%	    		\node[inner sep=0pt] (lps) at (0,-10.5)
-%	    		{\includegraphics[]{perfectx_invertb}};
-%    		\end{tikzpicture}
+%			\begin{center}
+%				\resizebox{5.75in}{!}{% 			
+%					\begin{tikzpicture}	
+%					%begin by adding a node for each figure
+%					\node[inner sep=0pt] (imgs) at (0,0)
+%					{\includegraphics[]{perfectx_inverta}};
+%					\node[inner sep=0pt] (lps) at (0,-10.5)
+%					{\includegraphics[]{perfectx_invertb}};
+%					\end{tikzpicture}
+%	    		}
+%    		\end{center}
+  			\begin{tikzpicture}	
+	    		%begin by adding a node for each figure
+	    		\node[inner sep=0pt] (imgs) at (0,0)
+	    		{\includegraphics[]{perfectx_inverta}};
+	    		\node[inner sep=0pt] (lps) at (0,-10.5)
+	    		{\includegraphics[]{perfectx_invertb}};
+    		\end{tikzpicture}
     		\caption{MART inverted results for event c in Figure \ref{fig:l3_dif}. 
     			The integrated intensity (top row) and corresponding Level 3 difference image (second row) are shown at 4 different times. The red box marks the FOV used in the top row.  
     			The \ov \ line profile at each position marked with a red dot is plotted in the matching 3x3 grid in a different color for each time (in order red, green, blue, black). 
     			Each MART line profile (dots) is overplotted with a double gaussian fit (solid line).  
     			Bulk shifts in km/s for each component of the fit are provided in the legend for each time in their respective color. 
-    			Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}). }
+%    			Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}). 
+    			Full evolution included in animation.    		
+    		}
     		\label{fig:perfect_x_inverted}
     	\end{figure}
     
-    \footnotetext{text}
-    	
+
         
         \begin{figure}
 %        	IF Thesis
-			\resizebox{5.75in}{!}{%
-     			\begin{tikzpicture}
-					%begin by adding a node for each figure
-					\node[inner sep=0pt] (imgs) at (0,0)
-					{\includegraphics[]{otherx_inverta}};
-					\node[inner sep=0pt] (lps) at (0,-10.8)
-					{\includegraphics[]{otherx_invertb}};
-				\end{tikzpicture}
-        	}
-%      		\begin{tikzpicture}
-%	        	%begin by adding a node for each figure
-%	        	\node[inner sep=0pt] (imgs) at (0,0)
-%	        	{\includegraphics[]{otherx_inverta}};
-%	        	\node[inner sep=0pt] (lps) at (0,-10.8)
-%	        	{\includegraphics[]{otherx_invertb}};
-%        	\end{tikzpicture}
-    	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif} presented in the same fashion as Figure \ref{fig:perfect_x_inverted}. Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}).
+%			\resizebox{5.75in}{!}{%
+%     			\begin{tikzpicture}
+%					%begin by adding a node for each figure
+%					\node[inner sep=0pt] (imgs) at (0,0)
+%					{\includegraphics[]{otherx_inverta}};
+%					\node[inner sep=0pt] (lps) at (0,-10.8)
+%					{\includegraphics[]{otherx_invertb}};
+%				\end{tikzpicture}
+%        	}
+      		\begin{tikzpicture}
+	        	%begin by adding a node for each figure
+	        	\node[inner sep=0pt] (imgs) at (0,0)
+	        	{\includegraphics[]{otherx_inverta}};
+	        	\node[inner sep=0pt] (lps) at (0,-10.8)
+	        	{\includegraphics[]{otherx_invertb}};
+        	\end{tikzpicture}
+    	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif} presented in the same fashion as Figure \ref{fig:perfect_x_inverted}. 
+%    	Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}).
+		Full evolution included in animation.
     	}
     	\label{fig:other_x_inverted}
     	\end{figure}
     	
-    	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations (Appendix \ref{ani}), we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
+%    	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations (Appendix \ref{ani}), we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
+    	In Figures \ref{fig:perfect_x_inverted} and \ref{fig:other_x_inverted}, and their associated animations, we present the MART inversion for two different compact transient events, labeled c and d in Figure \ref{fig:l3_dif}.
     	Both events have an X-shaped presentation, begin and end within the ESIS observing time, and show noticeable temporal evolution in velocity.
 		Each figure shows the total \ov \ integrated intensity, obtained by summing the MART inversion along the wavelength dimension, in the top row  at four different times. 
 		The second row shows uninverted Channel 2-3 Level 3 difference images at those same times for comparison.
