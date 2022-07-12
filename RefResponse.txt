@@ -1,0 +1,73 @@
+This article is a sumary of the science goals, instrument design, analysis techniques, and first results from ESIS, a multi-dispersion-angle slitless imaging spectrograph based around sparse tomography of the (x,y,λ) space spanned by spectral images. The work is interesting and promising, and ESIS itself is an exciting development in time-dependent EUV spectral imaging, because it overcomes the principal difficulty (time dependence) of imaging spectroscopy. 
+
+The article is well organized at large scales, and is complete in terms of justifying the work and presenting the primary results. It is prolix and can/should be scrubbed for length -- an estimated 30% or more of the text could be removed without loss of content, as is typical for early drafts of good work.
+
+Revision is required to bring the work up to publication standard. The overall work is good and the revisions are best described as "extensive minor revision": the prose should be tightened (Co-Authors Kankelborg and Winebarger know very well how to do this), and in some cases clarified. There a few (minor) undefended claims that need to be defended or omitted; and some nomenclature funnies. These last mostly surround the concepts of "intensity", which is delivered optical power per unit area per unit time; "radiance", which is delivered optical power per unit area per unit solid angle per unit time; and "fluence", which is deposited optical energy per unit area during a time interval of interest. There is no discussion of uncertainty in the measurements, and a need to present the relationship between derived fitted line profiles and inferred speeds.
+
+Revisions are well worth carrying out as the work is important and exciting. The article would benefit from copyediting by the more senior co-authors.
+
+Detailed comments are below, in order of appearance in the draft.
+
+Line 62: "EIS slot data ... have been used as a flare trigger" -- you may want to clarify that they are used as a flare-mode trigger for the spacecraft, not to trigger solar flares!
+
+Good catch.  We keep pressing that button and no flare!
+
+Line 108: use a single tilde instead of wavy-equals?
+
+Changed to "approximately".
+
+Line 110: what is a "log pressure of $15 K cm^{-3}$"? Do you mean "pressure of $10^{15} K cm^{-3}$"? 
+
+Yes.
+
+Line 119: "Combining these four channels creates a CTIS" reads oddly. On line 78 you define "CTIS" as the instrument, but "combining...channels" sounds like it would produce a data product. You'll want to clarify the wording.
+
+Changed wording to, "Simultaneously imaging with multiple slitless spectrographs,  each a with different dispersion directions, is what makes ESIS a CTIS."
+
+Table 2: your "ADU" is often labeled "DN (Digitizer Number)". Also, the label has escaped the table.
+
+Line 164: Properly, this should be a citation rather than a footnote. 
+
+Corrected to point to the AIA instrument paper that also describes the data processing steps.
+
+Lines 172ff describe a data product that doesn't exist, and may not be relevant to the paper. It might be better to just assert that a distortion-corrected L2 is planned, but not available for this work -- and then dive in to the next para (181ff).
+
+We believe that the description of this data product is useful for others building this type of instrument and packaging this data since it is not typical of other solar telescopes.  For example, distortion corrected data image from the full detector is not possible without inversion.  I've added a note to make that more clear
+
+Line 195: "it is quite straightforward" is not defended and is very much not obvious. You should assert why. The facile answer is that the wavelength effects are negligible in the narrow window you're using, compared to spatial effects -- but elsewhere you're using those very effects to extract things like jet speeds. So a better defense of the method is needed.
+
+Modified text to describe that the spatial distortion can be corrected over a narrow wavelength range.
+
+Line 213: what measurement technique was used to measure the noise? Normal distribution fitting? Direct evaluation of the population variance across pixels? Something else?
+
+Corrected text:  The average and standard deviations \textbf{are directly calculated for the distribution of dark values and} are given in Table~\ref{tab:data_info}.
+
+Line 241: a processing step cannot make an assumption, though it can depend upon one.
+
+Corrected
+
+Line 247: sentence is mangled.
+
+New text, "Level 3 data is converted to units of photons so that we can account for uncertainty in the data when inverting."
+
+Line 249: When viewing distributed objects, it is useful to at least mention the difference between intensity (which, up to conversion constants, is the *sum* of pixel values in an image feature) and radiance (which, up to similar conversion constants, is the *average* of pixel values in an image feature).
+
+Lines 265ff and Figure 6: what is the actual typical correlation coefficient between channels, or between the O line and the AIA 304A channel? To what degree is eh correlation limited by noise, vs. by truly different solar features (including spectral effects?)
+
+Line 275: what re-binning method was used? Given that the tomographic inversion is sensitive to photometry, it's important to at least report -- even if it was just nearest-neighbor sampling. Astropy, e.g., supports myriad filters (tuned for different applications) and even adaptive filtering.
+
+Lines 305ff: This discussion is somewhat unsatisfying. A whole paragraph is devoted to various mechanisms, with little to no discussion of their relatively likelihood or importance -- and acknowledging a mechanism (spectral contamination) that is treated and dismissed in the prior paragraph. The treatment could be radically shortened or made more quantitative.
+
+Line 320: Please be careful about the use of "intensity", which is an extensive property of pixels (and therefore has little meaning without a supplied feature size), vs. "radiance", which is an intensive property (and therefore has meaning for image patches of indefinite size). 
+
+Lines 402ff: There is no indication of uncertainty for the measurements nor the fits; this is important as it indicates how significant the results may be. Even a rudimentary a priori analysis would suffice, if in fact (as it appears) the noise level is low compared to the signal; but at least something should be presented. The only uncertainty in this section is line 438, which talks about consistency of convergence of the MART algorithm. 
+
+Line 438: what exactly is the bulk flow speed being discussed here? Is it the centroid of a fitted Gaussian? In the uncertainty discussion (last comment) it would be good to clarify the difference between width of a fitted peak, and uncertainty in the centroid of the same fitted peak, both of which are needed.
+
+
+
+Line 525: despiking in the temporal direction is used in the STEREO/SECCHI instruments (Howard et al. 2008, Space Science Reviews, Volume 136, Issue 1-4, pp. 67-115). You might also like to look at similar spatiotemporal thresholding that has been used to reject spikes in MDI magnetograph data, which have an even more difficult despiking problem (DeForest et al. 2007, The Astrophysical Journal, Volume 666, Issue 1, pp. 576-587).
+
+Line 569: cite prior implemention (even if already cited elsewhere in the article)
+
+Line 583: "fluence" or "flux" is what is redistributed; intensity is an extrinsic description of brightness, while "fluence" or "flux" is what is being conserved.
