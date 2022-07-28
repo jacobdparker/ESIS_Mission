@@ -1,4 +1,4 @@
-The Multiplicative Algebraic Reconstruction Technique (MART) was developed for limited-angle tomography problems, in which a small number of projections are used to reconstruct a volume \citep{Okamoto1991,Verhoeven1993}. 
+The multiplicative algebraic reconstruction technique (MART) was developed for limited-angle tomography problems, in which a small number of projections are used to reconstruct a volume \citep{Okamoto1991,Verhoeven1993}. 
 As ESIS has only four projections through the $(x,y,\lambda)$ volume, it is a good candidate for this approach.
 When testing a variety of inversion methods on MOSES data, \citet{Fox2011} identified MART as most promising of several methods in terms of speed and fidelity.
 \citet{Rust2017} applied a slightly different version of MART to the MOSES data paired with a wavelet based partial reconstruction technique for better background subtraction and event isolation.
@@ -129,10 +129,10 @@ Therefore we choose to compromise and run the filtering step enough times, in ou
 
 Regardless of the parameters chosen, we find that our inverted results match qualitative interpretations of ESIS difference images.
 The degree of filtering affects the breadth of the individual Gaussian components, so that they are more or less resolved. 
-Their velocities, and relative intensities also vary, but are less affected. 
+Their velocities and relative intensities also vary, but are less affected. 
 An extreme parameter range was explored, from no filtering to maximal (fully converged) filtering. 
 We have argued that both extremes represent implausible solutions on physical grounds. Consequently, we conclude that the relative velocities and intensities of the double Gaussian fits are robust, while their widths are uncertain. 
 
 The final configuration we used when inverting all Level 3 data used 25 filtering steps and a contrast enhancement exponent of $\Psi=0.2$.
-In this configuration, a single exposure of a small region like event c (with final inverted dimensions of $[x,y,\lambda] = [140,140,41]$\,pixels) can be inverted in $\approx$75\,seconds on a single thread of a four core 2.8\,GHz processor.
+In this configuration, a single exposure of a small region like event c (with final inverted dimensions of $[x,y,\lambda] = [140,140,41]$\,pixels) can be inverted in $\sim$75\,seconds on a single thread of a four core 2.8\,GHz processor.
 Since the inversion of each ESIS exposure is independent, inversions can be done on multiple threads to increase efficiency when inverting additional exposures.

@@ -15,7 +15,8 @@ For our implementation $a=.5$\,pixels and $x,y,t= -2, -1, 0, 1 , 2$.
 The kernel is normalized prior to application by it's total, ignoring any other bad pixels that may fall within the kernel.
 
 The algorithm described above has a number of advantages compared to those available in standard data prep routines for solar physics missions. 
-We are aware of only one published example of a despiker that uses the time axis for spike identification, used by \citet{Aschwanden2000(trace_unspike_time)} on data from the Transition Region and Coronal Explorer \citep[TRACE]{handy1999}. 
+We are aware of only one published example of a despiker that uses the time axis for spike identification, used by \citet{Aschwanden2000(trace_unspike_time)} on data from the Transition Region and Coronal Explorer \citep[TRACE]{handy1999}, \textbf{though other sophisticated despikers have been used in processing data from SECHI/STEREO \citep{Howard2008} and MDI \citep{DeForest2007}.}
+
 In our algorithm, a pixel must stand out from its neighbors in all three dimensions to be identified as a spike.
 This criterion reduces false positives; yet because of this approach, we can choose a relatively sensitive percentile threshold based on image statistics to reduce false negatives. 
 Usually, a percentile-based threshold would result in identifying a fixed number of bad pixels; but since the logical AND is nonlinear with respect to the three binary masks, it is possible to identify a small or large number of spikes in a given image. 
