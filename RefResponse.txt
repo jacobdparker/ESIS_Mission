@@ -14,6 +14,8 @@ We have performed a detailed review and copyedited the manuscript. While there w
 
 In regard to the word "intensity", we consistently use it to indicate the value in a given pixel, or collection of pixels, and label dimensions as appropriate.  While it may be true that in radiometery the radiant intensity takes on specific units, our usage reflects that of recent solar physics papers published in ApJ. More on this below.
 
+We have also modified our .tex file to properly indicate which figures are interactive, and describe the animation in the captions more clearly.
+
 Detailed comments are below, in order of appearance in the draft.
 
 Line 62: "EIS slot data ... have been used as a flare trigger" -- you may want to clarify that they are used as a flare-mode trigger for the spacecraft, not to trigger solar flares!
@@ -101,7 +103,7 @@ Line 525: despiking in the temporal direction is used in the STEREO/SECCHI instr
 
 Line 569: cite prior implemention (even if already cited elsewhere in the article)
 
-    I'm not sure what we meant by this, so can probably be omitted.
+    I'm not sure what we meant by this, so it was ommitted.
 
 Line 583: "fluence" or "flux" is what is redistributed; intensity is an extrinsic description of brightness, while "fluence" or "flux" is what is being conserved.
 

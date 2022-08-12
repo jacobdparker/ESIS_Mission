@@ -73,7 +73,7 @@ Our procedure is as follows:
 	until every channel has converged at step \ref{MART}\ref{step:chisquared}. Once converged proceed to next step.
 	\item Return to Step \ref{MART}\ref{step:contrast} if additional filtering is desired.
 \end{enumerate}
-The above algorithm begins with an arbitrary, flat guess (step \ref{MART}\ref{step:guess}). The guess is rapidly modified to fit the data projections $i_{\theta x' y'}$ by steps \ref{MART}\ref{step:project}-\ref{MART}\ref{step:correct}, which project through the guess, compare the results to the data, calculate and apply intrinsically positive correction factors. These steps are very similar to prior implementations of the MART algorithm.
+The above algorithm begins with an arbitrary, flat guess (step \ref{MART}\ref{step:guess}). The guess is rapidly modified to fit the data projections $i_{\theta x' y'}$ by steps \ref{MART}\ref{step:project}-\ref{MART}\ref{step:correct}, which project through the guess, compare the results to the data, calculate and apply intrinsically positive correction factors. 
 When applied to  ESIS Level 3 data the total number of channels is $n = 4$. 
 The rotations $\mathcal{R}_{\lambda}(\pm{\theta})$ cause ringing due to the Gibbs phenomenon associated with resampling and interpolation. 
 All negative values resulting from this ringing are set to zero.
