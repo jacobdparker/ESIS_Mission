@@ -12,7 +12,7 @@ We would like to begin by thanking the referee for their thorough attention paid
 
 We have performed a detailed review and copyedited the manuscript. While there were some tedious grammatical constructions that needed attention, we believe that the length of the manuscript is warranted. The ESIS instrument, like its predecessor MOSES, is atypical. The interpretation of the data requires particular care, and in some cases a long explanation is needed. We believe it important to address some of the detailed considerations that came out during the build up of the ESIS instrument, the preparation of the data for scientific use, and the initial inversions. We have focused on considerations that have specific, identified impacts on the science. An even deeper dive is in preparation in the form of an instrument paper. We hope that these details will prove useful for others proposing to build similar instruments, even if they are not relevant to every reader.
 
-In regard to the word "intensity", we consistently use it to indicate the value in a given pixel, or collection of pixels, and label dimensions as appropriate.  While it may be true that in radiometery the radiant intensity takes on specific units, our usage reflects that of recent solar physics papers published in ApJ. See Tiwari et. al 2022, Sterling et.al 2022, Quin et. al. 2021, etc. (??? provide full references) More on this below.
+In regard to the word "intensity", we consistently use it to indicate the value in a given pixel, or collection of pixels, and label dimensions as appropriate.  While it may be true that in radiometery the radiant intensity takes on specific units, our usage reflects that of recent solar physics papers published in ApJ. More on this below.
 
 Detailed comments are below, in order of appearance in the draft.
 
@@ -34,7 +34,7 @@ Line 119: "Combining these four channels creates a CTIS" reads oddly. On line 78
 
 Table 2: your "ADU" is often labeled "DN (Digitizer Number)". Also, the label has escaped the table.
 
-    ???
+    Correct, thanks of the reminder.  Astropy has since added DN as a unit, so we have replaced ADU throughout the paper.
 
 Line 164: Properly, this should be a citation rather than a footnote. 
 
@@ -51,7 +51,7 @@ Line 195: "it is quite straightforward" is not defended and is very much not obv
 
 Line 213: what measurement technique was used to measure the noise? Normal distribution fitting? Direct evaluation of the population variance across pixels? Something else?
 
-    Corrected text:  The gain enables us to relate ADU to photons and calculate shot noise in each pixel. The readout noise was measured by calculating pixel-wise standard deviations from usable dark images taken during flight and then averaging the standard deviation. These statistics are tabulated in Table 2.
+    Corrected text:  The gain enables us to relate DN to photons and calculate shot noise in each pixel. The readout noise was measured by calculating pixel-wise standard deviations from usable dark images taken during flight and then averaging the standard deviation. These statistics are tabulated in Table 2.
 
 Line 241: a processing step cannot make an assumption, though it can depend upon one.
 
@@ -63,13 +63,12 @@ Line 247: sentence is mangled.
 
 Line 249: When viewing distributed objects, it is useful to at least mention the difference between intensity (which, up to conversion constants, is the *sum* of pixel values in an image feature) and radiance (which, up to similar conversion constants, is the *average* of pixel values in an image feature).
 
-    ??? (CCK proposed text) It is standard practice in the literature to use the term "intensity" when describing pixel values at various levels of processing (e.g., Schmit et al. ApJ 2020 889:112; Wuelser et al. Solar Physics 2018 293:149). This practice perhaps owes to the fact that radiant intensity is an intensive quantity (W/sr, see e.g. https://en.wikipedia.org/wiki/Radiometry). With 2D imaging instruments (including ESIS), per pixel quantities are inherently per solid angle. As our instrument is not radiometrically calibrated, we have avoided the more technically specific term radiant intensity. Webster's dictionary notes the strong association between the terms intensive and intensity as used in physics (the morphological similarity of the words is not coincidental). While the literature sometimes sees the term intensity employed loosely for extensive (e.g., feature integrated) quantities, these are really sky plane integrals of intensity. The usual radiometric term for such quantities is radiant flux (W).
+    It is standard practice in the literature to use the term "intensity" when describing pixel values at various levels of processing (e.g., Schmit et al. ApJ 2020 889:112; Wuelser et al. Solar Physics 2018 293:149). This practice perhaps owes to the fact that radiant intensity is an intensive quantity (W/sr, see e.g. https://en.wikipedia.org/wiki/Radiometry). With 2D imaging instruments (including ESIS), per pixel quantities are inherently per solid angle. As our instrument is not radiometrically calibrated, we have avoided the more technically specific term radiant intensity. Webster's dictionary notes the strong association between the terms intensive and intensity as used in physics (the morphological similarity of the words is not coincidental). While the literature sometimes sees the term intensity employed loosely for extensive (e.g., feature integrated) quantities, these are really sky plane integrals of intensity. The usual radiometric term for such quantities is radiant flux (W).
 
-    ??? (original response) While it is true that "radiant intensity" has specific units associated with it, it is very common practice to refer to the amplitude of the the signal recorded in a pixel as intensity.  All of these quantities you discuss are the same up to conversion factors.  Since we do not have a radiometrically calibrated instrument, and are only discussing relative differences in signal amplitude, and do not attempt to accurately describe the absolute brightness of a solar feature, we believe the more generally accepted use of the word is appropriate.
 
 Lines 265ff and Figure 6: what is the actual typical correlation coefficient between channels, or between the O line and the AIA 304A channel? To what degree is eh correlation limited by noise, vs. by truly different solar features (including spectral effects?)
 
-    ??? Jake will look this up when the code works again.
+    The correlation coefficient between O V and AIA 304 has a mean and standard deviation of 0.259 and .008.  The internal alignment of each OV channel to the others have a mean crosscorrelation of .918 and standard deviation of .03.  The external correlation of ESIS to AIA is dominated by differing solar features, while the internal correlation is limited by spectral effects, slight differences in the PSF of each channel, and noise.
 
 Line 275: what re-binning method was used? Given that the tomographic inversion is sensitive to photometry, it's important to at least report -- even if it was just nearest-neighbor sampling. Astropy, e.g., supports myriad filters (tuned for different applications) and even adaptive filtering.
 

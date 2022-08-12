@@ -186,7 +186,7 @@ In this section we provide an overview of the ESIS experiment as well as the tim
 				Spectral  Plate Scale  &  \dispersion & \\
 					\hline
 			\end{tabular}
-		Analog-Digital Unit (adu)
+		
 		\end{center}
 		\end{table}
 		
@@ -241,7 +241,7 @@ Each camera includes a detector with 2048 columns and 2064 rows.  The detector i
 
 
 
-The data is read out through 4 ports, corresponding to the four quadrants of the detector.  The read out register has 50 additional dummy pixels, or non-active pixels (NAPs), that are read out before each row of the detector data.  When the detector is read out, those 50 pixels are stored as part of the image.  Two additional ``overscan'' pixels are read after each row of data and \sout{also} \textbf{are} stored as part of the image.  A \sout{stored} Level-0 data file, then, is 2152$\times$1040 pixels.   During pre-flight lab testing, it was found that the median intensity in columns 21-50 of the NAPs of each read out port are an excellent proxy for the detector bias.  Additionally the data from each port is converted from analog to digital through a unique circuit.  Though the same components were used, slight variations in the circuits caused slight differences in the gain (elec / DN) and read  noise associated with each quadrant.  The gain for each quadrant in each camera was measured prior to flight.  \textbf{The gain enables us to relate ADU to photons and calculate shot noise in each pixel. The readout noise was measured by calculating pixel-wise standard deviations from usable dark images taken during flight and then averaging the standard deviation. These statistics are tabulated} in Table~\ref{tab:data_info}.
+The data is read out through 4 ports, corresponding to the four quadrants of the detector.  The read out register has 50 additional dummy pixels, or non-active pixels (NAPs), that are read out before each row of the detector data.  When the detector is read out, those 50 pixels are stored as part of the image.  Two additional ``overscan'' pixels are read after each row of data and \sout{also} \textbf{are} stored as part of the image.  A \sout{stored} Level-0 data file, then, is 2152$\times$1040 pixels.   During pre-flight lab testing, it was found that the median intensity in columns 21-50 of the NAPs of each read out port are an excellent proxy for the detector bias.  Additionally the data from each port is converted from analog to digital through a unique circuit.  Though the same components were used, slight variations in the circuits caused slight differences in the gain (elec / DN) and read  noise associated with each quadrant.  The gain for each quadrant in each camera was measured prior to flight.  \textbf{The gain enables us to relate DN to photons and calculate shot noise in each pixel. The readout noise was measured by calculating pixel-wise standard deviations from usable dark images taken during flight and then averaging the standard deviation. These statistics are tabulated} in Table~\ref{tab:data_info}.
     
 \subsection{Level 1 Data}
 	    \begin{figure}
@@ -503,9 +503,10 @@ Despite these issues our correction to the vignetting in Level 3 images makes th
     		\begin{center}
     			\includegraphics{main_event_dif}
     			\caption{The largest and most complex velocity event (e) %eruption
-    				captured by ESIS shown at three different times (complete evolution in animation). The event starts as two jets (one red, one blue) with slight spatial separation, evolves into a strong red shift where the event begins paired with faint blue shifted material above, and ends in a complicated combination of velocity not easily interpreted from difference images. 
+    				captured by ESIS shown at three different times. The event starts as two jets (one red, one blue) with slight spatial separation \textbf{at location e1}, evolves into a strong red shift where the event begins paired with faint blue shifted material above \textbf{(e2)}, and ends in a complicated combination of velocity not easily interpreted from difference images. 
 %    				Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}) for additional context.
-					Co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ are included in the animation for additional context.
+					\textbf{The animation of this figure shows the complete evolution of the event with co-temporal images from AIA 304\,\AA, 171\,\AA, and 193\,\AA\ for additional context.
+					Snapshots of the AIA images are also included in Figure \ref{fig:main_event_aia}.}
     			}
     			\label{fig:main_event}
     		\end{center}
@@ -572,13 +573,13 @@ Despite these issues our correction to the vignetting in Level 3 images makes th
 	    		\node[inner sep=0pt] (lps) at (0,-10.5)
 	    		{\includegraphics[]{perfectx_invertb}};
     		\end{tikzpicture}
-    		\caption{MART inverted results for event c in Figure \ref{fig:l3_dif}. 
+    		\caption{MART inverted results for event c in Figure \ref{fig:l3_dif} \textbf{at four different times}. 
     			The integrated intensity (top row) and corresponding Level 3 difference image (second row) are shown at 4 different times. The red box marks the FOV used in the top row.  
     			The \ov \ line profile at each position marked with a red dot is plotted in the matching 3x3 grid in a different color for each time (in order red, green, blue, black). 
     			Each MART line profile (dots) is overplotted with a double gaussian fit (solid line).  
     			Bulk shifts in km/s for each component of the fit are provided in the legend for each time in their respective color. 
 %    			Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}). 
-    			Full evolution included in animation.    		
+    			\textbf{The animation of this figure shows the full temporal evolution of these line profiles measured by ESIS}    		
     		}
     		\label{fig:perfect_x_inverted}
     	\end{figure}
@@ -603,9 +604,9 @@ Despite these issues our correction to the vignetting in Level 3 images makes th
 	        	\node[inner sep=0pt] (lps) at (0,-10.8)
 	        	{\includegraphics[]{otherx_invertb}};
         	\end{tikzpicture}
-    	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif} presented in the same fashion as Figure \ref{fig:perfect_x_inverted}. 
+    	\caption{MART inverted results for event d in Figure \ref{fig:l3_dif}, \textbf{at four select times}, presented in the same fashion as Figure \ref{fig:perfect_x_inverted}. 
 %    	Full evolution included in \MYhref{https://scholarworks.montana.edu/xmlui/handle/1/16535}{animation} (Appendix \ref{ani}).
-		Full evolution included in animation.
+		\textbf{The animation of this figure shows the full temporal evolution of these line profiles measured by ESIS}
     	}
     	\label{fig:other_x_inverted}
     	\end{figure}
